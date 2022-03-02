@@ -1,0 +1,26 @@
+.navbarmain{
+    max-width: 100%;
+    background-color: #fff;
+    display: flex;
+    width: 100%;
+    
+}
+
+.navbarmain .logo{
+    flex: 60vw;
+}
+
+.navbarmain .user{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0px 28px 0px 0px;
+}
+
+.navbarmain .logo h1{
+    margin: 0.3em;
+    color: #03A9F4;
+} 
+
+.navbarmain .user .uname{
+    margin: 0px 1vw;
+}

@@ -1,0 +1,46 @@
+.mainusercompo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4,1fr);
+  height: auto;
+  grid-gap: 20px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.person {
+  display: flex;
+  background-color: #fff;
+  border-radius: 5px;
+  height: 110px;
+}
+
+.right:hover{
+  cursor: pointer;
+}
+
+.left {
+  margin: 10px;
+  line-height: 3rem;
+}
+
+.right {
+  margin: 10px;
+  margin-left: 20px;
+}
+
+.left h1 {
+  margin: 0%;
+  padding: 0%;
+}
+
+.right h2 {
+  margin: 0%;
+  padding: 0%;
+  line-height: 2.5rem;
+}
+
+.right h5, p{
+    margin: 0;
+}
+

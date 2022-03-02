@@ -1,0 +1,51 @@
+.mainhomecompo{
+    max-width: 100%;
+    margin-right: 25px;
+    margin-top: 25px;
+    background-color: #fff;
+    width: 25%;
+    height: 250px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.mainhomecompo .head{
+    background-color:  #374953;
+    line-height: 30px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.mainhomecompo .head h4{
+    margin: 0px;
+    margin-left: 5px;
+}
+
+.mainContent{
+    overflow-y: auto;
+}
+
+.mainhomecompo .content{
+    display: flex;
+    margin-top: 5px;
+    background-color: #b7d0e0;
+    line-height: 18px;
+    border-radius: 9px;
+    font-size: 0.8rem;
+    
+}
+
+.mainhomecompo .content h3, h2 , p{
+    margin: 0px;
+
+}
+
+.mainhomecompo .content .cimg{
+    margin-left: 10px;
+}
+
+.mainhomecompo .content .text{
+    margin-left: 10px;
+}
