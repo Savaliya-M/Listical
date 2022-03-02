@@ -4,9 +4,9 @@ import "./navbar.css";
 const Navbar = () => {
   return (
     <>
-      {/* <div className="navbarmain">
+      <div className="navbarmain">
         <div className="logo">
-          <h1>LISTICAL listical</h1>
+          <h1>LISTICAL</h1>
         </div>
         <div className="user">
           <div className="uicon">
@@ -17,7 +17,7 @@ const Navbar = () => {
           </div>
         </div>
         
-      </div> */}
+      </div>
     </>
   );
 };

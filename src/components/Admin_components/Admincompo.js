@@ -1,8 +1,8 @@
-import React, { useState,useEffect } from "react";
-import {  Routes, Route, Link, useLocation } from "react-router-dom";
-import Home from "@home/Home";
-import User from "@user/User";
-import Project from "@projects/Project";
+import React from "react";
+import {Link} from "react-router-dom";
+// import Home from "@home/Home";
+// import User from "@user/User";
+// import Project from "@projects/Project";
 import "./admincompo.css";
 
 
@@ -42,13 +42,13 @@ const Admincompo = () => {
               </li>
             </ul>
           </div>
-          {/* <div className="pages"> */}
-            {/* <Routes>
+          {/* <div className="pages">
+            <Routes>
               <Route  path="/" element={<Home />} />
               <Route exact path="user/*" element={<User />} />
               <Route exact path="project" element={<Project />} />
-            </Routes> */}
-          {/* </div> */}
+            </Routes>
+          </div> */}
         </div>
     </>
   );

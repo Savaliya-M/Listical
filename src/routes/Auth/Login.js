@@ -34,7 +34,9 @@ const navigate = useNavigate();
             ) {
             flag = true;
             alert("Admin");
-            navigate("/admincompo/",{ state:{user: elem}});
+            localStorage.setItem('email',elem.email);
+            localStorage.setItem('Type',elem.position);
+            navigate("/layout/");
             return;
             }
             else if (
@@ -44,6 +46,8 @@ const navigate = useNavigate();
             ) {
             flag = true;
             alert("Manager");
+            localStorage.setItem('email',elem.email);
+            localStorage.setItem('Type',elem.position);
            navigate("/managercompo/");
             return;
             }
@@ -54,6 +58,8 @@ const navigate = useNavigate();
             ) {
             flag = true;
             alert("Employee");
+            localStorage.setItem('email',elem.email);
+            localStorage.setItem('Type',elem.position);
             navigate("/employeecompo/");
             return;
             }
