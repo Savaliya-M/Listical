@@ -32,9 +32,9 @@ const navigate = useNavigate();
             elem.pass === authuserdata.password
             ) {
             flag = true;
-            // alert("Admin");
             localStorage.setItem('email',elem.email);
             localStorage.setItem('Type',elem.position);
+            localStorage.setItem('name',elem.name);
             navigate("/layout/");
             return;
             }
@@ -50,21 +50,9 @@ const navigate = useNavigate();
           //  navigate("/managercompo/");
           //   return;
           //   }
-          //   else if (
-          //   elem.email === authuserdata.email &&
-          //   elem.pass === authuserdata.password &&
-          //   elem.position === "Employee"
-          //   ) {
-          //   flag = true;
-          //   alert("Employee");
-          //   localStorage.setItem('email',elem.email);
-          //   localStorage.setItem('Type',elem.position);
-          //   navigate("/employeecompo/");
-          //   return;
-          //   }
         });
       if(!flag ){
-          alert("wrong");
+          alert("Plese fill Correct detail");
       }
       console.log("loading end");
     });

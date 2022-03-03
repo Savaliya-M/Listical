@@ -41,6 +41,15 @@ const Layout = () => {
         <h1>"This is manager"</h1>
         :""
         }
+        {user.type==="Employee" ?
+        // <Routes>
+        //       <Route path="/" element={<Home />} />
+        //       <Route exact path="user/*" element={<User />} />
+        //       <Route exact path="project" element={<Project />} />
+        // </Routes>
+        <h1>"This is Employee"</h1>
+        :""
+        }
         </div>
     </div>
    

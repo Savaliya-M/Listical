@@ -13,8 +13,6 @@ const Admincompo = () => {
   // useEffect(() => {
   //   setLoguser(user);
   // }, [])
-  
- 
   // console.log(loguser);
   return (
     <>
