@@ -1,7 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./navbar.css";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const logOut = () => {
+    localStorage.removeItem("email");
+    localStorage.removeItem("Type");
+    navigate("/")
+  }
   return (
     <>
       <div className="navbarmain">
@@ -14,6 +21,9 @@ const Navbar = () => {
           </div>
           <div className="uname">
             <h3>Mitulkumar</h3>
+          </div>
+          <div >
+            <button onClick={logOut}>Logout</button>
           </div>
         </div>
         

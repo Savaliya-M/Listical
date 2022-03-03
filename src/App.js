@@ -10,7 +10,7 @@ import Main from "./Main";
 function App() {
   return (
     <>
-      <Router>
+      
         <div className="appmain">
         <Routes>
         <Route exact path="/" element={<Main />} />
@@ -21,7 +21,7 @@ function App() {
          
         </Routes>
         </div>
-      </Router>
+      {/* </Router> */}
     </>
   );
 }

@@ -29,40 +29,39 @@ const navigate = useNavigate();
         {
             if (
             elem.email === authuserdata.email &&
-            elem.pass === authuserdata.password &&
-            elem.position === "Admin"
+            elem.pass === authuserdata.password
             ) {
             flag = true;
-            alert("Admin");
+            // alert("Admin");
             localStorage.setItem('email',elem.email);
             localStorage.setItem('Type',elem.position);
             navigate("/layout/");
             return;
             }
-            else if (
-            elem.email === authuserdata.email &&
-            elem.pass === authuserdata.password &&
-            elem.position === "Manager"
-            ) {
-            flag = true;
-            alert("Manager");
-            localStorage.setItem('email',elem.email);
-            localStorage.setItem('Type',elem.position);
-           navigate("/managercompo/");
-            return;
-            }
-            else if (
-            elem.email === authuserdata.email &&
-            elem.pass === authuserdata.password &&
-            elem.position === "Employee"
-            ) {
-            flag = true;
-            alert("Employee");
-            localStorage.setItem('email',elem.email);
-            localStorage.setItem('Type',elem.position);
-            navigate("/employeecompo/");
-            return;
-            }
+          //   else if (
+          //   elem.email === authuserdata.email &&
+          //   elem.pass === authuserdata.password &&
+          //   elem.position === "Manager"
+          //   ) {
+          //   flag = true;
+          //   alert("Manager");
+          //   localStorage.setItem('email',elem.email);
+          //   localStorage.setItem('Type',elem.position);
+          //  navigate("/managercompo/");
+          //   return;
+          //   }
+          //   else if (
+          //   elem.email === authuserdata.email &&
+          //   elem.pass === authuserdata.password &&
+          //   elem.position === "Employee"
+          //   ) {
+          //   flag = true;
+          //   alert("Employee");
+          //   localStorage.setItem('email',elem.email);
+          //   localStorage.setItem('Type',elem.position);
+          //   navigate("/employeecompo/");
+          //   return;
+          //   }
         });
       if(!flag ){
           alert("wrong");

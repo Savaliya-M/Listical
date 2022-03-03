@@ -1,6 +1,6 @@
 import React from "react";
 import Admincompo from "@Admin_components/Admincompo";
-
+import './sidebar.css';
 
 
 const Sidebar = () => {

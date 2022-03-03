@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import {Routes, Route} from "react-router-dom";
@@ -9,25 +9,41 @@ import Project from "@projects/Project";
 import './layout.css';
 
 const Layout = () => {
+  const [user, setUser] = useState({email:"",type:""});
+  useEffect(() => {
+    setUser({email:localStorage.getItem('email'),type:localStorage.getItem('Type')});
+}, []);
+
   return (
     <>
-    {/* <Router> */}
+
     <div className="mainlayout">
-        <div className="sidebarr">
+        <div className="sidebar">
         <Sidebar/>
         </div>
-        <div className="navbarr">
+        <div className="navbar">
         <Navbar/>
         </div>
-        <div className="routesr">
+        <div className="routes">
+        {user.type==="Admin" ?
         <Routes>
               <Route path="/" element={<Home />} />
               <Route exact path="user/*" element={<User />} />
               <Route exact path="project" element={<Project />} />
-        </Routes>
+        </Routes>:""
+        }
+        {user.type==="Manager" ?
+        // <Routes>
+        //       <Route path="/" element={<Home />} />
+        //       <Route exact path="user/*" element={<User />} />
+        //       <Route exact path="project" element={<Project />} />
+        // </Routes>
+        <h1>"This is manager"</h1>
+        :""
+        }
         </div>
     </div>
-    {/* </Router> */}
+   
     </>
   )
 }

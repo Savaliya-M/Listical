@@ -4,14 +4,14 @@ import "./userinfo.css";
 
 const Userinfo = () => {
   let navigate = useNavigate();
-  const clickuser = () =>{
-    return navigate("/admincompo/user");
-  }
+  // const clickuser = () =>{
+  //   return navigate("/layout/user");
+  // }
   return (
     <>
       <div className="mainuserinfo">
         <div className="secuserinfo">
-          <button onClick={clickuser}>Back</button>
+          <button onClick={()=>{navigate("/layout/user")}}>Back</button>
           <div className="thirduserinfo">
             <div className="basicdetail">
               <div className="detailtext">

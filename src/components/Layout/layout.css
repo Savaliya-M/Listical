@@ -6,25 +6,27 @@
     height: 100%;
     display: grid;
     grid-template-areas: 
-    'navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr navbarr'
-    'sidebarr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr routesr';
+    'navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar  '
+    'sidebar routes routes routes routes routes routes routes routes routes routes routes routes routes routes routes   ';
 }
 
-.sidebarr{
+.sidebar{
     /* background-color: brown; */
-    grid-area: sidebarr;
+    grid-area: sidebar;
     width: 100%;
-  
+    height: 90vh;
+    
 }
-.navbarr{
+.navbar{
     background-color: aqua;
-    grid-area: navbarr;
+    grid-area: navbar;
    
 }
 
-.routesr{
+.routes{
     background-color: chartreuse;
-    grid-area: routesr;
+    grid-area: routes;
     height: 100%;
     
 }
+
