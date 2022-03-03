@@ -1,38 +1,46 @@
-import React,{useEffect, useState} from 'react'
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
+import React,{useEffect, useState} from 'react';
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 import {Routes, Route} from "react-router-dom";
 import Home from "@home/Home";
-// import Auth from '@components/Auth/Auth'
 import User from "@user/User";
 import Project from "@projects/Project";
 import './layout.css';
+import appRef from '../../firebase';
 
 const Layout = () => {
-  const [user, setUser] = useState({email:"",type:""});
+  const [user, setUser] = useState({});
   useEffect(() => {
-    setUser({email:localStorage.getItem('email'),type:localStorage.getItem('Type')});
+    // setUser({email:localStorage.getItem('email'),type:localStorage.getItem('Type')});
+    appRef.child('Users').on("value",(snapshot)=>{
+      const userData = snapshot.val();
+      Object.values(userData).forEach((elem)=>{
+        if(elem.email === localStorage.getItem("email"))
+        {
+          setUser(elem);
+        }
+      })
+    })
 }, []);
 
   return (
     <>
-
     <div className="mainlayout">
         <div className="sidebar">
-        <Sidebar/>
+        <Sidebar type={user.position}/>
         </div>
         <div className="navbar">
-        <Navbar/>
+        <Navbar name={user.name}/>
         </div>
         <div className="routes">
-        {user.type==="Admin" ?
+        {user.position==="Admin" ?
         <Routes>
               <Route path="/" element={<Home />} />
               <Route exact path="user/*" element={<User />} />
               <Route exact path="project" element={<Project />} />
         </Routes>:""
         }
-        {user.type==="Manager" ?
+        {user.position==="Manager" ?
         // <Routes>
         //       <Route path="/" element={<Home />} />
         //       <Route exact path="user/*" element={<User />} />
@@ -41,7 +49,7 @@ const Layout = () => {
         <h1>"This is manager"</h1>
         :""
         }
-        {user.type==="Employee" ?
+        {user.position==="Employee" ?
         // <Routes>
         //       <Route path="/" element={<Home />} />
         //       <Route exact path="user/*" element={<User />} />

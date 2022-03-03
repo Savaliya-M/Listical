@@ -2,17 +2,13 @@ import React,{useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const navigate = useNavigate();
   const logOut = () => {
     localStorage.removeItem("email");
     localStorage.removeItem("Type");
     navigate("/")
   }
-  // useEffect(() => {
-  //  localStorage.getItem("name");
-  // }, [])
-  
   return (
     <>
       <div className="navbarmain">
@@ -24,7 +20,7 @@ const Navbar = () => {
             <h3>Icon</h3>
           </div>
           <div className="uname">
-            <h3>{localStorage.getItem("name")}</h3>
+            <h3>{props.name}</h3>
           </div>
           <div >
             <button onClick={logOut}>Logout</button>
