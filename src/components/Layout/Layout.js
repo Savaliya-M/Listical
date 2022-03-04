@@ -35,7 +35,7 @@ const Layout = () => {
           {user.position === "Admin" ?
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route exact path="user/*" element={<User />} />
+              <Route exact path="user/*" element={<User user={user}/>} />
               <Route exact path="project" element={<Project />} />
             </Routes> : ""
           }
