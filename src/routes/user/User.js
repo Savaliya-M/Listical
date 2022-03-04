@@ -1,19 +1,29 @@
 import React from "react";
 import Usercompo from "./Usercompo";
-import {  Routes, Route} from "react-router-dom";
-import Userinfo from "@user/userinfo/Userinfo"
-import './user.css';
+import { Routes, Route } from "react-router-dom";
+import Userinfo from "@user/userinfo/Userinfo";
+import "./user.css";
 
-const User = () => {
+const User = (props) => {
   // const {user} = name;
   // console.log(user);
   return (
     <>
       <div className="mainuser">
-          <Routes>
-              <Route exact path="/" element={<Usercompo/>} />
-              <Route exact path="info" element={<Userinfo />} />
-          </Routes>
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <Usercompo
+                name={props.user.name}
+                mono={props.user.mono}
+                post={props.user.post}
+              />
+            }
+          />
+          <Route exact path="info/:id" element={<Userinfo />} />
+        </Routes>
       </div>
     </>
   );

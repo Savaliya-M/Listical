@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./navbar.css";
 
@@ -7,8 +7,8 @@ const Navbar = (props) => {
   const logOut = () => {
     localStorage.removeItem("email");
     localStorage.removeItem("Type");
-    navigate("/")
-  }
+    navigate("/");
+  };
   return (
     <>
       <div className="navbarmain">
@@ -22,11 +22,10 @@ const Navbar = (props) => {
           <div className="uname">
             <h3>{props.name}</h3>
           </div>
-          <div >
+          <div>
             <button onClick={logOut}>Logout</button>
           </div>
         </div>
-        
       </div>
     </>
   );
