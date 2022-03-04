@@ -1,18 +1,19 @@
 import React from 'react';
-import './homecompo.css'
+import anniversary from "./homecompo.module.scss";
+
 const Workanniversary = () => {
   return (
     <>
-        <div className="mainhomecompo" id="Workanniversary">
-        <div className="head" id="Workanniversary">
+        <div className={anniversary.mainhomecompo} id={anniversary.Workanniversary}>
+        <div className={anniversary.head} id={anniversary.Workanniversary}>
           <h4>Work Anniversary</h4>
         </div>
-        <div className="mainContent">
-        <div className="content" id="Workanniversary">
-          <div className="cimg">
+        <div className={anniversary.mainContent}>
+        <div className={anniversary.content} id={anniversary.Workanniversary}>
+          <div className={anniversary.cimg}>
             <h2>P</h2>
           </div>
-          <div className="text">
+          <div className={anniversary.text}>
             <h3>Parth Lathiya</h3>
             <p>Senior Quality Assurance Engineer</p>
           </div>

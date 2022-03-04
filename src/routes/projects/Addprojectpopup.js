@@ -1,18 +1,18 @@
 import React from "react";
-import "./addprojectpopup.css";
+import addpropop from "./addprojectpopup.module.scss";
 
 const Addprojectpopup = (props) => {
  
   return (
     <>
-    <div className="mainpropopup" >
-      <div className="pro-add">
-        <div className="formhead">
+    <div className={addpropop.mainpropopup} >
+      <div className={addpropop.proadd}>
+        <div className={addpropop.formhead}>
           <h1>ADD PROJECT</h1>
           <button onClick={props.handleclose}>X</button>
         </div>
 
-        <div className="fields">
+        <div className={addpropop.fields}>
           {/* <form action=""> */}
           <div>
             <tr>
@@ -20,7 +20,7 @@ const Addprojectpopup = (props) => {
                 <h3> Project Title : </h3>
               </td>
               <td>
-                <input type="text" className="fieldsinput"></input>
+                <input type="text" className={addpropop.fieldsinput}></input>
               </td>
             </tr>
             <tr>
@@ -28,7 +28,7 @@ const Addprojectpopup = (props) => {
                 <h3> Client Name : </h3>
               </td>
               <td>
-                <input type="text" className="fieldsinput"></input>
+                <input type="text" className={addpropop.fieldsinput}></input>
               </td>
             </tr>
             <tr>
@@ -36,7 +36,7 @@ const Addprojectpopup = (props) => {
                 <h3>Time Line : </h3>
               </td>
               <td>
-                <input type="text" className="fieldsinput"></input>
+                <input type="text" className={addpropop.fieldsinput}></input>
               </td>
             </tr>
             <tr>
@@ -44,7 +44,7 @@ const Addprojectpopup = (props) => {
                 <h3>Techonolgy : </h3>
               </td>
               <td>
-                <input type="text" className="fieldsinput"></input>
+                <input type="text" className={addpropop.fieldsinput}></input>
               </td>
             </tr>
             <tr>
@@ -52,13 +52,13 @@ const Addprojectpopup = (props) => {
                 <h3>Manager Name : </h3>
               </td>
               <td>
-                <input type="text" className="fieldsinput"></input>
+                <input type="text" className={addpropop.fieldsinput}></input>
               </td>
             </tr>
             <tr>
               <td></td>
               <td>
-                <button className="fieldsbtn" >Submit</button> <button className="fieldsbtn">Reset</button>
+                <button className={addpropop.fieldsbtn} >Submit</button> <button className={addpropop.fieldsbtn}>Reset</button>
               </td>
             </tr>
           {/* </form> */}</div>

@@ -1,11 +1,11 @@
 import React from 'react';
-import './managercomp.css';
+import managercompo from './managercomp.module.scss';
 import {Link} from 'react-router-dom';
 
 const Managercompo = () => {
   return (
     <>
-       <div className="mainmanagercompo">
+       <div className={managercompo.mainmanagercompo}>
        <div >
             <ul >
               <li >

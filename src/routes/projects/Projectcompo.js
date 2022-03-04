@@ -1,30 +1,30 @@
 import React from "react";
-import "./projectcompo.css";
+import procomp from "./projectcompo.module.scss";
 
 
 const Projectcompo = () => {
     return (
         <>
             <div>
-                <div className="mainprojectcompo" id="Projectdetail">
-                    <div className="probox">
-                        <div className="progressreport">
+                <div className={procomp.mainprojectcompo} id={procomp.Projectdetail}>
+                    <div className={procomp.probox}>
+                        <div className={procomp.progressreport}>
                             <img src={require('@photos/peichart.jpg')}  alt="this is pie chart" />
                         </div>
-                        <div className="proinfo">
-                            <div className="proname">
+                        <div className={procomp.proinfo}>
+                            <div className={procomp.proname}>
                                 <h3>Project Name:</h3>
                                 <h3>LMS</h3>
                             </div>
-                            <div className="clientname">
+                            <div className={procomp.clientname}>
                                 <h4>Client Name:</h4>
                                 <h4>chimanbhai mehata </h4>
                             </div>
-                            <div className="deadline">
+                            <div className={procomp.deadline}>
                                 <h4>Deadline:</h4>
                                 <h4>13/02/2022</h4>
                             </div>
-                            <div className="managername">
+                            <div className={procomp.managername}>
                                 <h4>Manager Name:</h4>
                                 <h4>Shyam lal</h4>
                             </div>

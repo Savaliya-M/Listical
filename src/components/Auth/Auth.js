@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import auth from './auth.module.scss';
 import Signup from "@routes/Auth/Signup";
 import Login from "@routes/Auth/Login";
-import './auth.css';
 import Admincompo from "@Admin_components/Admincompo";
 import Managercompo from "@Manager_components/Managercompo";
 import Employeecompo from "@Employee_components/Employeecompo";
@@ -10,7 +10,7 @@ import Employeecompo from "@Employee_components/Employeecompo";
 const Auth = () => {
   return (
     <>
-    <div className="mainlogin_signup">
+    <div className={auth.mainlogin_signup}>
       {/* <Router> */}
         <Routes>
           <Route exact path="/" element={<Login />} />

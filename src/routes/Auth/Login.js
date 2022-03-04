@@ -4,7 +4,7 @@ import appRef from "../../firebase";
 // import Admincompo from "@Admin_components/Admincompo";
 // import Managercompo from "@Manager_components/Managercompo";
 // import Employeecompo from "@Employee_components/Employeecompo";
-import "./login.css";
+import login from "./login.module.scss";
 
 const Login = () => {
   const [authuserdata, setAuthuserdata] = useState({
@@ -61,8 +61,8 @@ const navigate = useNavigate();
 
   return (
     <>
-      <div className="mainlogin">
-        <div className="loginform">
+      <div className={login.mainlogin}>
+        <div className={login.loginform}>
           <h1>Login</h1>
           <div>
             Username :

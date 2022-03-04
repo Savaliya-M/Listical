@@ -1,37 +1,37 @@
 import React from 'react';
-import './homecompo.css';
+import leave from "./homecompo.module.scss";
 
 const Todaysleave = () => {
   return (
     <>
-      <div className="mainhomecompo" id="Todaysleave">
-        <div className="head" id="Todaysleave">
+      <div className={leave.mainhomecompo} id={leave.Todaysleave}>
+        <div className={leave.head} id={leave.Todaysleave}>
           <h4>Todays Leave</h4>
         </div>
-        <div className="mainContent">
-        <div className="content" id="Todaysleave">
-          <div className="cimg">
+        <div className={leave.mainContent}>
+        <div className={leave.content} id={leave.Todaysleave}>
+          <div className={leave.cimg}>
             <h2>M</h2>
           </div>
-          <div className="text">
+          <div className={leave.text}>
             <h3>Mahesh Patel</h3>
             <p>Technical Lead, Engineering</p>
           </div>
         </div>
-        <div className="content" id="Todaysleave">
-          <div className="cimg">
+        <div className={leave.content} id={leave.Todaysleave}>
+          <div className={leave.cimg}>
             <h2>S</h2>
           </div>
-          <div className="text">
+          <div className={leave.text}>
             <h3>Sager pandey</h3>
             <p>softwere devloper</p>
           </div>
         </div>
-        <div className="content" id="Todaysleave">
-          <div className="cimg">
+        <div className={leave.content} id={leave.Todaysleave}>
+          <div className={leave.cimg}>
             <h2>R</h2>
           </div>
-          <div className="text">
+          <div className={leave.text}>
             <h3>Rahul Patel</h3>
             <p>fontend devloper</p>
           </div>

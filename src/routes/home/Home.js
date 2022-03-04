@@ -1,5 +1,5 @@
 import React from 'react'
-import './home.css'
+import home from './home.module.scss'
 import Announcements from '@homecompo/Announcements'
 import Birthday from '@homecompo/Birthday'
 import Newhires from '@homecompo/Newhires'
@@ -10,7 +10,7 @@ import Workanniversary from '@homecompo/Workanniversary'
 const Home = () => {
     return (
         <>
-        <div className="mainhome">
+        <div className={home.mainhome}>
             <Announcements/>
             <Birthday/>
             <Newhires/>

@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "@home/Home";
 import User from "@user/User";
 import Project from "@projects/Project";
-import "./layout.css";
+import layout from "./layout.module.scss";
 import appRef from "../../firebase";
 
 const Layout = () => {
@@ -24,14 +24,14 @@ const Layout = () => {
 
   return (
     <>
-      <div className="mainlayout">
+      <div className={layout.mainlayout}>
         <div className="sidebar">
           <Sidebar type={user.position} />
         </div>
-        <div className="navbar">
+        <div className={layout.navbar}>
           <Navbar name={user.name} />
         </div>
-        <div className="routes">
+        <div className={layout.routes}>
           {user.position === "Admin" ? (
             <Routes>
               <Route path="/" element={<Home />} />
