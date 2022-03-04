@@ -12,13 +12,13 @@ const Sidebar = (props) => {
   return (
     <>
     <div className={sidebar.mainsidebar}>
-      {user.type === "Admin" ?  
+      {props.type === "Admin" ?  
       <Admincompo/>
       : ""}
-       {user.type === "Manager" ? 
+       {props.type === "Manager" ? 
       <Managercompo/>
       : ""}
-      {user.type === "Employee" ? 
+      {props.type === "Employee" ? 
       <Employeecompo/>
       : ""}
       </div>
