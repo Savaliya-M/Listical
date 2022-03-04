@@ -1,129 +1,129 @@
 import React from "react";
-import "./homecompo.css";
+import annocuncements from "./homecompo.module.scss";
 
 const Announcements = () => {
   return (
     <>
-      <div className="mainhomecompo" id="announcements">
-        <div className="head" id="announcements">
+      <div className={annocuncements.mainhomecompo} id={annocuncements.announcements}>
+        <div className={annocuncements.head} id={annocuncements.announcements}>
           <h4>Announcements</h4>
         </div>
-        <div className="mainContent">
-          <div className="content" id="announcement">
-            <div className="cimg">
+        <div className={annocuncements.mainContent}>
+          <div className={annocuncements.content} id={annocuncements.announcement}>
+            <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
-            <div className="text">
+            <div className={annocuncements.text}>
               <h3>Meeting</h3>
               <p>text</p>
             </div>
           </div>
           
 
-          <div className="content" id="announcement">
-            <div className="cimg">
+          <div className={annocuncements.content} id={annocuncements.announcement}>
+            <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
-            <div className="text">
+            <div className={annocuncements.text}>
               <h3>Meeting</h3>
               <p>text</p>
             </div>
           </div>
-          <div className="content" id="announcement">
-            <div className="cimg">
+          <div className={annocuncements.content} id={annocuncements.announcement}>
+            <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
-            <div className="text">
+            <div className={annocuncements.text}>
               <h3>Meeting</h3>
               <p>text</p>
             </div>
           </div>
-          <div className="content" id="announcement">
-            <div className="cimg">
+          <div className={annocuncements.content} id={annocuncements.announcement}>
+            <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
-            <div className="text">
+            <div className={annocuncements.text}>
               <h3>Meeting</h3>
               <p>text</p>
             </div>
           </div>
-          <div className="content" id="announcement">
-            <div className="cimg">
+          <div className={annocuncements.content} id={annocuncements.announcement}>
+            <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
-            <div className="text">
+            <div className={annocuncements.text}>
               <h3>Meeting</h3>
               <p>text</p>
             </div>
           </div>
-          <div className="content" id="announcement">
-            <div className="cimg">
+          <div className={annocuncements.content} id={annocuncements.announcement}>
+            <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
-            <div className="text">
+            <div className={annocuncements.text}>
               <h3>Meeting</h3>
               <p>text</p>
             </div>
           </div>
-          <div className="content" id="announcement">
-            <div className="cimg">
+          <div className={annocuncements.content} id={annocuncements.announcement}>
+            <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
-            <div className="text">
+            <div className={annocuncements.text}>
               <h3>Meeting</h3>
               <p>text</p>
             </div>
           </div>
-          <div className="content" id="announcement">
-            <div className="cimg">
+          <div className={annocuncements.content} id={annocuncements.announcement}>
+            <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
-            <div className="text">
+            <div className={annocuncements.text}>
               <h3>Meeting</h3>
               <p>text</p>
             </div>
           </div>
-          <div className="content" id="announcement">
-            <div className="cimg">
+          <div className={annocuncements.content} id={annocuncements.announcement}>
+            <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
-            <div className="text">
+            <div className={annocuncements.text}>
               <h3>Meeting</h3>
               <p>text</p>
             </div>
           </div>
-          <div className="content" id="announcement">
-            <div className="cimg">
+          <div className={annocuncements.content} id={annocuncements.announcement}>
+            <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
-            <div className="text">
+            <div className={annocuncements.text}>
               <h3>Meeting</h3>
               <p>text</p>
             </div>
           </div>
-          <div className="content" id="announcement">
-            <div className="cimg">
+          <div className={annocuncements.content} id={annocuncements.announcement}>
+            <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
-            <div className="text">
+            <div className={annocuncements.text}>
               <h3>Meeting</h3>
               <p>text</p>
             </div>
           </div>
-          <div className="content" id="announcement">
-            <div className="cimg">
+          <div className={annocuncements.content} id={annocuncements.announcement}>
+            <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
-            <div className="text">
+            <div className={annocuncements.text}>
               <h3>Meeting</h3>
               <p>text</p>
             </div>
           </div>
-          <div className="content" id="announcement">
-            <div className="cimg">
+          <div className={annocuncements.content} id={annocuncements.announcement}>
+            <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
-            <div className="text">
+            <div className={annocuncements.text}>
               <h3>Meeting</h3>
               <p>text</p>
             </div>

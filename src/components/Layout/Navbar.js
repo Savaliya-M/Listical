@@ -1,6 +1,6 @@
 import React,{useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import "./navbar.css";
+import navbar from "./navbar.module.scss";
 
 const Navbar = (props) => {
   const navigate = useNavigate();
@@ -11,15 +11,16 @@ const Navbar = (props) => {
   }
   return (
     <>
-      <div className="navbarmain">
-        <div className="logo">
+      <div className={navbar.navbarmain}>
+        <div className={navbar.logo}>
+        {/* <img src={require("@photos/Logo.png")} alt="logo" /> */}
           <h1>LISTICAL</h1>
         </div>
-        <div className="user">
-          <div className="uicon">
+        <div className={navbar.user}>
+          <div className={navbar.uicon}>
             <h3>Icon</h3>
           </div>
-          <div className="uname">
+          <div className={navbar.uname}>
             <h3>{props.name}</h3>
           </div>
           <div >

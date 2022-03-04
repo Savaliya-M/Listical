@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Addprojectpopup from "./Addprojectpopup";
-import "./project.css";
+import proj from "./project.module.scss";
 import Projectcompo from "./Projectcompo";
 
 const Project = () => {
@@ -11,11 +11,11 @@ const Project = () => {
   };
   return (
     <>
-      <div className="wraperproject">
-        <div className="btn">
+      <div className={proj.wraperproject}>
+        <div className={proj.btn}>
           <button onClick={togglepopup}>ADD PROJECT</button>
         </div>
-        <div className="mainproject">
+        <div className={proj.mainproject}>
           <Projectcompo />
           <Projectcompo />
           <Projectcompo />

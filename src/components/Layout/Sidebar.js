@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from "react";
 import Admincompo from "@Admin_components/Admincompo";
-import './sidebar.css';
+import sidebar from './sidebar.module.scss';
 import Managercompo from "../Manager_components/Managercompo";
 import Employeecompo from "../Employee_components/Employeecompo";
 
@@ -12,9 +12,9 @@ const Sidebar = () => {
 }, []);
   return (
     <>
-    <div className="mainsidebar">
+    <div className={sidebar.mainsidebar}>
       {user.type === "Admin" ?  
-      <Admincompo />
+      <Admincompo/>
       : ""}
        {user.type === "Manager" ? 
       <Managercompo/>

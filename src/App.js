@@ -1,5 +1,5 @@
 import React from "react";
-import "./app.css";
+import apps from "./app.module.scss";
 import Layout from "./components/Layout/Layout";
 import Login from "@routes/Auth/Login";
 import Signup from "@routes/Auth/Signup";
@@ -9,7 +9,7 @@ import Main from "./Main";
 function App() {
   return (
     <>
-      <div className="appmain">
+      <div className={apps.appmain}>
         <Routes>
           <Route exact path="/" element={<Main />} />
           <Route exact path="/login" element={<Login />} />
