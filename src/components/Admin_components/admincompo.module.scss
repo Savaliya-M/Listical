@@ -2,57 +2,59 @@
     box-sizing: border-box;
 }
 
+@mixin disflex($dis) {
+    display: $dis;
+}
+
+@mixin pointer($point, $bcolor) {
+    cursor: $point;
+    background-color: $bcolor;
+}
+
 .maindivsidebar{
-    display: flex;
+    @include disflex(flex);
     max-width: 100%;
     width: 100%;
 }
 
 .sidebar{
-    /* top: 56px; */
-    /* height: 100vh; */
+    //top: 56px; 
+    // height: 100vh; 
     width:200px;
-    /* position: fixed; */
-    /* background-color: #FFF; */
+    // position: fixed;
+    //  background-color: #FFF; 
     
+    .sidebarlist{
+        @include disflex(flex);
+        margin: 0px;
+        flex-direction: column;
+        text-decoration: none;
+        padding: 0px;
+        
+        .rows{
+            @include disflex(flex);
+            line-height: 45px;
+            &:hover{
+                @include pointer(pointer, #c7c2c2);
+            }
+            .icone{
+                margin: auto;
+            }
+            .title{
+                width: 75%;
+                text-decoration: none;
+                .title:active{
+                    @include pointer(pointer, #0b77be);
+                }   
+            }             
+        }
+    }
 }
-
-.sidebar .sidebarlist{
-    margin: 0px;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    padding: 0px;
-}
-
-.sidebar .sidebarlist .rows{
-    display: flex;
-    line-height: 45px;
-}
-
-.sidebar .sidebarlist .rows:hover{
-    cursor: pointer;
-    background-color: #E4EAEE;
-}
-
-.sidebar .sidebarlist .rows .title:active{
-    /* cursor: pointer; */
-    background-color: #E4EAEE;
-}
-
-.sidebar .sidebarlist .rows .icone{
-    margin: auto;
-}
-
-.sidebar .sidebarlist .rows .title{
-    width: 75%;
-    text-decoration: none;
-} 
 
 .pages{
-    display: block;
+    @include disflex(block);
     margin-left: 200px;
-    /* margin-top: 60px; */
+    // margin-top: 60px;
     max-width: 100%;
     width: 100%;
 }

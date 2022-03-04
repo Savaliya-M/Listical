@@ -1,76 +1,70 @@
 .mainuserinfo{
-    /* border: 2px solid red; */
+    // border: 2px solid red; 
     padding: 1rem;
     box-sizing: border-box;
     max-width: 100%;
     width: 100%;
 }
 
-.secuserinfo{
-    
+.secuserinfo{ 
     background-color: #fff;
     box-sizing: border-box;
     padding: 1rem;
-
 }
 
 .thirduserinfo{
-    /* border: 2px solid green; */
+    // border: 2px solid green; 
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     max-width: 100%;
     width: 100%;
-
 }
 
 .basicdetail{
     display: flex;
-    
     width: 100%;
 }
 
 .detailtext{
     flex: 80;
-}
-
-.detailtext p{
-    line-height: 1.5rem;
+    p{
+        line-height: 1.5rem;
+    }
 }
 
 .work-experience{
     margin-top: 1rem;
-}
-
-.work-experience h3, .work-experience h4, .work-experience h5, .work-experience p, .work-experience ul{
-    margin: 0px;
+    h3, .work-experience h4, .work-experience h5, .work-experience p, .work-experience ul{
+        margin: 0px;
+    }
 }
 
 .personimage{
     flex: 20%;
     height: 200px;
+    img{
+        width: 150px;
+        height: 100%;
+    }
 }
 
-.personimage img{
-    width: 150px;
-    height: 100%;
-}
+
 
 .btnsalary{
     display: flex;
-    /* justify-content: center; */
+    // justify-content: center; 
     margin-top: 1.5rem;
+    button{
+        width: 10rem;
+        height: 2rem;
+    }
 
-}
-
-.btnsalary button{
-    width: 10rem;
-    height: 2rem;
 }
 
 .projectbox{
-    /* border: 2px solid red; */
-    /* margin-top: 0.5rem; */
+    // border: 2px solid red; 
+    // margin-top: 0.5rem; 
     display: flex;
 }
 
@@ -79,22 +73,20 @@
     width: 200px ;
     height: 200px;
     margin: 5px;
-}
-
-.projectwise p{
-    font-weight: bolder;
-    line-height: 1.5rem;
-}
-.projectwise h1,.projectwise p{
-    text-align: center;
+    p{
+        font-weight: bolder;
+        line-height: 1.5rem;
+    }
+    h1,.projectwise p{
+        text-align: center;
+    }
 }
 
 .filbtn{
     display: flex;
     margin: 0px;
-}
-
-.filbtn h3{
-    margin: 0px 5px 0px 0px;
+    h3{
+        margin: 0px 5px 0px 0px;
+    }
 }
 

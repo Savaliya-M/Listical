@@ -6,27 +6,31 @@
     height: 100%;
     display: grid;
     grid-template-areas: 
-    'navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar  '
-    'sidebar routes routes routes routes routes routes routes routes routes routes routes routes routes routes routes   ';
+    'navbar navbar'
+    'sidebar routes ';
+        .navbar{
+            // background-color: rgb(255, 0, 221);
+            grid-area: navbar;
+            
+        }
+        .sidebar{
+
+            // background-color: rgb(0, 26, 255);
+            grid-area: sidebar;
+            // width: 1000%;
+            // height: 190vh;
+            
+        }
+        .routes{
+            background-color: rgb(144, 250, 4);
+            grid-area: routes;
+            // height: 100%;
+            
+        }
 }
 
-.sidebar{
-    /* background-color: brown; */
-    grid-area: sidebar;
-    width: 100%;
-    height: 90vh;
-    
-}
-.navbar{
-    background-color: aqua;
-    grid-area: navbar;
-   
-}
 
-.routes{
-    background-color: chartreuse;
-    grid-area: routes;
-    height: 100%;
-    
-}
+
+
+
 
