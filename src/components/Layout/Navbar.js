@@ -5,7 +5,7 @@ import navbar from "./navbar.module.scss";
 const Navbar = (props) => {
   const navigate = useNavigate();
   const logOut = () => {
-    localStorage.removeItem("email");
+    localStorage.removeItem("uuid");
     localStorage.removeItem("Type");
     navigate("/");
   };
@@ -24,7 +24,7 @@ const Navbar = (props) => {
           <div className={navbar.uname}>
             <h3>{props.name}</h3>
           </div>
-          <div  className={navbar.logout}>
+          <div className={navbar.logout}>
             <button onClick={logOut}>Logout</button>
           </div>
         </div>

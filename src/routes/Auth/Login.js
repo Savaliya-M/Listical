@@ -30,9 +30,9 @@ const Login = () => {
           elem.pass === authuserdata.password
         ) {
           flag = true;
-          localStorage.setItem("email", elem.email);
+          localStorage.setItem("uuid", elem.uuid);
           localStorage.setItem("Type", elem.position);
-          localStorage.setItem("name", elem.name);
+          // localStorage.setItem("name", elem.name);
           navigate("/layout/");
           return;
         }

@@ -15,7 +15,7 @@ const Layout = () => {
     appRef.child("Users").on("value", (snapshot) => {
       const userData = snapshot.val();
       Object.values(userData).forEach((elem) => {
-        if (elem.email === localStorage.getItem("email")) {
+        if (elem.uuid === localStorage.getItem("uuid")) {
           setUser(elem);
         }
       });

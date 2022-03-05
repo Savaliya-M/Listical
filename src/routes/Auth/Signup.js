@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import appRef from "../../firebase";
+import { v4 as uuidv4 } from "uuid";
 
 const Signup = () => {
   const [skill, setSkill] = useState({});
@@ -21,42 +22,51 @@ const Signup = () => {
     position: "",
     pass: "",
     langknown: { English: "", Hindi: "", Gujarati: "" },
-    activate: false
+    activate: false,
+    uuid: uuidv4(),
+    hiringdate: Date(),
   });
   const skillchange = (e) => {
-     setSkill(e.target.value);
+    setSkill(e.target.value);
   };
   const skillplus = (e) => {
     e.preventDefault();
-    setUser({...user,skill:[...user.skill, skill]});
+    setUser({ ...user, skill: [...user.skill, skill] });
   };
   const getuser = (event) => {
-    if(event.target.name === "English" || event.target.name === "Hindi" || event.target.name === "Gujarati") {
-      if(event.target.checked){
-        setUser({...user, langknown: {
-         ...user.langknown, [event.target.name] : event.target.value
-        }})
+    if (
+      event.target.name === "English" ||
+      event.target.name === "Hindi" ||
+      event.target.name === "Gujarati"
+    ) {
+      if (event.target.checked) {
+        setUser({
+          ...user,
+          langknown: {
+            ...user.langknown,
+            [event.target.name]: event.target.value,
+          },
+        });
+      } else {
+        setUser({
+          ...user,
+          langknown: {
+            ...user.langknown,
+            [event.target.name]: "",
+          },
+        });
       }
-      else{
-        setUser({...user, langknown: {
-          ...user.langknown, [event.target.name] : ""
-         }})
-      }
+    } else if (event.target.name === "skill") {
+      setUser({ ...user, skill: [...user.skill, event.target.value] });
+    } else {
+      setUser({ ...user, [event.target.name]: event.target.value });
     }
-    else if(event.target.name === "skill"){
-      setUser({...user, skill: [
-        ...user.skill, event.target.value
-      ]})
-    }
-    else {
-        setUser({...user, [event.target.name] : event.target.value});
-      }
-  }
-const navigate = useNavigate();
+  };
+  const navigate = useNavigate();
 
   const senduserdata = (e) => {
     e.preventDefault();
-    appRef.child("Users").push(user,() => {
+    appRef.child("Users").push(user, () => {
       alert("data inserted successfully");
       setUser({
         name: "",
@@ -75,12 +85,12 @@ const navigate = useNavigate();
         position: "",
         pass: "",
         langknown: { English: "", Hindi: "", Gujarati: "" },
-        activate: false
+        activate: false,
       });
     });
     console.log(user);
     navigate("/");
-  }
+  };
 
   return (
     <>
@@ -241,7 +251,7 @@ const navigate = useNavigate();
             </div>
             <div>
               Skill :
-              <input type="text" name="skill"  onChange={skillchange} />
+              <input type="text" name="skill" onChange={skillchange} />
               <button onClick={skillplus}>+</button>
             </div>
             {user.skill.map((name) => (
@@ -282,7 +292,7 @@ const navigate = useNavigate();
               />
             </div>
             <div>
-              <button onClick={senduserdata}>Save</button>  
+              <button onClick={senduserdata}>Save</button>
               <input type="Reset" />
             </div>
           </form>
