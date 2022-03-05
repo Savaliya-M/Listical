@@ -1,60 +1,75 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 @mixin disflex($dis) {
-    display: $dis;
+  display: $dis;
 }
 
 @mixin pointer($point, $bcolor) {
-    cursor: $point;
-    background-color: $bcolor;
+  cursor: $point;
+  background-color: $bcolor;
 }
 
-.maindivsidebar{
+.maindivsidebar {
+  @include disflex(flex);
+  max-width: 100%;
+  width: 100%;
+}
+
+.sidebar {
+  //top: 56px;
+  height: 100vh;
+  width: 200px;
+  // position: fixed;
+   background-color: rgb(216, 216, 216);
+
+  .sidebarlist {
     @include disflex(flex);
-    max-width: 100%;
-    width: 100%;
-}
+    margin: 0px;
+    flex-direction: column;
+    text-decoration: none;
+    padding: 0px;
 
-.sidebar{
-    //top: 56px; 
-    // height: 100vh; 
-    width:200px;
-    // position: fixed;
-    //  background-color: #FFF; 
-    
-    .sidebarlist{
-        @include disflex(flex);
-        margin: 0px;
-        flex-direction: column;
-        text-decoration: none;
-        padding: 0px;
+    .rows {
+      @include disflex(flex);
+      line-height: 45px;
+      &:hover {
+        @include pointer(pointer, #9ed1e9);
+        background-position: 10px;
         
-        .rows{
-            @include disflex(flex);
-            line-height: 45px;
-            &:hover{
-                @include pointer(pointer, #c7c2c2);
-            }
-            .icone{
-                margin: auto;
-            }
-            .title{
-                width: 75%;
-                text-decoration: none;
-                .title:active{
-                    @include pointer(pointer, #0b77be);
-                }   
-            }             
+      }
+
+      .title {
+        display: flex;
+        text-decoration: none;
+        width: auto;
+        margin: 0rem 0rem 0rem 1.3rem;
+        title:active {
+                @include pointer(pointer, #0b77be);
+              }
+        .icone {
+          display: flex;
+          align-items: center;
+          img {
+            margin-right: 1rem;
+            height: 1.5rem;
+            width: 1.5rem;
+          }
         }
+        &:hover {
+          transform: scale(1.2);
+          color: white
+        }
+      }
     }
+  }
 }
 
-.pages{
-    @include disflex(block);
-    margin-left: 200px;
-    // margin-top: 60px;
-    max-width: 100%;
-    width: 100%;
+.pages {
+  @include disflex(block);
+  margin-left: 200px;
+  // margin-top: 60px;
+  max-width: 100%;
+  width: 100%;
 }

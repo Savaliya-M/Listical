@@ -1,5 +1,5 @@
 @mixin bghome($bgclr, $lhight, $fsize, $fclr) {
-  background-color:$bgclr;
+  background-color: $bgclr;
   line-height: $lhight;
   font-size: $fsize;
   color: $fclr;
@@ -7,7 +7,7 @@
 
 .mainhomecompo {
   background-color: #fff;
-  max-width: 100%;
+  // max-width: 100%;
   margin: 20px 20px 20px 10px;
   width: 25%;
   height: 250px;

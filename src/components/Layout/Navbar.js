@@ -13,17 +13,18 @@ const Navbar = (props) => {
     <>
       <div className={navbar.navbarmain}>
         <div className={navbar.logo}>
-        {/* <img src={require("@photos/Logo.png")} alt="logo" /> */}
+          <img src={require("@photos/Listical.png")} alt="logo" />
           <h1>LISTICAL</h1>
         </div>
+
         <div className={navbar.user}>
           <div className={navbar.uicon}>
-            <h3>Icon</h3>
+            <img src={require("@photos/Listical.png")} alt="logo" />
           </div>
           <div className={navbar.uname}>
             <h3>{props.name}</h3>
           </div>
-          <div>
+          <div  className={navbar.logout}>
             <button onClick={logOut}>Logout</button>
           </div>
         </div>
