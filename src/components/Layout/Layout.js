@@ -7,11 +7,11 @@ import User from "@user/User";
 import Project from "@projects/Project";
 import layout from "./layout.module.scss";
 import appRef from "../../firebase";
+import Adminapproval from "../../routes/Approvals/Adminapproval";
 
 const Layout = () => {
   const [user, setUser] = useState({});
   useEffect(() => {
-    // setUser({email:localStorage.getItem('email'),type:localStorage.getItem('Type')});
     appRef.child("Users").on("value", (snapshot) => {
       const userData = snapshot.val();
       Object.values(userData).forEach((elem) => {
@@ -37,6 +37,7 @@ const Layout = () => {
               <Route path="/" element={<Home />} />
               <Route exact path="user/*" element={<User user={user} />} />
               <Route exact path="project" element={<Project />} />
+              <Route exact path="approvals" element={<Adminapproval />} />
             </Routes>
           ) : (
             ""

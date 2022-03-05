@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import appRef from "../../firebase";
 // import Admincompo from "@Admin_components/Admincompo";
@@ -11,7 +11,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const logdetail = (e) => {
     e.preventDefault();
     setAuthuserdata({ ...authuserdata, [e.target.name]: e.target.value });
@@ -20,44 +20,41 @@ const navigate = useNavigate();
   const authUser = async (e) => {
     e.preventDefault();
 
-    appRef.child("Users").on("value", (snapshot) => 
-    {
-        console.log("loading start");
-        const userData = snapshot.val();
-        let flag = false;
-        Object.values(userData).forEach((elem) => 
-        {
-            if (
-            elem.email === authuserdata.email &&
-            elem.pass === authuserdata.password
-            ) {
-            flag = true;
-            localStorage.setItem('email',elem.email);
-            localStorage.setItem('Type',elem.position);
-            localStorage.setItem('name',elem.name);
-            navigate("/layout/");
-            return;
-            }
-          //   else if (
-          //   elem.email === authuserdata.email &&
-          //   elem.pass === authuserdata.password &&
-          //   elem.position === "Manager"
-          //   ) {
-          //   flag = true;
-          //   alert("Manager");
-          //   localStorage.setItem('email',elem.email);
-          //   localStorage.setItem('Type',elem.position);
-          //  navigate("/managercompo/");
-          //   return;
-          //   }
-        });
-      if(!flag ){
-          alert("Plese fill Correct detail");
+    appRef.child("Users").on("value", (snapshot) => {
+      console.log("loading start");
+      const userData = snapshot.val();
+      let flag = false;
+      Object.values(userData).forEach((elem) => {
+        if (
+          elem.email === authuserdata.email &&
+          elem.pass === authuserdata.password
+        ) {
+          flag = true;
+          localStorage.setItem("email", elem.email);
+          localStorage.setItem("Type", elem.position);
+          localStorage.setItem("name", elem.name);
+          navigate("/layout/");
+          return;
+        }
+        //   else if (
+        //   elem.email === authuserdata.email &&
+        //   elem.pass === authuserdata.password &&
+        //   elem.position === "Manager"
+        //   ) {
+        //   flag = true;
+        //   alert("Manager");
+        //   localStorage.setItem('email',elem.email);
+        //   localStorage.setItem('Type',elem.position);
+        //  navigate("/managercompo/");
+        //   return;
+        //   }
+      });
+      if (!flag) {
+        alert("Plese fill Correct detail");
       }
       console.log("loading end");
     });
   };
-
 
   return (
     <>
