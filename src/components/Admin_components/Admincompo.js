@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 // import Project from "@projects/Project";
 import admincompo from "./admincompo.module.scss";
 
-
 const Admincompo = () => {
   // const {state} = useLocation();
   // const {user} = state;

@@ -1,8 +1,8 @@
 import React from "react";
 import Usercompo from "./Usercompo";
-import {  Routes, Route} from "react-router-dom";
-import Userinfo from "@user/userinfo/Userinfo"
-import users from './user.module.scss';
+import { Routes, Route } from "react-router-dom";
+import Userinfo from "@user/userinfo/Userinfo";
+import users from "./user.module.scss";
 
 const User = (props) => {
   // const {user} = name;
@@ -10,10 +10,10 @@ const User = (props) => {
   return (
     <>
       <div className={users.mainuser}>
-          <Routes>
-              <Route exact path="/" element={<Usercompo/>} />
-              <Route exact path="info" element={<Userinfo />} />
-          </Routes>
+        <Routes>
+          <Route exact path="/" element={<Usercompo />} />
+          <Route exact path="info/:id" element={<Userinfo />} />
+        </Routes>
       </div>
     </>
   );
