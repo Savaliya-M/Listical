@@ -1,5 +1,5 @@
 .mainprojectcompo{
-    /* max-width: 100%; */
+    //  max-width: 100%;
     width: 360px;
     
 }
@@ -11,7 +11,7 @@
 }
 
 .probox{
-    /* border: 2px solid green; */
+    //  border: 2px solid green; 
     background-color: #fff;
     border-radius: 5px;
     display: flex;
@@ -22,12 +22,11 @@
 .proinfo{
     display: flex;
     flex-direction: column;
+    h3, h4{
+        margin: 0px;
+        line-height: 1.8rem;
+    }
     
-}
-
-.proinfo h3, h4{
-    margin: 0px;
-    line-height: 1.8rem;
 }
 
 .proname{

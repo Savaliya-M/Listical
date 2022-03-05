@@ -1,20 +1,20 @@
+@mixin project ($dis, $mxw, $w, $boxsize){
+  display: $dis;
+  max-width: $mxw;
+  width: $w;
+  box-sizing: $boxsize;
+}
 
 .wraperproject{
-  max-width: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
+  @include project(flex, 100%, 100%, border-box);
   flex-direction: column;
   padding-top: 15px;
 }
 
 .mainproject {
-  /* border: 2px solid red; */
-  max-width: 100%;
-  width: 100%;
+  @include project(grid, 100%, 100%, border-box);
+  //  border: 2px solid red; 
   height: 25px;
-  box-sizing: border-box;
-  display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   height: auto;

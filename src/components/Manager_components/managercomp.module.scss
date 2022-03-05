@@ -8,24 +8,26 @@
     grid-template-areas: 
     'sidebarx navbarx navbarx navbarx navbarx navbarx navbarx navbarx navbarx navbarx navbarx navbarx navbarx navbarx navbarx navbarx navbarx navbarx '
     'sidebarx routesx routesx routesx routesx routesx routesx routesx routesx routesx routesx routesx routesx routesx routesx routesx routesx routesx  ';
+    .sidebarx{
+        background-color: brown;
+        grid-area: sidebarx;
+        height: 90vh;
+    
+    }
 
+    .navbarx{
+        background-color: aqua;
+        grid-area: navbarx;
+        height: 10vh;
+    }
+    
+    .routesx{
+        background-color: chartreuse;
+        grid-area: routesx;
+        height: 80vh;
+    }
 
 }
 
-.sidebarx{
-    background-color: brown;
-    grid-area: sidebarx;
-    height: 90vh;
 
-}
-.navbarx{
-    background-color: aqua;
-    grid-area: navbarx;
-    height: 10vh;
-}
 
-.routesx{
-    background-color: chartreuse;
-    grid-area: routesx;
-    height: 80vh;
-}
