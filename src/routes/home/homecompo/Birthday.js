@@ -7,7 +7,7 @@ const Birthday = () => {
     <>
          <div className={birth.mainhomecompo} id={birth.Birthday}>
         <div className={birth.head} id={birth.Birthday}>
-          <h4>Birthday</h4>
+          <h3>Birthday</h3>
         </div>
         <div className={birth.mainContent}>
         <div className={birth.content} id={birth.Birthday}>

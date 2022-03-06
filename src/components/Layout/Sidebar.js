@@ -1,6 +1,6 @@
 import React from "react";
-import Admincompo from "@Admin_components/Admincompo";
 import sidebar from './sidebar.module.scss';
+import Admincompo from "@Admin_components/Admincompo";
 import Managercompo from "../Manager_components/Managercompo";
 import Employeecompo from "../Employee_components/Employeecompo";
 

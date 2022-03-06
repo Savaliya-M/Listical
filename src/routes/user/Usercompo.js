@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import userscomp from "./usercompo.module.scss";
-import appRef from "../../firebase";
 import uinfo from "./userinfo/Userinfo";
+import { useNavigate } from "react-router-dom";
+import appRef from "../../firebase";
 
 const Usercompo = () => {
   let navigate = useNavigate();

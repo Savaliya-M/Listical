@@ -1,46 +1,40 @@
-.mainprojectcompo{
-    //  max-width: 100%;
-    width: 360px;
-    
+.mainprojectcompo {
+ width: 100%; 
 }
 
-.progressreport img{
-    height: 200px;
-    width: 100%;
- 
+.progressreport img {
+  height: 200px;
+  width: 100%;
 }
 
-.probox{
-    //  border: 2px solid green; 
-    background-color: #fff;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+.probox {
+//     display: grid;
+//   grid-gap: 1rem;
+//   margin: 20px;
+//   grid-template-columns: 120px 120px 120px;
+//   justify-content: center;
+  // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  height: auto;
+//   width: 100%;
+
+   border: 2px solid green;
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
-.proinfo{
-    display: flex;
-    flex-direction: column;
-    h3, h4{
-        margin: 0px;
-        line-height: 1.8rem;
-    }
-    
+.proinfo {
+  display: flex;
+  flex-direction: column;
+  h3,h4 {
+    margin: 0px;
+    line-height: 1.8rem;
+  }
 }
 
-.proname{
-    display: flex;
+.proname, .clientname, .deadline,  .managername {
+  display: flex;
 }
 
-.clientname{
-    display: flex;
-}
-
-.deadline{
-    display: flex;
-}
-
-.managername{
-    display: flex;
-}

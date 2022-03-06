@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import login from "./login.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import appRef from "../../firebase";
 // import Admincompo from "@Admin_components/Admincompo";
 // import Managercompo from "@Manager_components/Managercompo";
 // import Employeecompo from "@Employee_components/Employeecompo";
-import login from "./login.module.scss";
 
 const Login = () => {
   const [authuserdata, setAuthuserdata] = useState({

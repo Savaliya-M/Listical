@@ -1,6 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import navbar from "./navbar.module.scss";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const Navbar = (props) => {
             <h3>{props.name}</h3>
           </div>
           <div  className={navbar.logout}>
-            <button onClick={logOut}>Logout</button>
+            <button onClick={logOut}><span>Logout</span></button>
           </div>
         </div>
       </div>
