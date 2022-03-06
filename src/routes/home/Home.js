@@ -12,36 +12,91 @@ import Addannounce from "./homecompo/Addannounce";
 const Home = () => {
   const [popup, setPopup] = useState(false);
   const [dob, setDob] = useState([]);
+  const [isBirthdate, setIsBirthdate] = useState({ name: "", bbb: false });
+  const [todaybirth, setTodaybirth] = useState([]);
 
   useEffect(() => {
     appRef.child("Users").on("value", (snapshot) => {
-      let bd = [];
-      Object.values(snapshot.val()).map((elem) => {
-        bd.push(elem.dob);
-      });
-      setDob(bd);
+      setDob(snapshot.val());
     });
   }, []);
 
   useEffect(() => {
-    console.log(dob);
-
-    let dateObj = dob.map((elem) => {
-      // date.push(elem.dob);
-      console.log(elem);
-      return new Date(elem).getMonth() + 1, new Date(elem).getDate();
+    const mainArr = Object.keys(dob).map((id) => {
+      const dateMonthObj = {
+        month: new Date(dob[id].dob).getMonth() + 1,
+        day: new Date(dob[id].dob).getDate(),
+      };
+      const newDate = {
+        month: new Date().getMonth() + 1,
+        day: new Date().getDate(),
+      };
+      if (
+        dateMonthObj.month === newDate.month &&
+        dateMonthObj.day === newDate.day
+      ) {
+        return { name: dob[id].name, bbb: true };
+      } else {
+        return { name: dob[id].name, bbb: false };
+      }
     });
-    console.log(dateObj);
+
+    setIsBirthdate(mainArr);
   }, [dob]);
 
-  // const d = new Date(dob);
-  // console.log(d);
-  // console.log(d.getDate());
-  // console.log(d.getMonth() + 1);
-  // const cd = new Date();
-  // console.log(cd);
-  // console.log(cd.getDate());
-  // console.log(cd.getMonth() + 1);
+  // useEffect(() => {
+  //   console.log(dob);
+  //   // const d = new Date();
+  //   const tempArr1 = Object.values(dob).forEach((elem) => {
+  //     const tempArr = [];
+
+  //     const dateMonthObj = {
+  //       month: new Date(elem.dob).getMonth() + 1,
+  //       day: new Date(elem.dob).getDate(),
+  //     };
+  //     const newDate = {
+  //       month: new Date().getMonth() + 1,
+  //       day: new Date().getDate(),
+  //     };
+  //     // setIsBirthdate({ ...isBirthdate, name: "mitul" });
+  //     console.log("elem", elem);
+  //     if (
+  //       dateMonthObj.month === newDate.month &&
+  //       dateMonthObj.day === newDate.day
+  //     ) {
+  //       tempArr.push({ name: "mitul" });
+  //       // const tempObj = { name: elem.name, bbb: true };
+  //     } else {
+  //       // setIsBirthdate({ ...isBirthdate, name: "mitul" });
+  //       tempArr.push({ name: "mitul" });
+  //     }
+  //     console.log("arr", tempArr);
+  //     return tempArr;
+  //   });
+  //   setIsBirthdate(tempArr1);
+  // }, []);
+
+  // useEffect(() => {
+
+  // }, [dob]);
+
+  // useEffect(() => {
+  //   console.log(isBirthdate);
+  //   if (isBirthdate) {
+  //     isBirthdate.map((id) => {
+  //       // let today = [{}];
+  //       // if (isBirthdate[id] === true) {
+  //       //   // setTodaybirth(isBirthdate[id].name);
+  //       //   today.push(isBirthdate[id]);
+  //       // }
+  //       // console.log(isBirthdate[id]);
+  //     });
+  //   }
+  // }, [isBirthdate]);
+
+  useEffect(() => {
+    console.log(isBirthdate);
+  }, [isBirthdate]);
 
   const announce = () => {
     setPopup(!popup);
