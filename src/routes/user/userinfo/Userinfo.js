@@ -125,21 +125,6 @@ const Userinfo = () => {
               </div>
             </div>
           </div>
-          {/* <ul>
-                    <li>Implemented REST APIs for Company's Products.</li>
-                    <li>Handle AWS-S3 file management.</li>
-                    <li>Create complex MongoDB Queries using mongoose. </li>
-                    <li>
-                      Make use of crucial libraries of npm like socket.io,
-                    </li>
-                    <li>passport, JWT and many other.</li>
-                    <li>Worked with Redis and FFmpeg for client's Project.</li>
-                    <li>
-                      Being part of team for system design,project planning and
-                      management.
-                    </li>
-                    <li>Wokred in GitLab Environment.</li>
-                  </ul> */}
         </div>
       </div>
     </>

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Navbar = (props) => {
   const navigate = useNavigate();
   const logOut = () => {
-    localStorage.removeItem("email");
+    localStorage.removeItem("uuid");
     localStorage.removeItem("Type");
     navigate("/");
   };

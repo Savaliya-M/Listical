@@ -1,15 +1,23 @@
 import React from "react";
 import annocuncements from "./homecompo.module.scss";
+import appRef from "../../../firebase";
 
-const Announcements = () => {
+const Announcements = (props) => {
   return (
     <>
-      <div className={annocuncements.mainhomecompo} id={annocuncements.announcements}>
+      <div
+        className={annocuncements.mainhomecompo}
+        id={annocuncements.announcements}
+      >
         <div className={annocuncements.head} id={annocuncements.announcements}>
-          <h3>Announcements</h3>
+          <h4>Announcements</h4>
+          <button onClick={props.handleopen}>+</button>
         </div>
         <div className={annocuncements.mainContent}>
-          <div className={annocuncements.content} id={annocuncements.announcement}>
+          <div
+            className={annocuncements.content}
+            id={annocuncements.announcement}
+          >
             <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
@@ -19,8 +27,10 @@ const Announcements = () => {
             </div>
           </div>
 
-
-          <div className={annocuncements.content} id={annocuncements.announcement}>
+          <div
+            className={annocuncements.content}
+            id={annocuncements.announcement}
+          >
             <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
@@ -29,7 +39,10 @@ const Announcements = () => {
               <p>text</p>
             </div>
           </div>
-          <div className={annocuncements.content} id={annocuncements.announcement}>
+          <div
+            className={annocuncements.content}
+            id={annocuncements.announcement}
+          >
             <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
@@ -38,7 +51,10 @@ const Announcements = () => {
               <p>text</p>
             </div>
           </div>
-          <div className={annocuncements.content} id={annocuncements.announcement}>
+          <div
+            className={annocuncements.content}
+            id={annocuncements.announcement}
+          >
             <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
@@ -47,7 +63,10 @@ const Announcements = () => {
               <p>text</p>
             </div>
           </div>
-          <div className={annocuncements.content} id={annocuncements.announcement}>
+          <div
+            className={annocuncements.content}
+            id={annocuncements.announcement}
+          >
             <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
@@ -56,7 +75,10 @@ const Announcements = () => {
               <p>text</p>
             </div>
           </div>
-          <div className={annocuncements.content} id={annocuncements.announcement}>
+          <div
+            className={annocuncements.content}
+            id={annocuncements.announcement}
+          >
             <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
@@ -65,7 +87,10 @@ const Announcements = () => {
               <p>text</p>
             </div>
           </div>
-          <div className={annocuncements.content} id={annocuncements.announcement}>
+          <div
+            className={annocuncements.content}
+            id={annocuncements.announcement}
+          >
             <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
@@ -74,7 +99,10 @@ const Announcements = () => {
               <p>text</p>
             </div>
           </div>
-          <div className={annocuncements.content} id={annocuncements.announcement}>
+          <div
+            className={annocuncements.content}
+            id={annocuncements.announcement}
+          >
             <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
@@ -83,7 +111,10 @@ const Announcements = () => {
               <p>text</p>
             </div>
           </div>
-          <div className={annocuncements.content} id={annocuncements.announcement}>
+          <div
+            className={annocuncements.content}
+            id={annocuncements.announcement}
+          >
             <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
@@ -92,7 +123,10 @@ const Announcements = () => {
               <p>text</p>
             </div>
           </div>
-          <div className={annocuncements.content} id={annocuncements.announcement}>
+          <div
+            className={annocuncements.content}
+            id={annocuncements.announcement}
+          >
             <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
@@ -101,7 +135,10 @@ const Announcements = () => {
               <p>text</p>
             </div>
           </div>
-          <div className={annocuncements.content} id={annocuncements.announcement}>
+          <div
+            className={annocuncements.content}
+            id={annocuncements.announcement}
+          >
             <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
@@ -110,7 +147,10 @@ const Announcements = () => {
               <p>text</p>
             </div>
           </div>
-          <div className={annocuncements.content} id={annocuncements.announcement}>
+          <div
+            className={annocuncements.content}
+            id={annocuncements.announcement}
+          >
             <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
@@ -119,7 +159,10 @@ const Announcements = () => {
               <p>text</p>
             </div>
           </div>
-          <div className={annocuncements.content} id={annocuncements.announcement}>
+          <div
+            className={annocuncements.content}
+            id={annocuncements.announcement}
+          >
             <div className={annocuncements.cimg}>
               <p>img</p>
             </div>
