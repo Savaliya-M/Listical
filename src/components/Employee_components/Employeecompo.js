@@ -1,6 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import emplocompo from "./employecompo.module.scss";
+import {Link} from 'react-router-dom';
 
 
 const Employeecompo = () => {

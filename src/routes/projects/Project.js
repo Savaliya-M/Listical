@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Addprojectpopup from "./Addprojectpopup";
 import proj from "./project.module.scss";
+import Addprojectpopup from "./Addprojectpopup";
 import Projectcompo from "./Projectcompo";
 
 const Project = () => {

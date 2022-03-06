@@ -6,7 +6,7 @@ const Newhires = () => {
     <>
         <div className={nhire.mainhomecompo} id={nhire.Newhires}>
         <div className={nhire.head} id={nhire.Newhires}>
-          <h4>New Hires</h4>
+          <h3>New Hires</h3>
         </div>
         <div className={nhire.mainContent}>
         <div className={nhire.content} id={nhire.Newhires}>

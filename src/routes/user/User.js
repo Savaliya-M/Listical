@@ -1,8 +1,8 @@
 import React from "react";
+import users from "./user.module.scss";
 import Usercompo from "./Usercompo";
 import { Routes, Route } from "react-router-dom";
 import Userinfo from "@user/userinfo/Userinfo";
-import users from "./user.module.scss";
 
 const User = (props) => {
   // const {user} = name;

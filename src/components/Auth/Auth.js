@@ -1,6 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import auth from './auth.module.scss';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Signup from "@routes/Auth/Signup";
 import Login from "@routes/Auth/Login";
 import Admincompo from "@Admin_components/Admincompo";

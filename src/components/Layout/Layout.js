@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
+import layout from "./layout.module.scss";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { Routes, Route } from "react-router-dom";
 import Home from "@home/Home";
 import User from "@user/User";
 import Project from "@projects/Project";
-import layout from "./layout.module.scss";
 import appRef from "../../firebase";
 import Adminapproval from "../../routes/Approvals/Adminapproval";
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import useinfo from "./userinfo.module.scss";
+import { useNavigate } from "react-router-dom";
 import appRef from "../../../firebase";
 import { useParams } from "react-router-dom";
 

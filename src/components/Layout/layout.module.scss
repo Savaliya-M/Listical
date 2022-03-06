@@ -5,29 +5,23 @@
     max-height: 100%;
     height: 100%;
     display: grid;
-    grid-template-areas: 
-    'navbar navbar navbar navbar navbar navbar'
-    'sidebar routes routes routes routes routes ';
+    // grid-template-areas: 
+    // 'navbar navbar navbar navbar navbar navbar'
+    // 'sidebar routes routes routes routes routes ';
         .navbar{
-            // background-color: rgb(255, 0, 221);
             grid-area: navbar;
-            
         }
         .sidebar{
-
-            // background-color: rgb(0, 26, 255);
             grid-area: sidebar;
-            // width: 1000%;
-            // height: 190vh;
-            
         }
         .routes{
-
             background-color: rgb(144, 250, 4);
             grid-area: routes;
-            // width: 100%;
-            // height: 100%;
-            
+            left: 12.5rem;    
+            bottom: 0%;
+            right: 0%;  
+            position: absolute;
+            top: 4em;
         }
 }
 

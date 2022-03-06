@@ -18,11 +18,11 @@
 }
 
 .sidebar {
-  //top: 56px;
   height: 100vh;
   width: 200px;
-  // position: fixed;
-   background-color: rgb(216, 216, 216);
+  position: fixed;
+  top: 4rem;
+  background-color: rgb(216, 216, 216);
 
   .sidebarlist {
     @include disflex(flex);
@@ -37,7 +37,8 @@
       &:hover {
         @include pointer(pointer, #9ed1e9);
         background-position: 10px;
-        
+        // border-right: 10px solid #03a9f4;
+        border-left: 8px solid #03a9f4;
       }
 
       .title {
