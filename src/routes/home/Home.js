@@ -11,21 +11,22 @@ import Addannounce from "./homecompo/Addannounce";
 
 const Home = () => {
   const [popup, setPopup] = useState(false);
-  const [dob, setDob] = useState([]);
-  const [isBirthdate, setIsBirthdate] = useState({ name: "", bbb: false });
-  const [todaybirth, setTodaybirth] = useState([]);
+  const [user, setUser] = useState([]);
+  const [birthdateList, setBirthdateList] = useState([]);
+  const [anniversaryList, setAnniversaryList] = useState([]);
+  const [newHiresList, setNewHiresList] = useState([]);
 
   useEffect(() => {
     appRef.child("Users").on("value", (snapshot) => {
-      setDob(snapshot.val());
+      setUser(snapshot.val());
     });
   }, []);
 
   useEffect(() => {
-    const mainArr = Object.keys(dob).map((id) => {
+    const tempBirthdayList = Object.keys(user).map((id) => {
       const dateMonthObj = {
-        month: new Date(dob[id].dob).getMonth() + 1,
-        day: new Date(dob[id].dob).getDate(),
+        month: new Date(user[id].dob).getMonth() + 1,
+        day: new Date(user[id].dob).getDate(),
       };
       const newDate = {
         month: new Date().getMonth() + 1,
@@ -35,68 +36,66 @@ const Home = () => {
         dateMonthObj.month === newDate.month &&
         dateMonthObj.day === newDate.day
       ) {
-        return { name: dob[id].name, bbb: true };
+        return { name: user[id].name, post: user[id].post, isBirthdate: true };
       } else {
-        return { name: dob[id].name, bbb: false };
+        return { name: user[id], post: user[id].post, isBirthdate: false };
+      }
+    });
+    let birthdayList = [];
+    tempBirthdayList.forEach((elem) => {
+      if (elem.isBirthdate) {
+        birthdayList.push(elem);
       }
     });
 
-    setIsBirthdate(mainArr);
-  }, [dob]);
+    const newHires = Object.keys(user).map((id) => {
+      function expiryCondition(hiredate) {
+        let temphiredate = new Date(hiredate);
+        temphiredate.setDate(temphiredate.getDate() + 7);
+        let curDate = new Date();
+        var H = curDate > temphiredate ? false : true;
+        return { isHire: H ? true : false };
+      }
+      let exdate = expiryCondition(user[id].hiringdate);
+      return { name: user[id].name, post: user[id].post, ...exdate };
+    });
+    let tempHiresList = [];
+    newHires.forEach((elem) => {
+      if (elem.isHire) {
+        tempHiresList.push(elem);
+      }
+    });
 
-  // useEffect(() => {
-  //   console.log(dob);
-  //   // const d = new Date();
-  //   const tempArr1 = Object.values(dob).forEach((elem) => {
-  //     const tempArr = [];
+    const tempAnniversaryList = Object.keys(user).map((id) => {
+      function getDateDiff(dateString) {
+        let currentDate = new Date();
+        let joinDate = new Date(dateString);
+        var age = currentDate.getFullYear() - joinDate.getFullYear();
+        var m = currentDate.getMonth() - joinDate.getMonth();
+        var d = currentDate.getDate() - joinDate.getDate();
+        if (m < 0 || (m === 0 && currentDate.getDate() < joinDate.getDate())) {
+          age--;
+        }
 
-  //     const dateMonthObj = {
-  //       month: new Date(elem.dob).getMonth() + 1,
-  //       day: new Date(elem.dob).getDate(),
-  //     };
-  //     const newDate = {
-  //       month: new Date().getMonth() + 1,
-  //       day: new Date().getDate(),
-  //     };
-  //     // setIsBirthdate({ ...isBirthdate, name: "mitul" });
-  //     console.log("elem", elem);
-  //     if (
-  //       dateMonthObj.month === newDate.month &&
-  //       dateMonthObj.day === newDate.day
-  //     ) {
-  //       tempArr.push({ name: "mitul" });
-  //       // const tempObj = { name: elem.name, bbb: true };
-  //     } else {
-  //       // setIsBirthdate({ ...isBirthdate, name: "mitul" });
-  //       tempArr.push({ name: "mitul" });
-  //     }
-  //     console.log("arr", tempArr);
-  //     return tempArr;
-  //   });
-  //   setIsBirthdate(tempArr1);
-  // }, []);
+        return {
+          yearsOfJoined: age,
+          isAnniversary: d === 0 && age !== 0 ? true : false,
+        };
+      }
+      let yearCount = getDateDiff(user[id].hiringdate);
+      return { name: user[id].name, post: user[id].post, ...yearCount };
+    });
+    let anniversaryList = [];
+    tempAnniversaryList.forEach((elem) => {
+      if (elem.isAnniversary) {
+        anniversaryList.push(elem);
+      }
+    });
 
-  // useEffect(() => {
-
-  // }, [dob]);
-
-  // useEffect(() => {
-  //   console.log(isBirthdate);
-  //   if (isBirthdate) {
-  //     isBirthdate.map((id) => {
-  //       // let today = [{}];
-  //       // if (isBirthdate[id] === true) {
-  //       //   // setTodaybirth(isBirthdate[id].name);
-  //       //   today.push(isBirthdate[id]);
-  //       // }
-  //       // console.log(isBirthdate[id]);
-  //     });
-  //   }
-  // }, [isBirthdate]);
-
-  useEffect(() => {
-    console.log(isBirthdate);
-  }, [isBirthdate]);
+    setBirthdateList(birthdayList);
+    setAnniversaryList(anniversaryList);
+    setNewHiresList(tempHiresList);
+  }, [user]);
 
   const announce = () => {
     setPopup(!popup);
@@ -105,10 +104,10 @@ const Home = () => {
     <>
       <div className={home.mainhome}>
         <Announcements handleopen={announce} />
-        <Birthday />
-        <Newhires />
+        <Birthday birthdayList={birthdateList} />
+        <Newhires newHires={newHiresList} />
         <Todaysleave />
-        <Workanniversary />
+        <Workanniversary anniversaryList={anniversaryList} />
         <Upcomingholidays />
         {popup && <Addannounce handleclose={announce} />}
       </div>
