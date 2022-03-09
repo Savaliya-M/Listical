@@ -7,6 +7,7 @@ const Todaysleave = () => {
       <div className={leave.mainhomecompo} id={leave.Todaysleave}>
         <div className={leave.head} id={leave.Todaysleave}>
           <h3>Todays Leave</h3>
+          <button>+</button>
         </div>
         <div className={leave.mainContent}>
         <div className={leave.content} id={leave.Todaysleave}>

@@ -5,12 +5,9 @@ import appRef from "../../../firebase";
 const Announcements = (props) => {
   return (
     <>
-      <div
-        className={annocuncements.mainhomecompo}
-        id={annocuncements.announcements}
-      >
+      <div className={annocuncements.mainhomecompo} id={annocuncements.announcements} >
         <div className={annocuncements.head} id={annocuncements.announcements}>
-          <h4>Announcements</h4>
+          <h3>Announcements</h3>
           <button onClick={props.handleopen}>+</button>
         </div>
         <div className={annocuncements.mainContent}>

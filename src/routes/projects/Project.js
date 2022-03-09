@@ -13,7 +13,7 @@ const Project = () => {
     <>
       <div className={proj.wraperproject}>
         <div className={proj.btn}>
-          <button onClick={togglepopup}>ADD PROJECT</button>
+          <button className={proj.bton} onClick={togglepopup}>ADD PROJECT</button>
         </div>
         <div className={proj.mainproject}>
           <Projectcompo />

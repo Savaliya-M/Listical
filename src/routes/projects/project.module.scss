@@ -1,39 +1,42 @@
-@mixin project ($dis, $mxw, $w, $boxsize){
+@mixin project($dis, $mxw, $w, $boxsize) {
   display: $dis;
   max-width: $mxw;
   width: $w;
   box-sizing: $boxsize;
 }
 
-.wraperproject{
+.wraperproject {
   @include project(flex, 100%, 100%, border-box);
   flex-direction: column;
   padding-top: 15px;
 }
 
 .mainproject {
-  // @include project(grid, 100%, 100%, border-box);
-   border: 2px solid red; 
-  // height: 25px;
-  // grid-template-columns: repeat(3, 1fr);
-  // grid-template-rows: repeat(2, 1fr);
-  // height: auto;
-  // grid-gap: 20px;
-  // margin-top: 15px;
-  // padding: 0px 20px 0px 20px;
-
   display: grid;
-    grid-gap: 1rem;
-    margin: 20px;
-    // grid-template-columns: 120px 120px 120px;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr));
-  //   height: auto;
-  //   width: 100%;
+  grid-gap: 1rem;
+  margin: 15px;
+  align-content: start;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  height: 25rem;
 }
 
 .btn {
   display: flex;
   justify-content: flex-end;
   padding-right: 20px;
+}
+
+.bton{
+  background-color: rgb(234, 251, 255);
+  border: 2px solid black;
+  border-radius: 20px;
+  height: 30px;
+  width: 120px;
+  box-shadow: 0px 0px 10px;
+
+  &:hover{
+    color: white;
+    background-color:  #0081bd;
+  }
 }

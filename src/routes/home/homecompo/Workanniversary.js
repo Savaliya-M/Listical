@@ -7,6 +7,7 @@ const Workanniversary = () => {
         <div className={anniversary.mainhomecompo} id={anniversary.Workanniversary}>
         <div className={anniversary.head} id={anniversary.Workanniversary}>
           <h3>Work Anniversary</h3>
+          <button>+</button>
         </div>
         <div className={anniversary.mainContent}>
         <div className={anniversary.content} id={anniversary.Workanniversary}>

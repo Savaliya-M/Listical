@@ -14,12 +14,12 @@ const Navbar = (props) => {
       <div className={navbar.navbarmain}>
         <div className={navbar.logo}>
           <img src={require("@photos/Listical.png")} alt="logo" />
-          <h1>LISTICAL</h1>
+          {/* <h1>LISTICAL</h1> */}
         </div>
 
         <div className={navbar.user}>
           <div className={navbar.uicon}>
-            <img src={require("@photos/Listical.png")} alt="logo" />
+            <img src={require("@photos/man.png")} alt="logo" />
           </div>
           <div className={navbar.uname}>
             <h3>{props.name}</h3>

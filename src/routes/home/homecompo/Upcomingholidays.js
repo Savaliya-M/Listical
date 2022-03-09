@@ -7,6 +7,7 @@ const Upcomingholidays =()=> {
         <div className={holiday.mainhomecompo} id={holiday.Upcomingholidays}>
         <div className={holiday.head} id={holiday.Upcomingholidays}>
           <h3>Upcoming Holidays</h3>
+          <button>+</button>
         </div>
         <div className={holiday.mainContent}>
         <div className={holiday.content} id={holiday.Upcomingholidays}>
