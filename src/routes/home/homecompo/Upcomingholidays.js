@@ -1,27 +1,75 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import holiday from "./homecompo.module.scss";
+import appRef from "../../../firebase";
 
-const Upcomingholidays =()=> {
+const Upcomingholidays = (props) => {
+  const [upholiday, setUpholiday] = useState({});
+  const [upholidaykey, setUpholidaykey] = useState([]);
+  useEffect(() => {
+    appRef.child("Holiday").on("value", (snapshot) => {
+      const holidayData = snapshot.val();
+      const holidaykey = Object.keys(holidayData);
+      setUpholiday(snapshot.val());
+      setUpholidaykey(holidaykey);
+    });
+  }, []);
+
+  useEffect(() => {
+    const curdate = new Date();
+    const tempholidaydate = [];
+    Object.keys(upholiday).map((elem) => {
+      if (curdate > new Date(upholiday[elem].holidaydate)) {
+        appRef.child(`/Holiday/${elem}`).remove(() => {});
+      }
+    });
+    // tempholidaydate.forEach((elem)=>{
+    //   if(curdate > elem){
+
+    //   }
+    // })
+    console.log(tempholidaydate);
+  }, [upholiday]);
+
+  const curdate = new Date();
+  const tempholidaydate = [];
+  Object.keys(upholiday).map((elem) => {
+    tempholidaydate.push(new Date(upholiday[elem].holidaydate));
+  });
+  console.log(tempholidaydate);
+
+  // const removeItem = (id) => {
+  //   appRef.child(`/Holiday/${id}`).remove(() => {
+  //     alert("Record Deleted Successfully");
+  //   });
+  // };
   return (
     <>
-        <div className={holiday.mainhomecompo} id={holiday.Upcomingholidays}>
+      <div className={holiday.mainhomecompo} id={holiday.Upcomingholidays}>
         <div className={holiday.head} id={holiday.Upcomingholidays}>
           <h3>Upcoming Holidays</h3>
+          <button onClick={props.handleopen}>+</button>
         </div>
-        <div className={holiday.mainContent}>
-        <div className={holiday.content} id={holiday.Upcomingholidays}>
-          <div className={holiday.cimg}>
-            <h2>R</h2>
-          </div>
-          <div className={holiday.text}>
-            <h3>Republic Day</h3>
-            <p>26 january 2022 (wednesday)</p>
-          </div>
-        </div>
-        </div>
+        {upholidaykey.map((id) => {
+          return (
+            <div className={holiday.mainContent} key={id}>
+              <div className={holiday.content} id={holiday.Upcomingholidays}>
+                <div className={holiday.cimg}>
+                  <h2>{upholiday[id].holidaytitle[0]}</h2>
+                </div>
+                <div className={holiday.text}>
+                  <h3>{upholiday[id].holidaytitle}</h3>
+                  <p>{upholiday[id].holidaydate}</p>
+                </div>
+                {/* <div>
+                  <button onClick={() => removeItem(id)}>X</button>
+                </div> */}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </>
-    );
+  );
 };
 
 export default Upcomingholidays;

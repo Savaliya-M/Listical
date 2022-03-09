@@ -8,9 +8,11 @@ import Upcomingholidays from "@homecompo/Upcomingholidays";
 import Workanniversary from "@homecompo/Workanniversary";
 import appRef from "../../firebase";
 import Addannounce from "./homecompo/Addannounce";
+import Addholiday from "./homecompo/Addholiday";
 
 const Home = () => {
-  const [popup, setPopup] = useState(false);
+  const [announcepopup, setAnnouncePopup] = useState(false);
+  const [holidaypopup, setHolidayPopup] = useState(false);
   const [user, setUser] = useState([]);
   const [birthdateList, setBirthdateList] = useState([]);
   const [anniversaryList, setAnniversaryList] = useState([]);
@@ -98,7 +100,11 @@ const Home = () => {
   }, [user]);
 
   const announce = () => {
-    setPopup(!popup);
+    setAnnouncePopup(!announcepopup);
+  };
+
+  const holiday = () => {
+    setHolidayPopup(!holidaypopup);
   };
   return (
     <>
@@ -108,8 +114,9 @@ const Home = () => {
         <Newhires newHires={newHiresList} />
         <Todaysleave />
         <Workanniversary anniversaryList={anniversaryList} />
-        <Upcomingholidays />
-        {popup && <Addannounce handleclose={announce} />}
+        <Upcomingholidays handleopen={holiday} />
+        {announcepopup && <Addannounce handleclose={announce} />}
+        {holidaypopup && <Addholiday handleclose={holiday} />}
       </div>
     </>
   );

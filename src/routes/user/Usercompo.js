@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import userscomp from "./usercompo.module.scss";
-import uinfo from "./userinfo/Userinfo";
 import { useNavigate } from "react-router-dom";
 import appRef from "../../firebase";
 
