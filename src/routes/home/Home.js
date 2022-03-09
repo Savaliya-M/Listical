@@ -8,54 +8,115 @@ import Upcomingholidays from "@homecompo/Upcomingholidays";
 import Workanniversary from "@homecompo/Workanniversary";
 import appRef from "../../firebase";
 import Addannounce from "./homecompo/Addannounce";
+import Addholiday from "./homecompo/Addholiday";
 
 const Home = () => {
-  const [popup, setPopup] = useState(false);
-  const [dob, setDob] = useState([]);
+  const [announcepopup, setAnnouncePopup] = useState(false);
+  const [holidaypopup, setHolidayPopup] = useState(false);
+  const [user, setUser] = useState([]);
+  const [birthdateList, setBirthdateList] = useState([]);
+  const [anniversaryList, setAnniversaryList] = useState([]);
+  const [newHiresList, setNewHiresList] = useState([]);
 
   useEffect(() => {
     appRef.child("Users").on("value", (snapshot) => {
-      let bd = [];
-      Object.values(snapshot.val()).map((elem) => {
-        bd.push(elem.dob);
-      });
-      setDob(bd);
+      setUser(snapshot.val());
     });
   }, []);
 
   useEffect(() => {
-    console.log(dob);
-
-    let dateObj = dob.map((elem) => {
-      // date.push(elem.dob);
-      console.log(elem);
-      return new Date(elem).getMonth() + 1, new Date(elem).getDate();
+    const tempBirthdayList = Object.keys(user).map((id) => {
+      const dateMonthObj = {
+        month: new Date(user[id].dob).getMonth() + 1,
+        day: new Date(user[id].dob).getDate(),
+      };
+      const newDate = {
+        month: new Date().getMonth() + 1,
+        day: new Date().getDate(),
+      };
+      if (
+        dateMonthObj.month === newDate.month &&
+        dateMonthObj.day === newDate.day
+      ) {
+        return { name: user[id].name, post: user[id].post, isBirthdate: true };
+      } else {
+        return { name: user[id], post: user[id].post, isBirthdate: false };
+      }
     });
-    console.log(dateObj);
-  }, [dob]);
+    let birthdayList = [];
+    tempBirthdayList.forEach((elem) => {
+      if (elem.isBirthdate) {
+        birthdayList.push(elem);
+      }
+    });
 
-  // const d = new Date(dob);
-  // console.log(d);
-  // console.log(d.getDate());
-  // console.log(d.getMonth() + 1);
-  // const cd = new Date();
-  // console.log(cd);
-  // console.log(cd.getDate());
-  // console.log(cd.getMonth() + 1);
+    const newHires = Object.keys(user).map((id) => {
+      function expiryCondition(hiredate) {
+        let temphiredate = new Date(hiredate);
+        temphiredate.setDate(temphiredate.getDate() + 7);
+        let curDate = new Date();
+        var H = curDate > temphiredate ? false : true;
+        return { isHire: H ? true : false };
+      }
+      let exdate = expiryCondition(user[id].hiringdate);
+      return { name: user[id].name, post: user[id].post, ...exdate };
+    });
+    let tempHiresList = [];
+    newHires.forEach((elem) => {
+      if (elem.isHire) {
+        tempHiresList.push(elem);
+      }
+    });
+
+    const tempAnniversaryList = Object.keys(user).map((id) => {
+      function getDateDiff(dateString) {
+        let currentDate = new Date();
+        let joinDate = new Date(dateString);
+        var age = currentDate.getFullYear() - joinDate.getFullYear();
+        var m = currentDate.getMonth() - joinDate.getMonth();
+        var d = currentDate.getDate() - joinDate.getDate();
+        if (m < 0 || (m === 0 && currentDate.getDate() < joinDate.getDate())) {
+          age--;
+        }
+
+        return {
+          yearsOfJoined: age,
+          isAnniversary: d === 0 && age !== 0 ? true : false,
+        };
+      }
+      let yearCount = getDateDiff(user[id].hiringdate);
+      return { name: user[id].name, post: user[id].post, ...yearCount };
+    });
+    let anniversaryList = [];
+    tempAnniversaryList.forEach((elem) => {
+      if (elem.isAnniversary) {
+        anniversaryList.push(elem);
+      }
+    });
+
+    setBirthdateList(birthdayList);
+    setAnniversaryList(anniversaryList);
+    setNewHiresList(tempHiresList);
+  }, [user]);
 
   const announce = () => {
-    setPopup(!popup);
+    setAnnouncePopup(!announcepopup);
+  };
+
+  const holiday = () => {
+    setHolidayPopup(!holidaypopup);
   };
   return (
     <>
       <div className={home.mainhome}>
         <Announcements handleopen={announce} />
-        <Birthday />
-        <Newhires />
+        <Birthday birthdayList={birthdateList} />
+        <Newhires newHires={newHiresList} />
         <Todaysleave />
-        <Workanniversary />
-        <Upcomingholidays />
-        {popup && <Addannounce handleclose={announce} />}
+        <Workanniversary anniversaryList={anniversaryList} />
+        <Upcomingholidays handleopen={holiday} />
+        {announcepopup && <Addannounce handleclose={announce} />}
+        {holidaypopup && <Addholiday handleclose={holiday} />}
       </div>
     </>
   );

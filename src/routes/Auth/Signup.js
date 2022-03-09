@@ -88,7 +88,7 @@ const Signup = () => {
         activate: false,
       });
     });
-    console.log(user);
+    // console.log(user);
     navigate("/");
   };
 
