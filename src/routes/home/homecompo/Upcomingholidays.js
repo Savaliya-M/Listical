@@ -16,32 +16,15 @@ const Upcomingholidays = (props) => {
 
   useEffect(() => {
     const curdate = new Date();
-    const tempholidaydate = [];
-    Object.keys(upholiday).map((elem) => {
-      if (curdate > new Date(upholiday[elem].holidaydate)) {
-        appRef.child(`/Holiday/${elem}`).remove(() => {});
-      }
-    });
-    // tempholidaydate.forEach((elem)=>{
-    //   if(curdate > elem){
-
-    //   }
-    // })
-    console.log(tempholidaydate);
+    if (upholiday) {
+      Object.keys(upholiday).map((elem) => {
+        if (curdate > new Date(upholiday[elem].holidaydate)) {
+          appRef.child(`/Holiday/${elem}`).remove(() => {});
+        }
+      });
+    }
   }, [upholiday]);
 
-  const curdate = new Date();
-  const tempholidaydate = [];
-  Object.keys(upholiday).map((elem) => {
-    tempholidaydate.push(new Date(upholiday[elem].holidaydate));
-  });
-  console.log(tempholidaydate);
-
-  // const removeItem = (id) => {
-  //   appRef.child(`/Holiday/${id}`).remove(() => {
-  //     alert("Record Deleted Successfully");
-  //   });
-  // };
   return (
     <>
       <div className={holiday.mainhomecompo} id={holiday.Upcomingholidays}>
@@ -60,9 +43,6 @@ const Upcomingholidays = (props) => {
                   <h3>{upholiday[id].holidaytitle}</h3>
                   <p>{upholiday[id].holidaydate}</p>
                 </div>
-                {/* <div>
-                  <button onClick={() => removeItem(id)}>X</button>
-                </div> */}
               </div>
             </div>
           );
