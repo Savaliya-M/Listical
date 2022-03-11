@@ -1,36 +1,43 @@
-import React from 'react';
-import managercompo from './managercomp.module.scss';
-import {Link} from 'react-router-dom';
+import React from "react";
+// import managercompo from './managercomp.module.scss';
+import managercompo from "../Admin_components/admincompo.module.scss";
+import { Link } from "react-router-dom";
 
 const Managercompo = () => {
   return (
     <>
-       <div className={managercompo.mainmanagercompo}>
-       <div >
-            <ul >
-              <li >
-                <div >H</div>
-                <Link to="/">
-                Manager
-                </Link>
-              </li>
-              <li >
-                <div>U</div>
-                <Link to="user">
-                Manager
-                </Link>
-              </li>
-              <li >
-                <div>P</div>
-                <Link to="project">
-                Manager
-                </Link>
-              </li>
-            </ul>
-          </div>     
-       </div>
+      <div className={managercompo.maindivsidebar}>
+        <div className={managercompo.sidebar}>
+          <ul className={managercompo.sidebarlist}>
+            <li className={managercompo.rows}>
+              <Link className={managercompo.title} to="/">
+                <div className={managercompo.icone}>
+                  <img src={require("@photos/house.png")} />
+                  {/*   Home  */}
+                </div>
+              </Link>
+            </li>
+            <li className={managercompo.rows}>
+              <Link className={managercompo.title} to="user">
+                <div className={managercompo.icone}>
+                  <img src={require("@photos/people.png")} alt="People" />
+                  {/* User */}
+                </div>
+              </Link>
+            </li>
+            <li className={managercompo.rows}>
+              <Link className={managercompo.title} to="project">
+                <div className={managercompo.icone}>
+                  <img src={require("@photos/project.png")} alt="" />
+                  {/* Project */}
+                </div>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Managercompo
+export default Managercompo;

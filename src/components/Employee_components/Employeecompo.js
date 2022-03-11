@@ -1,45 +1,73 @@
-import React from 'react';
-import emplocompo from "./employecompo.module.scss";
-import {Link} from 'react-router-dom';
-
+import React from "react";
+// import employeecompo from "./employecompo.module.scss";
+import employeecompo from "../Admin_components/admincompo.module.scss";
+import { Link } from "react-router-dom";
 
 const Employeecompo = () => {
   return (
     <>
-       <div className={emplocompo.maindivsidebar}>
-         
-         <div className={emplocompo.sidebar}>
-           <ul className={emplocompo.sidebarlist}>
-             <li className={emplocompo.rows}>
-               <div className={emplocompo.icone}><img src={require('@photos/house.png')}/></div>
-               <Link className={emplocompo.title} to="/">
-                 Home
-               </Link>
-             </li>
-             <li className={emplocompo.rows}>
-               <div className={emplocompo.icone}><img src={require('@photos/people.png')} alt="People" /></div>
-               <Link className={emplocompo.title} to="user">
-                 User
-               </Link>
-             </li>
-             <li className={emplocompo.rows}>
-               <div className={emplocompo.icone}><img src={require('@photos/project.png')} alt="" /></div>
-               <Link className={emplocompo.title} to="project">
-                 Project
-               </Link>
-             </li>
-           </ul>
-         </div>
-         {/* <div className={emplocompo.pages}>
-           <Routes>
-             <Route  path="/" element={<Home />} />
-             <Route exact path="user/*" element={<User />} />
-             <Route exact path="project" element={<Project />} />
-           </Routes>
-         </div> */}
-       </div>
+      {/* <div className={employeecompo.maindivsidebar}>
+        <div className={employeecompo.sidebar}>
+          <ul className={employeecompo.sidebarlist}>
+            <li className={employeecompo.rows}>
+              <div className={employeecompo.icone}>
+                <img src={require("@photos/house.png")} />
+              </div>
+              <Link className={employeecompo.title} to="/">
+                Home
+              </Link>
+            </li>
+            <li className={employeecompo.rows}>
+              <div className={employeecompo.icone}>
+                <img src={require("@photos/people.png")} alt="People" />
+              </div>
+              <Link className={employeecompo.title} to="user">
+                User
+              </Link>
+            </li>
+            <li className={employeecompo.rows}>
+              <div className={employeecompo.icone}>
+                <img src={require("@photos/project.png")} alt="" />
+              </div>
+              <Link className={employeecompo.title} to="project">
+                Project
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div> */}
+      <div className={employeecompo.maindivsidebar}>
+        <div className={employeecompo.sidebar}>
+          <ul className={employeecompo.sidebarlist}>
+            <li className={employeecompo.rows}>
+              <Link className={employeecompo.title} to="/">
+                <div className={employeecompo.icone}>
+                  <img src={require("@photos/house.png")} />
+                  {/*   Home  */}
+                </div>
+              </Link>
+            </li>
+            <li className={employeecompo.rows}>
+              <Link className={employeecompo.title} to="user">
+                <div className={employeecompo.icone}>
+                  <img src={require("@photos/people.png")} alt="People" />
+                  {/* User */}
+                </div>
+              </Link>
+            </li>
+            <li className={employeecompo.rows}>
+              <Link className={employeecompo.title} to="project">
+                <div className={employeecompo.icone}>
+                  <img src={require("@photos/project.png")} alt="" />
+                  {/* Project */}
+                </div>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Employeecompo
+export default Employeecompo;

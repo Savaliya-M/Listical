@@ -37,28 +37,26 @@ const Layout = () => {
               <Route path="/" element={<Home />} />
               <Route exact path="user/*" element={<User user={user} />} />
               <Route exact path="project" element={<Project />} />
-              <Route exact path="approvals" element={<Adminapproval />} />
+              <Route exact path="adapprovals" element={<Adminapproval />} />
             </Routes>
           ) : (
             ""
           )}
           {user.position === "Manager" ? (
-            // <Routes>
-            //       <Route path="/" element={<Home />} />
-            //       <Route exact path="user/*" element={<User />} />
-            //       <Route exact path="project" element={<Project />} />
-            // </Routes>
-            <h1>"This is manager"</h1>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route exact path="user/*" element={<User />} />
+              {/* <Route exact path="project" element={<Project />} /> */}
+            </Routes>
           ) : (
             ""
           )}
           {user.position === "Employee" ? (
-            // <Routes>
-            //       <Route path="/" element={<Home />} />
-            //       <Route exact path="user/*" element={<User />} />
-            //       <Route exact path="project" element={<Project />} />
-            // </Routes>
-            <h1>"This is Employee"</h1>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              {/* <Route exact path="user/*" element={<User />} />
+              <Route exact path="project" element={<Project />} /> */}
+            </Routes>
           ) : (
             ""
           )}
