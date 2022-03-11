@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import appRef from "../../../firebase";
+import Addan from "./addannounce.module.scss";
 
 const Addannounce = (props) => {
   const [announce, setAnnounce] = useState({
@@ -28,36 +29,43 @@ const Addannounce = (props) => {
 
   return (
     <>
-      <div>
-        <div>
-          <div>
-            <h1>ADD Announcement</h1>
-            <button onClick={props.handleclose}>X</button>
-          </div>
+      <div className={Addan.popup}>
 
-          <div>
-            <div>
-              <div>
-                <h3> Announcement Title : </h3>
-                <input
-                  type="text"
-                  name="announcehead"
-                  onChange={sendannounce}
-                  value={announce.announcehead}
-                ></input>
+        <div className={Addan.outer}>
+          <div className={Addan.mid}>
+            <div className={Addan.close}>
+              <button onClick={props.handleclose}>X</button>
+            </div>
+            <div className={Addan.center}>
+              <div className={Addan.title}>
+                <h1>Add Announcement</h1>
               </div>
+
               <div>
-                <h3> Announcement: </h3>
-                <input
-                  type="text"
-                  name="announcedesc"
-                  onChange={sendannounce}
-                  value={announce.announcedesc}
-                ></input>
-              </div>
-              <div>
-                <button onClick={storeannouncement}>Submit</button>{" "}
-                <button>Reset</button>
+                <div>
+                  <div>
+                    <h3> Announcement Title</h3>
+                    <input
+                      type="text"
+                      name="announcehead"
+                      onChange={sendannounce}
+                      value={announce.announcehead}
+                    ></input>
+                  </div>
+                  <div>
+                    <h3> Announcement</h3>
+                    <input
+                      type="text"
+                      name="announcedesc"
+                      onChange={sendannounce}
+                      value={announce.announcedesc}
+                    ></input>
+                  </div>
+                  <div className={Addan.fildsbtn}>
+                    <button id={Addan.btn1} onClick={storeannouncement}>Submit</button>{" "}
+                    <button id={Addan.btn2}>Reset</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

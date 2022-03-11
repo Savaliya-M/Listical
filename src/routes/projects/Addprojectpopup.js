@@ -58,7 +58,7 @@ const Addprojectpopup = (props) => {
               </tr>
               <tr>
                 <td></td>
-                <td fieldsbtn>
+                <td>
                   <button className={addpropop.fieldsbtn1} onClick={props.handleclose} >Submit</button> <button className={addpropop.fieldsbtn2}>Reset</button>
                 </td>
               </tr>

@@ -34,14 +34,17 @@ const Announcements = (props) => {
                 id={annocuncements.announcement}
               >
                 <div className={annocuncements.cimg}>
-                  <p>img</p>
+                  {/* <p>img</p> */}
+                  <button id={annocuncements.removebtn} onClick={() => removeItem(id)}>X</button>
                 </div>
                 <div className={annocuncements.text}>
-                  <h3>{announcement[id].announcehead}</h3>
+                  <h3>{announcement[id].announcehead}
+                  {/* <button id={annocuncements.removebtn} onClick={() => removeItem(id)}>X</button> */}
+                  </h3>
                   <p>{announcement[id].announcedesc}</p>
                 </div>
-                <div>
-                  <button onClick={() => removeItem(id)}>X</button>
+                <div >
+                  
                 </div>
               </div>
             </div>

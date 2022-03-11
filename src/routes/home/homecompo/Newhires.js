@@ -11,7 +11,6 @@ const Newhires = (props) => {
       <div className={nhire.mainhomecompo} id={nhire.Newhires}>
         <div className={nhire.head} id={nhire.Newhires}>
           <h3>New Hires</h3>
-          <button>+</button>
         </div>
         {hireList && hireList.length !== 0
           ? hireList.map((user, index) => {

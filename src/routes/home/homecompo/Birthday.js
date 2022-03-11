@@ -12,7 +12,6 @@ const Birthday = (props) => {
       <div className={birth.mainhomecompo} id={birth.Birthday}>
         <div className={birth.head} id={birth.Birthday}>
           <h3>Birthday</h3>
-          <button>+</button>
         </div>
         <div className={birth.mainContent}>
           {todayList && todayList.length !== 0

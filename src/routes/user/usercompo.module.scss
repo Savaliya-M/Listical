@@ -13,17 +13,28 @@
   display: flex;  
   background-color: #fff;
   border-radius: 5px;
-  height: 10rem;
+  height: 8.5rem;
   // margin: 5px;
   box-shadow: 2px 0px 10px #a1a1a1;
 }
 
 .left {
+  display: flex;
+  flex-direction: column;
   margin: 10px;
   line-height: 3rem;
   h1 {
     margin: 0%;
     padding: 0%;
+  }
+  img{
+    width: 5rem;
+    height: 5rem;
+  }
+  .userbtn{
+    margin: 0.8rem;
+    display: flex;
+    flex-direction: row;
   }
 }
 

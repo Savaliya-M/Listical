@@ -24,9 +24,11 @@ const Usercompo = () => {
           return (
             <div className={userscomp.person}>
               <div className={userscomp.left}>
-                <h1>LOGO</h1>
-                <button>Del</button>
-                <button>Dis</button>
+                <img src={require("@photos/man.png")} />
+                <div className={userscomp.userbtn}>
+                  <button>Del</button>
+                  <button>Dis</button>
+                </div>
               </div>
               <div
                 className={userscomp.right}

@@ -22,7 +22,8 @@
   @include propop(flex, column, 30rem, 30rem, 30rem, 30rem, center);
   margin-top : 4rem;
   color: white;
-  border: 5px solid grey;
+  background: rgba(0, 0, 0, 0.493);
+  border: 1px solid grey;
   border-radius: 30px;
   min-height: 22rem;
   height: rem;

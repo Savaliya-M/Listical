@@ -15,7 +15,6 @@ const Workanniversary = (props) => {
       >
         <div className={anniversary.head} id={anniversary.Workanniversary}>
           <h3>Work Anniversary</h3>
-          <button>+</button>
         </div>
         <div className={anniversary.mainContent}>
           {todayList && todayList.length !== 0
