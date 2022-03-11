@@ -20,7 +20,54 @@ const Usercompo = () => {
   return (
     <>
       <div className={userscomp.mainusercompo}>
-        {userskey.map((elem) => {
+        {localStorage.getItem("Type") === "Manager"
+          ? Object.keys(users).map((id) => {
+              if (users[id].managerid === localStorage.getItem("uuid")) {
+                return (
+                  <div className={userscomp.person} key={id}>
+                    <div className={userscomp.left}>
+                      <h1>LOGO</h1>
+                      <button>Del</button>
+                      <button>Dis</button>
+                    </div>
+                    <div
+                      className={userscomp.right}
+                      onClick={() => {
+                        navigate(`info/${id}`);
+                      }}
+                    >
+                      <h2>{users[id].name}</h2>
+                      <h5>{users[id].mono}</h5>
+                      <p>{users[id].post}</p>
+                    </div>
+                  </div>
+                );
+              } else {
+                return <></>;
+              }
+            })
+          : userskey.map((elem) => {
+              return (
+                <div className={userscomp.person} key={elem}>
+                  <div className={userscomp.left}>
+                    <h1>LOGO</h1>
+                    <button>Del</button>
+                    <button>Dis</button>
+                  </div>
+                  <div
+                    className={userscomp.right}
+                    onClick={() => {
+                      navigate(`info/${elem}`);
+                    }}
+                  >
+                    <h2>{users[elem].name}</h2>
+                    <h5>{users[elem].mono}</h5>
+                    <p>{users[elem].post}</p>
+                  </div>
+                </div>
+              );
+            })}
+        {/* {userskey.map((elem) => {
           return (
             <div className={userscomp.person}>
               <div className={userscomp.left}>
@@ -42,7 +89,7 @@ const Usercompo = () => {
               </div>
             </div>
           );
-        })}
+        })} */}
       </div>
     </>
   );

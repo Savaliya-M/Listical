@@ -30,7 +30,11 @@ const Upcomingholidays = (props) => {
       <div className={holiday.mainhomecompo} id={holiday.Upcomingholidays}>
         <div className={holiday.head} id={holiday.Upcomingholidays}>
           <h3>Upcoming Holidays</h3>
-          <button onClick={props.handleopen}>+</button>
+          {localStorage.getItem("Type") === "Admin" ? (
+            <button onClick={props.handleopen}>+</button>
+          ) : (
+            ""
+          )}
         </div>
         {upholidaykey.map((id) => {
           return (

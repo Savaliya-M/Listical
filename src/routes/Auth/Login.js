@@ -27,7 +27,8 @@ const Login = () => {
       Object.values(userData).forEach((elem) => {
         if (
           elem.email === authuserdata.email &&
-          elem.pass === authuserdata.password
+          elem.pass === authuserdata.password &&
+          elem.activate === true
         ) {
           flag = true;
           localStorage.setItem("uuid", elem.uuid);

@@ -15,6 +15,7 @@ const Announcements = (props) => {
       }
     });
   }, []);
+
   const removeItem = (id) => {
     appRef.child(`/Announcement/${id}`).remove(() => {
       alert("Record Deleted Successfully");
@@ -34,7 +35,11 @@ const Announcements = (props) => {
       >
         <div className={annocuncements.head} id={annocuncements.announcements}>
           <h3>Announcements</h3>
-          <button onClick={props.handleopen}>+</button>
+          {localStorage.getItem("Type") === "Admin" ? (
+            <button onClick={props.handleopen}>+</button>
+          ) : (
+            ""
+          )}
         </div>
         {announcementkey.map((id) => {
           return (
@@ -53,8 +58,12 @@ const Announcements = (props) => {
                   </h3>
                   <p>{announcement[id].announcedesc}</p>
                 </div>
-                <div >
-                  
+                <div>
+                  {localStorage.getItem("Type") === "Admin" ? (
+                    <button onClick={() => removeItem(id)}>X</button>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </div>
