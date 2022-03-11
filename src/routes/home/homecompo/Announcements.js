@@ -8,20 +8,30 @@ const Announcements = (props) => {
   useEffect(() => {
     appRef.child("Announcement").on("value", (snapshot) => {
       const userData = snapshot.val();
-      const announcementkey = Object.keys(userData);
-      setAnnouncement(snapshot.val());
-      setAnnouncementkey(announcementkey);
+      if (userData) {
+        const announcementkey = Object.keys(userData);
+        setAnnouncement(snapshot.val());
+        setAnnouncementkey(announcementkey);
+      }
     });
   }, []);
   const removeItem = (id) => {
     appRef.child(`/Announcement/${id}`).remove(() => {
       alert("Record Deleted Successfully");
-      setAnnouncement({ announcehead: "", announcedesc: "" });
+      setAnnouncement({ ...announcement, [id]: {} });
+      setAnnouncementkey(
+        announcementkey.filter((id) => {
+          return announcementkey.pop(id);
+        })
+      );
     });
   };
   return (
     <>
-      <div className={annocuncements.mainhomecompo} id={annocuncements.announcements} >
+      <div
+        className={annocuncements.mainhomecompo}
+        id={annocuncements.announcements}
+      >
         <div className={annocuncements.head} id={annocuncements.announcements}>
           <h3>Announcements</h3>
           <button onClick={props.handleopen}>+</button>
