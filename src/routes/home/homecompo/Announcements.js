@@ -48,22 +48,25 @@ const Announcements = (props) => {
                 className={annocuncements.content}
                 id={annocuncements.announcement}
               >
-                <div className={annocuncements.cimg}>
-                  {/* <p>img</p> */}
-                  <button id={annocuncements.removebtn} onClick={() => removeItem(id)}>X</button>
-                </div>
-                <div className={annocuncements.text}>
-                  <h3>{announcement[id].announcehead}
-                  {/* <button id={annocuncements.removebtn} onClick={() => removeItem(id)}>X</button> */}
-                  </h3>
-                  <p>{announcement[id].announcedesc}</p>
-                </div>
-                <div>
-                  {localStorage.getItem("Type") === "Admin" ? (
-                    <button onClick={() => removeItem(id)}>X</button>
-                  ) : (
-                    ""
-                  )}
+                <div className={annocuncements.tagtext}>
+                  <div className={annocuncements.textbtn}>
+                    <div className={annocuncements.cimg}>
+                      <p>img</p>
+                    </div>
+
+                    <div className={annocuncements.text}>
+                      <h3>{announcement[id].announcehead}
+                      </h3>
+                      <p>{announcement[id].announcedesc}</p>
+                    </div>
+                  </div>
+                  <div className={annocuncements.removebtn}>
+                    {localStorage.getItem("Type") === "Admin" ? (
+                      <button onClick={() => removeItem(id)}>X</button>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
