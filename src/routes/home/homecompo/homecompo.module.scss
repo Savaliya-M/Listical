@@ -7,15 +7,25 @@
 
 .mainhomecompo {
   display: grid;
-  grid-gap: 1rem;
-  margin: 15px;
+  margin: 20px;
   align-content: start;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  height: 25rem;
   // width: 20rem;
+  // width: fit-content;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  height: 20rem;
   background-color: #fff;
-  box-shadow: 2px 0px 15px #a1a1a1;
+  box-shadow: 2px 0px 50px  #a7a7a7;
+  border-radius: 5%;
+  &:hover{
+    box-shadow: 0px 0px 5px rgb(255, 255, 255)  ;
+    transform: scale(1.03);
+  }
+
+  .head{
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
   .head {
     display: flex;
     @include bghome(#374953, 40px, 0.9rem, white);
@@ -29,6 +39,7 @@
       color: white;
       font-size: large;
       border: 2px solid white;
+      border-radius: 20%;
       align-self: center;
       margin-left: auto;
       height: 2rem;
@@ -38,14 +49,15 @@
       &:hover {
         color: black;
         border: 2px solid black;
-        // background-color: #c8caca;
         background-color: #b7d0e0;
       }
     }
   }
 }
 
-
+// .mainContent{
+//   margin: 15px;
+// }
 
 .content {
   @include bghome(#b7d0e0, 18px, 0.8rem, black);
@@ -53,9 +65,7 @@
   align-items: center;
   margin: 7px;
   border-radius: 10px;
-  h3,
-  h2,
-  p {
+  h3, h2, p {
     margin: 0px;
   }
   .cimg {
@@ -66,36 +76,38 @@
   }
 }
 
-// .content1{
-//   @include bghome(#b7d0e0, 5px, 0.8rem, black);
-//   display: flex;
-//   align-items: center;
-//   // justify-content: space-between;
-//   margin: 7px;
-//   border-radius: 10px;
-//   .cimg{
-//     margin-left: 0.7rem;
-//     margin-right: 0.5rem;
-//   }
+.tagtext{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
 
-// }
+.textbtn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 1rem;
+}
 
-#removebtn {
-    margin-left: auto;
+.removebtn {
+  button{
+    margin-right: 1rem;
     font-size: 1rem;
+    text-align: center;
     height: 1.5rem;
     width: 1.5rem;
-    // margin-left: 0.5rem;
-    // margin-right: 0.5rem;
-    
     background-color: #b7d0e0;
     color: black;
     border: 2px solid black;
+    border-radius: 20%;
     &:hover {
       color: white;
       border: 2px solid white;
       background-color: #374953;
     }
+  }
 }
 
 .mainContent {

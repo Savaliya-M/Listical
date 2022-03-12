@@ -36,7 +36,7 @@ const Admincompo = () => {
             <li className={admincompo.rows}>
               <Link className={admincompo.title} to="adapprovals">
                 <div className={admincompo.icone}>
-                  <img src={require("@photos/project.png")} alt="" />
+                  <img src={require("@photos/add-user6.png")} alt="" />
                   {/* Approval */}
                 </div>
               </Link>
