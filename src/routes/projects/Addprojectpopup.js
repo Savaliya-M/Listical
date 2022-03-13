@@ -7,7 +7,7 @@ const Addprojectpopup = (props) => {
     projectTitle: "",
     clientName: "",
     timeLine: "",
-    managerid: "",
+    managerid: {},
   });
   const [usersData, setUsersData] = useState({});
   const [dropDownManager, setDropDownManager] = useState([]);
@@ -86,13 +86,6 @@ const Addprojectpopup = (props) => {
               </div>
               <div>
                 <h3>Manager Name : </h3>
-                {/* <input
-                  type="text"
-                  name="managerName"
-                  onChange={projectDetailChange}
-                  value={projectDetail.managerName}
-                  className={addpropop.fieldsinput}
-                ></input> */}
                 <select name="managerid" onChange={projectDetailChange}>
                   <option value="Select Manager">---Select Manager---</option>
                   {Object.keys(dropDownManager).map((id) => (

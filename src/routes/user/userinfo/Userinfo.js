@@ -28,19 +28,19 @@ const Userinfo = () => {
     }
   }, [user]);
 
-
   return (
     <>
       <div className={useinfo.mainuserinfo}>
         <div className={useinfo.secuserinfo}>
           <div className={useinfo.closebtn}>
-          <button 
-            onClick={() => {
-              navigate("/layout/user");
-            }}
-          >
-            X
-          </button>
+            <button
+              onClick={() => {
+                // navigate("/layout/user");
+                navigate(-1);
+              }}
+            >
+              X
+            </button>
           </div>
           <div className={useinfo.thirduserinfo}>
             <div className={useinfo.basicdetail}>
@@ -66,7 +66,7 @@ const Userinfo = () => {
                   </div>
                   <div onClick={useinfo.open} className={useinfo.userbtn}>
                     <div className={useinfo.btnpersonal}>
-                      <button >Basic Information</button>
+                      <button>Basic Information</button>
                     </div>
                     <div className={useinfo.qualification}>
                       <button>Qualification & Skill</button>
@@ -85,7 +85,6 @@ const Userinfo = () => {
               </div>
 
               <div className={useinfo.detailtext}>
-
                 <div className={useinfo.prinfo}>
                   <div className={useinfo.title1}>
                     <h2>Personal Information</h2>
@@ -127,15 +126,15 @@ const Userinfo = () => {
                       <h4>Collage</h4>
                       <h3>{user.colname}</h3>
                     </div>
-                      <div  className={useinfo.infolist2}>
+                    <div className={useinfo.infolist2}>
                       <h4>Language Known</h4>
-                        <h3>
-                          {langknow.map((elem) => {
-                            if (elem !== "") {
-                              return <li key={elem}>{elem}</li>;
-                            }
-                          })}
-                        </h3>
+                      <h3>
+                        {langknow.map((elem) => {
+                          if (elem !== "") {
+                            return <li key={elem}>{elem}</li>;
+                          }
+                        })}
+                      </h3>
                     </div>
                     <div className={useinfo.scrollname}>
                       <h4>Skill</h4>
@@ -178,7 +177,6 @@ const Userinfo = () => {
               </div>
             </div>
 
-
             <div className={useinfo.allProjects}>
               <div className={useinfo.title4}>
                 <h2>All Projects</h2>
@@ -216,7 +214,7 @@ const Userinfo = () => {
                 </div>
                 <div className={useinfo.projectwise}>
                   <div className={useinfo.protitle}>
-                  <h3>LMS</h3>
+                    <h3>LMS</h3>
                   </div>
                   <p>manish shah</p>
                   <p>Creted Backend for LMS</p>
@@ -225,7 +223,7 @@ const Userinfo = () => {
                 </div>
                 <div className={useinfo.projectwise}>
                   <div className={useinfo.protitle}>
-                  <h3>LMS</h3>
+                    <h3>LMS</h3>
                   </div>
                   <p>manish shah</p>
                   <p>Creted Backend for LMS</p>
@@ -234,7 +232,7 @@ const Userinfo = () => {
                 </div>
                 <div className={useinfo.projectwise}>
                   <div className={useinfo.protitle}>
-                  <h3>LMS</h3>
+                    <h3>LMS</h3>
                   </div>
                   <p>manish shah</p>
                   <p>Creted Backend for LMS</p>
@@ -243,7 +241,7 @@ const Userinfo = () => {
                 </div>
                 <div className={useinfo.projectwise}>
                   <div className={useinfo.protitle}>
-                  <h3>LMS</h3>
+                    <h3>LMS</h3>
                   </div>
                   <p>manish shah</p>
                   <p>Creted Backend for LMS</p>
@@ -252,7 +250,7 @@ const Userinfo = () => {
                 </div>
                 <div className={useinfo.projectwise}>
                   <div className={useinfo.protitle}>
-                  <h3>LMS</h3>
+                    <h3>LMS</h3>
                   </div>
                   <p>manish shah</p>
                   <p>Creted Backend for LMS</p>
@@ -261,7 +259,7 @@ const Userinfo = () => {
                 </div>
                 <div className={useinfo.projectwise}>
                   <div className={useinfo.protitle}>
-                  <h3>LMS</h3>
+                    <h3>LMS</h3>
                   </div>
                   <p>manish shah</p>
                   <p>Creted Backend for LMS</p>
@@ -270,7 +268,7 @@ const Userinfo = () => {
                 </div>
                 <div className={useinfo.projectwise}>
                   <div className={useinfo.protitle}>
-                  <h3>LMS</h3>
+                    <h3>LMS</h3>
                   </div>
                   <p>manish shah</p>
                   <p>Creted Backend for LMS</p>
@@ -279,7 +277,7 @@ const Userinfo = () => {
                 </div>
                 <div className={useinfo.projectwise}>
                   <div className={useinfo.protitle}>
-                  <h3>LMS</h3>
+                    <h3>LMS</h3>
                   </div>
                   <p>manish shah</p>
                   <p>Creted Backend for LMS</p>

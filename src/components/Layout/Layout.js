@@ -8,6 +8,8 @@ import User from "@user/User";
 import Project from "@projects/Project";
 import appRef from "../../firebase";
 import Adminapproval from "../../routes/Approvals/Adminapproval";
+import Projectdetail from "../../routes/projects/Projectdetail";
+import EmployeeaddPopup from "../../routes/projects/EmployeeaddPopup";
 
 const Layout = () => {
   const [user, setUser] = useState({});
@@ -36,8 +38,13 @@ const Layout = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route exact path="user/*" element={<User user={user} />} />
-              <Route exact path="project" element={<Project />} />
+              <Route exact path="project/*" element={<Project />} />
               <Route exact path="adapprovals" element={<Adminapproval />} />
+              <Route
+                exact
+                path="project/projectdetail/:id"
+                element={<Projectdetail />}
+              />
             </Routes>
           ) : (
             ""
@@ -46,7 +53,17 @@ const Layout = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route exact path="user/*" element={<User />} />
-              {/* <Route exact path="project" element={<Project />} /> */}
+              <Route exact path="project/*" element={<Project />} />
+              <Route
+                exact
+                path="project/projectdetail/:id"
+                element={<Projectdetail />}
+              />
+              <Route
+                exact
+                path="project/projectdetail/employeeadd/:id"
+                element={<EmployeeaddPopup />}
+              />
             </Routes>
           ) : (
             ""
