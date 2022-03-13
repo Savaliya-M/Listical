@@ -60,49 +60,63 @@ const Login = () => {
   return (
     <>
       <div className={login.loginpage}>
-      <div className={login.log}>
-      </div>
-      <div className={login.log2}>
-      </div>
+        <div className={login.log}>
+        </div>
+        <div className={login.log2}>
+        </div>
         <div className={login.loginpart}>
           <div className={login.loginside1}>
             <img src={require(("@photos/Listical.png"))} alt="" />
             <h1>Listical</h1>
+            <h2>Welcome!</h2>
           </div>
           <div className={login.loginside2}>
             <div className={login.loginform}>
-            <div className={login.logintitle}>
-              <h2>Log in</h2>
-            </div>
-              <div>
-                Username
-                <div>
-                <input
-                  type="text"
-                  value={authuserdata.email}
-                  name="email"
-                  onChange={logdetail}
-                />
+              <div className={login.logintitle}>
+              <h6>Welcome In Listical</h6>
+                <h2>Log in</h2>
+              </div>
+              <div className={login.fields}>
+                <div className={login.fields1}>
+                  User Name
+                  <div>
+                    <input className={login.textbox}
+                      placeholder="Listical@email.com"
+                      type="text"
+                      value={authuserdata.email}
+                      name="email"
+                      onChange={logdetail}
+                    />
+                  </div>
+                </div>
+                <div className={login.fields2}>
+                  Password
+                  <div>
+                    <input className={login.textbox}
+                      placeholder="Enter Your Password"
+                      type="password"
+                      value={authuserdata.password}
+                      name="password"
+                      onChange={logdetail}
+                    />
+                  </div>
+                </div>
+                <div className={login.btns}>
+                  <div>
+                    <input className={login.btn1} type="submit" value="Login" onClick={authUser} />
+                  </div>
+                  {/* <input type="reset" /> */}
                 </div>
               </div>
-              <div>
-                Password
-                <div> 
-                <input
-                  type="password"
-                  value={authuserdata.password}
-                  name="password"
-                  onChange={logdetail}
-                />
-                </div>
-              </div>
-              <div>
-                <input type="submit" onClick={authUser} />
-                <input type="reset" />
-              </div>
             </div>
-            Not a member?
-            <Link to="/signup">Signup Now</Link>
+            <div className={login.signup}>
+              Not a member?
+              <Link  to="/signup" style={{ textDecoration: 'none' }}><div className={login.signbtn}>
+
+               Signup Now
+              </div>
+               </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import adminapprov from './adminapproval.module.scss';
 import Addmanager from "./Addmanager";
 import appRef from "../../firebase";
 
@@ -73,29 +74,33 @@ const Adminapproval = () => {
       ) : (
         ""
       )}
-      <div>
+      <div className={adminapprov.mainbox}>
         <h1>Users Approvals</h1>
-        {Object.keys(usersData).map((index) => {
-          if (usersData[index].activate === false) {
-            return (
-              <div key={index}>
-                <div>
-                  <h1>LOGO</h1>
-                  {usersData[index].position === "Employee" ? (
-                    <button onClick={() => handleopen(index)}>Allow</button>
-                  ) : (
-                    <button onClick={() => managerAllow(index)}>Allow</button>
-                  )}
+        <div className={adminapprov.innerbox}>
+          {Object.keys(usersData).map((index) => {
+            if (usersData[index].activate === false) {
+              return (
+                <div key={index} className={adminapprov.empdetail}>
+                  <div className={adminapprov.manbtn}>
+                    <img src={require("@photos/man.png")} />
+                    <div className={adminapprov.aprobtn}>
+                    {usersData[index].position === "Employee" ? (
+                      <button onClick={() => handleopen(index)}>Allow</button>
+                    ) : (
+                      <button onClick={() => managerAllow(index)}>Allow</button>
+                    )}
+                    </div>
+                  </div>
+                  <div>
+                    <h2>{usersData[index].name}</h2>
+                    <h5>{usersData[index].mono}</h5>
+                    <p>{usersData[index].name}</p>
+                  </div>
                 </div>
-                <div>
-                  <h2>{usersData[index].name}</h2>
-                  <h5>{usersData[index].mono}</h5>
-                  <p>{usersData[index].name}</p>
-                </div>
-              </div>
-            );
-          }
-        })}
+              );
+            }
+          })}
+        </div>
       </div>
     </>
   );

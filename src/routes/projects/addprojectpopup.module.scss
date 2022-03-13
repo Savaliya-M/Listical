@@ -12,6 +12,7 @@
   @include propop(flex, column, 100%, 100%, 100%, 100%, center);
   position: fixed;
   overflow-y: scroll;
+  scrollbar-width: none;
   justify-content: center;
   top: 0;
   left: 0;

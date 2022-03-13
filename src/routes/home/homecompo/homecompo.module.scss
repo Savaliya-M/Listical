@@ -17,9 +17,15 @@
   background-color: #fff;
   box-shadow: 2px 0px 50px  #a7a7a7;
   border-radius: 5%;
+  // overflow-y: auto;
+  
   &:hover{
     box-shadow: 0px 0px 5px rgb(255, 255, 255)  ;
     transform: scale(1.03);
+  }
+  .scroll{
+    overflow-y: scroll;
+    scrollbar-width: none;
   }
 
   .head{
@@ -55,9 +61,6 @@
   }
 }
 
-// .mainContent{
-//   margin: 15px;
-// }
 
 .content {
   @include bghome(#b7d0e0, 18px, 0.8rem, black);
@@ -108,8 +111,4 @@
       background-color: #374953;
     }
   }
-}
-
-.mainContent {
-  overflow-y: auto;
 }

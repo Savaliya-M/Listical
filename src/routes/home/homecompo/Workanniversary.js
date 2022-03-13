@@ -16,9 +16,10 @@ const Workanniversary = (props) => {
         <div className={anniversary.head} id={anniversary.Workanniversary}>
           <h3>Work Anniversary</h3>
         </div>
-        <div className={anniversary.mainContent}>
-          {todayList && todayList.length !== 0
-            ? todayList.map((user, index) => {
+        <div className={anniversary.scroll}>
+          <div className={anniversary.mainContent}>
+            {todayList && todayList.length !== 0
+              ? todayList.map((user, index) => {
                 return user.isAnniversary ? (
                   <div
                     className={anniversary.content}
@@ -35,7 +36,8 @@ const Workanniversary = (props) => {
                   </div>
                 ) : null;
               })
-            : "no anniversary today"}
+              : "no anniversary today"}
+          </div>
         </div>
       </div>
     </>
