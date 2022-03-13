@@ -8,6 +8,7 @@ const Todaysleave = () => {
         <div className={leave.head} id={leave.Todaysleave}>
           <h3>Todays Leave</h3>
         </div>
+        <div className={leave.scroll}>
         <div className={leave.mainContent}>
           <div className={leave.content} id={leave.Todaysleave}>
             <div className={leave.cimg}>
@@ -36,6 +37,7 @@ const Todaysleave = () => {
               <p>fontend devloper</p>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </>

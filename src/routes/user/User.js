@@ -10,9 +10,7 @@ const User = (props) => {
   return (
     <>
       <div className={users.mainuser}>
-        <div className={users.togglebtn}>
-          <button >List</button>
-        </div>
+        
         <div className={users.usercomp}>
           <Routes>
             <Route exact path="/" element={<Usercompo />} />

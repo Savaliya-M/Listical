@@ -5,7 +5,7 @@
 .progressreport img {
   height: 200px;
   width: 100%;
-  border-radius: 5%;
+  border-radius: 10px;
 }
 
 .probox {
@@ -15,10 +15,10 @@
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 25px;
   padding: 5px;
   box-shadow: 2px 0px 15px #a1a1a1;
-  border-radius: 5%;
+  border-radius: 15px;
   &:hover{
     box-shadow: 0px 0px 15px rgb(252, 252, 252)  ;
     transform: scale(1.03);

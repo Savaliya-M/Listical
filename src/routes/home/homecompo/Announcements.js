@@ -41,37 +41,39 @@ const Announcements = (props) => {
             ""
           )}
         </div>
-        {announcementkey.map((id) => {
-          return (
-            <div className={annocuncements.mainContent} key={id}>
-              <div
-                className={annocuncements.content}
-                id={annocuncements.announcement}
-              >
-                <div className={annocuncements.tagtext}>
-                  <div className={annocuncements.textbtn}>
-                    <div className={annocuncements.cimg}>
-                      <p>img</p>
-                    </div>
+        <div className={annocuncements.scroll}>
+          {announcementkey.map((id) => {
+            return (
+              <div className={annocuncements.mainContent} key={id}>
+                <div
+                  className={annocuncements.content}
+                  id={annocuncements.announcement}
+                >
+                  <div className={annocuncements.tagtext}>
+                    <div className={annocuncements.textbtn}>
+                      <div className={annocuncements.cimg}>
+                        <p>img</p>
+                      </div>
 
-                    <div className={annocuncements.text}>
-                      <h3>{announcement[id].announcehead}
-                      </h3>
-                      <p>{announcement[id].announcedesc}</p>
+                      <div className={annocuncements.text}>
+                        <h3>{announcement[id].announcehead}
+                        </h3>
+                        <p>{announcement[id].announcedesc}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className={annocuncements.removebtn}>
-                    {localStorage.getItem("Type") === "Admin" ? (
-                      <button onClick={() => removeItem(id)}>X</button>
-                    ) : (
-                      ""
-                    )}
+                    <div className={annocuncements.removebtn}>
+                      {localStorage.getItem("Type") === "Admin" ? (
+                        <button onClick={() => removeItem(id)}>X</button>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </>
   );

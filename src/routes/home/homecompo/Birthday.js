@@ -13,7 +13,8 @@ const Birthday = (props) => {
         <div className={birth.head} id={birth.Birthday}>
           <h3>Birthday</h3>
         </div>
-        <div className={birth.mainContent}>
+        {/* <div className={birth.mainContent}> */}
+        <div className={birth.scroll}>
           {todayList && todayList.length !== 0
             ? todayList.map((user, index) => {
                 return user.isBirthdate ? (
@@ -33,8 +34,9 @@ const Birthday = (props) => {
                 ) : null;
               })
             : "no Birthday today"}
+            </div>
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };

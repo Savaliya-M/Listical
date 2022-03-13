@@ -12,6 +12,7 @@ const Newhires = (props) => {
         <div className={nhire.head} id={nhire.Newhires}>
           <h3>New Hires</h3>
         </div>
+        <div className={nhire.scroll}>
         {hireList && hireList.length !== 0
           ? hireList.map((user, index) => {
               return (
@@ -29,6 +30,7 @@ const Newhires = (props) => {
               );
             })
           : "noHire today"}
+          </div>
       </div>
     </>
   );

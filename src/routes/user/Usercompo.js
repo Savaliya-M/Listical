@@ -19,55 +19,59 @@ const Usercompo = () => {
 
   return (
     <>
+      <div className={userscomp.togglebtn}>
+        <button >List</button>
+      </div>
+
       <div className={userscomp.mainusercompo}>
         {localStorage.getItem("Type") === "Manager"
           ? Object.keys(users).map((id) => {
-              if (users[id].managerid === localStorage.getItem("uuid")) {
-                return (
-                  <div className={userscomp.person} key={id}>
-                    <div className={userscomp.left}>
-                      <button>Del</button>
-                      <button>Dis</button>
-                    </div>
-                    <div
-                      className={userscomp.right}
-                      onClick={() => {
-                        navigate(`info/${id}`);
-                      }}
-                    >
-                      <h2>{users[id].name}</h2>
-                      <h5>{users[id].mono}</h5>
-                      <p>{users[id].post}</p>
-                    </div>
-                  </div>
-                );
-              } else {
-                return <></>;
-              }
-            })
-          : userskey.map((elem) => {
+            if (users[id].managerid === localStorage.getItem("uuid")) {
               return (
-                <div className={userscomp.person} key={elem}>
+                <div className={userscomp.person} key={id}>
                   <div className={userscomp.left}>
-                  <img src={require("@photos/man.png")} />
-                    <div className={userscomp.userbtn}>
-                  <button>Del</button>
-                  <button>Dis</button>
-                </div>
+                    <button>Del</button>
+                    <button>Dis</button>
                   </div>
                   <div
                     className={userscomp.right}
                     onClick={() => {
-                      navigate(`info/${elem}`);
+                      navigate(`info/${id}`);
                     }}
                   >
-                    <h2>{users[elem].name}</h2>
-                    <h5>{users[elem].mono}</h5>
-                    <p>{users[elem].post}</p>
+                    <h2>{users[id].name}</h2>
+                    <h5>{users[id].mono}</h5>
+                    <p>{users[id].post}</p>
                   </div>
                 </div>
               );
-            })}
+            } else {
+              return <></>;
+            }
+          })
+          : userskey.map((elem) => {
+            return (
+              <div className={userscomp.person} key={elem}>
+                <div className={userscomp.left}>
+                  <img src={require("@photos/man.png")} />
+                  <div className={userscomp.userbtn}>
+                    <button className={userscomp.btn1}>Del</button>
+                    <button className={userscomp.btn2}>Dis</button>
+                  </div>
+                </div>
+                <div
+                  className={userscomp.right}
+                  onClick={() => {
+                    navigate(`info/${elem}`);
+                  }}
+                >
+                  <h2>{users[elem].name}</h2>
+                  <h5>{users[elem].mono}</h5>
+                  <p>{users[elem].post}</p>
+                </div>
+              </div>
+            );
+          })}
         {/* {userskey.map((elem) => {
           return (
             <div className={userscomp.person}>
