@@ -71,8 +71,8 @@ const Layout = () => {
           {user.position === "Employee" ? (
             <Routes>
               <Route path="/" element={<Home />} />
-              {/* <Route exact path="user/*" element={<User />} />
-              <Route exact path="project" element={<Project />} /> */}
+              {/* <Route exact path="user/*" element={<User />} /> */}
+              <Route exact path="project" element={<Project />} />
             </Routes>
           ) : (
             ""

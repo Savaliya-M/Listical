@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import appRef from "../../firebase";
-// import appRef from "../../firebase";
-import EmployeeaddPopup from "./EmployeeaddPopup";
 // import prodetail from "./projectdetail.module.scss";
 
 const Projectdetail = () => {
   const [users, setUsers] = useState({});
-  // const [team, setTeam] = useState({});
+  const [team, setTeam] = useState([]);
   const [project, setProject] = useState({});
 
   const { id } = useParams();
@@ -27,15 +25,19 @@ const Projectdetail = () => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   Object.keys(project.empids).map((id) => {
-  //     if (project.empids[id] === Object.values(users.uuid)) {
-  //       console.log("done");
-  //     }
-  //   });
-  // }, [project]);
-
-  console.log(users);
+  useEffect(() => {
+    if (project.empids && users) {
+      let tempTeamArr = [];
+      Object.keys(project.empids).map((uid) => {
+        Object.keys(users).map((id) => {
+          if (users[id].uuid === project.empids[uid]) {
+            tempTeamArr.push(users[id]);
+          }
+        });
+      });
+      setTeam(tempTeamArr);
+    }
+  }, [project]);
 
   return (
     <>
@@ -45,25 +47,33 @@ const Projectdetail = () => {
           <h2>{project.projectTitle}</h2>
           <h3>{project.clientName}</h3>
           <h4>{project.timeLine}</h4>
-          <h4></h4>
         </div>
         <div>
           <h1>project Description</h1>
         </div>
         <div>
           <h1>Team Member</h1>
-          <button
-            onClick={() =>
-              navigate(`/layout/project/projectdetail/employeeadd/${id}`)
-            }
-          >
-            +
-          </button>
-          <div>
-            Name:hhhhhh <br />
-            mono:mmmmmm <br />
-            post:jjjjjj <br />
-          </div>
+          {localStorage.getItem("Type") === "Manager" ? (
+            <button
+              onClick={() =>
+                navigate(`/layout/project/projectdetail/employeeadd/${id}`)
+              }
+            >
+              +
+            </button>
+          ) : (
+            ""
+          )}
+
+          {Object.values(team).map((id) => (
+            <div key={id.uuid}>
+              <h1> Name:{id.name}</h1> <br />
+              <h3> mono:{id.mono} </h3>
+              <br />
+              <h3> post:{id.post} </h3>
+              <br />
+            </div>
+          ))}
         </div>
       </div>
     </>

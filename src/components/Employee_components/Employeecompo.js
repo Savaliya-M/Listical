@@ -47,14 +47,14 @@ const Employeecompo = () => {
                 </div>
               </Link>
             </li>
-            <li className={employeecompo.rows}>
+            {/* <li className={employeecompo.rows}>
               <Link className={employeecompo.title} to="user">
                 <div className={employeecompo.icone}>
                   <img src={require("@photos/people.png")} alt="People" />
-                  {/* User */}
+                  User
                 </div>
               </Link>
-            </li>
+            </li> */}
             <li className={employeecompo.rows}>
               <Link className={employeecompo.title} to="project">
                 <div className={employeecompo.icone}>
