@@ -55,11 +55,6 @@ const Announcements = (props) => {
                         <p>img</p>
                       </div>
 
-<<<<<<< HEAD
-                    <div className={annocuncements.text}>
-                      <h3>{announcement[id].announcehead}</h3>
-                      <p>{announcement[id].announcedesc}</p>
-=======
                       <div className={annocuncements.text}>
                         <h3>{announcement[id].announcehead}
                         </h3>
@@ -72,7 +67,6 @@ const Announcements = (props) => {
                       ) : (
                         ""
                       )}
->>>>>>> 8c19f8b67e52ce793061c8e1c273f037110e38d8
                     </div>
                   </div>
                 </div>

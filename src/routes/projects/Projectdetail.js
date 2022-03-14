@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import appRef from "../../firebase";
 // import appRef from "../../firebase";
 import EmployeeaddPopup from "./EmployeeaddPopup";
-// import prodetail from "./projectdetail.module.scss";
+import prodetail from "./projectdetail.module.scss";
 
 const Projectdetail = () => {
   const [users, setUsers] = useState({});
@@ -39,31 +39,68 @@ const Projectdetail = () => {
 
   return (
     <>
-      <div>
-        <div>
-          <h1>project basic Detail</h1>
-          <h2>{project.projectTitle}</h2>
-          <h3>{project.clientName}</h3>
-          <h4>{project.timeLine}</h4>
-          <h4></h4>
-        </div>
-        <div>
-          <h1>project Description</h1>
-        </div>
-        <div>
-          <h1>Team Member</h1>
-          <button
-            onClick={() =>
-              navigate(`/layout/project/projectdetail/employeeadd/${id}`)
-            }
-          >
-            +
-          </button>
-          <div>
-            Name:hhhhhh <br />
-            mono:mmmmmm <br />
-            post:jjjjjj <br />
+      <div className={prodetail.all}>
+
+        <div className={prodetail.alldetails}>
+          <div className={prodetail.Progress}>
+            <h1>Progress Bar</h1>
           </div>
+          <div className={prodetail.rightside}>
+
+            <div className={prodetail.graphs}>
+
+              <img src={require("@photos/LineGraphs.jpg")} alt="" />
+            </div>
+
+            <div className={prodetail.prodetails}>
+
+              <div className={prodetail.client}>
+                <div className={prodetail.heading}>
+                  <h2>Project Basic Detail</h2>
+                </div>
+                <h5>Poject Name</h5>
+                <h4>{project.projectTitle}</h4>
+                <h5>Owner Name</h5>
+                <h4>{project.clientName}</h4>
+                <h5>Dead Line</h5>
+                <h4>{project.timeLine}</h4>
+                <h4></h4>
+              </div>
+
+              <div className={prodetail.aboutproject}>
+                <div className={prodetail.heading}>
+                  <h2>Project Description</h2>
+                </div>
+                <div className={prodetail.para}>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis laborum explicabo ut quisquam. Deleniti exercitationem vero modi alias eveniet, ratione porro deserunt ut, aspernatur enim, ipsum dignissimos voluptas aperiam esse!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis laborum explicabo ut quisquam. Deleniti exercitationem vero modi alias eveniet, ratione porro deserunt ut, aspernatur enim, ipsum dignissimos voluptas aperiam esse!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={prodetail.aboutteam}>
+            <div className={prodetail.heading}>
+              <h2>Team Member</h2>
+              <div className={prodetail.addbtn}>
+              <button
+                onClick={() =>
+                  navigate(`/layout/project/projectdetail/employeeadd/${id}`)
+                }
+              >
+                +
+              </button>
+            </div>
+            </div>
+            <div>
+              Name:hhhhhh <br />
+              mono:mmmmmm <br />
+              post:jjjjjj <br />
+            </div>
+          </div>
+
+
         </div>
       </div>
     </>
