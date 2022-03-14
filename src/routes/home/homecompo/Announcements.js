@@ -56,8 +56,7 @@ const Announcements = (props) => {
                       </div>
 
                       <div className={annocuncements.text}>
-                        <h3>{announcement[id].announcehead}
-                        </h3>
+                        <h3>{announcement[id].announcehead}</h3>
                         <p>{announcement[id].announcedesc}</p>
                       </div>
                     </div>

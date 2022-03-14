@@ -7,7 +7,7 @@ import prodetail from "./projectdetail.module.scss";
 
 const Projectdetail = () => {
   const [users, setUsers] = useState({});
-  // const [team, setTeam] = useState({});
+  const [team, setTeam] = useState([]);
   const [project, setProject] = useState({});
 
   const { id } = useParams();
@@ -27,80 +27,55 @@ const Projectdetail = () => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   Object.keys(project.empids).map((id) => {
-  //     if (project.empids[id] === Object.values(users.uuid)) {
-  //       console.log("done");
-  //     }
-  //   });
-  // }, [project]);
-
-  console.log(users);
+  useEffect(() => {
+    if (project.empids && users) {
+      let tempTeamArr = [];
+      Object.keys(project.empids).map((uid) => {
+        Object.keys(users).map((id) => {
+          if (users[id].uuid === project.empids[uid]) {
+            tempTeamArr.push(users[id]);
+          }
+        });
+      });
+      setTeam(tempTeamArr);
+    }
+  }, [project]);
 
   return (
     <>
-      <div className={prodetail.all}>
+      <div>
+        <div>
+          <h1>project basic Detail</h1>
+          <h2>{project.projectTitle}</h2>
+          <h3>{project.clientName}</h3>
+          <h4>{project.timeLine}</h4>
+        </div>
+        <div>
+          <h1>project Description</h1>
+        </div>
+        <div>
+          <h1>Team Member</h1>
+          {localStorage.getItem("Type") === "Manager" ? (
+            <button
+              onClick={() =>
+                navigate(`/layout/project/projectdetail/employeeadd/${id}`)
+              }
+            >
+              +
+            </button>
+          ) : (
+            ""
+          )}
 
-        <div className={prodetail.alldetails}>
-          <div className={prodetail.Progress}>
-            <h1>Progress Bar</h1>
-          </div>
-          <div className={prodetail.rightside}>
-
-            <div className={prodetail.graphs}>
-
-              <img src={require("@photos/LineGraphs.jpg")} alt="" />
+          {Object.values(team).map((id) => (
+            <div key={id.uuid}>
+              <h1> Name:{id.name}</h1> <br />
+              <h3> mono:{id.mono} </h3>
+              <br />
+              <h3> post:{id.post} </h3>
+              <br />
             </div>
-
-            <div className={prodetail.prodetails}>
-
-              <div className={prodetail.client}>
-                <div className={prodetail.heading}>
-                  <h2>Project Basic Detail</h2>
-                </div>
-                <h5>Poject Name</h5>
-                <h4>{project.projectTitle}</h4>
-                <h5>Owner Name</h5>
-                <h4>{project.clientName}</h4>
-                <h5>Dead Line</h5>
-                <h4>{project.timeLine}</h4>
-                <h4></h4>
-              </div>
-
-              <div className={prodetail.aboutproject}>
-                <div className={prodetail.heading}>
-                  <h2>Project Description</h2>
-                </div>
-                <div className={prodetail.para}>
-                  <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis laborum explicabo ut quisquam. Deleniti exercitationem vero modi alias eveniet, ratione porro deserunt ut, aspernatur enim, ipsum dignissimos voluptas aperiam esse!
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis laborum explicabo ut quisquam. Deleniti exercitationem vero modi alias eveniet, ratione porro deserunt ut, aspernatur enim, ipsum dignissimos voluptas aperiam esse!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={prodetail.aboutteam}>
-            <div className={prodetail.heading}>
-              <h2>Team Member</h2>
-              <div className={prodetail.addbtn}>
-              <button
-                onClick={() =>
-                  navigate(`/layout/project/projectdetail/employeeadd/${id}`)
-                }
-              >
-                +
-              </button>
-            </div>
-            </div>
-            <div>
-              Name:hhhhhh <br />
-              mono:mmmmmm <br />
-              post:jjjjjj <br />
-            </div>
-          </div>
-
-
+          ))}
         </div>
       </div>
     </>
