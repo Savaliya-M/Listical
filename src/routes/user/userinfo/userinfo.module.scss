@@ -152,14 +152,17 @@
     width: 15rem;
     #list {
       margin-top: 0%;
-      overflow-y: scroll;
-      scrollbar-width: none;
       height: 7rem;
       width: 10rem;
       border-top: 2px solid black;
       border-bottom: 2px solid black;
       // text-align: center;
       // margin-left: 5rem;
+      overflow-y: scroll;
+      scrollbar-width: none;
+      &::-webkit-scrollbar{
+        width: 0px;
+      }
     }
     li {
       margin-left: 2rem;
@@ -187,6 +190,9 @@
     #empwords {
       overflow-y: scroll;
       scrollbar-width: none;
+      &::-webkit-scrollbar{
+        width: 0px;
+      }
     }
   }
 

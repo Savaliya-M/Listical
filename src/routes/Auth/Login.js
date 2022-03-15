@@ -78,7 +78,7 @@ const Login = () => {
               </div>
               <div className={login.fields}>
                 <div className={login.fields1}>
-                  User Name
+                  User Email
                   <div>
                     <input className={login.textbox}
                       placeholder="Listical@email.com"

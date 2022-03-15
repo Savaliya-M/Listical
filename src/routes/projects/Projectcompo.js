@@ -1,5 +1,5 @@
-import React from "react";
-import procomp from "./projectcompo.module.scss";
+// import React from "react";
+// import procomp from "./projectcompo.module.scss";
 
 const Projectcompo = () => {
   return (

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import appRef from "../../firebase";
+import empadd from "./employeeaddpopup.module.scss";
 
 const EmployeeaddPopup = () => {
   const [users, setUsers] = useState({});
@@ -36,31 +37,54 @@ const EmployeeaddPopup = () => {
   };
   return (
     <>
-      <div>
-        <button onClick={() => navigate(-1)}>Back</button>
-        <button onClick={storeData}>Save</button>
-        {Object.keys(users).map((id) => {
-          if (users[id].managerid === localStorage.getItem("uuid")) {
-            return (
-              <div key={id}>
-                <div>
-                  <input type="checkbox" onChange={() => addEmp(users[id])} />
+      <div className={empadd.mainbox}>
+        <div className={empadd.header}>
+          <div className={empadd.headname}>
+            <h1>Employee's Details</h1>
+          </div>
+          <div className={empadd.backsavebtn}>
+            <button className={empadd.backbtn} onClick={() => navigate(-1)}>Back</button>
+            <button className={empadd.savebtn} onClick={storeData}>Save</button>
+          </div>
+        </div>
+        <div className={empadd.team}>
+          {Object.keys(users).map((id) => {
+            if (users[id].managerid === localStorage.getItem("uuid")) {
+              return (
+                <div key={id}>
+                  <div className={empadd.hi}>
+                    <div >
+                      <input type="checkbox" onChange={() => addEmp(users[id])} />
+                    </div>
+                    <div className={empadd.teammember}
+                      onClick={() => {
+                        navigate(`/layout/user/info/${id}`);
+                      }}
+                    >
+                      <div className={empadd.teams}>
+                        <div className={empadd.names}>
+                          <h4>Name</h4>
+                          <h3>{users[id].name}</h3>
+                        </div>
+                        <div className={empadd.mono}>
+                          <h4>Mobile No.</h4>
+                          <h3>{users[id].mono}</h3>
+                        </div>
+                        <div className={empadd.post}>
+                          <h4>Post</h4>
+                          <h3>{users[id].post}</h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div
-                  onClick={() => {
-                    navigate(`/layout/user/info/${id}`);
-                  }}
-                >
-                  <h2>{users[id].name}</h2>
-                  <h5>{users[id].mono}</h5>
-                  <p>{users[id].post}</p>
-                </div>
-              </div>
-            );
-          } else {
-            return <></>;
-          }
-        })}
+              );
+            } else {
+              return <></>;
+            }
+          })}
+        </div>
+        {/* <div></div> */}
       </div>
     </>
   );
