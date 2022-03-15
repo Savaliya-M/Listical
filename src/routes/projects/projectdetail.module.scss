@@ -1,7 +1,7 @@
 .all {
   // width: 100%;
   // height: 100vh;
-  //   border: 4px solid rgb(234, 0, 255);
+  border: 4px solid rgb(255, 255, 255);
   background-color: white;
   margin: 2rem;
   box-shadow: 0px 0px 20px;
@@ -9,14 +9,13 @@
 
 .Progress {
   border: 2px solid rgb(0, 0, 0);
-  // background-color: rgb(255, 0, 0);
 }
 
 .alldetails {
   //   width: 100%;
   height: 100%;
-  border: 5px solid rgb(208, 255, 0);
   flex-direction: row;
+  margin: 2rem;
 }
 
 .rightside {
@@ -26,9 +25,8 @@
 
 .graphs {
   width: 70%;
-  //   height: 100vh;
-  border: 5px solid rgb(0, 255, 42);
-  //   background-color: rgb(200, 255, 0);
+  background-color: #4a6f85;
+  margin: 1rem 0rem 0rem 0rem;
   img {
     width: 30rem;
     height: 23rem;
@@ -39,36 +37,47 @@
   display: flex;
   flex-direction: column;
   width: 30%;
-  height: 70vh;
-  border: 5px solid rgb(38, 0, 255);
-  background-color: rgb(0, 255, 234);
+  height: 100%;
   text-align: center;
 
   .client {
-    height: 12rem;
+    height: 15rem;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
-    margin: 1rem;
+    margin: 1rem 0rem 0rem 1rem;
     background-color: #ffffff;
-    h5 {
-      color: #4a6f85;
-    }
+
+    h2,
     h4,
+    h3,
     h5 {
       margin: 5px;
+    }
+    h5 {
+      margin-top: 15px;
+      color: #4a6f85;
     }
   }
 
   .aboutproject {
-    height: 12rem;
+    height: 15rem;
     border: 2px solid rgb(0, 0, 0);
     background-color: #ffffff;
     border-radius: 10px;
-    margin: 1rem;
+    margin: 1rem 0rem 0rem 1rem;
+    h2,
+    h4,
+    h3 {
+      margin: 0px;
+    }
+    h5 {
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
     .para {
       margin-top: 0px;
       overflow-y: scroll;
-      height: 7rem;
+      height: 12rem;
       scrollbar-width: none;
       &::-webkit-scrollbar {
         width: 0px;
@@ -84,18 +93,17 @@
     background-color: #b7d0e0;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    color: white;
+    color: rgb(0, 0, 0);
+    border-bottom: 2px solid black;
+    border-top: 3px solid black;
   }
 }
 
 .aboutteam {
-  // color: white;
-
-  height: 10rem;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 10px;
-  margin: 1rem;
-  background-color: #b7d0e0;
+  margin: 2rem 0rem 0rem 0rem;
+  background-color: #ffffff;
   .heading {
     h2 {
       display: flex;
@@ -106,22 +114,61 @@
     display: flex;
     justify-content: flex-end;
     padding: 2px;
-    background-color: #374953;
+    background-color: #b7d0e0;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    color: white;
+    color: rgb(0, 0, 0);
+    border-bottom: 2px solid black;
+    border-top: 3px solid black;
+    padding: 10px;
   }
   .addbtn {
     display: flex;
     justify-content: flex-end;
     width: 40%;
     button {
+      font-size: 1.3rem;
       margin-right: 1rem;
-      height: 1.5rem;
+      height: 2rem;
+      width: 2rem;
       background-color: #ffffff;
       border: 2px solid black;
       color: black;
       box-shadow: 0px 0px 0px;
+      border-radius: 5px;
+      &:hover {
+        background-color: #2d404d;
+        color: white;
+      }
+    }
+  }
+  .team {
+    display: flex;
+    margin: 1rem;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-width: 10rem;
+    // max-width: 15rem;
+    .teammember {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border: 2px solid #57656e;
+      margin: 1rem;
+      padding: 0.5rem;
+      h2 {
+        margin: 0px;
+      }
+      h3 {
+        margin: 0px;
+        color: #2d404d;
+        margin-top: 10px;
+      }
+      .names,
+      .mono,
+      .post {
+        width: 30%;
+      }
     }
   }
 }
