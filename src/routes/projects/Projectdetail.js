@@ -49,7 +49,15 @@ const Projectdetail = () => {
           <h4>{project.timeLine}</h4>
         </div>
         <div>
-          <h1>project Description</h1>
+          <h1>Frontend Technoliogy Stack</h1>
+          <h2>HTML5</h2>
+          <h2>CSS</h2>
+          <h2>JavaScript</h2>
+          <h1>Backend Technoliogy Stack</h1>
+          <h2>Programming languages : PHP</h2>
+          <h2>Frameworks : Laravel</h2>
+          <h2>Web Servers : Apache</h2>
+          <h2>Databases : MySql</h2>
         </div>
         <div>
           <h1>Team Member</h1>

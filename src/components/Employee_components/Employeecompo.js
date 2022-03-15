@@ -47,19 +47,19 @@ const Employeecompo = () => {
                 </div>
               </Link>
             </li>
-            {/* <li className={employeecompo.rows}>
-              <Link className={employeecompo.title} to="user">
-                <div className={employeecompo.icone}>
-                  <img src={require("@photos/people.png")} alt="People" />
-                  User
-                </div>
-              </Link>
-            </li> */}
             <li className={employeecompo.rows}>
               <Link className={employeecompo.title} to="project">
                 <div className={employeecompo.icone}>
                   <img src={require("@photos/project.png")} alt="" />
                   {/* Project */}
+                </div>
+              </Link>
+            </li>
+            <li className={employeecompo.rows}>
+              <Link className={employeecompo.title} to="approval">
+                <div className={employeecompo.icone}>
+                  <img src={require("@photos/people.png")} alt="People" />
+                  {/* User */}
                 </div>
               </Link>
             </li>
