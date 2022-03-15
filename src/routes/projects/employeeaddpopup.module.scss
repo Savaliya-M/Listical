@@ -9,22 +9,14 @@
   display: flex;
   flex-direction: row;
   background-color: #486375;
-
-  .headname{
-      color: #ffffff;
-      display: flex;
-      justify-content: end;
-      width: 65%;
+  justify-content: space-between;
+  .headname {
+    color: #ffffff;
   }
 
-  .backsavebtn {
-    width: 35%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin: 1rem;
-    .backbtn,
-    .savebtn {
+  .backbtn,
+  .savebtn {
+    button {
       margin: 0.5rem;
       height: 2rem;
       width: 3rem;

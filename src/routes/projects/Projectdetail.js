@@ -43,40 +43,6 @@ const Projectdetail = () => {
 
   return (
     <>
-<<<<<<< HEAD
-      <div>
-        <div>
-          <h1>project basic Detail</h1>
-          <h2>{project.projectTitle}</h2>
-          <h3>{project.clientName}</h3>
-          <h4>{project.timeLine}</h4>
-        </div>
-        <div>
-          <h1>Frontend Technoliogy Stack</h1>
-          <h2>HTML5</h2>
-          <h2>CSS</h2>
-          <h2>JavaScript</h2>
-          <h1>Backend Technoliogy Stack</h1>
-          <h2>Programming languages : PHP</h2>
-          <h2>Frameworks : Laravel</h2>
-          <h2>Web Servers : Apache</h2>
-          <h2>Databases : MySql</h2>
-        </div>
-        <div>
-          <h1>Team Member</h1>
-          {localStorage.getItem("Type") === "Manager" ? (
-            <button
-              onClick={() =>
-                navigate(`/layout/project/projectdetail/employeeadd/${id}`)
-              }
-            >
-              +
-            </button>
-          ) : (
-            ""
-          )}
-=======
->>>>>>> f52ec828ae3ba0caa24f60d516f62331d9a8a87c
 
       <div className={prodetail.all}>
         <div className={prodetail.alldetails}>
