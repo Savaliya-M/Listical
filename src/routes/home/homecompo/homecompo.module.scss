@@ -100,18 +100,12 @@
 .removebtn {
   button{
     margin-right: 1rem;
-    font-size: 1rem;
     text-align: center;
     height: 1.5rem;
     width: 1.5rem;
     background-color: #b7d0e0;
     color: black;
-    border: 2px solid black;
+    border: none;
     border-radius: 20%;
-    &:hover {
-      color: white;
-      border: 2px solid white;
-      background-color: #374953;
-    }
   }
 }

@@ -38,17 +38,21 @@ const EmployeeaddPopup = () => {
   return (
     <>
       <div className={empadd.mainbox}>
-        <div className={empadd.header}>
-          <div className={empadd.headname}>
-            <h1>Employee's Details</h1>
-          </div>
-          <div className={empadd.backsavebtn}>
-            <button className={empadd.backbtn} onClick={() => navigate(-1)}>
-              Back
-            </button>
-            <button className={empadd.savebtn} onClick={storeData}>
-              Save
-            </button>
+        <div>
+          <div className={empadd.header}>
+            <div className={empadd.backbtn}>
+              <button className={empadd.backbtn} onClick={() => navigate(-1)}>
+                Back
+              </button>
+            </div>
+            <div className={empadd.headname}>
+              <h1>Employee's Details</h1>
+            </div>
+            <div className={empadd.savebtn}>
+              <button className={empadd.savebtn} onClick={storeData}>
+                Save
+              </button>
+            </div>
           </div>
         </div>
         <div className={empadd.team}>
@@ -57,12 +61,6 @@ const EmployeeaddPopup = () => {
               return (
                 <div key={id}>
                   <div className={empadd.hi}>
-                    <div>
-                      <input
-                        type="checkbox"
-                        onChange={() => addEmp(users[id])}
-                      />
-                    </div>
                     <div
                       className={empadd.teammember}
                       onClick={() => {
@@ -81,6 +79,12 @@ const EmployeeaddPopup = () => {
                         <div className={empadd.post}>
                           <h4>Post</h4>
                           <h3>{users[id].post}</h3>
+                        </div>
+                        <div>
+                          <input
+                            type="checkbox"
+                            onChange={() => addEmp(users[id])}
+                          />
                         </div>
                       </div>
                     </div>
