@@ -19,10 +19,12 @@ const Employeeapproval = () => {
     expenceTitle: "",
     ammount: "",
     description: "",
-    uuid: localStorage.getItem("uuid"),
   });
   const [approvedLeave, setApprovedLeave] = useState({});
+  const [approvedExpence, setApprovedExpence] = useState({});
   const uid = localStorage.getItem("uuid");
+  //**************************************************************************************** */
+
   const leaveChange = (e) => {
     setApplyLeave({ ...applyLeave, [e.target.name]: e.target.value });
   };
@@ -30,25 +32,38 @@ const Employeeapproval = () => {
   const expenceChange = (e) => {
     setApplyExpence({ ...applyExpence, [e.target.name]: e.target.value });
   };
-  console.log(applyExpence);
 
   const leaveClick = () => {
     const lid = uuidv4();
     appRef.child(`leave/EmployeeLeave/${uid}/${lid}`).set(applyLeave);
     setApplyLeave({
       allow: false,
+      leaveTitle: "",
       dayType: "",
       leaveStartD: "",
       leaveEndD: "",
       reason: "",
       uuid: localStorage.getItem("uuid"),
     });
+    setApplyLeavePopUp(!applyLeavePopUp);
   };
 
-  const expenceClick = () => {};
+  const expenceClick = () => {
+    const Eid = uuidv4();
+    appRef.child(`Expence/EmployeeExpence/${uid}/${Eid}`).set(applyExpence);
+    setApplyExpence({
+      allow: false,
+      expenceTitle: "",
+      ammount: "",
+      description: "",
+    });
+    setApplyExpencePopUp(!applyExpencePopUp);
+  };
+
+  //******************************************************************************************************* */
 
   useEffect(() => {
-    appRef.child(`EmployeeLeave/${uid}`).on("value", (snap) => {
+    appRef.child(`leave/EmployeeLeave/${uid}`).on("value", (snap) => {
       let tempApprovedLeave = [];
       Object.values(snap.val()).map((id) => {
         if (id.allow === true) {
@@ -57,7 +72,19 @@ const Employeeapproval = () => {
       });
       setApprovedLeave(tempApprovedLeave);
     });
+
+    appRef.child(`Expence/EmployeeExpence/${uid}`).on("value", (snap) => {
+      let tempApprovedExpence = [];
+      Object.values(snap.val()).map((id) => {
+        if (id.allow === true) {
+          tempApprovedExpence.push(id);
+        }
+      });
+      setApprovedExpence(tempApprovedExpence);
+    });
   }, []);
+
+  //******************************************************************************************************** */
   return (
     <>
       <div>
@@ -129,7 +156,7 @@ const Employeeapproval = () => {
         {applyExpencePopUp ? (
           <>
             <h1>Expence approvals</h1>
-            <button onClick={() => setApplyLeavePopUp(!applyLeavePopUp)}>
+            <button onClick={() => setApplyExpencePopUp(!applyExpencePopUp)}>
               X
             </button>
             <div>
@@ -166,7 +193,7 @@ const Employeeapproval = () => {
         <button onClick={() => setApplyLeavePopUp(!applyLeavePopUp)}>
           Apply For Leave
         </button>
-        <button onClick={() => setApplyExpencePopUp(!applyLeavePopUp)}>
+        <button onClick={() => setApplyExpencePopUp(!applyExpencePopUp)}>
           Apply For Expence
         </button>
 
@@ -175,14 +202,21 @@ const Employeeapproval = () => {
           <div key={id}>
             <h1>Leave Title : {approvedLeave[id].leaveTitle}</h1>
             <p>
-              From : {approvedLeave[id].leaveStartD} To :{" "}
-              {approvedLeave[id].leaveEndD}
+              From : {approvedLeave[id].leaveStartD}
+              To :{approvedLeave[id].leaveEndD}
             </p>
             <h3>Approved</h3>
           </div>
         ))}
 
         <h1> Approved Expence</h1>
+        {Object.keys(approvedExpence).map((id) => (
+          <div key={id}>
+            <h1>Leave Title : {approvedExpence[id].expenceTitle}</h1>
+            <p>Ammount : {approvedExpence[id].ammount}</p>
+            <h3>Approved</h3>
+          </div>
+        ))}
       </div>
     </>
   );

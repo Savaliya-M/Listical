@@ -43,8 +43,12 @@ const EmployeeaddPopup = () => {
             <h1>Employee's Details</h1>
           </div>
           <div className={empadd.backsavebtn}>
-            <button className={empadd.backbtn} onClick={() => navigate(-1)}>Back</button>
-            <button className={empadd.savebtn} onClick={storeData}>Save</button>
+            <button className={empadd.backbtn} onClick={() => navigate(-1)}>
+              Back
+            </button>
+            <button className={empadd.savebtn} onClick={storeData}>
+              Save
+            </button>
           </div>
         </div>
         <div className={empadd.team}>
@@ -53,10 +57,14 @@ const EmployeeaddPopup = () => {
               return (
                 <div key={id}>
                   <div className={empadd.hi}>
-                    <div >
-                      <input type="checkbox" onChange={() => addEmp(users[id])} />
+                    <div>
+                      <input
+                        type="checkbox"
+                        onChange={() => addEmp(users[id])}
+                      />
                     </div>
-                    <div className={empadd.teammember}
+                    <div
+                      className={empadd.teammember}
                       onClick={() => {
                         navigate(`/layout/user/info/${id}`);
                       }}
