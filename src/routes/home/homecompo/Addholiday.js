@@ -28,10 +28,12 @@ const Addholiday = (props) => {
     <>
       <div className={addholi.popup}>
         <div className={addholi.outer}>
-          <div className={addholi.mid}>
+          
             <div className={addholi.close}>
               <button onClick={props.handleclose}>X</button>
             </div>
+            <div className={addholi.mainpropopup}>
+            <div className={addholi.mid}>
             <div className={addholi.center}>
               <div className={addholi.title}>
                 <h1>ADD Holiday</h1>
@@ -64,6 +66,7 @@ const Addholiday = (props) => {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
