@@ -213,8 +213,3 @@ const Project = () => {
 };
 
 export default Project;
-// <>
-//   <h1>{pid.projectTitle}</h1>
-// </>
-
-// <></>

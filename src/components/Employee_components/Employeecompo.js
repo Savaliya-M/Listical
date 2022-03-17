@@ -56,7 +56,7 @@ const Employeecompo = () => {
               </Link>
             </li>
             <li className={employeecompo.rows}>
-              <Link className={employeecompo.title} to="approval">
+              <Link className={employeecompo.title} to="employeeapproval">
                 <div className={employeecompo.icone}>
                   <img src={require("@photos/people.png")} alt="People" />
                   {/* User */}
