@@ -220,7 +220,6 @@ const Employeeapproval = ({ name }) => {
         )}
         {applyExpencePopUp ? (
           <>
-          
             <div className={empapprov.outerbox2}>
               <div className={empapprov.box2}>
                 <div className={empapprov.head2}>
@@ -256,50 +255,48 @@ const Employeeapproval = ({ name }) => {
                       </button>
                     </div>
                   </div> */}
-                  <div className={empapprov.expence}>
-                    <div className={empapprov.expencedetails}>
-                      <div className={empapprov.expencetitle}>
-                        <h4>Expence Title</h4>
-                        <div>
-                          <input
-                            type="text"
-                            
-                            name="expenceTitle"
-                            value={applyExpence.expenceTitle}
-                            onChange={expenceChange}
-                          />
-                        </div>
-                      </div>
-                      <div className={empapprov.expencetitle}>
-                        <h4>Ammount</h4>
-                        <div>
-                          <input
-                            type="text"
-                            name="ammount"
-                            value={applyExpence.Ammount}
-                            onChange={expenceChange}
-                          />
-                        </div>
+                <div className={empapprov.expence}>
+                  <div className={empapprov.expencedetails}>
+                    <div className={empapprov.expencetitle}>
+                      <h4>Expence Title</h4>
+                      <div>
+                        <input
+                          type="text"
+                          name="expenceTitle"
+                          value={applyExpence.expenceTitle}
+                          onChange={expenceChange}
+                        />
                       </div>
                     </div>
-
-                    <div className={empapprov.description}>
-                      <h4>Description</h4>
-                      <div className={empapprov.descriptionbox}>
-                        <textarea
-                          value={applyExpence.reson}
+                    <div className={empapprov.expencetitle}>
+                      <h4>Ammount</h4>
+                      <div>
+                        <input
+                          type="text"
+                          name="ammount"
+                          value={applyExpence.Ammount}
                           onChange={expenceChange}
-                          name="description"
                         />
                       </div>
                     </div>
                   </div>
-                  <div className={empapprov.send2}>
-                    <button onClick={expenceClick}>Send</button>
+
+                  <div className={empapprov.description}>
+                    <h4>Description</h4>
+                    <div className={empapprov.descriptionbox}>
+                      <textarea
+                        value={applyExpence.reson}
+                        onChange={expenceChange}
+                        name="description"
+                      />
+                    </div>
                   </div>
                 </div>
+                <div className={empapprov.send2}>
+                  <button onClick={expenceClick}>Send</button>
+                </div>
               </div>
-            
+            </div>
           </>
         ) : (
           <></>
@@ -312,46 +309,49 @@ const Employeeapproval = ({ name }) => {
         </button>
 
         <h1>Leave Approvals</h1>
-        {Object.keys(approvedLeave).map((id) => (
-          <div key={id}>
-            <h4>Leave Title : {approvedLeave[id].leaveTitle}</h4>
-            <p>
-              From : {approvedLeave[id].leaveStartD}
-              To :{approvedLeave[id].leaveEndD}
-            </p>
-            {approvedLeave[id].allow === true ? (
-              <h4>✔ Approved</h4>
-            ) : approvedLeave[id].rejectedDate ? (
-              <h4>Rejected</h4>
-            ) : (
-              <h4>◌ Pending</h4>
-            )}
-          </div>
-        ))}
+        {approvedLeave ? (
+          Object.keys(approvedLeave).map((id) => (
+            <div key={id}>
+              <h4>Leave Title : {approvedLeave[id].leaveTitle}</h4>
+              <p>
+                From : {approvedLeave[id].leaveStartD}
+                To :{approvedLeave[id].leaveEndD}
+              </p>
+              {approvedLeave[id].allow === true ? (
+                <h4>✔ Approved</h4>
+              ) : approvedLeave[id].rejectedDate ? (
+                <h4>Rejected</h4>
+              ) : (
+                <h4>◌ Pending</h4>
+              )}
+            </div>
+          ))
+        ) : (
+          <></>
+        )}
 
         <h1>Expence Approvals</h1>
-        {Object.keys(approvedExpence).map((id) => (
-          <div key={id}>
-            <h4>Expence Title : {approvedExpence[id].expenceTitle}</h4>
-            <p>Ammount : {approvedExpence[id].ammount}</p>
+        {approvedExpence ? (
+          Object.keys(approvedExpence).map((id) => (
+            <div key={id}>
+              <h4>Expence Title : {approvedExpence[id].expenceTitle}</h4>
+              <p>Ammount : {approvedExpence[id].ammount}</p>
 
-            {approvedExpence[id].allowDate ? (
-              <h4>✔ Approved</h4>
-            ) : approvedExpence[id].rejectedDate ? (
-              <h4> Rejected </h4>
-            ) : (
-              <h4>◌ Pending</h4>
-            )}
-          </div>
-        ))}
+              {approvedExpence[id].allowDate ? (
+                <h4>✔ Approved</h4>
+              ) : approvedExpence[id].rejectedDate ? (
+                <h4> Rejected </h4>
+              ) : (
+                <h4>◌ Pending</h4>
+              )}
+            </div>
+          ))
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );
 };
 
 export default Employeeapproval;
-
-
-
-
-
