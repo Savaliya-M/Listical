@@ -3,7 +3,7 @@ import empapprov from "./employeeapproval.module.scss";
 import appRef from "../../firebase";
 import { v4 as uuidv4 } from "uuid";
 
-const Employeeapproval = () => {
+const Employeeapproval = ({ name }) => {
   const [applyLeavePopUp, setApplyLeavePopUp] = useState(false);
   const [applyExpencePopUp, setApplyExpencePopUp] = useState(false);
   const [applyLeave, setApplyLeave] = useState({
@@ -14,12 +14,14 @@ const Employeeapproval = () => {
     leaveEndD: "",
     reason: "",
     uuid: localStorage.getItem("uuid"),
+    uname: name,
   });
   const [applyExpence, setApplyExpence] = useState({
     allow: false,
     expenceTitle: "",
     ammount: "",
     description: "",
+    uname: name,
   });
   const [approvedLeave, setApprovedLeave] = useState({});
   const [approvedExpence, setApprovedExpence] = useState({});
@@ -45,6 +47,7 @@ const Employeeapproval = () => {
       leaveEndD: "",
       reason: "",
       uuid: localStorage.getItem("uuid"),
+      uname: "",
     });
     setApplyLeavePopUp(!applyLeavePopUp);
   };
@@ -54,9 +57,11 @@ const Employeeapproval = () => {
     appRef.child(`Expence/EmployeeExpence/${uid}/${Eid}`).set(applyExpence);
     setApplyExpence({
       allow: false,
+      allowDate: "",
       expenceTitle: "",
       ammount: "",
       description: "",
+      uname: "",
     });
     setApplyExpencePopUp(!applyExpencePopUp);
   };
@@ -65,25 +70,37 @@ const Employeeapproval = () => {
 
   useEffect(() => {
     appRef.child(`leave/EmployeeLeave/${uid}`).on("value", (snap) => {
-      let tempApprovedLeave = [];
-      Object.values(snap.val()).map((id) => {
-        if (id.allow === true) {
-          tempApprovedLeave.push(id);
+      setApprovedLeave(snap.val());
+    });
+
+    appRef.child(`leave/EmployeeLeave/${uid}`).on("value", (snap) => {
+      Object.keys(snap.val()).map((id) => {
+        const d = new Date();
+        let tempExpiryDate = new Date(snap.val()[id].rejectedDate);
+        let templeaveEndD = new Date(snap.val()[id].leaveEndD);
+        tempExpiryDate.setDate(tempExpiryDate.getDate() + 7);
+        templeaveEndD.setDate(templeaveEndD.getDate() + 7);
+        if (templeaveEndD < d || tempExpiryDate < d) {
+          appRef.child(`leave/EmployeeLeave/${uid}/${id}`).remove();
         }
       });
-      setApprovedLeave(tempApprovedLeave);
     });
 
     appRef.child(`Expence/EmployeeExpence/${uid}`).on("value", (snap) => {
-      let tempApprovedExpence = [];
-      Object.values(snap.val()).map((id) => {
-        if (id.allow === true) {
-          tempApprovedExpence.push(id);
+      setApprovedExpence(snap.val());
+    });
+
+    appRef.child(`Expence/EmployeeExpence/${uid}`).on("value", (snap) => {
+      Object.keys(snap.val()).map((id) => {
+        const d = new Date();
+        let tempExpiryDate = new Date(snap.val()[id].rejectedDate);
+        tempExpiryDate.setDate(tempExpiryDate.getDate() + 7);
+        if (d > tempExpiryDate) {
+          appRef.child(`Expence/EmployeeExpence/${uid}/${id}`).remove();
         }
       });
-      setApprovedExpence(tempApprovedExpence);
     });
-  }, []);
+  }, [uid]);
 
   //******************************************************************************************************** */
   return (
@@ -203,12 +220,33 @@ const Employeeapproval = () => {
         )}
         {applyExpencePopUp ? (
           <>
+          
             <div className={empapprov.outerbox2}>
               <div className={empapprov.box2}>
-                <div className={empapprov.content2}>
-                  <div className={empapprov.head2}>
-                    <div className={empapprov.title2}>
-                      <h1>Expence approvals</h1>
+                <div className={empapprov.head2}>
+                  <div className={empapprov.title2}>
+                    <h1>Expence approvals</h1>
+                  </div>
+                  <div className={empapprov.btn2}>
+                    <button
+                      onClick={() => setApplyExpencePopUp(!applyExpencePopUp)}
+                    >
+                      X
+                    </button>
+                  </div>
+                </div>
+                {/* <div className={empapprov.expence}>
+                  <div className={empapprov.expencedetails}>
+                    <div className={empapprov.expencetitle}>
+                      <h4>Expence Title</h4>
+                      <div>
+                        <input
+                          type="text"
+                          name="expenceTitle"
+                          value={applyExpence.expenceTitle}
+                          onChange={expenceChange}
+                        />
+                      </div>
                     </div>
                     <div className={empapprov.btn2}>
                       <button
@@ -217,7 +255,7 @@ const Employeeapproval = () => {
                         X
                       </button>
                     </div>
-                  </div>
+                  </div> */}
                   <div className={empapprov.expence}>
                     <div className={empapprov.expencedetails}>
                       <div className={empapprov.expencetitle}>
@@ -225,7 +263,7 @@ const Employeeapproval = () => {
                         <div>
                           <input
                             type="text"
-                            n
+                            
                             name="expenceTitle"
                             value={applyExpence.expenceTitle}
                             onChange={expenceChange}
@@ -261,7 +299,7 @@ const Employeeapproval = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            
           </>
         ) : (
           <></>
@@ -273,24 +311,37 @@ const Employeeapproval = () => {
           Apply For Expence
         </button>
 
-        <h1> Approved Leave</h1>
+        <h1>Leave Approvals</h1>
         {Object.keys(approvedLeave).map((id) => (
           <div key={id}>
-            <h1>Leave Title : {approvedLeave[id].leaveTitle}</h1>
+            <h4>Leave Title : {approvedLeave[id].leaveTitle}</h4>
             <p>
               From : {approvedLeave[id].leaveStartD}
               To :{approvedLeave[id].leaveEndD}
             </p>
-            <h4>Approved</h4>
+            {approvedLeave[id].allow === true ? (
+              <h4>✔ Approved</h4>
+            ) : approvedLeave[id].rejectedDate ? (
+              <h4>Rejected</h4>
+            ) : (
+              <h4>◌ Pending</h4>
+            )}
           </div>
         ))}
 
-        <h1> Approved Expence</h1>
+        <h1>Expence Approvals</h1>
         {Object.keys(approvedExpence).map((id) => (
           <div key={id}>
-            <h1>Leave Title : {approvedExpence[id].expenceTitle}</h1>
+            <h4>Expence Title : {approvedExpence[id].expenceTitle}</h4>
             <p>Ammount : {approvedExpence[id].ammount}</p>
-            <h3>Approved</h3>
+
+            {approvedExpence[id].allowDate ? (
+              <h4>✔ Approved</h4>
+            ) : approvedExpence[id].rejectedDate ? (
+              <h4> Rejected </h4>
+            ) : (
+              <h4>◌ Pending</h4>
+            )}
           </div>
         ))}
       </div>

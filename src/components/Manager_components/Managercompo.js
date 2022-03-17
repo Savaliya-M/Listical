@@ -20,13 +20,21 @@ const Managercompo = () => {
             <li className={managercompo.rows}>
               <Link className={managercompo.title} to="user">
                 <div className={managercompo.icone}>
-                  <img src={require("@photos/people.png")} alt="People" />  
+                  <img src={require("@photos/people.png")} alt="People" />
                   {/* User */}
                 </div>
               </Link>
             </li>
             <li className={managercompo.rows}>
               <Link className={managercompo.title} to="project">
+                <div className={managercompo.icone}>
+                  <img src={require("@photos/project.png")} alt="" />
+                  {/* Project */}
+                </div>
+              </Link>
+            </li>
+            <li className={managercompo.rows}>
+              <Link className={managercompo.title} to="managerapproval">
                 <div className={managercompo.icone}>
                   <img src={require("@photos/project.png")} alt="" />
                   {/* Project */}

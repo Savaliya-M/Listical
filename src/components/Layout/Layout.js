@@ -11,6 +11,7 @@ import Adminapproval from "../../routes/Approvals/Adminapproval";
 import Projectdetail from "../../routes/projects/Projectdetail";
 import EmployeeaddPopup from "../../routes/projects/EmployeeaddPopup";
 import Employeeapproval from "../../routes/Approvals/Employeeapproval";
+import Managerapproval from "../../routes/Approvals/Managerapproval";
 
 const Layout = () => {
   const [user, setUser] = useState({});
@@ -65,6 +66,11 @@ const Layout = () => {
                 path="project/projectdetail/employeeadd/:id"
                 element={<EmployeeaddPopup />}
               />
+              <Route
+                exact
+                path="managerapproval"
+                element={<Managerapproval name={user.name} />}
+              />
             </Routes>
           ) : (
             ""
@@ -74,7 +80,11 @@ const Layout = () => {
               <Route path="/" element={<Home />} />
               {/* <Route exact path="user/*" element={<User />} /> */}
               <Route exact path="project" element={<Project />} />
-              <Route exact path="approval" element={<Employeeapproval />} />
+              <Route
+                exact
+                path="employeeapproval"
+                element={<Employeeapproval name={user.name} />}
+              />
               <Route
                 exact
                 path="project/projectdetail/:id"
