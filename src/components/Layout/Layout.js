@@ -83,7 +83,7 @@ const Layout = () => {
               <Route
                 exact
                 path="employeeapproval"
-                element={<Employeeapproval name={user.name} />}
+                element={<Employeeapproval name={user.name} post={user.post} />}
               />
               <Route
                 exact

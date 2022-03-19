@@ -7,6 +7,7 @@ const Usercompo = () => {
   let navigate = useNavigate();
   const [users, setUsers] = useState({});
   const [userskey, setUserskey] = useState([]);
+  // const [btnDis, setBtnDis] = useState(false);
 
   useEffect(() => {
     appRef.child("Users").on("value", (snapshot) => {
@@ -16,6 +17,27 @@ const Usercompo = () => {
       setUserskey(userskey);
     });
   }, []);
+
+  const disableUser = (uid) => {
+    // setBtnDis(!btnDis);
+    appRef.child(`Users/${uid}`).on("value", (snap) => {
+      const user = snap.val();
+      user.activate = false;
+      appRef.child(`Users/${uid}`).set(user);
+    });
+  };
+
+  const enableUser = (uid) => {
+    appRef.child(`Users/${uid}`).on("value", (snap) => {
+      const user = snap.val();
+      user.activate = true;
+      appRef.child(`Users/${uid}`).set(user);
+    });
+  };
+
+  const delUser = (uid) => {
+    appRef.child(`Users/${uid}`).remove();
+  };
 
   return (
     <>
@@ -32,8 +54,27 @@ const Usercompo = () => {
                     <div className={userscomp.left}>
                       <img src={require("@photos/man.png")} alt="person" />
                       <div className={userscomp.userbtn}>
-                        <button className={userscomp.btn1}>Del</button>
-                        <button className={userscomp.btn2}>Dis</button>
+                        <button
+                          className={userscomp.btn1}
+                          onClick={() => delUser(id)}
+                        >
+                          Del
+                        </button>
+                        {users[id].activate ? (
+                          <button
+                            className={userscomp.btn2}
+                            onClick={() => disableUser(id)}
+                          >
+                            Dis
+                          </button>
+                        ) : (
+                          <button
+                            className={userscomp.btn2}
+                            onClick={() => enableUser(id)}
+                          >
+                            Ena
+                          </button>
+                        )}
                       </div>
                     </div>
                     <div
@@ -58,8 +99,28 @@ const Usercompo = () => {
                   <div className={userscomp.left}>
                     <img src={require("@photos/man.png")} alt="person" />
                     <div className={userscomp.userbtn}>
-                      <button className={userscomp.btn1}>Del</button>
-                      <button className={userscomp.btn2}>Dis</button>
+                      <button
+                        className={userscomp.btn1}
+                        onClick={() => delUser(elem)}
+                      >
+                        Del
+                      </button>
+
+                      {users[elem].activate ? (
+                        <button
+                          className={userscomp.btn2}
+                          onClick={() => disableUser(elem)}
+                        >
+                          Dis
+                        </button>
+                      ) : (
+                        <button
+                          className={userscomp.btn2}
+                          onClick={() => enableUser(elem)}
+                        >
+                          Ena
+                        </button>
+                      )}
                     </div>
                   </div>
                   <div
@@ -75,29 +136,6 @@ const Usercompo = () => {
                 </div>
               );
             })}
-        {/* {userskey.map((elem) => {
-          return (
-            <div className={userscomp.person}>
-              <div className={userscomp.left}>
-                <img src={require("@photos/man.png")} />
-                <div className={userscomp.userbtn}>
-                  <button>Del</button>
-                  <button>Dis</button>
-                </div>
-              </div>
-              <div
-                className={userscomp.right}
-                onClick={() => {
-                  navigate(`info/${elem}`);
-                }}
-              >
-                <h2>{users[elem].name}</h2>
-                <h5>{users[elem].mono}</h5>
-                <p>{users[elem].post}</p>
-              </div>
-            </div>
-          );
-        })} */}
       </div>
     </>
   );

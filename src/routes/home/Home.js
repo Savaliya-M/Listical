@@ -22,6 +22,26 @@ const Home = () => {
     appRef.child("Users").on("value", (snapshot) => {
       setUser(snapshot.val());
     });
+
+    appRef.child(`leave`).on("value", (snap) => {
+      const rmleave = snap.val();
+      if (rmleave) {
+        Object.keys(rmleave).map((em) => {
+          Object.keys(rmleave[em]).map((uid) => {
+            Object.keys(rmleave[em][uid]).map((lid) => {
+              const d = new Date();
+              let tempExpiryDate = new Date(rmleave[em][uid][lid].rejectedDate);
+              let templeaveEndD = new Date(rmleave[em][uid][lid].leaveEndD);
+              tempExpiryDate.setDate(tempExpiryDate.getDate() + 7);
+              // templeaveEndD.setDate(templeaveEndD.getDate());
+              if (templeaveEndD < d || tempExpiryDate < d) {
+                appRef.child(`leave/${em}/${uid}/${lid}`).remove();
+              }
+            });
+          });
+        });
+      }
+    });
   }, []);
 
   useEffect(() => {

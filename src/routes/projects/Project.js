@@ -108,53 +108,6 @@ const Project = () => {
             })}
           </div>
         ) : localStorage.getItem("Type") === "Employee" ? (
-          // <div>
-          //   <div className={proj.mainproject}>
-          //     {Object.values(projects).map((pid) => {
-          //       if (pid.empids && pid.empids.length) {
-          //         return Object.values(pid.empids).map((id) => {
-          //           if (id === localStorage.getItem("uuid")) {
-          //             return (
-          //               <>
-          //                 <div
-          //                   className={procomp.mainprojectcompo}
-          //                   id={procomp.Projectdetail}
-          //                   key={id}
-          //                   onClick={() => {
-          //                     navigate(`projectdetail/${pid}`);
-          //                   }}
-          //                 >
-          //                   <div className={procomp.probox}>
-          //                     <div className={procomp.progressreport}>
-          //                       <img
-          //                         src={require("@photos/peichart.jpg")}
-          //                         alt="this is pie chart"
-          //                       />
-          //                     </div>
-          //                     <div className={procomp.proinfo}>
-          //                       <div className={procomp.proname}>
-          //                         <h3>Project Name:</h3>
-          //                         <h3>{pid.projectTitle}</h3>
-          //                       </div>
-          //                       <div className={procomp.clientname}>
-          //                         <h4>Client Name:</h4>
-          //                         <h4>{pid.clientName} </h4>
-          //                       </div>
-          //                       <div className={procomp.deadline}>
-          //                         <h4>Deadline:</h4>
-          //                         <h4>{pid.timeLine}</h4>
-          //                       </div>
-          //                     </div>
-          //                   </div>
-          //                 </div>
-          //               </>
-          //             );
-          //           }
-          //         });
-          //       }
-          //     })}
-          //   </div>
-          // </div>
           <div>
             <div className={proj.mainproject}>
               {Object.keys(projects).map((pid) => {

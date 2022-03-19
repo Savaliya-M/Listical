@@ -3,7 +3,7 @@ import empapprov from "./employeeapproval.module.scss";
 import appRef from "../../firebase";
 import { v4 as uuidv4 } from "uuid";
 
-const Employeeapproval = ({ name }) => {
+const Employeeapproval = ({ name, post }) => {
   const [applyLeavePopUp, setApplyLeavePopUp] = useState(false);
   const [applyExpencePopUp, setApplyExpencePopUp] = useState(false);
   const [applyLeave, setApplyLeave] = useState({
@@ -15,6 +15,7 @@ const Employeeapproval = ({ name }) => {
     reason: "",
     uuid: localStorage.getItem("uuid"),
     uname: name,
+    position: post,
   });
   const [applyExpence, setApplyExpence] = useState({
     allow: false,

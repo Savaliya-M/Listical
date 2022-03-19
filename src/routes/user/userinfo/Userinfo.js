@@ -10,9 +10,15 @@ const Userinfo = () => {
   const [langknow, setLangknow] = useState([]);
   const [skill, setSkill] = useState([]);
   const { id } = useParams();
+  const [projects, setProjects] = useState({});
+  const [userProjects, setUserProjects] = useState([]);
   useEffect(() => {
     appRef.child(`Users/${id}`).on("value", (snapshot) => {
       setUser(snapshot.val());
+    });
+
+    appRef.child("Projects").on("value", (snap) => {
+      setProjects(snap.val());
     });
   }, []);
 
@@ -20,13 +26,29 @@ const Userinfo = () => {
     if (user.langknown) {
       setLangknow(Object.values(user.langknown));
     }
-  }, [user]);
-
-  useEffect(() => {
     if (user.skill) {
       setSkill(user.skill);
     }
   }, [user]);
+
+  useEffect(() => {
+    let tempProjects = [];
+    Object.keys(projects).map((pid) => {
+      if (user.position === "Employee" && projects[pid].empids) {
+        Object.values(projects[pid].empids).map((eid) => {
+          if (eid === user.uuid) {
+            tempProjects.push(projects[pid]);
+          }
+        });
+      }
+      if (user.position === "Manager" && projects[pid].managerid) {
+        if (user.uuid === projects[pid].managerid) {
+          tempProjects.push(projects[pid]);
+        }
+      }
+    });
+    setUserProjects(tempProjects);
+  }, [projects]);
 
   return (
     <>
@@ -35,7 +57,6 @@ const Userinfo = () => {
           <div className={useinfo.closebtn}>
             <button
               onClick={() => {
-                // navigate("/layout/user");
                 navigate(-1);
               }}
             >
@@ -193,98 +214,22 @@ const Userinfo = () => {
                   <button>Pending</button>
                 </div>
               </div>
-
               <div className={useinfo.projectbox}>
-                <div className={useinfo.projectwise}>
-                  <div className={useinfo.protitle}>
-                    <h3>LMS</h3>
-                  </div>
-                  <p>manish shah</p>
-                  <p>Creted Backend for LMS</p>
-                  <p>starting date: 12-10-2022</p>
-                  <p>ending date: 13-10-2022</p>
-                </div>
-                <div className={useinfo.projectwise}>
-                  <div className={useinfo.protitle}>
-                    <h3>LMSL</h3>
-                  </div>
-                  <p>manish shah</p>
-                  <p>Creted Backend for LMS</p>
-                  <p>starting date: 12-10-2022</p>
-                  <p>ending date: 13-10-2022</p>
-                </div>
-                <div className={useinfo.projectwise}>
-                  <div className={useinfo.protitle}>
-                    <h3>LMS</h3>
-                  </div>
-                  <p>manish shah</p>
-                  <p>Creted Backend for LMS</p>
-                  <p>starting date: 12-10-2022</p>
-                  <p>ending date: 13-10-2022</p>
-                </div>
-                <div className={useinfo.projectwise}>
-                  <div className={useinfo.protitle}>
-                    <h3>LMS</h3>
-                  </div>
-                  <p>manish shah</p>
-                  <p>Creted Backend for LMS</p>
-                  <p>starting date: 12-10-2022</p>
-                  <p>ending date: 13-10-2022</p>
-                </div>
-                <div className={useinfo.projectwise}>
-                  <div className={useinfo.protitle}>
-                    <h3>LMS</h3>
-                  </div>
-                  <p>manish shah</p>
-                  <p>Creted Backend for LMS</p>
-                  <p>starting date: 12-10-2022</p>
-                  <p>ending date: 13-10-2022</p>
-                </div>
-                <div className={useinfo.projectwise}>
-                  <div className={useinfo.protitle}>
-                    <h3>LMS</h3>
-                  </div>
-                  <p>manish shah</p>
-                  <p>Creted Backend for LMS</p>
-                  <p>starting date: 12-10-2022</p>
-                  <p>ending date: 13-10-2022</p>
-                </div>
-                <div className={useinfo.projectwise}>
-                  <div className={useinfo.protitle}>
-                    <h3>LMS</h3>
-                  </div>
-                  <p>manish shah</p>
-                  <p>Creted Backend for LMS</p>
-                  <p>starting date: 12-10-2022</p>
-                  <p>ending date: 13-10-2022</p>
-                </div>
-                <div className={useinfo.projectwise}>
-                  <div className={useinfo.protitle}>
-                    <h3>LMS</h3>
-                  </div>
-                  <p>manish shah</p>
-                  <p>Creted Backend for LMS</p>
-                  <p>starting date: 12-10-2022</p>
-                  <p>ending date: 13-10-2022</p>
-                </div>
-                <div className={useinfo.projectwise}>
-                  <div className={useinfo.protitle}>
-                    <h3>LMS</h3>
-                  </div>
-                  <p>manish shah</p>
-                  <p>Creted Backend for LMS</p>
-                  <p>starting date: 12-10-2022</p>
-                  <p>ending date: 13-10-2022</p>
-                </div>
-                <div className={useinfo.projectwise}>
-                  <div className={useinfo.protitle}>
-                    <h3>LMS</h3>
-                  </div>
-                  <p>manish shah</p>
-                  <p>Creted Backend for LMS</p>
-                  <p>starting date: 12-10-2022</p>
-                  <p>ending date: 13-10-2022</p>
-                </div>
+                {userProjects.length ? (
+                  Object.values(userProjects).map((data) => (
+                    <div className={useinfo.projectwise}>
+                      <div className={useinfo.protitle}>
+                        <h3>{data.projectTitle}</h3>
+                      </div>
+                      <p>{data.clientName}</p>
+                      <p>{data.timeLine}</p>
+                      {/* <p>frontend</p>
+                        <p>backend</p> */}
+                    </div>
+                  ))
+                ) : (
+                  <h1>Not any Projects for display </h1>
+                )}
               </div>
             </div>
           </div>

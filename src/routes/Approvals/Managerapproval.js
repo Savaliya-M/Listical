@@ -9,7 +9,7 @@ const Managerapproval = ({ name }) => {
   const [managerLeave, setManagerLeave] = useState(false);
   const [users, setUsers] = useState([]);
 
-  //*********************************************************************************************************************** */
+  //************************************************************************************************************************/
   useEffect(() => {
     appRef.child("Users").on("value", (snap) => {
       let tempusers = [];
