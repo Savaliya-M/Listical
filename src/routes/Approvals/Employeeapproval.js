@@ -222,19 +222,20 @@ const Employeeapproval = ({ name }) => {
           <>
             <div className={empapprov.outerbox2}>
               <div className={empapprov.box2}>
-                <div className={empapprov.head2}>
-                  <div className={empapprov.title2}>
-                    <h1>Expence approvals</h1>
+                <div className={empapprov.content2}>
+                  <div className={empapprov.head2}>
+                    <div className={empapprov.title2}>
+                      <h1>Expence approvals</h1>
+                    </div>
+                    <div className={empapprov.btn2}>
+                      <button
+                        onClick={() => setApplyExpencePopUp(!applyExpencePopUp)}
+                      >
+                        X
+                      </button>
+                    </div>
                   </div>
-                  <div className={empapprov.btn2}>
-                    <button
-                      onClick={() => setApplyExpencePopUp(!applyExpencePopUp)}
-                    >
-                      X
-                    </button>
-                  </div>
-                </div>
-                {/* <div className={empapprov.expence}>
+                  {/* <div className={empapprov.expence}>
                   <div className={empapprov.expencedetails}>
                     <div className={empapprov.expencetitle}>
                       <h4>Expence Title</h4>
@@ -255,45 +256,46 @@ const Employeeapproval = ({ name }) => {
                       </button>
                     </div>
                   </div> */}
-                <div className={empapprov.expence}>
-                  <div className={empapprov.expencedetails}>
-                    <div className={empapprov.expencetitle}>
-                      <h4>Expence Title</h4>
-                      <div>
-                        <input
-                          type="text"
-                          name="expenceTitle"
-                          value={applyExpence.expenceTitle}
-                          onChange={expenceChange}
-                        />
+                  <div className={empapprov.expence}>
+                    <div className={empapprov.expencedetails}>
+                      <div className={empapprov.expencetitle}>
+                        <h4>Expence Title</h4>
+                        <div>
+                          <input
+                            type="text"
+                            name="expenceTitle"
+                            value={applyExpence.expenceTitle}
+                            onChange={expenceChange}
+                          />
+                        </div>
+                      </div>
+                      <div className={empapprov.expencetitle}>
+                        <h4>Ammount</h4>
+                        <div>
+                          <input
+                            type="text"
+                            name="ammount"
+                            value={applyExpence.Ammount}
+                            onChange={expenceChange}
+                          />
+                        </div>
                       </div>
                     </div>
-                    <div className={empapprov.expencetitle}>
-                      <h4>Ammount</h4>
-                      <div>
-                        <input
-                          type="text"
-                          name="ammount"
-                          value={applyExpence.Ammount}
-                          onChange={expenceChange}
-                        />
-                      </div>
-                    </div>
-                  </div>
 
-                  <div className={empapprov.description}>
-                    <h4>Description</h4>
-                    <div className={empapprov.descriptionbox}>
-                      <textarea
-                        value={applyExpence.reson}
-                        onChange={expenceChange}
-                        name="description"
-                      />
+                    <div className={empapprov.description}>
+                      <h4>Description</h4>
+                      <div className={empapprov.descriptionbox}>
+                        <textarea
+                          value={applyExpence.reson}
+                          onChange={expenceChange}
+                          name="description"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className={empapprov.send2}>
-                  <button onClick={expenceClick}>Send</button>
+                  <div className={empapprov.send2}>
+                    <button onClick={expenceClick}>Send</button>
+                  </div>
                 </div>
               </div>
             </div>
