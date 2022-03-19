@@ -182,6 +182,7 @@ const Adminapproval = () => {
                           From :{leaveApproval[uid][lid].leaveStartD} To:{" "}
                           {leaveApproval[uid][lid].leaveEndD}
                         </p>
+                        <p>reason :{leaveApproval[uid][lid].reason}</p>
                         <button onClick={() => approveLeaveClick(lid, uid)}>
                           ✔ Approve
                         </button>
@@ -207,6 +208,9 @@ const Adminapproval = () => {
                         <h3>{expenceApproval[uid][eid].uname}</h3>
                         <h4>{expenceApproval[uid][eid].expenceTitle}</h4>
                         <p>Ammount : {expenceApproval[uid][eid].ammount}</p>
+                        <p>
+                          description :{expenceApproval[uid][eid].description}
+                        </p>
                         <button onClick={() => approveExpenceClick(eid, uid)}>
                           ✔ Approve
                         </button>

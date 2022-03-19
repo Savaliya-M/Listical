@@ -4,20 +4,56 @@ import ManagerSelfapproval from "./ManagerSelfapproval";
 import { v4 as uuidv4 } from "uuid";
 
 const Managerapproval = ({ name }) => {
-  const [leaveApproval, setLeaveApproval] = useState({});
+  const [leaveApproval, setLeaveApproval] = useState([]);
   const [expenceApproval, setExpenceApproval] = useState({});
   const [managerLeave, setManagerLeave] = useState(false);
+  const [users, setUsers] = useState([]);
 
   //*********************************************************************************************************************** */
   useEffect(() => {
-    appRef.child(`leave/EmployeeLeave`).on("value", (snap) => {
-      setLeaveApproval(snap.val());
-    });
-
-    appRef.child(`Expence/EmployeeExpence`).on("value", (snap) => {
-      setExpenceApproval(snap.val());
+    appRef.child("Users").on("value", (snap) => {
+      let tempusers = [];
+      let userData = snap.val();
+      Object.keys(userData).map((data) => {
+        if (userData[data].managerid === localStorage.getItem("uuid")) {
+          tempusers.push(userData[data]);
+        }
+      });
+      setUsers(tempusers);
     });
   }, []);
+
+  useEffect(() => {
+    if (users.length) {
+      appRef.child(`leave/EmployeeLeave`).on("value", (snap) => {
+        let leaveData = snap.val();
+        let tempApprovalleave = [];
+        Object.keys(leaveData).map((lid) => {
+          Object.keys(users).map((uid) => {
+            if (lid === users[uid].uuid) {
+              tempApprovalleave.push(leaveData[lid]);
+            }
+          });
+        });
+        setLeaveApproval(tempApprovalleave);
+      });
+
+      appRef.child(`Expence/EmployeeExpence`).on("value", (snap) => {
+        let expenceData = snap.val();
+        let tempApprovalexpence = [];
+        Object.keys(expenceData).map((eid) => {
+          Object.keys(users).map((uid) => {
+            if (eid === users[uid].uuid) {
+              tempApprovalexpence.push(expenceData[eid]);
+            }
+          });
+        });
+        setExpenceApproval(tempApprovalexpence);
+        // setExpenceApproval(snap.val());
+      });
+    }
+  }, [users]);
+
   //*********************************************************************************************************************** */
   const approveLeaveClick = (lid, uid) => {
     let tempApproveLeave = {};
@@ -90,10 +126,7 @@ const Managerapproval = ({ name }) => {
               ? Object.keys(leaveApproval).map((uid) => {
                   if (leaveApproval[uid]) {
                     return Object.keys(leaveApproval[uid]).map((lid) => {
-                      if (
-                        leaveApproval[uid][lid].allow === false &&
-                        new Date(leaveApproval[uid][lid].leaveEndD) > new Date()
-                      ) {
+                      if (leaveApproval[uid][lid].allow === false) {
                         return (
                           <div key={uuidv4()}>
                             <h3>{leaveApproval[uid][lid].uname}</h3>
@@ -103,11 +136,24 @@ const Managerapproval = ({ name }) => {
                               From :{leaveApproval[uid][lid].leaveStartD} To:{" "}
                               {leaveApproval[uid][lid].leaveEndD}
                             </p>
-                            <button onClick={() => approveLeaveClick(lid, uid)}>
+                            <p>reason :{leaveApproval[uid][lid].reason}</p>
+                            <button
+                              onClick={() =>
+                                approveLeaveClick(
+                                  lid,
+                                  leaveApproval[uid][lid].uuid
+                                )
+                              }
+                            >
                               ✔ Approve
                             </button>
                             <button
-                              onClick={() => rejectedLeaveClick(lid, uid)}
+                              onClick={() =>
+                                rejectedLeaveClick(
+                                  lid,
+                                  leaveApproval[uid][lid].uuid
+                                )
+                              }
                             >
                               ❌ Reject
                             </button>
@@ -130,13 +176,27 @@ const Managerapproval = ({ name }) => {
                             <h3>{expenceApproval[uid][eid].uname}</h3>
                             <h4>{expenceApproval[uid][eid].expenceTitle}</h4>
                             <p>Ammount : {expenceApproval[uid][eid].ammount}</p>
+                            <p>
+                              Description:{" "}
+                              {expenceApproval[uid][eid].description}
+                            </p>
                             <button
-                              onClick={() => approveExpenceClick(eid, uid)}
+                              onClick={() =>
+                                approveExpenceClick(
+                                  eid,
+                                  expenceApproval[uid][eid].uuid
+                                )
+                              }
                             >
                               ✔ Approve
                             </button>
                             <button
-                              onClick={() => rejectedExpenceClick(eid, uid)}
+                              onClick={() =>
+                                rejectedExpenceClick(
+                                  eid,
+                                  expenceApproval[uid][eid].uuid
+                                )
+                              }
                             >
                               ❌ Reject
                             </button>
