@@ -10,7 +10,7 @@ const Managerapproval = ({ name }) => {
   const [managerLeave, setManagerLeave] = useState(false);
   const [users, setUsers] = useState([]);
 
-  //*********************************************************************************************************************** */
+  //************************************************************************************************************************/
   useEffect(() => {
     appRef.child("Users").on("value", (snap) => {
       let tempusers = [];
@@ -177,7 +177,7 @@ const Managerapproval = ({ name }) => {
               </div>
               <div className={managerapr.expencesbox}>
                 <div className={managerapr.expenceitle}>
-                  <h2>Expence Approval</h2>
+                  <h2>123Expence Approval</h2>
                 </div>
                 <div className={managerapr.expences}>
                   {expenceApproval
@@ -213,7 +213,7 @@ const Managerapproval = ({ name }) => {
                                     )
                                   }
                                 >
-                                  ❌ Reject
+                                   &#x2718; Reject
                                 </button>
                               </div>
                             );

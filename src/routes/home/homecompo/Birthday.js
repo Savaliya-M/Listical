@@ -1,11 +1,11 @@
 import { React, useState, useEffect } from "react";
 import birth from "./homecompo.module.scss";
 
-const Birthday = (props) => {
+const Birthday = ({ birthdayList }) => {
   const [todayList, setTodayList] = useState([]);
   useEffect(() => {
-    setTodayList(props.birthdayList);
-  }, [props]);
+    setTodayList(birthdayList);
+  }, [birthdayList]);
 
   return (
     <>
@@ -13,7 +13,6 @@ const Birthday = (props) => {
         <div className={birth.head} id={birth.Birthday}>
           <h3>Birthday</h3>
         </div>
-        {/* <div className={birth.mainContent}> */}
         <div className={birth.scroll}>
           {todayList && todayList.length !== 0
             ? todayList.map((user, index) => {
@@ -28,15 +27,14 @@ const Birthday = (props) => {
                     </div>
                     <div className={birth.text}>
                       <h3>{user.name}</h3>
-                      <p>{user.post}</p>
+                      <p>{user.role}</p>
                     </div>
                   </div>
                 ) : null;
               })
             : "no Birthday today"}
-            </div>
         </div>
-      {/* </div> */}
+      </div>
     </>
   );
 };

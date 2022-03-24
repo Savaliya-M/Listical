@@ -136,11 +136,7 @@ const Adminapproval = () => {
           {Object.keys(usersData).map((index) => {
             if (usersData[index].activate === false) {
               return (
-                <div
-                  key={index}
-                  className={adminapprov.empdetail}
-                  onClick={() => navigate(`/layout/user/info/${index}`)}
-                >
+                <div key={index} className={adminapprov.empdetail}>
                   <div className={adminapprov.manbtn}>
                     <img src={require("@photos/man.png")} />
                     <div className={adminapprov.aprobtn}>
@@ -153,7 +149,8 @@ const Adminapproval = () => {
                       )}
                     </div>
                   </div>
-                  <div>
+
+                  <div onClick={() => navigate(`/layout/user/info/${index}`)}>
                     <h2>{usersData[index].name}</h2>
                     <h5>{usersData[index].mono}</h5>
                     <p>{usersData[index].name}</p>

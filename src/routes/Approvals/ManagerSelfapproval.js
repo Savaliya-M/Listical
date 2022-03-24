@@ -15,6 +15,7 @@ const ManagerSelfapproval = ({ username }) => {
     reason: "",
     uuid: localStorage.getItem("uuid"),
     uname: username,
+    position: "Manager",
   });
   const [applyExpence, setApplyExpence] = useState({
     allow: false,
@@ -48,6 +49,7 @@ const ManagerSelfapproval = ({ username }) => {
       reason: "",
       uuid: localStorage.getItem("uuid"),
       uname: "",
+      position: "",
     });
     setApplyLeavePopUp(!applyLeavePopUp);
   };
@@ -73,20 +75,20 @@ const ManagerSelfapproval = ({ username }) => {
       setApprovedLeave(snap.val());
     });
 
-    appRef.child(`leave/ManagerLeave/${uid}`).on("value", (snap) => {
-      if (snap.val()) {
-        Object.keys(snap.val()).map((id) => {
-          const d = new Date();
-          let tempExpiryDate = new Date(snap.val()[id].rejectedDate);
-          let templeaveEndD = new Date(snap.val()[id].leaveEndD);
-          tempExpiryDate.setDate(tempExpiryDate.getDate() + 7);
-          templeaveEndD.setDate(templeaveEndD.getDate() + 7);
-          if (templeaveEndD < d || tempExpiryDate < d) {
-            appRef.child(`leave/ManagerLeave/${uid}/${id}`).remove();
-          }
-        });
-      }
-    });
+    // appRef.child(`leave/ManagerLeave/${uid}`).on("value", (snap) => {
+    //   if (snap.val()) {
+    //     Object.keys(snap.val()).map((id) => {
+    //       const d = new Date();
+    //       let tempExpiryDate = new Date(snap.val()[id].rejectedDate);
+    //       let templeaveEndD = new Date(snap.val()[id].leaveEndD);
+    //       tempExpiryDate.setDate(tempExpiryDate.getDate() + 7);
+    //       // templeaveEndD.setDate(templeaveEndD.getDate());
+    //       if (templeaveEndD < d || tempExpiryDate < d) {
+    //         appRef.child(`leave/ManagerLeave/${uid}/${id}`).remove();
+    //       }
+    //     });
+    //   }
+    // });
 
     appRef.child(`Expence/ManagerExpence/${uid}`).on("value", (snap) => {
       setApprovedExpence(snap.val());
@@ -99,7 +101,7 @@ const ManagerSelfapproval = ({ username }) => {
           let tempExpiryDate = new Date(snap.val()[id].rejectedDate);
           tempExpiryDate.setDate(tempExpiryDate.getDate() + 7);
           if (d > tempExpiryDate) {
-            appRef.child(`Expence/MAnagerExpence/${uid}/${id}`).remove();
+            appRef.child(`Expence/ManagerExpence/${uid}/${id}`).remove();
           }
         });
       }

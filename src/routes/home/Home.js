@@ -22,6 +22,26 @@ const Home = () => {
     appRef.child("Users").on("value", (snapshot) => {
       setUser(snapshot.val());
     });
+
+    appRef.child(`leave`).on("value", (snap) => {
+      const rmleave = snap.val();
+      if (rmleave) {
+        Object.keys(rmleave).map((em) => {
+          return Object.keys(rmleave[em]).map((uid) => {
+            return Object.keys(rmleave[em][uid]).map((lid) => {
+              const d = new Date();
+              let tempExpiryDate = new Date(rmleave[em][uid][lid].rejectedDate);
+              let templeaveEndD = new Date(rmleave[em][uid][lid].leaveEndD);
+              tempExpiryDate.setDate(tempExpiryDate.getDate() + 7);
+              if (templeaveEndD < d || tempExpiryDate < d) {
+                appRef.child(`leave/${em}/${uid}/${lid}`).remove();
+              }
+              return lid;
+            });
+          });
+        });
+      }
+    });
   }, []);
 
   useEffect(() => {
@@ -38,9 +58,9 @@ const Home = () => {
         dateMonthObj.month === newDate.month &&
         dateMonthObj.day === newDate.day
       ) {
-        return { name: user[id].name, post: user[id].post, isBirthdate: true };
+        return { name: user[id].name, role: user[id].role, isBirthdate: true };
       } else {
-        return { name: user[id], post: user[id].post, isBirthdate: false };
+        return { name: user[id], role: user[id].role, isBirthdate: false };
       }
     });
     let birthdayList = [];
@@ -59,7 +79,7 @@ const Home = () => {
         return { isHire: H ? true : false };
       }
       let exdate = expiryCondition(user[id].hiringdate);
-      return { name: user[id].name, post: user[id].post, ...exdate };
+      return { name: user[id].name, role: user[id].role, ...exdate };
     });
     let tempHiresList = [];
     newHires.forEach((elem) => {
@@ -85,7 +105,7 @@ const Home = () => {
         };
       }
       let yearCount = getDateDiff(user[id].hiringdate);
-      return { name: user[id].name, post: user[id].post, ...yearCount };
+      return { name: user[id].name, role: user[id].role, ...yearCount };
     });
     let anniversaryList = [];
     tempAnniversaryList.forEach((elem) => {

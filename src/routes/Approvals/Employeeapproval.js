@@ -3,7 +3,7 @@ import empapprov from "./employeeapproval.module.scss";
 import appRef from "../../firebase";
 import { v4 as uuidv4 } from "uuid";
 
-const Employeeapproval = ({ name }) => {
+const Employeeapproval = ({ name, role }) => {
   const [applyLeavePopUp, setApplyLeavePopUp] = useState(false);
   const [applyExpencePopUp, setApplyExpencePopUp] = useState(false);
   const [applyLeave, setApplyLeave] = useState({
@@ -15,6 +15,7 @@ const Employeeapproval = ({ name }) => {
     reason: "",
     uuid: localStorage.getItem("uuid"),
     uname: name,
+    position: role,
   });
   const [applyExpence, setApplyExpence] = useState({
     allow: false,
@@ -235,6 +236,27 @@ const Employeeapproval = ({ name }) => {
                       </button>
                     </div>
                   </div>
+                  {/* <div className={empapprov.expence}>
+                  <div className={empapprov.expencedetails}>
+                    <div className={empapprov.expencetitle}>
+                      <h4>Expence Title</h4>
+                      <div>
+                        <input
+                          type="text"
+                          name="expenceTitle"
+                          value={applyExpence.expenceTitle}
+                          onChange={expenceChange}
+                        />
+                      </div>
+                    </div>
+                    <div className={empapprov.btn2}>
+                      <button
+                        onClick={() => setApplyExpencePopUp(!applyExpencePopUp)}
+                      >
+                        X
+                      </button>
+                    </div>
+                  </div> */}
                   <div className={empapprov.expence}>
                     <div className={empapprov.expencedetails}>
                       <div className={empapprov.expencetitle}>
@@ -283,6 +305,7 @@ const Employeeapproval = ({ name }) => {
           <></>
         )}
 
+
         <div className={empapprov.managerbox}>
           <div className={empapprov.leavesbox}>
             <div className={empapprov.leavetitle}>
@@ -294,13 +317,13 @@ const Employeeapproval = ({ name }) => {
             {approvedLeave ? (
               Object.keys(approvedLeave).map((id) => (
                 <div className={empapprov.leaves}>
-
                   <div key={id}>
                     <h4>Leave Title : {approvedLeave[id].leaveTitle}</h4>
                     <p>
                       From : {approvedLeave[id].leaveStartD}
                       To :{approvedLeave[id].leaveEndD}
                     </p>
+                    <p>reason : {approvedLeave[id].reason}</p>
                     {approvedLeave[id].allow === true ? (
                       <div className={empapprov.resulttrue}>
                         <h3>✔ Approved</h3>
@@ -321,6 +344,7 @@ const Employeeapproval = ({ name }) => {
               <></>
             )}
           </div>
+
           <div className={empapprov.expencesbox}>
             <div className={empapprov.expenceitle}>
               <h2>Expence Approvals</h2>
@@ -334,7 +358,7 @@ const Employeeapproval = ({ name }) => {
                   <div key={id}>
                     <h4>Expence Title : {approvedExpence[id].expenceTitle}</h4>
                     <p>Ammount : {approvedExpence[id].ammount}</p>
-
+                    <p>Description : {approvedExpence[id].description}</p>
                     {approvedExpence[id].allowDate ? (
                       <div className={empapprov.resulttrue}>
                         <h3>✔ Approved</h3>
@@ -362,3 +386,4 @@ const Employeeapproval = ({ name }) => {
 };
 
 export default Employeeapproval;
+

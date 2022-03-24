@@ -1,33 +1,41 @@
-import React, { useState } from "react";
-import signup from "./signup.module.scss";
-import { Link, useNavigate } from "react-router-dom";
-import appRef from "../../firebase";
+import React, { useState, useEffect } from "react";
+import edit from "./editdetail.module.scss";
+import { useNavigate, useParams } from "react-router-dom";
+import appRef from "../../../firebase";
 import { v4 as uuidv4 } from "uuid";
 
-const Signup = () => {
+const Editdetail = () => {
   const [skill, setSkill] = useState({});
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    mono: "",
-    address: "",
-    dob: "",
-    gender: "",
-    degree: "",
-    colname: "",
-    post: "",
-    precompany: "",
-    preworkduration: "",
-    otherdetail: "",
-    skill: [],
-    position: "",
-    pass: "",
-    langknown: { English: "", Hindi: "", Gujarati: "" },
-    role: "",
-    activate: false,
-    uuid: uuidv4(),
-    hiringdate: Date(),
-  });
+  //   const [user, setUser] = useState({
+  //     name: "",
+  //     email: "",
+  //     mono: "",
+  //     address: "",
+  //     dob: "",
+  //     gender: "",
+  //     degree: "",
+  //     colname: "",
+  //     post: "",
+  //     precompany: "",
+  //     preworkduration: "",
+  //     otherdetail: "",
+  //     skill: [],
+  //     position: "",
+  //     pass: "",
+  //     langknown: { English: "", Hindi: "", Gujarati: "" },
+  //     role: "",
+  //     activate: false,
+  //     uuid: uuidv4(),
+  //     hiringdate: Date(),
+  //   });
+  const [user, setUser] = useState({});
+  const { id } = useParams();
+  useEffect(() => {
+    appRef.child(`Users/${id}`).on("value", (snap) => {
+      setUser(snap.val());
+    });
+  }, [id]);
+
   const skillchange = (e) => {
     setSkill(e.target.value);
   };
@@ -60,9 +68,11 @@ const Signup = () => {
           },
         });
       }
-    } else if (event.target.name === "skill") {
-      setUser({ ...user, skill: [...user.skill, event.target.value] });
-    } else {
+    }
+    // else if (event.target.name === "skill") {
+    //   setUser({ ...user, skill: [...user.skill, event.target.value] });
+    // }
+    else {
       setUser({ ...user, [event.target.name]: event.target.value });
     }
   };
@@ -70,46 +80,46 @@ const Signup = () => {
 
   const senduserdata = (e) => {
     e.preventDefault();
-    appRef.child("Users").push(user, () => {
-      alert("data inserted successfully");
-      setUser({
-        name: "",
-        email: "",
-        mono: "",
-        address: "",
-        dob: "",
-        gender: "",
-        degree: "",
-        colname: "",
-        post: "",
-        precompany: "",
-        preworkduration: "",
-        otherdetail: "",
-        skill: [],
-        position: "",
-        pass: "",
-        langknown: { English: "", Hindi: "", Gujarati: "" },
-        role: "",
-        activate: false,
-      });
-    });
-    // console.log(user);
-    navigate("/");
+    console.log(user);
+    //   appRef.child("Users").push(user, () => {
+    //     alert("data inserted successfully");
+    //     setUser({
+    //       name: "",
+    //       email: "",
+    //       mono: "",
+    //       address: "",
+    //       dob: "",
+    //       gender: "",
+    //       degree: "",
+    //       colname: "",
+    //       post: "",
+    //       precompany: "",
+    //       preworkduration: "",
+    //       otherdetail: "",
+    //       skill: [],
+    //       position: "",
+    //       pass: "",
+    //       langknown: { English: "", Hindi: "", Gujarati: "" },
+    //       role: "",
+    //       activate: false,
+    //     });
+    //   });
+    //   navigate("/");
   };
 
   return (
     <>
-      <div className={signup.signuppage}>
-        <div className={signup.signupcontainer}>
-          <div className={signup.signupform}>
+      <div>
+        <div>
+          <div>
             <h1> Sign-Up</h1>
             <form action="#">
               <h3> Personal Detail :</h3>
-              <div className={signup.name}>
+              <div className={edit.name}>
                 Full name
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
-                    id={signup.text}
+                    id={edit.text}
                     placeholder="Johan Roy"
                     type="text"
                     name="name"
@@ -118,11 +128,11 @@ const Signup = () => {
                   />
                 </div>
               </div>
-              <div className={signup.email}>
+              <div className={edit.email}>
                 Mail-id
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
-                    id={signup.text}
+                    id={edit.text}
                     placeholder="Listical@gmail.com"
                     type="email"
                     name="email"
@@ -131,11 +141,11 @@ const Signup = () => {
                   />
                 </div>
               </div>
-              <div className={signup.mobile}>
+              <div className={edit.mobile}>
                 Mobile No.
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
-                    id={signup.text}
+                    id={edit.text}
                     placeholder="+91 99999 00009"
                     type="text"
                     name="mono"
@@ -144,11 +154,11 @@ const Signup = () => {
                   />
                 </div>
               </div>
-              <div className={signup.address}>
+              <div className={edit.address}>
                 Address
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <textarea
-                    id={signup.text}
+                    id={edit.text}
                     placeholder="Address"
                     name="address"
                     value={user.address}
@@ -158,11 +168,11 @@ const Signup = () => {
                   ></textarea>
                 </div>
               </div>
-              <div className={signup.dob}>
+              <div className={edit.dob}>
                 DOB
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
-                    id={signup.text}
+                    id={edit.text}
                     type="date"
                     name="dob"
                     value={user.dob}
@@ -170,9 +180,9 @@ const Signup = () => {
                   />
                 </div>
               </div>
-              <div className={signup.gender}>
+              <div className={edit.gender}>
                 Gender
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
                     type="radio"
                     value="Male"
@@ -199,11 +209,11 @@ const Signup = () => {
 
               <h3>Qualification & Skill :</h3>
 
-              <div className={signup.degree}>
+              <div className={edit.degree}>
                 Degree
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
-                    id={signup.text}
+                    id={edit.text}
                     placeholder="Degree"
                     type="text"
                     name="degree"
@@ -212,11 +222,11 @@ const Signup = () => {
                   />
                 </div>
               </div>
-              <div className={signup.collage}>
+              <div className={edit.collage}>
                 College Name
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
-                    id={signup.text}
+                    id={edit.text}
                     placeholder="College Name"
                     type="text"
                     name="colname"
@@ -225,9 +235,9 @@ const Signup = () => {
                   />
                 </div>
               </div>
-              <div className={signup.langbox}>
+              <div className={edit.langbox}>
                 Language Known
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
                     type="checkbox"
                     value="English"
@@ -251,11 +261,11 @@ const Signup = () => {
                   Gujarati
                 </div>
               </div>
-              <div className={signup.skill}>
+              <div className={edit.skill}>
                 Skill
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
-                    id={signup.text}
+                    id={edit.text}
                     placeholder="Skill"
                     type="text"
                     name="skill"
@@ -263,16 +273,16 @@ const Signup = () => {
                   />
                   <button onClick={skillplus}>+</button>
                 </div>
-                {user.skill.map((name) => (
+                {/* {user.skill.map((name) => (
                   <p key={name}>{name}</p>
-                ))}
+                ))} */}
               </div>
               <h3>Work Experience : </h3>
-              <div className={signup.post}>
+              <div className={edit.post}>
                 Post
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
-                    id={signup.text}
+                    id={edit.text}
                     placeholder="Devloper"
                     type="text"
                     name="post"
@@ -281,11 +291,11 @@ const Signup = () => {
                   />
                 </div>
               </div>
-              <div className={signup.company}>
+              <div className={edit.company}>
                 Company Name
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
-                    id={signup.text}
+                    id={edit.text}
                     placeholder="Company Name"
                     type="text"
                     name="precompany"
@@ -294,11 +304,11 @@ const Signup = () => {
                   />
                 </div>
               </div>
-              <div className={signup.duration}>
+              <div className={edit.duration}>
                 Work Duration
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
-                    id={signup.text}
+                    id={edit.text}
                     placeholder="Work Duration"
                     type="text"
                     name="preworkduration"
@@ -307,11 +317,11 @@ const Signup = () => {
                   />
                 </div>
               </div>
-              <div className={signup.other}>
+              <div className={edit.other}>
                 Other detail
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <textarea
-                    id={signup.text}
+                    id={edit.text}
                     placeholder=" Other detail"
                     cols="21"
                     rows="5"
@@ -322,9 +332,9 @@ const Signup = () => {
                 </div>
               </div>
               <h3>Complete Your Profile :</h3>
-              <div className={signup.role}>
+              <div className={edit.role}>
                 Role
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
                     type="text"
                     placeholder="Devloper"
@@ -334,9 +344,9 @@ const Signup = () => {
                   />
                 </div>
               </div>
-              <div className={signup.position}>
+              <div className={edit.position}>
                 Position
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
                     type="radio"
                     value="Admin"
@@ -360,11 +370,11 @@ const Signup = () => {
                   Employee
                 </div>
               </div>
-              <div className={signup.password}>
+              <div className={edit.password}>
                 Password
-                <div id={signup.inputbox}>
+                <div id={edit.inputbox}>
                   <input
-                    id={signup.text}
+                    id={edit.text}
                     placeholder="Password"
                     type="password"
                     name="pass"
@@ -374,33 +384,33 @@ const Signup = () => {
                   />
                 </div>
               </div>
-              <div className={signup.btn}>
+              <div className={edit.btn}>
                 <button onClick={senduserdata}>Save</button>
                 <input type="reset" value="Reset" />
               </div>
             </form>
           </div>
-          <div className={signup.otherpart}>
+          {/* <div className={edit.otherpart}>
             <img src={require("@photos/Listical.png")} alt="" />
             <h2>Listical</h2>
             <h1>Welcome Back!</h1>
-            <div className={signup.login}>
+            <div className={edit.login}>
               <Link
-                className={signup.btn1}
+                className={edit.btn1}
                 to={"/"}
                 style={{ textDecoration: "none" }}
               >
                 Login page
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
-        <div className={signup.bgcolor}>
-          <div className={signup.color}></div>
+        <div className={edit.bgcolor}>
+          <div className={edit.color}></div>
         </div>
       </div>
     </>
   );
 };
 
-export default Signup;
+export default Editdetail;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import annocuncements from "./homecompo.module.scss";
 import appRef from "../../../firebase";
 
-const Announcements = (props) => {
+const Announcements = ({ handleopen }) => {
   const [announcement, setAnnouncement] = useState({});
   const [announcementkey, setAnnouncementkey] = useState([]);
   useEffect(() => {
@@ -20,11 +20,6 @@ const Announcements = (props) => {
     appRef.child(`/Announcement/${id}`).remove(() => {
       alert("Record Deleted Successfully");
       setAnnouncement({ ...announcement, [id]: {} });
-      // setAnnouncementkey(
-      //   announcementkey.filter((id) => {
-      //     return announcementkey.pop(id);
-      //   })
-      // );
     });
   };
   return (
@@ -36,7 +31,7 @@ const Announcements = (props) => {
         <div className={annocuncements.head} id={annocuncements.announcements}>
           <h3>Announcements</h3>
           {localStorage.getItem("Type") === "Admin" ? (
-            <button onClick={props.handleopen}>+</button>
+            <button onClick={handleopen}>+</button>
           ) : (
             ""
           )}

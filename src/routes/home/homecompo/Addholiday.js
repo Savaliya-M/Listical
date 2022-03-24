@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import appRef from "../../../firebase";
-import addholi from './addholiday.module.scss';
+import addholi from "./addholiday.module.scss";
 
-const Addholiday = (props) => {
+const Addholiday = ({ handleclose }) => {
   const [holiday, setHoliday] = useState({
     holidaytitle: "",
     holidaydate: "",
@@ -28,45 +28,46 @@ const Addholiday = (props) => {
     <>
       <div className={addholi.popup}>
         <div className={addholi.outer}>
-          
-            <div className={addholi.close}>
-              <button onClick={props.handleclose}>X</button>
-            </div>
-            <div className={addholi.mainpropopup}>
+          <div className={addholi.close}>
+            <button onClick={handleclose}>X</button>
+          </div>
+          <div className={addholi.mainpropopup}>
             <div className={addholi.mid}>
-            <div className={addholi.center}>
-              <div className={addholi.title}>
-                <h1>ADD Holiday</h1>
-              </div>
+              <div className={addholi.center}>
+                <div className={addholi.title}>
+                  <h1>ADD Holiday</h1>
+                </div>
 
-              <div>
                 <div>
                   <div>
-                    <h3> Holiday Title</h3>
-                    <input
-                      type="text"
-                      name="holidaytitle"
-                      onChange={sendholiday}
-                      value={holiday.holidaytitle}
-                    ></input>
-                  </div>
-                  <div>
-                    <h3> Holiday Date</h3>
-                    <input
-                      type="date"
-                      name="holidaydate"
-                      onChange={sendholiday}
-                      value={holiday.holidaydate}
-                    ></input>
-                  </div>
-                  <div className={addholi.fildsbtn}>
-                    <button id={addholi.btn1} onClick={storeholiday}>Submit</button>{" "}
-                    <button id={addholi.btn1}>Reset</button>
+                    <div>
+                      <h3> Holiday Title</h3>
+                      <input
+                        type="text"
+                        name="holidaytitle"
+                        onChange={sendholiday}
+                        value={holiday.holidaytitle}
+                      ></input>
+                    </div>
+                    <div>
+                      <h3> Holiday Date</h3>
+                      <input
+                        type="date"
+                        name="holidaydate"
+                        onChange={sendholiday}
+                        value={holiday.holidaydate}
+                      ></input>
+                    </div>
+                    <div className={addholi.fildsbtn}>
+                      <button id={addholi.btn1} onClick={storeholiday}>
+                        Submit
+                      </button>{" "}
+                      <button id={addholi.btn1}>Reset</button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
