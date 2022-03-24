@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import appRef from "../../../firebase";
 import Addan from "./addannounce.module.scss";
 
-const Addannounce = (props) => {
+const Addannounce = ({ handleclose }) => {
   const [announce, setAnnounce] = useState({
     announcehead: "",
     announcedesc: "",
@@ -30,13 +30,11 @@ const Addannounce = (props) => {
   return (
     <>
       <div className={Addan.popup}>
-
         <div className={Addan.outer}>
-          
-            <div className={Addan.close}>
-              <button onClick={props.handleclose}>X</button>
-            </div>
-            <div className={Addan.mainpropopup}>
+          <div className={Addan.close}>
+            <button onClick={handleclose}>X</button>
+          </div>
+          <div className={Addan.mainpropopup}>
             <div className={Addan.mid}>
               <div className={Addan.center}>
                 <div className={Addan.title}>
@@ -64,7 +62,9 @@ const Addannounce = (props) => {
                       ></input>
                     </div>
                     <div className={Addan.fildsbtn}>
-                      <button id={Addan.btn1} onClick={storeannouncement}>Submit</button>{" "}
+                      <button id={Addan.btn1} onClick={storeannouncement}>
+                        Submit
+                      </button>{" "}
                       <button id={Addan.btn2}>Reset</button>
                     </div>
                   </div>

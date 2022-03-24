@@ -15,6 +15,7 @@ const ManagerSelfapproval = ({ username }) => {
     reason: "",
     uuid: localStorage.getItem("uuid"),
     uname: username,
+    position: "Manager",
   });
   const [applyExpence, setApplyExpence] = useState({
     allow: false,
@@ -48,6 +49,7 @@ const ManagerSelfapproval = ({ username }) => {
       reason: "",
       uuid: localStorage.getItem("uuid"),
       uname: "",
+      position: "",
     });
     setApplyLeavePopUp(!applyLeavePopUp);
   };

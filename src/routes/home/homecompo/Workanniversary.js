@@ -1,11 +1,11 @@
 import { React, useState, useEffect } from "react";
 import anniversary from "./homecompo.module.scss";
 
-const Workanniversary = (props) => {
+const Workanniversary = ({ anniversaryList }) => {
   const [todayList, setTodayList] = useState([]);
   useEffect(() => {
-    setTodayList(props.anniversaryList);
-  }, [props]);
+    setTodayList(anniversaryList);
+  }, [anniversaryList]);
 
   return (
     <>
@@ -20,22 +20,22 @@ const Workanniversary = (props) => {
           <div className={anniversary.mainContent}>
             {todayList && todayList.length !== 0
               ? todayList.map((user, index) => {
-                return user.isAnniversary ? (
-                  <div
-                    className={anniversary.content}
-                    id={anniversary.Workanniversary}
-                    key={index}
-                  >
-                    <div className={anniversary.cimg}>
-                      <h2>{user.yearsOfJoined}</h2>
+                  return user.isAnniversary ? (
+                    <div
+                      className={anniversary.content}
+                      id={anniversary.Workanniversary}
+                      key={index}
+                    >
+                      <div className={anniversary.cimg}>
+                        <h2>{user.yearsOfJoined}</h2>
+                      </div>
+                      <div className={anniversary.text}>
+                        <h3>{user.name}</h3>
+                        <p>{user.role}</p>
+                      </div>
                     </div>
-                    <div className={anniversary.text}>
-                      <h3>{user.name}</h3>
-                      <p>{user.post}</p>
-                    </div>
-                  </div>
-                ) : null;
-              })
+                  ) : null;
+                })
               : "no anniversary today"}
           </div>
         </div>

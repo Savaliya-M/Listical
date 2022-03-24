@@ -15,17 +15,18 @@ import Managerapproval from "../../routes/Approvals/Managerapproval";
 
 const Layout = () => {
   const [user, setUser] = useState({});
+  const [userid, setUserid] = useState("");
   useEffect(() => {
     appRef.child("Users").on("value", (snapshot) => {
       const userData = snapshot.val();
-      Object.values(userData).forEach((elem) => {
-        if (elem.uuid === localStorage.getItem("uuid")) {
-          setUser(elem);
+      Object.keys(userData).forEach((elem) => {
+        if (userData[elem].uuid === localStorage.getItem("uuid")) {
+          setUser(userData[elem]);
+          setUserid(elem);
         }
       });
     });
   }, []);
-
   return (
     <>
       <div className={layout.mainlayout}>
@@ -33,7 +34,7 @@ const Layout = () => {
           <Sidebar type={user.position} />
         </div>
         <div className={layout.navbar}>
-          <Navbar name={user.name} />
+          <Navbar name={user.name} uid={userid} />
         </div>
         <div className={layout.routes}>
           {user.position === "Admin" ? (
@@ -78,12 +79,12 @@ const Layout = () => {
           {user.position === "Employee" ? (
             <Routes>
               <Route path="/" element={<Home />} />
-              {/* <Route exact path="user/*" element={<User />} /> */}
+              <Route exact path="user/*" element={<User />} />
               <Route exact path="project" element={<Project />} />
               <Route
                 exact
                 path="employeeapproval"
-                element={<Employeeapproval name={user.name} post={user.post} />}
+                element={<Employeeapproval name={user.name} role={user.role} />}
               />
               <Route
                 exact

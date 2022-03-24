@@ -42,7 +42,7 @@ const Employeecompo = () => {
             <li className={employeecompo.rows}>
               <Link className={employeecompo.title} to="/">
                 <div className={employeecompo.icone}>
-                  <img src={require("@photos/house.png")} />
+                  <img src={require("@photos/house.png")} alt="" />
                   {/*   Home  */}
                 </div>
               </Link>
@@ -52,6 +52,14 @@ const Employeecompo = () => {
                 <div className={employeecompo.icone}>
                   <img src={require("@photos/project.png")} alt="" />
                   {/* Project */}
+                </div>
+              </Link>
+            </li>
+            <li className={employeecompo.rows}>
+              <Link className={employeecompo.title} to="user">
+                <div className={employeecompo.icone}>
+                  <img src={require("@photos/people.png")} alt="People" />
+                  {/* User */}
                 </div>
               </Link>
             </li>

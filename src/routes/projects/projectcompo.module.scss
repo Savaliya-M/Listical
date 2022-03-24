@@ -1,17 +1,18 @@
 .mainprojectcompo {
- width: 100%; 
- display: grid;
- grid-gap: 1rem;
- margin: 15px;
-//  justify-content: center;
-max-width: 40rem;
- grid-template-columns: repeat(auto-fit, minmax(0.3fr, 0.1fr));
+  width: 100%;
+  display: grid;
+  grid-gap: 1rem;
+  margin: 15px;
+  //  justify-content: center;
+  max-width: 40rem;
+  grid-template-columns: repeat(auto-fit, minmax(0.3fr, 0.1fr));
 }
 
 .progressreport img {
-  height: 200px;
+  height: 300px;
   width: 100%;
   border-radius: 10px;
+  margin: auto;
 }
 
 .probox {
@@ -25,8 +26,8 @@ max-width: 40rem;
   padding: 5px;
   box-shadow: 2px 0px 15px #a1a1a1;
   border-radius: 15px;
-  &:hover{
-    box-shadow: 0px 0px 15px rgb(252, 252, 252)  ;
+  &:hover {
+    box-shadow: 0px 0px 15px rgb(252, 252, 252);
     transform: scale(1.03);
   }
 }
@@ -34,13 +35,16 @@ max-width: 40rem;
 .proinfo {
   display: flex;
   flex-direction: column;
-  h3,h4 {
+  h3,
+  h4 {
     margin: 0px;
     line-height: 1.8rem;
   }
 }
 
-.proname, .clientname, .deadline,  .managername {
+.proname,
+.clientname,
+.deadline,
+.managername {
   display: flex;
 }
-

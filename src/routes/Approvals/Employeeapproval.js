@@ -3,7 +3,7 @@ import empapprov from "./employeeapproval.module.scss";
 import appRef from "../../firebase";
 import { v4 as uuidv4 } from "uuid";
 
-const Employeeapproval = ({ name, post }) => {
+const Employeeapproval = ({ name, role }) => {
   const [applyLeavePopUp, setApplyLeavePopUp] = useState(false);
   const [applyExpencePopUp, setApplyExpencePopUp] = useState(false);
   const [applyLeave, setApplyLeave] = useState({
@@ -15,7 +15,7 @@ const Employeeapproval = ({ name, post }) => {
     reason: "",
     uuid: localStorage.getItem("uuid"),
     uname: name,
-    position: post,
+    position: role,
   });
   const [applyExpence, setApplyExpence] = useState({
     allow: false,
@@ -318,6 +318,7 @@ const Employeeapproval = ({ name, post }) => {
                 From : {approvedLeave[id].leaveStartD}
                 To :{approvedLeave[id].leaveEndD}
               </p>
+              <p>reason : {approvedLeave[id].reason}</p>
               {approvedLeave[id].allow === true ? (
                 <h4>✔ Approved</h4>
               ) : approvedLeave[id].rejectedDate ? (
@@ -337,7 +338,7 @@ const Employeeapproval = ({ name, post }) => {
             <div key={id}>
               <h4>Expence Title : {approvedExpence[id].expenceTitle}</h4>
               <p>Ammount : {approvedExpence[id].ammount}</p>
-
+              <p>Description : {approvedExpence[id].description}</p>
               {approvedExpence[id].allowDate ? (
                 <h4>✔ Approved</h4>
               ) : approvedExpence[id].rejectedDate ? (

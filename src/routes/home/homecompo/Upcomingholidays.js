@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import holiday from "./homecompo.module.scss";
 import appRef from "../../../firebase";
 
-const Upcomingholidays = (props) => {
+const Upcomingholidays = ({ handleopen }) => {
   const [upholiday, setUpholiday] = useState({});
   useEffect(() => {
     appRef.child("Holiday").on("value", (snapshot) => {
@@ -17,6 +17,7 @@ const Upcomingholidays = (props) => {
         if (curdate > new Date(upholiday[elem].holidaydate)) {
           appRef.child(`/Holiday/${elem}`).remove(() => {});
         }
+        return elem;
       });
     }
   }, [upholiday]);
@@ -27,7 +28,7 @@ const Upcomingholidays = (props) => {
         <div className={holiday.head} id={holiday.Upcomingholidays}>
           <h3>Upcoming Holidays</h3>
           {localStorage.getItem("Type") === "Admin" ? (
-            <button onClick={props.handleopen}>+</button>
+            <button onClick={handleopen}>+</button>
           ) : (
             ""
           )}

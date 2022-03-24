@@ -73,7 +73,7 @@
       flex-direction: row;
       margin-bottom: 1rem;
 
-      button {
+      a {
         margin: 1rem 0.1rem 0.5rem 0rem;
         background-color: #b7d0e0;
         color: rgb(0, 0, 0);
@@ -148,7 +148,7 @@
     list-style: none;
   }
 
-  .scrollname{
+  .scrollname {
     width: 15rem;
     #list {
       margin-top: 0%;
@@ -160,7 +160,7 @@
       // margin-left: 5rem;
       overflow-y: scroll;
       scrollbar-width: none;
-      &::-webkit-scrollbar{
+      &::-webkit-scrollbar {
         width: 0px;
       }
     }
@@ -190,7 +190,7 @@
     #empwords {
       overflow-y: scroll;
       scrollbar-width: none;
-      &::-webkit-scrollbar{
+      &::-webkit-scrollbar {
         width: 0px;
       }
     }
