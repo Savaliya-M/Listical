@@ -105,7 +105,7 @@ const Employeeapproval = ({ name }) => {
   //******************************************************************************************************** */
   return (
     <>
-      <div className={empapprov.approval}>
+      <div className={empapprov.empapproval}>
         {applyLeavePopUp ? (
           <>
             <div className={empapprov.outerbox}>
@@ -235,27 +235,6 @@ const Employeeapproval = ({ name }) => {
                       </button>
                     </div>
                   </div>
-                  {/* <div className={empapprov.expence}>
-                  <div className={empapprov.expencedetails}>
-                    <div className={empapprov.expencetitle}>
-                      <h4>Expence Title</h4>
-                      <div>
-                        <input
-                          type="text"
-                          name="expenceTitle"
-                          value={applyExpence.expenceTitle}
-                          onChange={expenceChange}
-                        />
-                      </div>
-                    </div>
-                    <div className={empapprov.btn2}>
-                      <button
-                        onClick={() => setApplyExpencePopUp(!applyExpencePopUp)}
-                      >
-                        X
-                      </button>
-                    </div>
-                  </div> */}
                   <div className={empapprov.expence}>
                     <div className={empapprov.expencedetails}>
                       <div className={empapprov.expencetitle}>
@@ -303,54 +282,80 @@ const Employeeapproval = ({ name }) => {
         ) : (
           <></>
         )}
-        <button onClick={() => setApplyLeavePopUp(!applyLeavePopUp)}>
-          Apply For Leave
-        </button>
-        <button onClick={() => setApplyExpencePopUp(!applyExpencePopUp)}>
-          Apply For Expence
-        </button>
 
-        <h1>Leave Approvals</h1>
-        {approvedLeave ? (
-          Object.keys(approvedLeave).map((id) => (
-            <div key={id}>
-              <h4>Leave Title : {approvedLeave[id].leaveTitle}</h4>
-              <p>
-                From : {approvedLeave[id].leaveStartD}
-                To :{approvedLeave[id].leaveEndD}
-              </p>
-              {approvedLeave[id].allow === true ? (
-                <h4>✔ Approved</h4>
-              ) : approvedLeave[id].rejectedDate ? (
-                <h4>Rejected</h4>
-              ) : (
-                <h4>◌ Pending</h4>
-              )}
+        <div className={empapprov.managerbox}>
+          <div className={empapprov.leavesbox}>
+            <div className={empapprov.leavetitle}>
+              <h2>Leave Approvals</h2>
+              <button onClick={() => setApplyLeavePopUp(!applyLeavePopUp)}>
+                Apply For Leave
+              </button>
             </div>
-          ))
-        ) : (
-          <></>
-        )}
+            {approvedLeave ? (
+              Object.keys(approvedLeave).map((id) => (
+                <div className={empapprov.leaves}>
 
-        <h1>Expence Approvals</h1>
-        {approvedExpence ? (
-          Object.keys(approvedExpence).map((id) => (
-            <div key={id}>
-              <h4>Expence Title : {approvedExpence[id].expenceTitle}</h4>
-              <p>Ammount : {approvedExpence[id].ammount}</p>
-
-              {approvedExpence[id].allowDate ? (
-                <h4>✔ Approved</h4>
-              ) : approvedExpence[id].rejectedDate ? (
-                <h4> Rejected </h4>
-              ) : (
-                <h4>◌ Pending</h4>
-              )}
+                  <div key={id}>
+                    <h4>Leave Title : {approvedLeave[id].leaveTitle}</h4>
+                    <p>
+                      From : {approvedLeave[id].leaveStartD}
+                      To :{approvedLeave[id].leaveEndD}
+                    </p>
+                    {approvedLeave[id].allow === true ? (
+                      <div className={empapprov.resulttrue}>
+                        <h3>✔ Approved</h3>
+                      </div>
+                    ) : approvedLeave[id].rejectedDate ? (
+                      <div className={empapprov.resultfalse}>
+                        <h3> &#x2718; Rejected</h3>
+                      </div>
+                    ) : (
+                      <div className={empapprov.resultpandig}>
+                        <h3>◌ Pending</h3>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))
+            ) : (
+              <></>
+            )}
+          </div>
+          <div className={empapprov.expencesbox}>
+            <div className={empapprov.expenceitle}>
+              <h2>Expence Approvals</h2>
+              <button onClick={() => setApplyExpencePopUp(!applyExpencePopUp)}>
+                Apply For Expence
+              </button>
             </div>
-          ))
-        ) : (
-          <></>
-        )}
+            {approvedExpence ? (
+              Object.keys(approvedExpence).map((id) => (
+                <div className={empapprov.expences}>
+                  <div key={id}>
+                    <h4>Expence Title : {approvedExpence[id].expenceTitle}</h4>
+                    <p>Ammount : {approvedExpence[id].ammount}</p>
+
+                    {approvedExpence[id].allowDate ? (
+                      <div className={empapprov.resulttrue}>
+                        <h3>✔ Approved</h3>
+                      </div>
+                    ) : approvedExpence[id].rejectedDate ? (
+                      <div className={empapprov.resultfalse}>
+                        <h3>&#x2718; Rejected </h3>
+                      </div>
+                    ) : (
+                      <div className={empapprov.resultpandig}>
+                        <h3>◌ Pending</h3>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))
+            ) : (
+              <></>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );
