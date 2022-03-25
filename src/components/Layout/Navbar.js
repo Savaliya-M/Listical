@@ -9,7 +9,6 @@ const Navbar = ({ name, uid }) => {
     localStorage.removeItem("Type");
     navigate("/");
   };
-  console.log(uid);
   return (
     <>
       <div className={navbar.navbarmain}>

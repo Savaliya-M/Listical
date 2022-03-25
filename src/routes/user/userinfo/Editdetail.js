@@ -28,14 +28,12 @@ const Editdetail = () => {
     uuid: uuidv4(),
     hiringdate: Date(),
   });
-  // const [user, setUser] = useState({});
   const { id } = useParams();
   useEffect(() => {
     appRef.child(`Users/${id}`).on("value", (snap) => {
       setUser(snap.val());
     });
   }, [id]);
-  useEffect(() => {}, [user]);
 
   const skillchange = (e) => {
     setSkill(e.target.value);
@@ -81,31 +79,30 @@ const Editdetail = () => {
 
   const senduserdata = (e) => {
     e.preventDefault();
-    console.log(user);
-    //   appRef.child("Users").push(user, () => {
-    //     alert("data inserted successfully");
-    //     setUser({
-    //       name: "",
-    //       email: "",
-    //       mono: "",
-    //       address: "",
-    //       dob: "",
-    //       gender: "",
-    //       degree: "",
-    //       colname: "",
-    //       post: "",
-    //       precompany: "",
-    //       preworkduration: "",
-    //       otherdetail: "",
-    //       skill: [],
-    //       position: "",
-    //       pass: "",
-    //       langknown: { English: "", Hindi: "", Gujarati: "" },
-    //       role: "",
-    //       activate: false,
-    //     });
-    //   });
-    //   navigate("/");
+    appRef.child(`Users/${id}`).set(user, () => {
+      alert("data Updated successfully");
+      setUser({
+        name: "",
+        email: "",
+        mono: "",
+        address: "",
+        dob: "",
+        gender: "",
+        degree: "",
+        colname: "",
+        post: "",
+        precompany: "",
+        preworkduration: "",
+        otherdetail: "",
+        skill: [],
+        position: "",
+        pass: "",
+        langknown: { English: "", Hindi: "", Gujarati: "" },
+        role: "",
+        activate: false,
+      });
+    });
+    navigate(-1);
   };
 
   return (
@@ -246,6 +243,9 @@ const Editdetail = () => {
                     type="checkbox"
                     value="English"
                     name="English"
+                    checked={
+                      user.langknown.English === "English" ? true : false
+                    }
                     onChange={getuser}
                   />{" "}
                   English
@@ -253,6 +253,7 @@ const Editdetail = () => {
                     type="checkbox"
                     value="Hindi"
                     name="Hindi"
+                    checked={user.langknown.Hindi === "Hindi" ? true : false}
                     onChange={getuser}
                   />{" "}
                   Hindi
@@ -260,6 +261,9 @@ const Editdetail = () => {
                     type="checkbox"
                     value="Gujarati"
                     name="Gujarati"
+                    checked={
+                      user.langknown.Gujarati === "Gujarati" ? true : false
+                    }
                     onChange={getuser}
                   />{" "}
                   Gujarati

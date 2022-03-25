@@ -101,11 +101,11 @@ const Usercompo = () => {
                       <h5>{users[id].mono}</h5>
                       <p>{users[id].role}</p>
                     </div>
-                    <div>
+                    {/* <div>
                       <button onClick={() => navigate(`chat/${id}/${sid}`)}>
                         Chat
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 );
               } else {
@@ -154,11 +154,11 @@ const Usercompo = () => {
                     <h5>+91 {users[elem].mono}</h5>
                     <p>{users[elem].role}</p>
                   </div>
-                  <div>
+                  {/* <div>
                     <button onClick={() => navigate(`chat/${elem}/${sid}`)}>
                       Chat
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               );
             })
@@ -212,13 +212,13 @@ const Usercompo = () => {
                             <h5>{users[uid].mono}</h5>
                             <p>{users[uid].role}</p>
                           </div>
-                          <div>
+                          {/* <div>
                             <button
                               onClick={() => navigate(`chat/${uid}/${sid}`)}
                             >
                               Chat
                             </button>
-                          </div>
+                          </div> */}
                         </div>
                       );
                     } else {

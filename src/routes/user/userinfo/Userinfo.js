@@ -66,9 +66,13 @@ const Userinfo = () => {
             >
               X
             </button>
-            <button onClick={() => navigate(`/layout/user/editdetail/${id}`)}>
-              🖋
-            </button>
+            {user.uuid === localStorage.getItem("uuid") ? (
+              <button onClick={() => navigate(`/layout/user/editdetail/${id}`)}>
+                🖋
+              </button>
+            ) : (
+              <></>
+            )}
           </div>
           <div className={useinfo.thirduserinfo}>
             <div className={useinfo.basicdetail}>
