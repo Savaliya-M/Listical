@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import appRef from "../../firebase";
-// import appRef from "../../firebase";
-import EmployeeaddPopup from "./EmployeeaddPopup";
+import Addtask from "./Addtask";
 import prodetail from "./projectdetail.module.scss";
 
 const Projectdetail = () => {
   const [users, setUsers] = useState({});
   const [team, setTeam] = useState([]);
   const [project, setProject] = useState({});
-
+  const [addTaskPopUp, setAddTaskPopUp] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -40,6 +39,24 @@ const Projectdetail = () => {
       setTeam(tempTeamArr);
     }
   }, [project]);
+
+  const acceptTask = (eid) => {
+    Object.keys(project.TaskList).map((tid) => {
+      if (eid === tid) {
+        project.TaskList[tid].status = true;
+      }
+    });
+    appRef.child(`Projects/${id}`).set(project);
+  };
+
+  const completeTask = (eid) => {
+    Object.keys(project.TaskList).map((tid) => {
+      if (eid === tid) {
+        project.TaskList[tid].status = "Complete";
+      }
+    });
+    appRef.child(`Projects/${id}`).set(project);
+  };
 
   return (
     <>
@@ -86,7 +103,128 @@ const Projectdetail = () => {
               </div>
             </div>
           </div>
+          {/* ---------------------------------------------------------------------------------------------------------------------------------           */}
+          <div>
+            <div>
+              {addTaskPopUp ? (
+                <Addtask
+                  pid={id}
+                  pdetail={project}
+                  users={users}
+                  handleclose={() => setAddTaskPopUp(!addTaskPopUp)}
+                />
+              ) : (
+                ""
+              )}
+              {localStorage.getItem("Type") === "Manager" ? (
+                <button onClick={() => setAddTaskPopUp(!addTaskPopUp)}>
+                  Add Task
+                </button>
+              ) : (
+                <></>
+              )}
 
+              <table border="1">
+                <thead>
+                  <tr>
+                    <th> Task Name </th>
+                    <th> Employee Name </th>
+                    <th> Status </th>
+                    <th> Priority </th>
+                    <th> Astimated Time In Hours</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {localStorage.getItem("Type") === "Manager" ||
+                  localStorage.getItem("Type") === "Admin"
+                    ? project.TaskList
+                      ? Object.keys(project.TaskList).map((tid) => (
+                          <tr key={tid}>
+                            <td>{project.TaskList[tid].taskName}</td>
+
+                            {Object.values(users).map((uid) => {
+                              if (uid.uuid === project.TaskList[tid].empId) {
+                                return <td>{uid.name}</td>;
+                              }
+                            })}
+
+                            <td>
+                              {project.TaskList[tid].status === false
+                                ? "Pending"
+                                : project.TaskList[tid].status === true
+                                ? "On Progress"
+                                : "Completed"}
+                            </td>
+                            <td>{project.TaskList[tid].priority}</td>
+                            <td>{project.TaskList[tid].astimatedTime}</td>
+                          </tr>
+                        ))
+                      : ""
+                    : ""}
+                  {/* -------------------------------- */}
+
+                  {localStorage.getItem("Type") === "Employee"
+                    ? project.TaskList
+                      ? Object.keys(project.TaskList).map((tid) => {
+                          if (
+                            project.TaskList[tid].empId ===
+                            localStorage.getItem("uuid")
+                          ) {
+                            console.log(project.TaskList[tid]);
+                            return (
+                              <tr key={tid}>
+                                <td>{project.TaskList[tid].taskName}</td>
+
+                                {Object.values(users).map((uid) => {
+                                  if (
+                                    uid.uuid === project.TaskList[tid].empId
+                                  ) {
+                                    return <td>{uid.name}</td>;
+                                  } else {
+                                    <></>;
+                                  }
+                                })}
+
+                                <td>
+                                  {project.TaskList[tid].status === false
+                                    ? "Pending"
+                                    : project.TaskList[tid].status === true
+                                    ? "On Progress"
+                                    : "Completed"}
+                                </td>
+                                <td>{project.TaskList[tid].priority}</td>
+                                <td>{project.TaskList[tid].astimatedTime}</td>
+                                {project.TaskList[tid].status === false ? (
+                                  <td>
+                                    <button onClick={() => acceptTask(tid)}>
+                                      Accept
+                                    </button>
+                                  </td>
+                                ) : project.TaskList[tid].status === true ? (
+                                  <td>
+                                    <button onClick={() => completeTask(tid)}>
+                                      Complete
+                                    </button>
+                                  </td>
+                                ) : project.TaskList[tid].status ===
+                                  "Complete" ? (
+                                  <td>🎉</td>
+                                ) : (
+                                  <td></td>
+                                )}
+                              </tr>
+                            );
+                          } else {
+                            return <></>;
+                          }
+                        })
+                      : ""
+                    : ""}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          {/* ---------------------------------------------------------------------------------------------------------------------------------           */}
           <div className={prodetail.aboutteam}>
             <div className={prodetail.heading}>
               <h2>Team Member</h2>

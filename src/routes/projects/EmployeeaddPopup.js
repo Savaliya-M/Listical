@@ -14,6 +14,7 @@ const EmployeeaddPopup = () => {
       setUsers(snap.val());
     });
   }, []);
+
   useEffect(() => {
     if (id) {
       appRef.child(`Projects/${id}`).on("value", (snap) => {
@@ -25,6 +26,7 @@ const EmployeeaddPopup = () => {
   const addEmp = (id) => {
     setEmp([...emp, id.uuid]);
   };
+
   useEffect(() => {
     setProjects({ ...projects, empids: emp });
   }, [emp]);

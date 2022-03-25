@@ -116,107 +116,104 @@ const ManagerSelfapproval = ({ username }) => {
           <>
             <div className={managerapprov.outerbox}>
               <div className={managerapprov.box}>
-                <div className={managerapprov.content}>
-                  <div className={managerapprov.head}>
-                    <div className={managerapprov.title}>
-                      <h1>Leave Approvals</h1>
-                    </div>
-                    <div className={managerapprov.btn}>
-                      <button
-                        onClick={() => setApplyLeavePopUp(!applyLeavePopUp)}
-                      >
-                        X
-                      </button>
-                    </div>
+                <div className={managerapprov.head}>
+                  <div className={managerapprov.title}>
+                    <h1>Leave Approvals</h1>
                   </div>
-                  <div className={managerapprov.leave}>
-                    <div className={managerapprov.leavedetails}>
-                      <div className={managerapprov.leavetitle}>
-                        <h4>Leave Title</h4>
-                        <div>
-                          <input
-                            type="text"
-                            name="leaveTitle"
-                            value={applyLeave.leaveTitle}
-                            onChange={leaveChange}
-                          />
-                        </div>
-                      </div>
-                      <div className={managerapprov.leavedaytype}>
-                        <h4>Day Type</h4>
-                        <div className={managerapprov.leavetype}>
-                          <div className={managerapprov.leavefull}>
-                            <input
-                              type="radio"
-                              value="Full Day"
-                              onChange={leaveChange}
-                              name="dayType"
-                            />{" "}
-                            Full Day
-                          </div>
-                          <div className={managerapprov.leavefull}>
-                            <input
-                              type="radio"
-                              value="First Half Day"
-                              onChange={leaveChange}
-                              name="dayType"
-                            />{" "}
-                            First Half Day
-                          </div>
-                          <div className={managerapprov.leavefull}>
-                            <input
-                              type="radio"
-                              value="Second Half Day"
-                              onChange={leaveChange}
-                              name="dayType"
-                            />{" "}
-                            Second Half Day
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className={managerapprov.leaveduration}>
-                        <div className={managerapprov.leaveduration1}>
-                          <h4>From</h4>
-                          <div className={managerapprov.leavestart}>
-                            <input
-                              type="date"
-                              value={applyLeave.leaveStartD}
-                              onChange={leaveChange}
-                              name="leaveStartD"
-                            />
-                          </div>
-                        </div>
-
-                        <div className={managerapprov.leaveduration1}>
-                          <h4>To</h4>
-                          <div className={managerapprov.leaveend}>
-                            <input
-                              type="date"
-                              value={applyLeave.leaveEndD}
-                              onChange={leaveChange}
-                              name="leaveEndD"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className={managerapprov.leavereson}>
-                      <h4>Reson</h4>
-                      <div className={managerapprov.leaveresonbox}>
-                        <textarea
-                          value={applyLeave.reson}
+                  <div className={managerapprov.btn}>
+                    <button
+                      onClick={() => setApplyLeavePopUp(!applyLeavePopUp)}
+                    >
+                      X
+                    </button>
+                  </div>
+                </div>
+                <div className={managerapprov.leave}>
+                  <div className={managerapprov.leavedetails}>
+                    <div className={managerapprov.leavetitle}>
+                      <h4>Leave Title</h4>
+                      <div>
+                        <input
+                          type="text"
+                          name="leaveTitle"
+                          value={applyLeave.leaveTitle}
                           onChange={leaveChange}
-                          name="reason"
-                          placeholder="Why You Take Leaves?"
                         />
                       </div>
                     </div>
-                  </div>
+                    <div className={managerapprov.leavedaytype}>
+                      <h4>Day Type</h4>
+                      <div className={managerapprov.leavetype}>
+                        <div className={managerapprov.leavefull}>
+                          <input
+                            type="radio"
+                            value="Full Day"
+                            onChange={leaveChange}
+                            name="dayType"
+                          />{" "}
+                          Full Day
+                        </div>
+                        <div className={managerapprov.leavefull}>
+                          <input
+                            type="radio"
+                            value="First Half Day"
+                            onChange={leaveChange}
+                            name="dayType"
+                          />{" "}
+                          First Half Day
+                        </div>
+                        <div className={managerapprov.leavefull}>
+                          <input
+                            type="radio"
+                            value="Second Half Day"
+                            onChange={leaveChange}
+                            name="dayType"
+                          />{" "}
+                          Second Half Day
+                        </div>
+                      </div>
+                    </div>
 
-                  <div className={managerapprov.send}>
-                    <button onClick={leaveClick}>Send</button>
+                    <div className={managerapprov.leaveduration}>
+                      <div className={managerapprov.leaveduration1}>
+                        <h4>From</h4>
+                        <div className={managerapprov.leavestart}>
+                          <input
+                            type="date"
+                            value={applyLeave.leaveStartD}
+                            onChange={leaveChange}
+                            name="leaveStartD"
+                          />
+                        </div>
+                      </div>
+
+                      <div className={managerapprov.leaveduration1}>
+                        <h4>To</h4>
+                        <div className={managerapprov.leaveend}>
+                          <input
+                            type="date"
+                            value={applyLeave.leaveEndD}
+                            onChange={leaveChange}
+                            name="leaveEndD"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                  <div className={managerapprov.leavereson}>
+                    <h4>Reson</h4>
+                    <div className={managerapprov.leaveresonbox}>
+                      <textarea
+                        value={applyLeave.reson}
+                        onChange={leaveChange}
+                        name="reason"
+                        placeholder="Why You Take Leaves?"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className={managerapprov.send}>
+                  <button onClick={leaveClick}>Send</button>
                 </div>
               </div>
             </div>
@@ -228,59 +225,57 @@ const ManagerSelfapproval = ({ username }) => {
           <>
             <div className={managerapprov.outerbox2}>
               <div className={managerapprov.box2}>
-                <div className={managerapprov.content2}>
-                  <div className={managerapprov.head2}>
-                    <div className={managerapprov.title2}>
-                      <h1>Expence approvals</h1>
-                    </div>
-                    <div className={managerapprov.btn2}>
-                      <button
-                        onClick={() => setApplyExpencePopUp(!applyExpencePopUp)}
-                      >
-                        X
-                      </button>
-                    </div>
+                <div className={managerapprov.head2}>
+                  <div className={managerapprov.title2}>
+                    <h1>Expence approvals</h1>
                   </div>
-                  <div className={managerapprov.expence}>
-                    <div className={managerapprov.expencedetails}>
-                      <div className={managerapprov.expencetitle}>
-                        <h4>Expence Title</h4>
-                        <div>
-                          <input
-                            type="text"
-                            name="expenceTitle"
-                            value={applyExpence.expenceTitle}
-                            onChange={expenceChange}
-                          />
-                        </div>
-                      </div>
-                      <div className={managerapprov.expencetitle}>
-                        <h4>Ammount</h4>
-                        <div>
-                          <input
-                            type="text"
-                            name="ammount"
-                            value={applyExpence.Ammount}
-                            onChange={expenceChange}
-                          />
-                        </div>
+                  <div className={managerapprov.btn2}>
+                    <button
+                      onClick={() => setApplyExpencePopUp(!applyExpencePopUp)}
+                    >
+                      X
+                    </button>
+                  </div>
+                </div>
+                <div className={managerapprov.expence}>
+                  <div className={managerapprov.expencedetails}>
+                    <div className={managerapprov.expencetitle}>
+                      <h4>Expence Title</h4>
+                      <div>
+                        <input
+                          type="text"
+                          name="expenceTitle"
+                          value={applyExpence.expenceTitle}
+                          onChange={expenceChange}
+                        />
                       </div>
                     </div>
-
-                    <div className={managerapprov.description}>
-                      <h4>Description</h4>
-                      <div className={managerapprov.descriptionbox}>
-                        <textarea
-                          value={applyExpence.reson}
+                    <div className={managerapprov.expencetitle}>
+                      <h4>Ammount</h4>
+                      <div>
+                        <input
+                          type="text"
+                          name="ammount"
+                          value={applyExpence.Ammount}
                           onChange={expenceChange}
-                          name="description"
                         />
                       </div>
                     </div>
                   </div>
-                  <div className={managerapprov.send2}>
-                    <button onClick={expenceClick}>Send</button>
+
+                  <div className={managerapprov.description}>
+                    <h4>Description</h4>
+                    <div className={managerapprov.descriptionbox}>
+                      <textarea
+                        value={applyExpence.reson}
+                        onChange={expenceChange}
+                        name="description"
+                      />
+                    </div>
                   </div>
+                </div>
+                <div className={managerapprov.send2}>
+                  <button onClick={expenceClick}>Send</button>
                 </div>
               </div>
             </div>
@@ -288,74 +283,50 @@ const ManagerSelfapproval = ({ username }) => {
         ) : (
           <></>
         )}
-        <div className={managerapprov.managerbox}>
-          <div className={managerapprov.leavesbox}>
-            <div className={managerapprov.leavetitle}>
-              <h2>Leave Approvals</h2>
-              <button onClick={() => setApplyLeavePopUp(!applyLeavePopUp)}>
-                Apply For Leave
-              </button>
-            </div>
-            {approvedLeave
-              ? Object.keys(approvedLeave).map((id) => (
-                <div className={managerapprov.leaves}>
-                  <div key={approvedLeave[id]}>
-                    <h4>Leave Title : {approvedLeave[id].leaveTitle}</h4>
-                    <p>
-                      From : {approvedLeave[id].leaveStartD}
-                      To :{approvedLeave[id].leaveEndD}
-                    </p>
-                    {approvedLeave[id].allow === true ? (
-                      <div className={managerapprov.resulttrue}>
-                        <h3>✔ Approved</h3>
-                      </div>
-                    ) : approvedLeave[id].rejectedDate ? (
-                      <div className={managerapprov.resultfalse}>
-                        <h3>Rejected</h3>
-                      </div>
-                    ) : (
-                      <div className={managerapprov.resultpandig}>
-                        <h3>◌ Pending</h3>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))
-              : ""}
-          </div>
-          <div className={managerapprov.expencesbox}>
-            <div className={managerapprov.expenceitle}>
-              <h2>Expence Approvals</h2>
-              <button onClick={() => setApplyExpencePopUp(!applyExpencePopUp)}>
-                Apply For Expence
-              </button>
-            </div>
-            {approvedExpence
-              ? Object.keys(approvedExpence).map((id) => (
-                <div className={managerapprov.expences}>
-                  <div key={approvedExpence[id]}>
-                    <h4>Expence Title : {approvedExpence[id].expenceTitle}</h4>
-                    <p>Ammount : {approvedExpence[id].ammount}</p>
+        <button onClick={() => setApplyLeavePopUp(!applyLeavePopUp)}>
+          Apply For Leave
+        </button>
+        <button onClick={() => setApplyExpencePopUp(!applyExpencePopUp)}>
+          Apply For Expence
+        </button>
 
-                    {approvedExpence[id].allowDate ? (
-                      <div className={managerapprov.resulttrue}>
-                        <h3>✔ Approved</h3>
-                      </div>
-                    ) : approvedExpence[id].rejectedDate ? (
-                      <div className={managerapprov.resultfalse}>
-                        <h3>&#x2718;  Rejected </h3>
-                      </div>
-                    ) : (
-                      <div className={managerapprov.resultpandig}>
-                        <h3>◌ Pending</h3>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))
-              : ""}
-          </div>
-        </div>
+        <h1>Leave Approvals</h1>
+        {approvedLeave
+          ? Object.keys(approvedLeave).map((id) => (
+              <div key={approvedLeave[id]}>
+                <h4>Leave Title : {approvedLeave[id].leaveTitle}</h4>
+                <p>
+                  From : {approvedLeave[id].leaveStartD}
+                  To :{approvedLeave[id].leaveEndD}
+                </p>
+                {approvedLeave[id].allow === true ? (
+                  <h4>✔ Approved</h4>
+                ) : approvedLeave[id].rejectedDate ? (
+                  <h4>Rejected</h4>
+                ) : (
+                  <h4>◌ Pending</h4>
+                )}
+              </div>
+            ))
+          : ""}
+
+        <h1>Expence Approvals</h1>
+        {approvedExpence
+          ? Object.keys(approvedExpence).map((id) => (
+              <div key={approvedExpence[id]}>
+                <h4>Expence Title : {approvedExpence[id].expenceTitle}</h4>
+                <p>Ammount : {approvedExpence[id].ammount}</p>
+
+                {approvedExpence[id].allowDate ? (
+                  <h4>✔ Approved</h4>
+                ) : approvedExpence[id].rejectedDate ? (
+                  <h4> Rejected </h4>
+                ) : (
+                  <h4>◌ Pending</h4>
+                )}
+              </div>
+            ))
+          : ""}
       </div>
     </>
   );

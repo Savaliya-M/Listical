@@ -6,35 +6,36 @@ import { v4 as uuidv4 } from "uuid";
 
 const Editdetail = () => {
   const [skill, setSkill] = useState({});
-  //   const [user, setUser] = useState({
-  //     name: "",
-  //     email: "",
-  //     mono: "",
-  //     address: "",
-  //     dob: "",
-  //     gender: "",
-  //     degree: "",
-  //     colname: "",
-  //     post: "",
-  //     precompany: "",
-  //     preworkduration: "",
-  //     otherdetail: "",
-  //     skill: [],
-  //     position: "",
-  //     pass: "",
-  //     langknown: { English: "", Hindi: "", Gujarati: "" },
-  //     role: "",
-  //     activate: false,
-  //     uuid: uuidv4(),
-  //     hiringdate: Date(),
-  //   });
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    mono: "",
+    address: "",
+    dob: "",
+    gender: "",
+    degree: "",
+    colname: "",
+    post: "",
+    precompany: "",
+    preworkduration: "",
+    otherdetail: "",
+    skill: [],
+    position: "",
+    pass: "",
+    langknown: { English: "", Hindi: "", Gujarati: "" },
+    role: "",
+    activate: false,
+    uuid: uuidv4(),
+    hiringdate: Date(),
+  });
+  // const [user, setUser] = useState({});
   const { id } = useParams();
   useEffect(() => {
     appRef.child(`Users/${id}`).on("value", (snap) => {
       setUser(snap.val());
     });
   }, [id]);
+  useEffect(() => {}, [user]);
 
   const skillchange = (e) => {
     setSkill(e.target.value);
@@ -187,6 +188,7 @@ const Editdetail = () => {
                     type="radio"
                     value="Male"
                     name="gender"
+                    checked={user.gender === "Male"}
                     onChange={getuser}
                   />{" "}
                   Male
@@ -194,6 +196,7 @@ const Editdetail = () => {
                     type="radio"
                     value="Female"
                     name="gender"
+                    checked={user.gender === "Female"}
                     onChange={getuser}
                   />{" "}
                   Female
@@ -201,6 +204,7 @@ const Editdetail = () => {
                     type="radio"
                     value="Other"
                     name="gender"
+                    checked={user.gender === "Other"}
                     onChange={getuser}
                   />{" "}
                   Other
@@ -273,9 +277,9 @@ const Editdetail = () => {
                   />
                   <button onClick={skillplus}>+</button>
                 </div>
-                {/* {user.skill.map((name) => (
+                {user.skill.map((name) => (
                   <p key={name}>{name}</p>
-                ))} */}
+                ))}
               </div>
               <h3>Work Experience : </h3>
               <div className={edit.post}>
@@ -351,6 +355,7 @@ const Editdetail = () => {
                     type="radio"
                     value="Admin"
                     name="position"
+                    checked={user.position === "Admin"}
                     onChange={getuser}
                   />{" "}
                   Admin
@@ -358,6 +363,7 @@ const Editdetail = () => {
                     type="radio"
                     value="Manager"
                     name="position"
+                    checked={user.position === "Manager"}
                     onChange={getuser}
                   />{" "}
                   Manager
@@ -365,6 +371,7 @@ const Editdetail = () => {
                     type="radio"
                     value="Employee"
                     name="position"
+                    checked={user.position === "Employee"}
                     onChange={getuser}
                   />{" "}
                   Employee
