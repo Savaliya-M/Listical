@@ -1,0 +1,62 @@
+.mainbox {
+  border: 2px solid rgb(255, 255, 255);
+  background-color: white;
+  margin: 2rem;
+  box-shadow: 0px 0px 20px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  background-color: #486375;
+  justify-content: space-between;
+  .headname {
+    color: #ffffff;
+  }
+
+  .backbtn,
+  .savebtn {
+    button {
+      margin: 0.5rem;
+      height: 2rem;
+      width: 3rem;
+      border: 2px solid rgb(255, 255, 255);
+      border-radius: 5px;
+      background-color: #486375;
+      color: white;
+      &:hover {
+        color: black;
+        background-color: #ffffff;
+        border: 2px solid black;
+      }
+    }
+  }
+}
+
+.team {
+  margin: 1rem;
+  flex-direction: row;
+  // border: 2px solid rgb(0, 255, 21);
+
+  .teams {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3px;
+    border: 2px solid #9aadb9;
+    border-radius: 5px;
+    width: 100%;
+    h3 {
+      margin: 0px;
+    }
+    h4 {
+      margin: 0px;
+      color: #486375;
+    }
+    .names,
+    .mono,
+    .post {
+      width: 30%;
+    }
+  }
+}

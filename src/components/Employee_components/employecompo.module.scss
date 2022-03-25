@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  @mixin disflex($dis) {
+    display: $dis;
+  }
+  
+  @mixin pointer($point, $bcolor) {
+    cursor: $point;
+    background-color: $bcolor;
+  }
+  
+  .maindivsidebar {
+    @include disflex(flex);
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .sidebar {
+    //top: 56px;
+    // height: 100%;
+    // width: 2rem;
+    // position: fixed;
+    //  background-color: #FFF;
+  
+    .sidebarlist {
+      @include disflex(flex);
+      margin: 0px;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 0px;
+  
+      .rows {
+        @include disflex(flex);
+        line-height: 45px;
+        &:hover {
+          @include pointer(pointer, #c7c2c2);
+        }
+  
+        .icone {
+          display: flex;
+          margin: auto;
+          img{
+              height: 1.5rem;
+              width: 1.5rem;
+          }
+        }
+  
+        .title {
+          width: 75%;
+          text-decoration: none;
+          .title:active {
+            @include pointer(pointer, #0b77be);
+          }
+        }
+      }
+    }
+  }
+  
+  .pages {
+    @include disflex(block);
+    margin-left: 200px;
+    // margin-top: 60px;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  

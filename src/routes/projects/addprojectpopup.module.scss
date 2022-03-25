@@ -1,0 +1,113 @@
+@mixin propop($dis, $fxdir, $mxw, $w, $mxh, $h, $alnitm) {
+  display: $dis;
+  flex-direction: $fxdir;
+  max-width: $mxw;
+  width: $w;
+  max-height: $mxh;
+  height: $h;
+  align-items: $alnitm;
+}
+
+.propopup {
+  @include propop(flex, column, 100%, 100%, 100%, 100%, center);
+  position: fixed;
+  // overflow-y: scroll;
+  scrollbar-width: none;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.mainpropopup {
+  display: flex;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  &::-webkit-scrollbar{
+    width: 0px;
+  }
+  margin-top: 3.5rem;
+    
+    .proadd {
+      @include propop(flex, column, 30rem, 30rem, 30rem, 30rem, center);
+      // position: fixed;
+      color: white;
+      background: rgba(0, 0, 0, 0.493);
+      border: 1px solid grey;
+      border-radius: 30px;
+      min-height: 22rem;
+      margin: 2rem;
+
+    }
+}
+
+@mixin propop2($dis2, $mxw2, $w2) {
+  display: $dis2;
+  max-width: $mxw2;
+  width: $w2;
+}
+
+.closebtn {
+  position: fixed;
+  right: 1rem;
+  top: 5rem;
+  button {
+    background: rgba(0, 0, 0, 0.5);
+    border: 0ch;
+    color: white;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    height: 2rem;
+    width: 2rem;
+    &:hover {
+      background: rgb(4, 144, 238);
+    }
+  }
+}
+
+.formhead {
+  @include propop2(flex, 100%, 100%);
+
+  h1 {
+    flex: 80%;
+    text-align: center;
+  }
+}
+
+.fields {
+  align-items: center;
+  form tr td h3 {
+    margin: 0;
+  }
+  form tr td input {
+    line-height: 1.5rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    margin-left: 7px;
+    font-size: 1rem;
+    min-width: 10rem;
+  }
+}
+
+.fieldsinput {
+  max-width: 15rem;
+  min-width: 7rem;
+  width: 100%;
+  height: 1.5rem;
+}
+
+.fieldsbtn1,
+.fieldsbtn2 {
+  background: rgba(0, 0, 0, 0.5);
+  border: 0ch;
+  color: white;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-right: 10px;
+  height: 2rem;
+  width: 4rem;
+  &:hover {
+    background: rgb(4, 144, 238);
+  }
+}
