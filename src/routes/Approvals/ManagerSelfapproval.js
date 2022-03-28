@@ -300,10 +300,17 @@ const ManagerSelfapproval = ({ username }) => {
               ? Object.keys(approvedLeave).map((id) => (
                 <div className={managerapprov.leaves}>
                   <div key={approvedLeave[id]}>
-                    <h4>Leave Title : {approvedLeave[id].leaveTitle}</h4>
+                    <h3>Leave Title</h3>{approvedLeave[id].leaveTitle}
+                    <div className={managerapprov.date}>
+                      <div id={managerapprov.datesp}>
+                        <h3>From</h3>{approvedLeave[id].leaveStartD}
+                      </div>
+                      <div>
+                        <h3>To</h3>{approvedLeave[id].leaveEndD}
+                      </div>
+                    </div>
                     <p>
-                      From : {approvedLeave[id].leaveStartD}
-                      To :{approvedLeave[id].leaveEndD}
+                      {/* <h4>Reason</h4>{approvedLeave[uid][lid].reason} */}
                     </p>
                     {approvedLeave[id].allow === true ? (
                       <div className={managerapprov.resulttrue}>
@@ -334,8 +341,8 @@ const ManagerSelfapproval = ({ username }) => {
               ? Object.keys(approvedExpence).map((id) => (
                 <div className={managerapprov.expences}>
                   <div key={approvedExpence[id]}>
-                    <h4>Expence Title : {approvedExpence[id].expenceTitle}</h4>
-                    <p>Ammount : {approvedExpence[id].ammount}</p>
+                    <h3>Expence Title</h3>{approvedExpence[id].expenceTitle}
+                    <h3>Ammount</h3>{approvedExpence[id].ammount}
 
                     {approvedExpence[id].allowDate ? (
                       <div className={managerapprov.resulttrue}>
@@ -343,7 +350,7 @@ const ManagerSelfapproval = ({ username }) => {
                       </div>
                     ) : approvedExpence[id].rejectedDate ? (
                       <div className={managerapprov.resultfalse}>
-                        <h3>&#x2718;  Rejected </h3>
+                        <h3>&#x2718; Rejected </h3>
                       </div>
                     ) : (
                       <div className={managerapprov.resultpandig}>

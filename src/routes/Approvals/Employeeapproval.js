@@ -316,14 +316,22 @@ const Employeeapproval = ({ name, role }) => {
             </div>
             {approvedLeave ? (
               Object.keys(approvedLeave).map((id) => (
+
                 <div className={empapprov.leaves}>
                   <div key={id}>
-                    <h4>Leave Title : {approvedLeave[id].leaveTitle}</h4>
-                    <p>
-                      From : {approvedLeave[id].leaveStartD}
-                      To :{approvedLeave[id].leaveEndD}
-                    </p>
-                    <p>reason : {approvedLeave[id].reason}</p>
+                    <h3>Leave Title</h3>{approvedLeave[id].leaveTitle}
+                    <div className={empapprov.date}>
+                      <div id={empapprov.datesp}>
+                        <h3>From</h3>{approvedLeave[id].leaveStartD}
+                      </div>
+                      <div>
+                        <h3>To</h3>{approvedLeave[id].leaveEndD}
+                      </div>
+                    </div>
+                    <div>
+                      <h3>Reason</h3> {approvedLeave[id].reason}
+                    </div>
+
                     {approvedLeave[id].allow === true ? (
                       <div className={empapprov.resulttrue}>
                         <h3>✔ Approved</h3>
@@ -356,9 +364,9 @@ const Employeeapproval = ({ name, role }) => {
               Object.keys(approvedExpence).map((id) => (
                 <div className={empapprov.expences}>
                   <div key={id}>
-                    <h4>Expence Title : {approvedExpence[id].expenceTitle}</h4>
-                    <p>Ammount : {approvedExpence[id].ammount}</p>
-                    <p>Description : {approvedExpence[id].description}</p>
+                    <h3>Expence Title</h3>{approvedExpence[id].expenceTitle}
+                    <h3>Ammount</h3>{approvedExpence[id].ammount}
+                    <h3>Description</h3> {approvedExpence[id].description}
                     {approvedExpence[id].allowDate ? (
                       <div className={empapprov.resulttrue}>
                         <h3>✔ Approved</h3>

@@ -160,70 +160,90 @@ const Adminapproval = () => {
             }
           })}
         </div>
-        <h1>Manager Approval</h1>
-        <h3>Leave Approval</h3>
-        {leaveApproval
-          ? Object.keys(leaveApproval).map((uid) => {
-              if (leaveApproval[uid]) {
-                return Object.keys(leaveApproval[uid]).map((lid) => {
-                  if (
-                    leaveApproval[uid][lid].allow === false &&
-                    new Date(leaveApproval[uid][lid].leaveEndD) > new Date()
-                  ) {
-                    return (
-                      <div key={uuidv4()}>
-                        <h3>{leaveApproval[uid][lid].uname}</h3>
-                        <h4>{leaveApproval[uid][lid].leaveTitle}</h4>
-                        <p>{leaveApproval[uid][lid].dayType}</p>
-                        <p>
-                          From :{leaveApproval[uid][lid].leaveStartD} To:{" "}
-                          {leaveApproval[uid][lid].leaveEndD}
-                        </p>
-                        <p>reason :{leaveApproval[uid][lid].reason}</p>
-                        <button onClick={() => approveLeaveClick(lid, uid)}>
-                          ✔ Approve
-                        </button>
-                        <button onClick={() => rejectedLeaveClick(lid, uid)}>
-                          ❌ Reject
-                        </button>
-                      </div>
-                    );
-                  }
-                });
-              }
-            })
-          : ""}
+        <div className={adminapprov.managerapproval}>
+          <h1>Manager Approval</h1>
+          <div className={adminapprov.empbox}>
+            <div className={adminapprov.leavesbox}>
+              <div className={adminapprov.leavetitle}>
+                <h2>Leave Approval</h2>
+              </div>
+              <div className={adminapprov.leaves}>
+                {leaveApproval
+                  ? Object.keys(leaveApproval).map((uid) => {
+                    if (leaveApproval[uid]) {
+                      return Object.keys(leaveApproval[uid]).map((lid) => {
+                        if (
+                          leaveApproval[uid][lid].allow === false &&
+                          new Date(leaveApproval[uid][lid].leaveEndD) > new Date()
+                        ) {
+                          return (
+                            <div key={uuidv4()}>
+                              <h3>{leaveApproval[uid][lid].uname}</h3>
+                              <h4>{leaveApproval[uid][lid].leaveTitle}</h4>
+                              <p>{leaveApproval[uid][lid].dayType}</p>
+                              <p>
+                                From :{leaveApproval[uid][lid].leaveStartD} To:{" "}
+                                {leaveApproval[uid][lid].leaveEndD}
+                              </p>
+                              <p>reason :{leaveApproval[uid][lid].reason}</p>
+                              <button id={adminapprov.resulttrue}
+                              onClick={() => approveLeaveClick(lid, uid)}>
+                                ✔ Approve
+                              </button>
+                              <button id={adminapprov.resultfalse}
+                              onClick={() => rejectedLeaveClick(lid, uid)}>
+                              &#x2718; Reject
+                              </button>
+                            </div>
+                          );
+                        }
+                      });
+                    }
+                  })
+                  : ""}
+              </div>
+            </div>
 
-        <h3>Expence Approval</h3>
-        {expenceApproval
-          ? Object.keys(expenceApproval).map((uid) => {
-              if (expenceApproval[uid]) {
-                return Object.keys(expenceApproval[uid]).map((eid) => {
-                  if (expenceApproval[uid][eid].allow === false) {
-                    return (
-                      <div key={uuidv4()}>
-                        <h3>{expenceApproval[uid][eid].uname}</h3>
-                        <h4>{expenceApproval[uid][eid].expenceTitle}</h4>
-                        <p>Ammount : {expenceApproval[uid][eid].ammount}</p>
-                        <p>
-                          description :{expenceApproval[uid][eid].description}
-                        </p>
-                        <button onClick={() => approveExpenceClick(eid, uid)}>
-                          ✔ Approve
-                        </button>
-                        <button onClick={() => rejectedExpenceClick(eid, uid)}>
-                          ❌ Reject
-                        </button>
-                      </div>
-                    );
-                  }
-                });
-              }
-            })
-          : ""}
-      </div>
-    </>
-  );
+            <div className={adminapprov.expencesbox}>
+              <div className={adminapprov.expenceitle}>
+                <h2>Expence Approval</h2>
+              </div>
+              <div className={adminapprov.expences}>
+                {expenceApproval
+                  ? Object.keys(expenceApproval).map((uid) => {
+                    if (expenceApproval[uid]) {
+                      return Object.keys(expenceApproval[uid]).map((eid) => {
+                        if (expenceApproval[uid][eid].allow === false) {
+                          return (
+                            <div key={uuidv4()}>
+                              <h3>{expenceApproval[uid][eid].uname}</h3>
+                              <h4>{expenceApproval[uid][eid].expenceTitle}</h4>
+                              <p>Ammount : {expenceApproval[uid][eid].ammount}</p>
+                              <p>
+                                description :{expenceApproval[uid][eid].description}
+                              </p>
+                              <button id={adminapprov.resulttrue}
+                              onClick={() => approveExpenceClick(eid, uid)}>
+                                ✔ Approve
+                              </button>
+                              <button id={adminapprov.resultfalse}
+                              onClick={() => rejectedExpenceClick(eid, uid)}>
+                                &#x2718; Reject
+                              </button>
+                            </div>
+                          );
+                        }
+                      });
+                    }
+                  })
+                  : ""}
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </>
+      );
 };
 
-export default Adminapproval;
+      export default Adminapproval;

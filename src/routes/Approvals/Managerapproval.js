@@ -138,34 +138,57 @@ const Managerapproval = ({ name }) => {
                           if (leaveApproval[uid][lid].allow === false) {
                             return (
                               <div key={uuidv4()}>
+
                                 <h3>{leaveApproval[uid][lid].uname}</h3>
-                                <h4>{leaveApproval[uid][lid].leaveTitle}</h4>
-                                <p>{leaveApproval[uid][lid].dayType}</p>
-                                <p>
-                                  <h4>From</h4>{leaveApproval[uid][lid].leaveStartD} To:{" "}
-                                  {leaveApproval[uid][lid].leaveEndD}
-                                </p>
-                                <p><h4>Reason</h4>{leaveApproval[uid][lid].reason}</p>
-                                <button id={managerapr.resulttrue}
-                                  onClick={() =>
-                                    approveLeaveClick(
-                                      lid,
-                                      leaveApproval[uid][lid].uuid
-                                    )
-                                  }
-                                >
-                                  ✔ Approve
-                                </button>
-                                <button id={managerapr.resultfalse}
-                                  onClick={() =>
-                                    rejectedLeaveClick(
-                                      lid,
-                                      leaveApproval[uid][lid].uuid
-                                    )
-                                  }
-                                >
-                                  &#x2718;  Reject
-                                </button>
+                                <div className={managerapr.leaveinfo}>
+                                  <div id={managerapr.leavetitle}>
+                                    <h4>{leaveApproval[uid][lid].leaveTitle}</h4>
+                                  </div>
+                                  <div id={managerapr.leaveday}>
+                                    <h4>{leaveApproval[uid][lid].dayType}</h4>
+                                  </div>
+                                </div>
+                                <div>
+                                  <p>
+                                    <div className={managerapr.date}>
+                                      <div>
+                                        <h4>From</h4>{leaveApproval[uid][lid].leaveStartD}
+                                      </div>
+                                      <div>
+                                        <h4>To</h4>{" "}
+                                        {leaveApproval[uid][lid].leaveEndD}
+                                      </div>
+                                    </div>
+                                  </p>
+                                </div>
+                                <div>
+                                  <div>
+                                    <h4>Reason</h4>{leaveApproval[uid][lid].reason}
+                                  </div>
+                                </div>
+
+                                <div className={managerapr.appbtn}>
+                                  <button id={managerapr.resulttrue}
+                                    onClick={() =>
+                                      approveLeaveClick(
+                                        lid,
+                                        leaveApproval[uid][lid].uuid
+                                      )
+                                    }
+                                  >
+                                    ✔ Approve
+                                  </button>
+                                  <button id={managerapr.resultfalse}
+                                    onClick={() =>
+                                      rejectedLeaveClick(
+                                        lid,
+                                        leaveApproval[uid][lid].uuid
+                                      )
+                                    }
+                                  >
+                                    &#x2718;  Reject
+                                  </button>
+                                </div>
                               </div>
                             );
                           }
@@ -189,32 +212,38 @@ const Managerapproval = ({ name }) => {
                             return (
                               <div key={uuidv4()}>
                                 <h3>{expenceApproval[uid][eid].uname}</h3>
-                                <h4>{expenceApproval[uid][eid].expenceTitle}</h4>
-                                <p>Ammount : {expenceApproval[uid][eid].ammount}</p>
-                                <p>
-                                  Description:{" "}
+                                <div>
+                                  <h4>{expenceApproval[uid][eid].expenceTitle}</h4>
+                                </div>
+                                <div>
+                                  <p><h4>Ammount </h4> {expenceApproval[uid][eid].ammount}</p>
+                                </div>
+                                <div className={managerapr.description}>
+                                  <h4>Description</h4>{" "}
                                   {expenceApproval[uid][eid].description}
-                                </p>
-                                <button
-                                  onClick={() =>
-                                    approveExpenceClick(
-                                      eid,
-                                      expenceApproval[uid][eid].uuid
-                                    )
-                                  }
-                                >
-                                  ✔ Approve
-                                </button>
-                                <button
-                                  onClick={() =>
-                                    rejectedExpenceClick(
-                                      eid,
-                                      expenceApproval[uid][eid].uuid
-                                    )
-                                  }
-                                >
-                                   &#x2718; Reject
-                                </button>
+                                </div>
+                                <div className={managerapr.appbtn}>
+                                  <button id={managerapr.resulttrue}
+                                    onClick={() =>
+                                      approveExpenceClick(
+                                        eid,
+                                        expenceApproval[uid][eid].uuid
+                                      )
+                                    }
+                                  >
+                                    ✔ Approve
+                                  </button>
+                                  <button id={managerapr.resultfalse}
+                                    onClick={() =>
+                                      rejectedExpenceClick(
+                                        eid,
+                                        expenceApproval[uid][eid].uuid
+                                      )
+                                    }
+                                  >
+                                    &#x2718; Reject
+                                  </button>
+                                </div>
                               </div>
                             );
                           }

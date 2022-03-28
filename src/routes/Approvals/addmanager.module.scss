@@ -1,0 +1,50 @@
+.mainbox {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0px;
+  top: 3.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerbox {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background: rgba(0, 0, 0, 0.493);
+  border: 1px solid grey;
+  border-radius: 30px;
+  padding: 2rem;
+  align-items: center;
+  .info {
+    margin: 0.5rem;
+  }
+  #close {
+    position: fixed;
+    top: 4rem;
+    right: 1rem;
+  }
+  #submit{
+    width: 5.5rem;
+}
+    button{
+        border: 0ch;
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+        font-size: 1.5rem;
+        height: 2rem;
+        width: 2rem;
+        &:hover {
+          background: #0490ee;
+        }
+        
+    }
+    
+  }
+

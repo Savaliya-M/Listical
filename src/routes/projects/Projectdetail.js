@@ -62,11 +62,12 @@ const Projectdetail = () => {
     <>
       <div className={prodetail.all}>
         <div className={prodetail.alldetails}>
-          <div className={prodetail.Progress}>
-            <h1>Progress Bar</h1>
-          </div>
+
           <div className={prodetail.rightside}>
             <div className={prodetail.graphs}>
+              <div className={prodetail.Progress}>
+                <h1>Progress Bar</h1>
+              </div>
               <img src={require("@photos/LineGraphs.jpg")} alt="" />
             </div>
 
@@ -124,41 +125,42 @@ const Projectdetail = () => {
                 <></>
               )}
 
-              <table border="1">
+              <table border="0">
                 <thead>
                   <tr>
-                    <th> Task Name </th>
-                    <th> Employee Name </th>
-                    <th> Status </th>
-                    <th> Priority </th>
-                    <th> Astimated Time In Hours</th>
+                    <th><h3>Task Name</h3></th>
+                    <th><h3>Employee Name</h3></th>
+                    <th><h3>Status</h3></th>
+                    <th><h3>Priority</h3></th>
+                    <th><h3>Astimated Time</h3></th>
+                    <th><h3>Postion</h3></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className={prodetail.tableline}>
                   {localStorage.getItem("Type") === "Manager" ||
-                  localStorage.getItem("Type") === "Admin"
+                    localStorage.getItem("Type") === "Admin"
                     ? project.TaskList
                       ? Object.keys(project.TaskList).map((tid) => (
-                          <tr key={tid}>
-                            <td>{project.TaskList[tid].taskName}</td>
+                        <tr key={tid}>
+                          <td>{project.TaskList[tid].taskName}</td>
 
-                            {Object.values(users).map((uid) => {
-                              if (uid.uuid === project.TaskList[tid].empId) {
-                                return <td>{uid.name}</td>;
-                              }
-                            })}
+                          {Object.values(users).map((uid) => {
+                            if (uid.uuid === project.TaskList[tid].empId) {
+                              return <td>{uid.name}</td>;
+                            }
+                          })}
 
-                            <td>
-                              {project.TaskList[tid].status === false
-                                ? "Pending"
-                                : project.TaskList[tid].status === true
+                          <td>
+                            {project.TaskList[tid].status === false
+                              ? "Pending"
+                              : project.TaskList[tid].status === true
                                 ? "On Progress"
                                 : "Completed"}
-                            </td>
-                            <td>{project.TaskList[tid].priority}</td>
-                            <td>{project.TaskList[tid].astimatedTime}</td>
-                          </tr>
-                        ))
+                          </td>
+                          <td>{project.TaskList[tid].priority}</td>
+                          <td>{project.TaskList[tid].astimatedTime}</td>
+                        </tr>
+                      ))
                       : ""
                     : ""}
                   {/* -------------------------------- */}
@@ -166,58 +168,58 @@ const Projectdetail = () => {
                   {localStorage.getItem("Type") === "Employee"
                     ? project.TaskList
                       ? Object.keys(project.TaskList).map((tid) => {
-                          if (
-                            project.TaskList[tid].empId ===
-                            localStorage.getItem("uuid")
-                          ) {
-                            console.log(project.TaskList[tid]);
-                            return (
-                              <tr key={tid}>
-                                <td>{project.TaskList[tid].taskName}</td>
+                        if (
+                          project.TaskList[tid].empId ===
+                          localStorage.getItem("uuid")
+                        ) {
+                          console.log(project.TaskList[tid]);
+                          return (
+                            <tr key={tid}>
+                              <td>{project.TaskList[tid].taskName}</td>
 
-                                {Object.values(users).map((uid) => {
-                                  if (
-                                    uid.uuid === project.TaskList[tid].empId
-                                  ) {
-                                    return <td>{uid.name}</td>;
-                                  } else {
-                                    <></>;
-                                  }
-                                })}
+                              {Object.values(users).map((uid) => {
+                                if (
+                                  uid.uuid === project.TaskList[tid].empId
+                                ) {
+                                  return <td>{uid.name}</td>;
+                                } else {
+                                  <></>;
+                                }
+                              })}
 
-                                <td>
-                                  {project.TaskList[tid].status === false
-                                    ? "Pending"
-                                    : project.TaskList[tid].status === true
+                              <td>
+                                {project.TaskList[tid].status === false
+                                  ? "Pending"
+                                  : project.TaskList[tid].status === true
                                     ? "On Progress"
                                     : "Completed"}
+                              </td>
+                              <td>{project.TaskList[tid].priority}</td>
+                              <td>{project.TaskList[tid].astimatedTime} Hr</td>
+                              {project.TaskList[tid].status === false ? (
+                                <td>
+                                  <button onClick={() => acceptTask(tid)}>
+                                    Accept
+                                  </button>
                                 </td>
-                                <td>{project.TaskList[tid].priority}</td>
-                                <td>{project.TaskList[tid].astimatedTime}</td>
-                                {project.TaskList[tid].status === false ? (
-                                  <td>
-                                    <button onClick={() => acceptTask(tid)}>
-                                      Accept
-                                    </button>
-                                  </td>
-                                ) : project.TaskList[tid].status === true ? (
-                                  <td>
-                                    <button onClick={() => completeTask(tid)}>
-                                      Complete
-                                    </button>
-                                  </td>
-                                ) : project.TaskList[tid].status ===
-                                  "Complete" ? (
-                                  <td>🎉</td>
-                                ) : (
-                                  <td></td>
-                                )}
-                              </tr>
-                            );
-                          } else {
-                            return <></>;
-                          }
-                        })
+                              ) : project.TaskList[tid].status === true ? (
+                                <td>
+                                  <button onClick={() => completeTask(tid)}>
+                                    Complete
+                                  </button>
+                                </td>
+                              ) : project.TaskList[tid].status ===
+                                "Complete" ? (
+                                <td>🎉</td>
+                              ) : (
+                                <td></td>
+                              )}
+                            </tr>
+                          );
+                        } else {
+                          return <></>;
+                        }
+                      })
                       : ""
                     : ""}
                 </tbody>

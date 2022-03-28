@@ -1,0 +1,150 @@
+.editpage {
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 2rem;
+  background-color: white;
+  // font-size: ;
+  .part {
+    display: flex;
+    flex-direction: row;
+    .uicon {
+      height: 100vh;
+      border-right: 1px solid #000000;
+      margin-right: 2rem;
+      text-align: center;
+      img {
+        width: 15rem;
+        margin-top: 5rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    .sticky {
+      position: sticky;
+      top: 100px;
+    }
+
+    .formpart1 {
+      margin-right: 2rem;
+      overflow-y: scroll;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+      #text {
+        width: 23rem;
+        height: 3rem;
+        font-size: 1.2rem;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 1rem;
+      }
+      #areaoftext {
+        width: 23rem;
+        height: 5rem;
+        font-size: 1.2rem;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 1rem;
+      }
+      #skilltext {
+        width: 21rem;
+        height: 3rem;
+        font-size: 1.2rem;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 1rem;
+      }
+
+      #skillbutton {
+        width: 2rem;
+        height: 2.9rem;
+        font-size: 1.2rem;
+      }
+
+      .tag {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .formpart2 {
+      border-left: 1px solid #000000;
+      padding-left: 2rem;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+      #text {
+        width: 20rem;
+        height: 3rem;
+        font-size: 1.2rem;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 1rem;
+      }
+      #inputredio {
+        font-size: 1.3rem;
+        #rediobtn {
+          transform: scale(1.2);
+        }
+      }
+      .tag {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    h1 {
+      margin-left: 0px;
+      margin-bottom: 2rem;
+    }
+    .detalis {
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+  }
+
+  .skillname {
+    display: flex;
+    margin: 1rem;
+    flex-wrap: wrap;
+    width: 20rem;
+    align-items: center;
+
+    P {
+      margin: 0.3rem;
+      width: 5.5rem;
+      height: 1.5rem;
+      border: 1px solid rgb(0, 0, 0);
+      text-align: center;
+    }
+  }
+}
+
+.btn {
+    
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  button, input {
+    font-size: large;
+    border-radius: 8px;
+    border: 1px solid rgb(0, 0, 0);
+    width: 8rem;
+    height: 2rem;
+    color: white;
+    background-color: #374953;
+  }
+  :hover {
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+  }
+}

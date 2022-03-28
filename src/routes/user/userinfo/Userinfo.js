@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useinfo from "./userinfo.module.scss";
 import { useNavigate } from "react-router-dom";
-import appRef from "../../../firebase";
+  import appRef from "../../../firebase";
 import { useParams } from "react-router-dom";
 
 const Userinfo = () => {
@@ -68,7 +68,7 @@ const Userinfo = () => {
             </button>
             {user.uuid === localStorage.getItem("uuid") ? (
               <button onClick={() => navigate(`/layout/user/editdetail/${id}`)}>
-                🖋
+              <img src={require("@photos/edit(1).png")} alt="edit" />
               </button>
             ) : (
               <></>

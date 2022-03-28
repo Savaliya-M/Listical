@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import appRef from "../../firebase";
+import add from "./addmanager.module.scss";
 
 const Addmanager = ({ handleclose, user, list }) => {
   const [useralldata, setUseralldata] = useState({});
@@ -27,10 +28,15 @@ const Addmanager = ({ handleclose, user, list }) => {
     });
   };
   return (
-    <div>
-      <button onClick={handleclose}>X</button>
-      Manager Name :
+
+    <div className={add.mainbox}>
+    <div className={add.innerbox}>
+      <button id={add.close} onClick={handleclose}>X</button>
+      <div className={add.info}>
+      <h1>Manager Name :</h1>
+      </div>
       {/* <input type="text" name="managername" onChange={managername} /> */}
+      <div className={add.info}>
       <select name="managerid" onChange={managername}>
         <option value="Select Manager">---Select Manager---</option>
         {Object.keys(list).map((id) => (
@@ -38,8 +44,12 @@ const Addmanager = ({ handleclose, user, list }) => {
             {list[id].managerName}
           </option>
         ))}
-      </select>
-      <button onClick={addmanager}>Submit</button>
+        </select>
+      </div>
+      <div className={add.info}>
+      <button id={add.submit} onClick={addmanager}>Submit</button>
+    </div>
+    </div>
     </div>
   );
 };
