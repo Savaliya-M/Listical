@@ -12,6 +12,8 @@ import Projectdetail from "../../routes/projects/Projectdetail";
 import EmployeeaddPopup from "../../routes/projects/EmployeeaddPopup";
 import Employeeapproval from "../../routes/Approvals/Employeeapproval";
 import Managerapproval from "../../routes/Approvals/Managerapproval";
+import TimeTracker from "../../routes/Time tracker/TimeTracker";
+import Charttemp from "../../routes/projects/Charttemp";
 
 const Layout = () => {
   const [user, setUser] = useState({});
@@ -43,6 +45,7 @@ const Layout = () => {
               <Route exact path="user/*" element={<User user={user} />} />
               <Route exact path="project/*" element={<Project />} />
               <Route exact path="adapprovals" element={<Adminapproval />} />
+              <Route exact path="chartjs" element={<Charttemp />} />
               <Route
                 exact
                 path="project/projectdetail/:id"
@@ -72,6 +75,8 @@ const Layout = () => {
                 path="managerapproval"
                 element={<Managerapproval name={user.name} />}
               />
+              <Route exact path="timetracker" element={<TimeTracker />} />
+              <Route exact path="chartjs" element={<Charttemp />} />
             </Routes>
           ) : (
             ""
@@ -91,6 +96,8 @@ const Layout = () => {
                 path="project/projectdetail/:id"
                 element={<Projectdetail />}
               />
+              <Route exact path="timetracker" element={<TimeTracker />} />
+              <Route exact path="chartjs" element={<Charttemp />} />
             </Routes>
           ) : (
             ""

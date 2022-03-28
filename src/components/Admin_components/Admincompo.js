@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const Admincompo = () => {
   return (
     <>
-   
       <div className={admincompo.maindivsidebar}>
         <div className={admincompo.sidebar}>
           <ul className={admincompo.sidebarlist}>
@@ -35,6 +34,14 @@ const Admincompo = () => {
             </li>
             <li className={admincompo.rows}>
               <Link className={admincompo.title} to="adapprovals">
+                <div className={admincompo.icone}>
+                  <img src={require("@photos/add-user6.png")} alt="" />
+                  {/* Approval */}
+                </div>
+              </Link>
+            </li>
+            <li className={admincompo.rows}>
+              <Link className={admincompo.title} to="chartjs">
                 <div className={admincompo.icone}>
                   <img src={require("@photos/add-user6.png")} alt="" />
                   {/* Approval */}
