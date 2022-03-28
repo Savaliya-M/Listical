@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from "react";
+import { Doughnut } from "react-chartjs-2";
 import { useNavigate, useParams } from "react-router-dom";
 import appRef from "../../firebase";
 import Addtask from "./Addtask";
 import prodetail from "./projectdetail.module.scss";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import AddproDesc from "./AddproDesc";
 
+ChartJS.register(ArcElement, Tooltip, Legend);
 const Projectdetail = () => {
   const [users, setUsers] = useState({});
   const [team, setTeam] = useState([]);
   const [project, setProject] = useState({});
+  const [task, setTask] = useState({});
+  const [chartData, setChartData] = useState("");
   const [addTaskPopUp, setAddTaskPopUp] = useState(false);
+  const [addDescPopUp, setAddDescPopUp] = useState(false);
+
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -38,7 +46,7 @@ const Projectdetail = () => {
       });
       setTeam(tempTeamArr);
     }
-  }, [project]);
+  }, [project, users]);
 
   const acceptTask = (eid) => {
     Object.keys(project.TaskList).map((tid) => {
@@ -57,6 +65,80 @@ const Projectdetail = () => {
     });
     appRef.child(`Projects/${id}`).set(project);
   };
+  useEffect(() => {
+    let tempCompleted = [];
+    let tempProgress = [];
+    let tempPanding = [];
+    let tempHigh = [];
+    let tempMedium = [];
+    let tempLow = [];
+    // console.log("project.TaskList", project.TaskList);
+    if (project.TaskList && project.TaskList.length !== 0) {
+      tempCompleted = Object.values(project.TaskList).filter((tid) => {
+        if (tid.status === "Complete") {
+          console.log("tid", tid.status);
+          return true;
+        }
+      });
+      tempProgress = Object.values(project.TaskList).filter((tid) => {
+        if (tid.status === true) {
+          console.log("tid", tid.status);
+          return true;
+        }
+      });
+      tempPanding = Object.values(project.TaskList).filter((tid) => {
+        if (tid.status === false) {
+          console.log("tid", tid.status);
+          return true;
+        }
+      });
+      tempHigh = Object.values(project.TaskList).filter((tid) => {
+        if (tid.priority === "High") {
+          console.log("tid", tid.priority);
+          return true;
+        }
+      });
+      tempMedium = Object.values(project.TaskList).filter((tid) => {
+        if (tid.priority === "Medium") {
+          console.log("tid", tid.priority);
+          return true;
+        }
+      });
+      tempLow = Object.values(project.TaskList).filter((tid) => {
+        if (tid.priority === "Low") {
+          console.log("tid", tid.priority);
+          return true;
+        }
+      });
+    }
+    const pieData = {
+      labels: ["Completed", "Progress", "Panding", "High", "Medium", "Low"],
+      datasets: [
+        {
+          label: "chart1",
+          labels: ["Completed", "Progress", "Panding"],
+          data: [
+            tempCompleted.length,
+            tempProgress.length,
+            tempPanding.length,
+            0,
+            0,
+            0,
+          ],
+          backgroundColor: ["green", "yellow", "red"],
+        },
+        {
+          label: "chart2",
+          data: [tempHigh.length, tempMedium.length, tempLow.length],
+          backgroundColor: ["cyan", "pink", "black"],
+        },
+      ],
+    };
+    setChartData(pieData);
+    console.log(tempCompleted);
+    console.log(tempProgress);
+    console.log(tempPanding);
+  }, [project]);
 
   return (
     <>
@@ -67,7 +149,8 @@ const Projectdetail = () => {
           </div>
           <div className={prodetail.rightside}>
             <div className={prodetail.graphs}>
-              <img src={require("@photos/LineGraphs.jpg")} alt="" />
+              {/* <img src={require("@photos/LineGraphs.jpg")} alt="" /> */}
+              {chartData !== "" ? <Doughnut data={chartData} /> : null}
             </div>
 
             <div className={prodetail.prodetails}>
@@ -82,22 +165,46 @@ const Projectdetail = () => {
                 <h5>Dead Line</h5>
                 <h4>{project.timeLine}</h4>
               </div>
-
+              {addDescPopUp ? (
+                <AddproDesc
+                  pid={id}
+                  handleclose={() => setAddDescPopUp(!addDescPopUp)}
+                />
+              ) : (
+                ""
+              )}
               <div className={prodetail.aboutproject}>
                 <div className={prodetail.heading}>
                   <h2>Project Description</h2>
+                  {localStorage.getItem("Type") === "Manager" ? (
+                    <button onClick={() => setAddDescPopUp(!addDescPopUp)}>
+                      Add desc
+                    </button>
+                  ) : (
+                    <></>
+                  )}
                 </div>
                 <div className={prodetail.para}>
                   <div>
                     <h5>Frontend Technology</h5>
-                    <h3> Html - CSS - JavaScript</h3>
+                    {project.frontEnd
+                      ? Object.values(project.frontEnd).map((id) => (
+                          <h3 key={id}> {id} </h3>
+                        ))
+                      : ""}
                   </div>
                   <div>
-                    <h5>Backend Technology</h5>
-                    <h3> Programing lan. - PHP</h3>
-                    <h3>Framwork - Laravel</h3>
-                    <h3>Web Servers - Apache</h3>
-                    <h3>Database - Mysql</h3>
+                    {project.backEnd ? (
+                      <>
+                        <h5>Backend Technology</h5>
+                        <h3> Programing lan. - {project.backEnd.prolang}</h3>
+                        <h3>Framwork - {project.backEnd.framework}</h3>
+                        <h3>Web Servers - {project.backEnd.webserver}</h3>
+                        <h3>Database - {project.backEnd.database}</h3>
+                      </>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
               </div>

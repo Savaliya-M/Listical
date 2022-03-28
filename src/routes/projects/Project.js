@@ -45,9 +45,6 @@ const Project = () => {
                         src={require("@photos/peichart.jpg")}
                         alt="this is pie chart"
                       />
-                      {/* <div>
-
-                      </div> */}
                     </div>
                     <div className={procomp.proinfo}>
                       <div className={procomp.proname}>
