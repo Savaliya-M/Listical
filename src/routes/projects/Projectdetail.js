@@ -12,7 +12,7 @@ const Projectdetail = () => {
   const [users, setUsers] = useState({});
   const [team, setTeam] = useState([]);
   const [project, setProject] = useState({});
-  const [task, setTask] = useState({});
+  // const [task, setTask] = useState({});
   const [chartData1, setChartData1] = useState("");
   const [chartData2, setChartData2] = useState("");
   const [addTaskPopUp, setAddTaskPopUp] = useState(false);
@@ -179,8 +179,8 @@ const Projectdetail = () => {
                 <h1>Progress Bar</h1>
               </div>
               <div className={prodetail.chart}>
-              {chartData1 !== "" ? <Doughnut data={chartData1} /> : null}
-              {chartData2 !== "" ? <Doughnut data={chartData2} /> : null}
+                {chartData1 !== "" ? <Doughnut data={chartData1} /> : null}
+                {chartData2 !== "" ? <Doughnut data={chartData2} /> : null}
               </div>
             </div>
 
@@ -208,8 +208,10 @@ const Projectdetail = () => {
                 <div className={prodetail.heading}>
                   <h2>Project Description</h2>
                   {localStorage.getItem("Type") === "Manager" ? (
-                    <button className={prodetail.fieldsbtn}
-                      onClick={() => setAddDescPopUp(!addDescPopUp)}>
+                    <button
+                      className={prodetail.fieldsbtn}
+                      onClick={() => setAddDescPopUp(!addDescPopUp)}
+                    >
                       Add
                     </button>
                   ) : (
@@ -260,10 +262,22 @@ const Projectdetail = () => {
                 ""
               )}
               {localStorage.getItem("Type") === "Manager" ? (
-                <button className={prodetail.fieldsbtn}
-                  onClick={() => setAddTaskPopUp(!addTaskPopUp)}>
-                  Add Task
-                </button>
+                team && team.length !== 0 ? (
+                  <button
+                    className={prodetail.fieldsbtn}
+                    onClick={() => setAddTaskPopUp(!addTaskPopUp)}
+                  >
+                    Add Task
+                  </button>
+                ) : (
+                  <button
+                    className={prodetail.fieldsbtn}
+                    onClick={() => alert("Please Selete The Project Team.")}
+                    // disabled={true}
+                  >
+                    Add Task
+                  </button>
+                )
               ) : (
                 <></>
               )}
@@ -386,15 +400,23 @@ const Projectdetail = () => {
               <h2>Team Member</h2>
               <div className={prodetail.addbtn}>
                 {localStorage.getItem("Type") === "Manager" ? (
-                  <button
-                    onClick={() =>
-                      navigate(
-                        `/layout/project/projectdetail/employeeadd/${id}`
-                      )
-                    }
-                  >
-                    +
-                  </button>
+                  team && team.length !== 0 ? (
+                    <button
+                      onClick={() =>
+                        navigate(
+                          `/layout/project/projectdetail/employeeadd/${id}`
+                        )
+                      }
+                    >
+                      +
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => alert("No Any Employee Assign To You.")}
+                    >
+                      +
+                    </button>
+                  )
                 ) : (
                   ""
                 )}

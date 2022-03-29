@@ -15,23 +15,23 @@
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   height: 20rem;
   background-color: #fff;
-  box-shadow: 2px 0px 50px  #a7a7a7;
+  box-shadow: 2px 0px 50px #a7a7a7;
   border-radius: 5%;
   // overflow-y: auto;
-  
-  &:hover{
-    box-shadow: 0px 0px 5px rgb(255, 255, 255)  ;
+
+  &:hover {
+    box-shadow: 0px 0px 5px rgb(255, 255, 255);
     transform: scale(1.03);
   }
-  .scroll{
+  .scroll {
     overflow-y: scroll;
     scrollbar-width: none;
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
       width: 0px;
     }
   }
 
-  .head{
+  .head {
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
   }
@@ -62,14 +62,12 @@
       }
     }
   }
-  .cimg{
-    img{
+  .cimg {
+    img {
       width: 1.5rem;
     }
   }
 }
-
-
 
 .content {
   @include bghome(#b7d0e0, 18px, 0.8rem, black);
@@ -77,7 +75,9 @@
   align-items: center;
   margin: 7px;
   border-radius: 10px;
-  h3, h2, p {
+  h3,
+  h2,
+  p {
     margin: 0px;
   }
   .cimg {
@@ -88,7 +88,7 @@
   }
 }
 
-.tagtext{
+.tagtext {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -96,7 +96,7 @@
   justify-content: space-between;
 }
 
-.textbtn{
+.textbtn {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -104,7 +104,7 @@
 }
 
 .removebtn {
-  button{
+  button {
     margin-right: 1rem;
     text-align: center;
     height: 1.5rem;
