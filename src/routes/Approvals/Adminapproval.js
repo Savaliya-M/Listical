@@ -22,6 +22,8 @@ const Adminapproval = () => {
       setUsersData(snap.val());
     });
 
+    
+
     appRef.child(`leave/ManagerLeave`).on("value", (snap) => {
       setLeaveApproval(snap.val());
     });
@@ -168,7 +170,7 @@ const Adminapproval = () => {
               <div className={adminapprov.leavetitle}>
                 <h2>Leave Approval</h2>
               </div>
-              <div className={adminapprov.leaves}>
+             
                 {leaveApproval
                   ? Object.keys(leaveApproval).map((uid) => {
                     if (leaveApproval[uid]) {
@@ -178,6 +180,7 @@ const Adminapproval = () => {
                           new Date(leaveApproval[uid][lid].leaveEndD) > new Date()
                         ) {
                           return (
+                            <div className={adminapprov.leaves}>
                             <div key={uuidv4()}>
                               <h3>{leaveApproval[uid][lid].uname}</h3>
                               <div className={adminapprov.leaveinfo}>
@@ -199,7 +202,9 @@ const Adminapproval = () => {
                                   </div>
                                 </div>
                               </p>
+                              <div>
                               <h4>Reason</h4> {leaveApproval[uid][lid].reason}
+                              </div>
                               <button id={adminapprov.resulttrue}
                                 onClick={() => approveLeaveClick(lid, uid)}>
                                 ✔ Approve
@@ -209,6 +214,7 @@ const Adminapproval = () => {
                                 &#x2718; Reject
                               </button>
                             </div>
+                            </div>
                           );
                         }
                       });
@@ -216,7 +222,7 @@ const Adminapproval = () => {
                   })
                   : ""}
               </div>
-            </div>
+           
 
             <div className={adminapprov.expencesbox}>
               <div className={adminapprov.expenceitle}>

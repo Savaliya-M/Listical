@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import proj from "./project.module.scss";
-import Addprojectpopup from "./Addprojectpopup";
 import procomp from "./projectcompo.module.scss";
+import Addprojectpopup from "./Addprojectpopup";
 import appRef from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { Doughnut } from "react-chartjs-2";
@@ -45,19 +45,23 @@ const Project = () => {
                 >
                   <div className={procomp.probox}>
                     <div className={procomp.progressreport}>
-                      <Charttemp project={projects[id]} />
+                    <div id={procomp.chart}>
+                      <Charttemp  
+                      project={projects[id]} />
+                      
                     </div>
-                    <div className={procomp.proinfo}>
-                      <div className={procomp.proname}>
-                        <h3>Project Name:</h3>
-                        <h3>{projects[id].projectTitle}</h3>
+                    </div>
+                    <div className={proj.proinfo}>
+                      <div className={proj.proname}>
+                        <h5>Project Name</h5>
+                        <h4>{projects[id].projectTitle}</h4>
                       </div>
-                      <div className={procomp.clientname}>
-                        <h4>Client Name:</h4>
+                      <div className={proj.clientname}>
+                        <h5>Client Name</h5>
                         <h4>{projects[id].clientName} </h4>
                       </div>
-                      <div className={procomp.deadline}>
-                        <h4>Deadline:</h4>
+                      <div className={proj.deadline}>
+                        <h5>Deadline</h5>
                         <h4>{projects[id].timeLine}</h4>
                       </div>
                     </div>

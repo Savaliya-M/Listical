@@ -16,8 +16,8 @@
   grid-gap: 1rem;
   margin: 15px;
   align-content: start;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  // justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 22.5rem));
   height: 25rem;
   
 }
@@ -38,5 +38,33 @@
   &:hover{
     color: white;
     background-color:  #0081bd;
+  }
+}
+
+
+
+.proinfo{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-bottom-left-radius: 10px ;
+  border-bottom-right-radius: 10px ;
+  background-color: #374953;
+  color: white;
+  margin-top: 0px;
+  h4{
+    margin-top: 0px;
+    margin-bottom: 5px;
+    color: white;
+  }
+  h5{
+    color: rgba(0, 0, 0, 0.521);
+    margin: 0px;
+    color: white;
+  }
+  .proname{
+    h5{
+      margin: 0px;
+    }
   }
 }

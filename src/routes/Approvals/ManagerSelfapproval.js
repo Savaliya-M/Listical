@@ -310,7 +310,7 @@ const ManagerSelfapproval = ({ username }) => {
                       </div>
                     </div>
                     <p>
-                      {/* <h4>Reason</h4>{approvedLeave[uid][lid].reason} */}
+                      <h3>Reason</h3>{approvedLeave[id].reason}
                     </p>
                     {approvedLeave[id].allow === true ? (
                       <div className={managerapprov.resulttrue}>
@@ -343,7 +343,10 @@ const ManagerSelfapproval = ({ username }) => {
                   <div key={approvedExpence[id]}>
                     <h3>Expence Title</h3>{approvedExpence[id].expenceTitle}
                     <h3>Ammount</h3>{approvedExpence[id].ammount}
-
+                    <div className={managerapprov.description}>
+                      <h3>Description</h3>{" "}
+                      {approvedExpence[id].description}
+                    </div>
                     {approvedExpence[id].allowDate ? (
                       <div className={managerapprov.resulttrue}>
                         <h3>✔ Approved</h3>

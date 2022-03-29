@@ -7,8 +7,6 @@
   box-shadow: 0px 0px 20px;
 }
 
-
-
 .alldetails {
   //   width: 100%;
   height: 100%;
@@ -19,26 +17,36 @@
 .rightside {
   display: flex;
   flex-direction: roe;
-}
 
-.graphs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 70%;
-  // background-color: #4a6f85;
-  margin: 1rem 0rem 0rem 0rem;
-  .Progress {
+  .graphs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
     border: 2px solid rgb(0, 0, 0);
-    width: 100%;
-  }
-  .chart {
-    margin-top: 1rem;
-    width: 30rem;
-    height: 23rem;
+    border-radius: 7px;
+    margin: 1rem 0rem 0rem 0rem;
+    .Progress {
+      border-top: 3px solid rgb(0, 0, 0);
+      border-bottom: 2px solid rgb(0, 0, 0);
+      width: 100%;text-align: center;
+      background-color: #b7d0e0;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    .chart {
+      display: flex;
+      margin-top: 1rem;
+      height: 28rem;
+
+      .chart2,
+      .chart1 {
+        text-align: center;
+        width: 22.5rem;
+      }
+    }
   }
 }
-
 .prodetails {
   display: flex;
   flex-direction: column;
@@ -66,14 +74,14 @@
   }
 
   .aboutproject {
-    height: 20rem;
+    height: 18rem;
     border: 2px solid rgb(0, 0, 0);
     background-color: #ffffff;
     border-radius: 10px;
     margin: 1rem 0rem 0rem 1rem;
-    
-.fieldsbtn{
-  font-size: 1rem;
+
+    .fieldsbtn {
+      font-size: 1rem;
       height: 1.5rem;
       width: 4rem;
       background-color: #ffffff;
@@ -85,7 +93,7 @@
         background-color: #2d404d;
         color: white;
       }
-}
+    }
     h2,
     h4,
     h3 {
@@ -185,28 +193,29 @@
     }
   }
 }
-table{
+table {
   margin-top: 2rem;
   border-collapse: collapse;
   width: 100%;
-  tbody{
+  tbody {
     tr:hover {
       background-color: #374953;
       color: white;
     }
   }
 
-  h3{
+  h3 {
     margin: 0px;
   }
-  
-  th, td{
+
+  th,
+  td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
     // text-align: center;
   }
-  button{
+  button {
     background: rgba(0, 0, 0, 0.5);
     border: 0ch;
     color: white;
@@ -222,18 +231,18 @@ table{
   }
 }
 
-.fieldsbtn{
+.fieldsbtn {
   margin-top: 1.5rem;
   font-size: 1.2rem;
-      height: 2rem;
-      width: 6rem;
-      border: 2px solid black;
-      box-shadow: 0px 0px 0px;
-      border-radius: 5px;
-      background-color: #2d404d;
-      color: white;
-      &:hover {
-        color: black;
-        background-color: #ffffff;
-      }
+  height: 2rem;
+  width: 6rem;
+  border: 2px solid black;
+  box-shadow: 0px 0px 0px;
+  border-radius: 5px;
+  background-color: #2d404d;
+  color: white;
+  &:hover {
+    color: black;
+    background-color: #ffffff;
+  }
 }

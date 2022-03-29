@@ -130,15 +130,15 @@ const Managerapproval = ({ name }) => {
                 <div className={managerapr.leavetitle}>
                   <h2>Leave Approval</h2>
                 </div>
-                
-                  {leaveApproval
-                    ? Object.keys(leaveApproval).map((uid) => {
-                      if (leaveApproval[uid]) {
-                        return Object.keys(leaveApproval[uid]).map((lid) => {
-                          if (leaveApproval[uid][lid].allow === false) {
-                            
-                            return (
-                              <div className={managerapr.leaves}>
+
+                {leaveApproval
+                  ? Object.keys(leaveApproval).map((uid) => {
+                    if (leaveApproval[uid]) {
+                      return Object.keys(leaveApproval[uid]).map((lid) => {
+                        if (leaveApproval[uid][lid].allow === false) {
+
+                          return (
+                            <div className={managerapr.leaves}>
                               <div key={uuidv4()}>
                                 <h3>{leaveApproval[uid][lid].uname}</h3>
                                 <div className={managerapr.leaveinfo}>
@@ -152,10 +152,10 @@ const Managerapproval = ({ name }) => {
                                 <div>
                                   <p>
                                     <div className={managerapr.date}>
-                                      <div>
+                                      <div className={managerapr.date1}>
                                         <h4>From</h4>{leaveApproval[uid][lid].leaveStartD}
                                       </div>
-                                      <div>
+                                      <div className={managerapr.date2}>
                                         <h4>To</h4>{" "}
                                         {leaveApproval[uid][lid].leaveEndD}
                                       </div>
@@ -191,40 +191,45 @@ const Managerapproval = ({ name }) => {
                                   </button>
                                 </div>
                               </div>
-                                            </div>
-                            );
-                          }
-                        });
-                      }
-                    })
-                    : ""}
-  
+                            </div>
+                          );
+                        }
+                      });
+                    }
+                  })
+                  : ""}
+
               </div>
               <div className={managerapr.expencesbox}>
                 <div className={managerapr.expenceitle}>
                   <h2>Expence Approval</h2>
                 </div>
-               
-                  {expenceApproval
-                    ? Object.keys(expenceApproval).map((uid) => {
 
-                      if (expenceApproval[uid]) {
-                        return Object.keys(expenceApproval[uid]).map((eid) => {
-                          if (expenceApproval[uid][eid].allow === false) {
-                            return (
-                              <div className={managerapr.expences}>
+                {expenceApproval
+                  ? Object.keys(expenceApproval).map((uid) => {
+
+                    if (expenceApproval[uid]) {
+                      return Object.keys(expenceApproval[uid]).map((eid) => {
+                        if (expenceApproval[uid][eid].allow === false) {
+                          return (
+                            <div className={managerapr.expences}>
                               <div key={uuidv4()}>
                                 <h3>{expenceApproval[uid][eid].uname}</h3>
                                 <div>
-                                  <h4>{expenceApproval[uid][eid].expenceTitle}</h4>
+                                  {/* <h4>Expence Title</h4> */}
+                                  <h4><p>{expenceApproval[uid][eid].expenceTitle}</p></h4>
                                 </div>
                                 <div>
-                                  <p> {expenceApproval[uid][eid].ammount}</p>
+                                <p>
+                                  <h4>Amount</h4>
+                                  {expenceApproval[uid][eid].ammount}
+                                  </p>
                                 </div>
+
                                 <div className={managerapr.description}>
-                                  <h4>Description</h4>{" "}
-                                  {expenceApproval[uid][eid].description}
+                                  <h4>Description</h4>{expenceApproval[uid][eid].description}
                                 </div>
+
                                 <div className={managerapr.appbtn}>
                                   <button id={managerapr.resulttrue}
                                     onClick={() =>
@@ -248,14 +253,14 @@ const Managerapproval = ({ name }) => {
                                   </button>
                                 </div>
                               </div>
-                              </div>
-                            );
-                          }
-                        });
-                      }
-                    })
-                    : ""}
-              
+                            </div>
+                          );
+                        }
+                      });
+                    }
+                  })
+                  : ""}
+
               </div>
             </div>
           </div>
