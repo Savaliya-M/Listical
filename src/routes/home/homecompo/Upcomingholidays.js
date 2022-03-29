@@ -43,7 +43,8 @@ const Upcomingholidays = ({ handleopen }) => {
                       id={holiday.Upcomingholidays}
                     >
                       <div className={holiday.cimg}>
-                        <h2>{upholiday[id].holidaytitle[0]}</h2>
+                      <img src={require("@photos/party.png")} alt="logo" />
+                        {/* <h2>{upholiday[id].holidaytitle[0]}</h2> */}
                       </div>
                       <div className={holiday.text}>
                         <h3>{upholiday[id].holidaytitle}</h3>

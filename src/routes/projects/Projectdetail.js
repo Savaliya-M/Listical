@@ -147,12 +147,12 @@ const Projectdetail = () => {
 
           <div className={prodetail.rightside}>
             <div className={prodetail.graphs}>
-            <div className={prodetail.Progress}>
+              <div className={prodetail.Progress}>
                 <h1>Progress Bar</h1>
               </div>
-              {/* <img src={require("@photos/LineGraphs.jpg")} alt="" /> */}
-              {/* <img src={require("@photos/LineGraphs.jpg")} alt="" /> */}
-              {chartData !== "" ? <Doughnut data={chartData} /> : null}
+              <div className={prodetail.chart}>
+                {chartData !== "" ? <Doughnut data={chartData} /> : null}
+              </div>
             </div>
 
             <div className={prodetail.prodetails}>
@@ -179,8 +179,9 @@ const Projectdetail = () => {
                 <div className={prodetail.heading}>
                   <h2>Project Description</h2>
                   {localStorage.getItem("Type") === "Manager" ? (
-                    <button onClick={() => setAddDescPopUp(!addDescPopUp)}>
-                      Add desc
+                    <button className={prodetail.fieldsbtn}
+                      onClick={() => setAddDescPopUp(!addDescPopUp)}>
+                      Add
                     </button>
                   ) : (
                     <></>
@@ -191,8 +192,8 @@ const Projectdetail = () => {
                     <h5>Frontend Technology</h5>
                     {project.frontEnd
                       ? Object.values(project.frontEnd).map((id) => (
-                          <h3 key={id}> {id} </h3>
-                        ))
+                        <h3 key={id}> {id} </h3>
+                      ))
                       : ""}
                   </div>
                   <div>
@@ -226,7 +227,8 @@ const Projectdetail = () => {
                 ""
               )}
               {localStorage.getItem("Type") === "Manager" ? (
-                <button onClick={() => setAddTaskPopUp(!addTaskPopUp)}>
+                <button className={prodetail.fieldsbtn}
+                  onClick={() => setAddTaskPopUp(!addTaskPopUp)}>
                   Add Task
                 </button>
               ) : (
@@ -241,7 +243,6 @@ const Projectdetail = () => {
                     <th><h3>Status</h3></th>
                     <th><h3>Priority</h3></th>
                     <th><h3>Astimated Time</h3></th>
-                    <th><h3>Postion</h3></th>
                   </tr>
                 </thead>
                 <tbody className={prodetail.tableline}>

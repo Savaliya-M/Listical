@@ -47,7 +47,7 @@ const Announcements = ({ handleopen }) => {
                   <div className={annocuncements.tagtext}>
                     <div className={annocuncements.textbtn}>
                       <div className={annocuncements.cimg}>
-                        <p>img</p>
+                        <img src={require("@photos/noise.png")} alt="logo" />
                       </div>
 
                       <div className={annocuncements.text}>

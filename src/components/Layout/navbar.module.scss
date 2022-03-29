@@ -6,9 +6,11 @@
   font-style: normal;
 }
 
+// font-family:Titillium Web,sans-serif;scroll-behavior:smooth}
 .azonix {
   font-family: "azonixregular";
 }
+
 
 .navbarmain {
   display: flex;
@@ -20,7 +22,8 @@
   z-index: 100;
   left: 0%;
   top: 0%;
-  box-shadow: 2px 0px 10px #a1a1a1;
+  scroll-behavior:smooth;
+  box-shadow: 0 0.063rem 0.625rem 0 rgb(0 0 0 / 20%);
 
   .logo {
     display: flex;

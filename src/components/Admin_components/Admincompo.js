@@ -10,8 +10,9 @@ const Admincompo = () => {
           <ul className={admincompo.sidebarlist}>
             <li className={admincompo.rows}>
               <Link className={admincompo.title} to="/">
-                <div className={admincompo.icone}>
-                  <img src={require("@photos/house.png")} alt="icon" />
+                <div className={admincompo.icone} >
+                  <img  id={admincompo.home} src={require("@photos/HOME.png")} alt="icon" />
+                  <img src={require("@photos/home.gif")} alt="icon" />
                   {/* <Home  */}
                 </div>
               </Link>
@@ -19,7 +20,8 @@ const Admincompo = () => {
             <li className={admincompo.rows}>
               <Link className={admincompo.title} to="user">
                 <div className={admincompo.icone}>
-                  <img src={require("@photos/people.png")} alt="People" />
+                <img  id={admincompo.home} src={require("@photos/USERS.png")} alt="icon" />
+                  <img src={require("@photos/users.gif")} alt="icon" />
                   {/* User */}
                 </div>
               </Link>
@@ -27,7 +29,8 @@ const Admincompo = () => {
             <li className={admincompo.rows}>
               <Link className={admincompo.title} to="project">
                 <div className={admincompo.icone}>
-                  <img src={require("@photos/project.png")} alt="" />
+                <img  id={admincompo.home} src={require("@photos/PROJECTS.png")} alt="icon" />
+                  <img src={require("@photos/projects.gif")} alt="icon" />
                   {/* Project */}
                 </div>
               </Link>
@@ -35,19 +38,20 @@ const Admincompo = () => {
             <li className={admincompo.rows}>
               <Link className={admincompo.title} to="adapprovals">
                 <div className={admincompo.icone}>
-                  <img src={require("@photos/add-user6.png")} alt="" />
+                <img  id={admincompo.home} src={require("@photos/APPROVEDS.png")} alt="icon" />
+                  <img src={require("@photos/approved.gif")} alt="icon" />
                   {/* Approval */}
                 </div>
               </Link>
             </li>
-            <li className={admincompo.rows}>
+            {/* <li className={admincompo.rows}>
               <Link className={admincompo.title} to="chartjs">
                 <div className={admincompo.icone}>
                   <img src={require("@photos/add-user6.png")} alt="" />
-                  {/* Approval */}
+                  Approval
                 </div>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

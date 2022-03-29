@@ -130,15 +130,16 @@ const Managerapproval = ({ name }) => {
                 <div className={managerapr.leavetitle}>
                   <h2>Leave Approval</h2>
                 </div>
-                <div className={managerapr.leaves}>
+                
                   {leaveApproval
                     ? Object.keys(leaveApproval).map((uid) => {
                       if (leaveApproval[uid]) {
                         return Object.keys(leaveApproval[uid]).map((lid) => {
                           if (leaveApproval[uid][lid].allow === false) {
+                            
                             return (
+                              <div className={managerapr.leaves}>
                               <div key={uuidv4()}>
-
                                 <h3>{leaveApproval[uid][lid].uname}</h3>
                                 <div className={managerapr.leaveinfo}>
                                   <div id={managerapr.leavetitle}>
@@ -190,19 +191,20 @@ const Managerapproval = ({ name }) => {
                                   </button>
                                 </div>
                               </div>
+                                            </div>
                             );
                           }
                         });
                       }
                     })
                     : ""}
-                </div>
+  
               </div>
               <div className={managerapr.expencesbox}>
                 <div className={managerapr.expenceitle}>
                   <h2>Expence Approval</h2>
                 </div>
-                <div className={managerapr.expences}>
+               
                   {expenceApproval
                     ? Object.keys(expenceApproval).map((uid) => {
 
@@ -210,13 +212,14 @@ const Managerapproval = ({ name }) => {
                         return Object.keys(expenceApproval[uid]).map((eid) => {
                           if (expenceApproval[uid][eid].allow === false) {
                             return (
+                              <div className={managerapr.expences}>
                               <div key={uuidv4()}>
                                 <h3>{expenceApproval[uid][eid].uname}</h3>
                                 <div>
                                   <h4>{expenceApproval[uid][eid].expenceTitle}</h4>
                                 </div>
                                 <div>
-                                  <p><h4>Ammount </h4> {expenceApproval[uid][eid].ammount}</p>
+                                  <p> {expenceApproval[uid][eid].ammount}</p>
                                 </div>
                                 <div className={managerapr.description}>
                                   <h4>Description</h4>{" "}
@@ -245,13 +248,14 @@ const Managerapproval = ({ name }) => {
                                   </button>
                                 </div>
                               </div>
+                              </div>
                             );
                           }
                         });
                       }
                     })
                     : ""}
-                </div>
+              
               </div>
             </div>
           </div>

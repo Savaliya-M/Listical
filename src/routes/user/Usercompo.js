@@ -54,9 +54,9 @@ const Usercompo = () => {
 
   return (
     <>
-      <div className={userscomp.togglebtn}>
+      {/* <div className={userscomp.togglebtn}>
         <button>List</button>
-      </div>
+      </div> */}
 
       <div className={userscomp.mainusercompo}>
         {localStorage.getItem("Type") === "Manager"

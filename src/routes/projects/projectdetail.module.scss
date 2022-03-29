@@ -7,9 +7,7 @@
   box-shadow: 0px 0px 20px;
 }
 
-.Progress {
-  border: 2px solid rgb(0, 0, 0);
-}
+
 
 .alldetails {
   //   width: 100%;
@@ -20,14 +18,22 @@
 
 .rightside {
   display: flex;
-  flex-direction: row;
+  flex-direction: roe;
 }
 
 .graphs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 70%;
   // background-color: #4a6f85;
   margin: 1rem 0rem 0rem 0rem;
-  img {
+  .Progress {
+    border: 2px solid rgb(0, 0, 0);
+    width: 100%;
+  }
+  .chart {
+    margin-top: 1rem;
     width: 30rem;
     height: 23rem;
   }
@@ -60,11 +66,26 @@
   }
 
   .aboutproject {
-    height: 15rem;
+    height: 20rem;
     border: 2px solid rgb(0, 0, 0);
     background-color: #ffffff;
     border-radius: 10px;
     margin: 1rem 0rem 0rem 1rem;
+    
+.fieldsbtn{
+  font-size: 1rem;
+      height: 1.5rem;
+      width: 4rem;
+      background-color: #ffffff;
+      border: 2px solid black;
+      color: black;
+      box-shadow: 0px 0px 0px;
+      border-radius: 5px;
+      &:hover {
+        background-color: #2d404d;
+        color: white;
+      }
+}
     h2,
     h4,
     h3 {
@@ -74,15 +95,6 @@
       margin-top: 15px;
       margin-bottom: 5px;
       color: #4a6f85;
-    }
-    .para {
-      margin-top: 0px;
-      overflow-y: scroll;
-      height: 12rem;
-      scrollbar-width: none;
-      &::-webkit-scrollbar {
-        width: 0px;
-      }
     }
   }
 
@@ -205,6 +217,23 @@ table{
     &:hover {
       background-color: #1e2b31;
       border: 2px solid rgb(255, 255, 255);
+      // background: rgb(4, 144, 238);
     }
   }
+}
+
+.fieldsbtn{
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+      height: 2rem;
+      width: 6rem;
+      border: 2px solid black;
+      box-shadow: 0px 0px 0px;
+      border-radius: 5px;
+      background-color: #2d404d;
+      color: white;
+      &:hover {
+        color: black;
+        background-color: #ffffff;
+      }
 }

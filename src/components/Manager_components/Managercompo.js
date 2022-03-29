@@ -12,7 +12,8 @@ const Managercompo = () => {
             <li className={managercompo.rows}>
               <Link className={managercompo.title} to="/">
                 <div className={managercompo.icone}>
-                  <img src={require("@photos/house.png")} />
+                <img  id={managercompo.home} src={require("@photos/HOME.png")} alt="icon" />
+                  <img src={require("@photos/home.gif")} alt="icon" />
                   {/*   Home  */}
                 </div>
               </Link>
@@ -20,7 +21,8 @@ const Managercompo = () => {
             <li className={managercompo.rows}>
               <Link className={managercompo.title} to="user">
                 <div className={managercompo.icone}>
-                  <img src={require("@photos/people.png")} alt="People" />
+                <img  id={managercompo.home} src={require("@photos/USERS.png")} alt="icon" />
+                  <img src={require("@photos/users.gif")} alt="icon" />
                   {/* User */}
                 </div>
               </Link>
@@ -28,7 +30,8 @@ const Managercompo = () => {
             <li className={managercompo.rows}>
               <Link className={managercompo.title} to="project">
                 <div className={managercompo.icone}>
-                  <img src={require("@photos/project.png")} alt="" />
+                <img  id={managercompo.home} src={require("@photos/PROJECTS.png")} alt="icon" />
+                  <img src={require("@photos/projects.gif")} alt="icon" />
                   {/* Project */}
                 </div>
               </Link>
@@ -36,7 +39,8 @@ const Managercompo = () => {
             <li className={managercompo.rows}>
               <Link className={managercompo.title} to="managerapproval">
                 <div className={managercompo.icone}>
-                  <img src={require("@photos/project.png")} alt="" />
+                <img  id={managercompo.home} src={require("@photos/APPROVEDS.png")} alt="icon" />
+                  <img src={require("@photos/approved.gif")} alt="icon" />
                   {/* Project */}
                 </div>
               </Link>
@@ -44,19 +48,20 @@ const Managercompo = () => {
             <li className={managercompo.rows}>
               <Link className={managercompo.title} to="timetracker">
                 <div className={managercompo.icone}>
-                  <img src={require("@photos/project.png")} alt="" />
+                  <img  id={managercompo.home} src={require("@photos/TIMETRACK.png")} alt="icon" />
+                  <img src={require("@photos/timetrack.gif")} alt="icon" />
                   {/* Project */}
                 </div>
               </Link>
             </li>
-            <li className={managercompo.rows}>
+            {/* <li className={managercompo.rows}>
               <Link className={managercompo.title} to="chartjs">
                 <div className={managercompo.icone}>
                   <img src={require("@photos/project.png")} alt="" />
-                  {/* Project */}
+                  Project
                 </div>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

@@ -107,7 +107,11 @@ const Editdetail = () => {
 
   return (
     <>
+    
       <div className={edit.editpage}>
+      <div className={edit.title}>
+      <h1>Setting Profile</h1>
+    </div>
         <div>
           <div className={edit.part}>
             <div>

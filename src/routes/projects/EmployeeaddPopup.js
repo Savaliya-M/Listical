@@ -64,33 +64,33 @@ const EmployeeaddPopup = () => {
                 <div key={id}>
                   <div className={empadd.hi}>
                     <div className={empadd.teammember}>
-                      <div>
-                        <div
-                          className={empadd.teams}
-                          onClick={() => {
-                            navigate(`/layout/user/info/${id}`);
-                          }}
-                        >
-                          <div className={empadd.names}>
-                            <h4>Name</h4>
-                            <h3>{users[id].name}</h3>
-                          </div>
-                          <div className={empadd.mono}>
-                            <h4>Mobile No.</h4>
-                            <h3>{users[id].mono}</h3>
-                          </div>
-                          <div className={empadd.post}>
-                            <h4>Post</h4>
-                            <h3>{users[id].post}</h3>
-                          </div>
+                      <div
+                        className={empadd.teams}
+                        onClick={() => {
+                          navigate(`/layout/user/info/${id}`);
+                        }}
+                      >
+                        <div className={empadd.names}>
+                          <h4>Name</h4>
+                          <h3>{users[id].name}</h3>
                         </div>
-                        <div>
-                          <input
-                            type="checkbox"
-                            onChange={() => addEmp(users[id])}
-                          />
+                        <div className={empadd.mono}>
+                          <h4>Mobile No.</h4>
+                          <h3>{users[id].mono}</h3>
+                        </div>
+                        <div className={empadd.post}>
+                          <h4>Post</h4>
+                          <h3>{users[id].post}</h3>
                         </div>
                       </div>
+
+                      <div>
+                        <input
+                        className={empadd.check}
+                          type="checkbox"
+                          onChange={() => addEmp(users[id])} />
+                      </div>
+
                     </div>
                   </div>
                 </div>

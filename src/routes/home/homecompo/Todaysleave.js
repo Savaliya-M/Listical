@@ -61,7 +61,8 @@ const Todaysleave = () => {
                     key={id.uuid}
                   >
                     <div className={leave.cimg}>
-                      <h2>{id.uname[0]}</h2>
+                      {/* <h2>{id.uname[0]}</h2> */}
+                      <img src={require("@photos/exit.png")} alt="logo" />
                     </div>
                     <div className={leave.text}>
                       <h3>{id.uname}</h3>

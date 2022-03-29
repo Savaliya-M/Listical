@@ -131,12 +131,13 @@ const Adminapproval = () => {
         ""
       )}
       <div className={adminapprov.mainbox}>
-        <h1>Users Approvals</h1>
+        {/* <h1>Users Approvals</h1> */}
         <div className={adminapprov.innerbox}>
           {Object.keys(usersData).map((index) => {
             if (usersData[index].activate === false) {
               return (
                 <div key={index} className={adminapprov.empdetail}>
+                  <h2>Users Approvals</h2>
                   <div className={adminapprov.manbtn}>
                     <img src={require("@photos/man.png")} />
                     <div className={adminapprov.aprobtn}>
@@ -179,20 +180,33 @@ const Adminapproval = () => {
                           return (
                             <div key={uuidv4()}>
                               <h3>{leaveApproval[uid][lid].uname}</h3>
-                              <h4>{leaveApproval[uid][lid].leaveTitle}</h4>
-                              <p>{leaveApproval[uid][lid].dayType}</p>
+                              <div className={adminapprov.leaveinfo}>
+                                <div id={adminapprov.leavetitle}>
+                                  <h4>{leaveApproval[uid][lid].leaveTitle}</h4>
+                                </div>
+                                <div id={adminapprov.leaveday}>
+                                  {leaveApproval[uid][lid].dayType}
+                                </div>
+                              </div>
                               <p>
-                                From :{leaveApproval[uid][lid].leaveStartD} To:{" "}
-                                {leaveApproval[uid][lid].leaveEndD}
+                                <div className={adminapprov.date}>
+                                  <div>
+                                    <h4>From</h4>{leaveApproval[uid][lid].leaveStartD}
+                                  </div>
+                                  <div>
+                                    <h4>To</h4>{" "}
+                                    {leaveApproval[uid][lid].leaveEndD}
+                                  </div>
+                                </div>
                               </p>
-                              <p>reason :{leaveApproval[uid][lid].reason}</p>
+                              <h4>Reason</h4> {leaveApproval[uid][lid].reason}
                               <button id={adminapprov.resulttrue}
-                              onClick={() => approveLeaveClick(lid, uid)}>
+                                onClick={() => approveLeaveClick(lid, uid)}>
                                 ✔ Approve
                               </button>
                               <button id={adminapprov.resultfalse}
-                              onClick={() => rejectedLeaveClick(lid, uid)}>
-                              &#x2718; Reject
+                                onClick={() => rejectedLeaveClick(lid, uid)}>
+                                &#x2718; Reject
                               </button>
                             </div>
                           );
@@ -218,16 +232,16 @@ const Adminapproval = () => {
                             <div key={uuidv4()}>
                               <h3>{expenceApproval[uid][eid].uname}</h3>
                               <h4>{expenceApproval[uid][eid].expenceTitle}</h4>
-                              <p>Ammount : {expenceApproval[uid][eid].ammount}</p>
-                              <p>
-                                description :{expenceApproval[uid][eid].description}
-                              </p>
+                              <p><h4>Ammount </h4>{expenceApproval[uid][eid].ammount}</p>
+                              <div>
+                              <h4>Description</h4>{expenceApproval[uid][eid].description}
+                              </div>
                               <button id={adminapprov.resulttrue}
-                              onClick={() => approveExpenceClick(eid, uid)}>
+                                onClick={() => approveExpenceClick(eid, uid)}>
                                 ✔ Approve
                               </button>
                               <button id={adminapprov.resultfalse}
-                              onClick={() => rejectedExpenceClick(eid, uid)}>
+                                onClick={() => rejectedExpenceClick(eid, uid)}>
                                 &#x2718; Reject
                               </button>
                             </div>
@@ -240,10 +254,10 @@ const Adminapproval = () => {
               </div>
             </div>
           </div>
-          </div>
         </div>
-      </>
-      );
+      </div>
+    </>
+  );
 };
 
-      export default Adminapproval;
+export default Adminapproval;

@@ -114,10 +114,10 @@ const Userinfo = () => {
                       <a href="#Projects">Projects</a>
                       {/* <button>Projects</button> */}
                     </div>
-                    <div className={useinfo.btnsalary}>
+                    {/* <div className={useinfo.btnsalary}>
                       <a href="#salary">Salary</a>
-                      {/* <button>Salary</button> */}
-                    </div>
+                      <button>Salary</button>
+                    </div> */}
                   </div>
                 </div>
               </div>
