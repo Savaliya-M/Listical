@@ -6,14 +6,15 @@ import Addtask from "./Addtask";
 import prodetail from "./projectdetail.module.scss";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import AddproDesc from "./AddproDesc";
-
 ChartJS.register(ArcElement, Tooltip, Legend);
+
 const Projectdetail = () => {
   const [users, setUsers] = useState({});
   const [team, setTeam] = useState([]);
   const [project, setProject] = useState({});
   const [task, setTask] = useState({});
-  const [chartData, setChartData] = useState("");
+  const [chartData1, setChartData1] = useState("");
+  const [chartData2, setChartData2] = useState("");
   const [addTaskPopUp, setAddTaskPopUp] = useState(false);
   const [addDescPopUp, setAddDescPopUp] = useState(false);
 
@@ -65,6 +66,7 @@ const Projectdetail = () => {
     });
     appRef.child(`Projects/${id}`).set(project);
   };
+
   useEffect(() => {
     let tempCompleted = [];
     let tempProgress = [];
@@ -72,7 +74,6 @@ const Projectdetail = () => {
     let tempHigh = [];
     let tempMedium = [];
     let tempLow = [];
-    // console.log("project.TaskList", project.TaskList);
     if (project.TaskList && project.TaskList.length !== 0) {
       tempCompleted = Object.values(project.TaskList).filter((tid) => {
         if (tid.status === "Complete") {
@@ -111,48 +112,75 @@ const Projectdetail = () => {
         }
       });
     }
-    const pieData = {
-      labels: ["Completed", "Progress", "Panding", "High", "Medium", "Low"],
-      datasets: [
-        {
-          label: "chart1",
-          labels: ["Completed", "Progress", "Panding"],
-          data: [
-            tempCompleted.length,
-            tempProgress.length,
-            tempPanding.length,
-            0,
-            0,
-            0,
-          ],
-          backgroundColor: ["green", "yellow", "red"],
-        },
-        {
-          label: "chart2",
-          data: [tempHigh.length, tempMedium.length, tempLow.length],
-          backgroundColor: ["cyan", "pink", "black"],
-        },
-      ],
-    };
-    setChartData(pieData);
-    console.log(tempCompleted);
-    console.log(tempProgress);
-    console.log(tempPanding);
+    if (project.TaskList && project.TaskList.length !== 0) {
+      const pieData1 = {
+        labels: ["Completed", "Progress", "Panding"],
+        datasets: [
+          {
+            label: "chart1",
+            labels: ["Completed", "Progress", "Panding"],
+            data: [
+              tempCompleted.length,
+              tempProgress.length,
+              tempPanding.length,
+            ],
+            backgroundColor: ["green", "yellow", "red"],
+          },
+        ],
+      };
+      const pieData2 = {
+        labels: ["High", "Medium", "Low"],
+        datasets: [
+          {
+            label: "chart1",
+            labels: ["Completed", "Progress", "Panding"],
+            data: [tempHigh.length, tempMedium.length, tempLow.length],
+            backgroundColor: ["#e88c31", "#d1c936", "#5bd645"],
+          },
+        ],
+      };
+      setChartData1(pieData1);
+      setChartData2(pieData2);
+    } else {
+      const pieData1 = {
+        labels: ["No Task Added"],
+        datasets: [
+          {
+            label: "chart1",
+            labels: ["No Task Added"],
+            data: [1],
+            backgroundColor: ["gray"],
+          },
+        ],
+      };
+      const pieData2 = {
+        labels: ["No Task Added"],
+        datasets: [
+          {
+            label: "chart1",
+            labels: ["No Task Added"],
+            data: [1],
+            backgroundColor: ["gray"],
+          },
+        ],
+      };
+      setChartData1(pieData1);
+      setChartData2(pieData2);
+    }
   }, [project]);
 
   return (
     <>
       <div className={prodetail.all}>
         <div className={prodetail.alldetails}>
-
           <div className={prodetail.rightside}>
             <div className={prodetail.graphs}>
-            <div className={prodetail.Progress}>
+              <div className={prodetail.Progress}>
                 <h1>Progress Bar</h1>
               </div>
-              {/* <img src={require("@photos/LineGraphs.jpg")} alt="" /> */}
-              {/* <img src={require("@photos/LineGraphs.jpg")} alt="" /> */}
-              {chartData !== "" ? <Doughnut data={chartData} /> : null}
+
+              {chartData1 !== "" ? <Doughnut data={chartData1} /> : null}
+              {chartData2 !== "" ? <Doughnut data={chartData2} /> : null}
             </div>
 
             <div className={prodetail.prodetails}>
@@ -188,12 +216,16 @@ const Projectdetail = () => {
                 </div>
                 <div className={prodetail.para}>
                   <div>
-                    <h5>Frontend Technology</h5>
-                    {project.frontEnd
-                      ? Object.values(project.frontEnd).map((id) => (
+                    {project.frontEnd ? (
+                      <>
+                        <h5>Frontend Technology</h5>
+                        {Object.values(project.frontEnd).map((id) => (
                           <h3 key={id}> {id} </h3>
-                        ))
-                      : ""}
+                        ))}
+                      </>
+                    ) : (
+                      <>Add Project Description ....</>
+                    )}
                   </div>
                   <div>
                     {project.backEnd ? (
@@ -236,39 +268,48 @@ const Projectdetail = () => {
               <table border="0">
                 <thead>
                   <tr>
-                    <th><h3>Task Name</h3></th>
-                    <th><h3>Employee Name</h3></th>
-                    <th><h3>Status</h3></th>
-                    <th><h3>Priority</h3></th>
-                    <th><h3>Astimated Time</h3></th>
-                    <th><h3>Postion</h3></th>
+                    <th>
+                      <h3>Task Name</h3>
+                    </th>
+                    <th>
+                      <h3>Employee Name</h3>
+                    </th>
+                    <th>
+                      <h3>Status</h3>
+                    </th>
+                    <th>
+                      <h3>Priority</h3>
+                    </th>
+                    <th>
+                      <h3>Astimated Time</h3>
+                    </th>
                   </tr>
                 </thead>
                 <tbody className={prodetail.tableline}>
                   {localStorage.getItem("Type") === "Manager" ||
-                    localStorage.getItem("Type") === "Admin"
+                  localStorage.getItem("Type") === "Admin"
                     ? project.TaskList
                       ? Object.keys(project.TaskList).map((tid) => (
-                        <tr key={tid}>
-                          <td>{project.TaskList[tid].taskName}</td>
+                          <tr key={tid}>
+                            <td>{project.TaskList[tid].taskName}</td>
 
-                          {Object.values(users).map((uid) => {
-                            if (uid.uuid === project.TaskList[tid].empId) {
-                              return <td>{uid.name}</td>;
-                            }
-                          })}
+                            {Object.values(users).map((uid) => {
+                              if (uid.uuid === project.TaskList[tid].empId) {
+                                return <td>{uid.name}</td>;
+                              }
+                            })}
 
-                          <td>
-                            {project.TaskList[tid].status === false
-                              ? "Pending"
-                              : project.TaskList[tid].status === true
+                            <td>
+                              {project.TaskList[tid].status === false
+                                ? "Pending"
+                                : project.TaskList[tid].status === true
                                 ? "On Progress"
                                 : "Completed"}
-                          </td>
-                          <td>{project.TaskList[tid].priority}</td>
-                          <td>{project.TaskList[tid].astimatedTime}</td>
-                        </tr>
-                      ))
+                            </td>
+                            <td>{project.TaskList[tid].priority}</td>
+                            <td>{project.TaskList[tid].astimatedTime}</td>
+                          </tr>
+                        ))
                       : ""
                     : ""}
                   {/* -------------------------------- */}
@@ -276,58 +317,60 @@ const Projectdetail = () => {
                   {localStorage.getItem("Type") === "Employee"
                     ? project.TaskList
                       ? Object.keys(project.TaskList).map((tid) => {
-                        if (
-                          project.TaskList[tid].empId ===
-                          localStorage.getItem("uuid")
-                        ) {
-                          console.log(project.TaskList[tid]);
-                          return (
-                            <tr key={tid}>
-                              <td>{project.TaskList[tid].taskName}</td>
+                          if (
+                            project.TaskList[tid].empId ===
+                            localStorage.getItem("uuid")
+                          ) {
+                            console.log(project.TaskList[tid]);
+                            return (
+                              <tr key={tid}>
+                                <td>{project.TaskList[tid].taskName}</td>
 
-                              {Object.values(users).map((uid) => {
-                                if (
-                                  uid.uuid === project.TaskList[tid].empId
-                                ) {
-                                  return <td>{uid.name}</td>;
-                                } else {
-                                  <></>;
-                                }
-                              })}
+                                {Object.values(users).map((uid) => {
+                                  if (
+                                    uid.uuid === project.TaskList[tid].empId
+                                  ) {
+                                    return <td>{uid.name}</td>;
+                                  } else {
+                                    <></>;
+                                  }
+                                })}
 
-                              <td>
-                                {project.TaskList[tid].status === false
-                                  ? "Pending"
-                                  : project.TaskList[tid].status === true
+                                <td>
+                                  {project.TaskList[tid].status === false
+                                    ? "Pending"
+                                    : project.TaskList[tid].status === true
                                     ? "On Progress"
                                     : "Completed"}
-                              </td>
-                              <td>{project.TaskList[tid].priority}</td>
-                              <td>{project.TaskList[tid].astimatedTime} Hr</td>
-                              {project.TaskList[tid].status === false ? (
-                                <td>
-                                  <button onClick={() => acceptTask(tid)}>
-                                    Accept
-                                  </button>
                                 </td>
-                              ) : project.TaskList[tid].status === true ? (
+                                <td>{project.TaskList[tid].priority}</td>
                                 <td>
-                                  <button onClick={() => completeTask(tid)}>
-                                    Complete
-                                  </button>
+                                  {project.TaskList[tid].astimatedTime} Hr
                                 </td>
-                              ) : project.TaskList[tid].status ===
-                                "Complete" ? (
-                                <td>🎉</td>
-                              ) : (
-                                <td></td>
-                              )}
-                            </tr>
-                          );
-                        } else {
-                          return <></>;
-                        }
-                      })
+                                {project.TaskList[tid].status === false ? (
+                                  <td>
+                                    <button onClick={() => acceptTask(tid)}>
+                                      Accept
+                                    </button>
+                                  </td>
+                                ) : project.TaskList[tid].status === true ? (
+                                  <td>
+                                    <button onClick={() => completeTask(tid)}>
+                                      Complete
+                                    </button>
+                                  </td>
+                                ) : project.TaskList[tid].status ===
+                                  "Complete" ? (
+                                  <td>🎉</td>
+                                ) : (
+                                  <td></td>
+                                )}
+                              </tr>
+                            );
+                          } else {
+                            return <></>;
+                          }
+                        })
                       : ""
                     : ""}
                 </tbody>

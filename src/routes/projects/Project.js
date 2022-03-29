@@ -4,6 +4,10 @@ import Addprojectpopup from "./Addprojectpopup";
 import procomp from "./projectcompo.module.scss";
 import appRef from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import Charttemp from "./Charttemp";
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Project = () => {
   const [proPopUp, setProPopUp] = useState(false);
@@ -41,10 +45,7 @@ const Project = () => {
                 >
                   <div className={procomp.probox}>
                     <div className={procomp.progressreport}>
-                      <img
-                        src={require("@photos/peichart.jpg")}
-                        alt="this is pie chart"
-                      />
+                      <Charttemp project={projects[id]} />
                     </div>
                     <div className={procomp.proinfo}>
                       <div className={procomp.proname}>

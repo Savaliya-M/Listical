@@ -27,7 +27,7 @@ const Workanniversary = ({ anniversaryList }) => {
                       key={index}
                     >
                       <div className={anniversary.cimg}>
-                        <h2>{user.yearsOfJoined}</h2>
+                        <h2> {user.yearsOfJoined}</h2>year
                       </div>
                       <div className={anniversary.text}>
                         <h3>{user.name}</h3>
