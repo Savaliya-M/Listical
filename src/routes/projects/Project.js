@@ -85,10 +85,7 @@ const Project = () => {
                   >
                     <div className={procomp.probox}>
                       <div className={procomp.progressreport}>
-                        <img
-                          src={require("@photos/peichart.jpg")}
-                          alt="this is pie chart"
-                        />
+                        <Charttemp project={projects[id]} />
                       </div>
                       <div className={procomp.proinfo}>
                         <div className={procomp.proname}>
@@ -131,10 +128,7 @@ const Project = () => {
                           >
                             <div className={procomp.probox}>
                               <div className={procomp.progressreport}>
-                                <img
-                                  src={require("@photos/peichart.jpg")}
-                                  alt="this is pie chart"
-                                />
+                                <Charttemp project={projects[pid]} />
                               </div>
                               <div className={procomp.proinfo}>
                                 <div className={procomp.proname}>
