@@ -35,11 +35,14 @@ const Usercompo = () => {
   });
 
   const disableUser = (uid) => {
-    appRef.child(`Users/${uid}`).on("value", (snap) => {
-      const user = snap.val();
-      user.activate = false;
-      setdisuser(user, uid);
-    });
+    appRef
+      .child(`Users/${uid}`)
+      .get()
+      .then((snap) => {
+        const user = snap.val();
+        user.activate = false;
+        setdisuser(user, uid);
+      });
   };
 
   const setdisuser = (user, uid) => {
@@ -49,12 +52,15 @@ const Usercompo = () => {
   };
 
   const enableUser = (uid) => {
-    appRef.child(`Users/${uid}`).on("value", (snap) => {
-      const user = snap.val();
-      user.activate = true;
-      // setEna(user);
-      setenauser(user, uid);
-    });
+    appRef
+      .child(`Users/${uid}`)
+      .get()
+      .then((snap) => {
+        const user = snap.val();
+        user.activate = true;
+        // setEna(user);
+        setenauser(user, uid);
+      });
     // appRef.child(`Users/${uid}`).set(user);
     // navigate("/layout/user");
   };

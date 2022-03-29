@@ -20,67 +20,83 @@ const Login = () => {
   const authUser = async (e) => {
     e.preventDefault();
 
-    appRef.child("Users").on("value", (snapshot) => {
-      console.log("loading start");
-      const userData = snapshot.val();
-      let flag = false;
-      Object.values(userData).forEach((elem) => {
-        if (
-          elem.email === authuserdata.email &&
-          elem.pass === authuserdata.password &&
-          elem.activate === true
-        ) {
-          flag = true;
-          localStorage.setItem("uuid", elem.uuid);
-          localStorage.setItem("Type", elem.position);
-          // localStorage.setItem("name", elem.name);
-          navigate("/layout/");
-          return;
+    appRef
+      .child("Users")
+      .get()
+      .then((snapshot) => {
+        console.log("loading start");
+        const userData = snapshot.val();
+        let flag = true;
+        Object.values(userData).forEach((elem) => {
+          if (
+            elem.email === authuserdata.email &&
+            elem.pass === authuserdata.password &&
+            elem.activate === true
+          ) {
+            flag = false;
+            localStorage.setItem("uuid", elem.uuid);
+            localStorage.setItem("Type", elem.position);
+            // localStorage.setItem("name", elem.name);
+            navigate("/layout/");
+            return;
+          }
+        });
+
+        if (flag) {
+          alert("Plese fill Correct detail");
         }
-        //   else if (
-        //   elem.email === authuserdata.email &&
-        //   elem.pass === authuserdata.password &&
-        //   elem.position === "Manager"
-        //   ) {
-        //   flag = true;
-        //   alert("Manager");
-        //   localStorage.setItem('email',elem.email);
-        //   localStorage.setItem('Type',elem.position);
-        //  navigate("/managercompo/");
-        //   return;
-        //   }
+        console.log("loading end");
       });
-      if (!flag) {
-        alert("Plese fill Correct detail");
-      }
-      console.log("loading end");
-    });
+
+    // appRef.child("Users").on("value", (snapshot) => {
+    //   console.log("loading start");
+    //   const userData = snapshot.val();
+    //   let flag = true;
+    //   Object.values(userData).forEach((elem) => {
+    //     if (
+    //       elem.email === authuserdata.email &&
+    //       elem.pass === authuserdata.password &&
+    //       elem.activate === true
+    //     ) {
+    //       flag = false;
+    //       localStorage.setItem("uuid", elem.uuid);
+    //       localStorage.setItem("Type", elem.position);
+    //       // localStorage.setItem("name", elem.name);
+    //       navigate("/layout/");
+    //       return;
+    //     }
+    //   });
+    //   console.log("DONE");
+    //   // if (flag) {
+    //   //   alert("Plese fill Correct detail");
+    //   // }
+    //   console.log("loading end");
+    // });
   };
 
   return (
     <>
       <div className={login.loginpage}>
-        <div className={login.log}>
-        </div>
-        <div className={login.log2}>
-        </div>
+        <div className={login.log}></div>
+        <div className={login.log2}></div>
         <div className={login.loginpart}>
           <div className={login.loginside1}>
-            <img src={require(("@photos/Listical.png"))} alt="" />
+            <img src={require("@photos/Listical.png")} alt="" />
             <h1>Listical</h1>
             <h2>Welcome!</h2>
           </div>
           <div className={login.loginside2}>
             <div className={login.loginform}>
               <div className={login.logintitle}>
-              <h6>Welcome In Listical</h6>
+                <h6>Welcome In Listical</h6>
                 <h2>Log in</h2>
               </div>
               <div className={login.fields}>
                 <div className={login.fields1}>
                   User Email
                   <div>
-                    <input className={login.textbox}
+                    <input
+                      className={login.textbox}
                       placeholder="Listical@email.com"
                       type="text"
                       value={authuserdata.email}
@@ -92,7 +108,8 @@ const Login = () => {
                 <div className={login.fields2}>
                   Password
                   <div>
-                    <input className={login.textbox}
+                    <input
+                      className={login.textbox}
                       placeholder="Enter Your Password"
                       type="password"
                       value={authuserdata.password}
@@ -103,7 +120,12 @@ const Login = () => {
                 </div>
                 <div className={login.btns}>
                   <div>
-                    <input className={login.btn1} type="submit" value="Login" onClick={authUser} />
+                    <input
+                      className={login.btn1}
+                      type="submit"
+                      value="Login"
+                      onClick={authUser}
+                    />
                   </div>
                   {/* <input type="reset" /> */}
                 </div>
@@ -111,11 +133,9 @@ const Login = () => {
             </div>
             <div className={login.signup}>
               Not a member?
-              <Link  to="/signup" style={{ textDecoration: 'none' }}><div className={login.signbtn}>
-
-               Signup Now
-              </div>
-               </Link>
+              <Link to="/signup" style={{ textDecoration: "none" }}>
+                <div className={login.signbtn}>Signup Now</div>
+              </Link>
             </div>
           </div>
         </div>
