@@ -80,7 +80,7 @@
     border-radius: 10px;
     margin: 1rem 0rem 0rem 1rem;
 
-    .fieldsbtn {
+    .adddecsbtn {
       font-size: 1rem;
       height: 1.5rem;
       width: 4rem;
@@ -94,9 +94,11 @@
         color: white;
       }
     }
-    h2,
-    h4,
-    h3 {
+    h2{
+      margin: 0px;
+    }
+    h4{
+      font-size:large;
       margin: 0px;
     }
     h5 {
@@ -231,7 +233,7 @@ table {
   }
 }
 
-.fieldsbtn {
+.addtaskbtn{
   margin-top: 1.5rem;
   font-size: 1.2rem;
   height: 2rem;

@@ -193,10 +193,10 @@ const Adminapproval = () => {
                               </div>
                               <p>
                                 <div className={adminapprov.date}>
-                                  <div>
+                                  <div className={adminapprov.date1}>
                                     <h4>From</h4>{leaveApproval[uid][lid].leaveStartD}
                                   </div>
-                                  <div>
+                                  <div className={adminapprov.date2}>
                                     <h4>To</h4>{" "}
                                     {leaveApproval[uid][lid].leaveEndD}
                                   </div>

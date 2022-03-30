@@ -215,7 +215,7 @@ const Projectdetail = () => {
                   <h2>Project Description</h2>
                   {localStorage.getItem("Type") === "Manager" ? (
                     <button
-                      className={prodetail.fieldsbtn}
+                      className={prodetail.adddecsbtn}
                       onClick={() => setAddDescPopUp(!addDescPopUp)}
                     >
                       Add
@@ -230,7 +230,7 @@ const Projectdetail = () => {
                       <>
                         <h5>Frontend Technology</h5>
                         {Object.values(project.frontEnd).map((id) => (
-                          <h3 key={id}> {id} </h3>
+                          <h4 key={id}> {id} </h4>
                         ))}
                       </>
                     ) : (
@@ -241,10 +241,10 @@ const Projectdetail = () => {
                     {project.backEnd ? (
                       <>
                         <h5>Backend Technology</h5>
-                        <h3> Programing lan. - {project.backEnd.prolang}</h3>
-                        <h3>Framwork - {project.backEnd.framework}</h3>
-                        <h3>Web Servers - {project.backEnd.webserver}</h3>
-                        <h3>Database - {project.backEnd.database}</h3>
+                        <h4> Programing lan. - {project.backEnd.prolang}</h4>
+                        <h4>Framwork - {project.backEnd.framework}</h4>
+                        <h4>Web Servers - {project.backEnd.webserver}</h4>
+                        <h4>Database - {project.backEnd.database}</h4>
                       </>
                     ) : (
                       ""
@@ -270,7 +270,7 @@ const Projectdetail = () => {
               {localStorage.getItem("Type") === "Manager" ? (
                 team && team.length !== 0 ? (
                   <button
-                    className={prodetail.fieldsbtn}
+                    className={prodetail.addtaskbtn}
                     onClick={() => setAddTaskPopUp(!addTaskPopUp)}
                   >
                     Add Task
