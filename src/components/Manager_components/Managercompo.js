@@ -64,7 +64,11 @@ const Managercompo = () => {
             {/* <li className={managercompo.rows}>
               <Link className={managercompo.title} to="timetracker">
                 <div className={managercompo.icone}>
-                  <img  id={managercompo.home} src={require("@photos/TIMETRACK.png")} alt="icon" />
+                  <img
+                    id={managercompo.home}
+                    src={require("@photos/TIMETRACK.png")}
+                    alt="icon"
+                  />
                   <img src={require("@photos/timetrack.gif")} alt="icon" />
                 </div>
               </Link>

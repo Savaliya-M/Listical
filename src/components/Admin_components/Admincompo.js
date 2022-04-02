@@ -10,8 +10,12 @@ const Admincompo = () => {
           <ul className={admincompo.sidebarlist}>
             <li className={admincompo.rows}>
               <Link className={admincompo.title} to="/">
-                <div className={admincompo.icone} >
-                  <img  id={admincompo.home} src={require("@photos/HOME.png")} alt="icon" />
+                <div className={admincompo.icone}>
+                  <img
+                    id={admincompo.home}
+                    src={require("@photos/HOME.png")}
+                    alt="icon"
+                  />
                   <img src={require("@photos/home.gif")} alt="icon" />
                   {/* <Home  */}
                 </div>
@@ -20,7 +24,11 @@ const Admincompo = () => {
             <li className={admincompo.rows}>
               <Link className={admincompo.title} to="user">
                 <div className={admincompo.icone}>
-                <img  id={admincompo.home} src={require("@photos/USERS.png")} alt="icon" />
+                  <img
+                    id={admincompo.home}
+                    src={require("@photos/USERS.png")}
+                    alt="icon"
+                  />
                   <img src={require("@photos/users.gif")} alt="icon" />
                   {/* User */}
                 </div>
@@ -29,7 +37,11 @@ const Admincompo = () => {
             <li className={admincompo.rows}>
               <Link className={admincompo.title} to="project">
                 <div className={admincompo.icone}>
-                <img  id={admincompo.home} src={require("@photos/PROJECTS.png")} alt="icon" />
+                  <img
+                    id={admincompo.home}
+                    src={require("@photos/PROJECTS.png")}
+                    alt="icon"
+                  />
                   <img src={require("@photos/projects.gif")} alt="icon" />
                   {/* Project */}
                 </div>
@@ -38,7 +50,11 @@ const Admincompo = () => {
             <li className={admincompo.rows}>
               <Link className={admincompo.title} to="adapprovals">
                 <div className={admincompo.icone}>
-                <img  id={admincompo.home} src={require("@photos/APPROVEDS.png")} alt="icon" />
+                  <img
+                    id={admincompo.home}
+                    src={require("@photos/APPROVEDS.png")}
+                    alt="icon"
+                  />
                   <img src={require("@photos/approved.gif")} alt="icon" />
                   {/* Approval */}
                 </div>

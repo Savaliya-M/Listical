@@ -93,15 +93,19 @@ const Employeecompo = () => {
                 </div>
               </Link>
             </li>
-            {/* <li className={employeecompo.rows}>
+            <li className={employeecompo.rows}>
               <Link className={employeecompo.title} to="timetracker">
                 <div className={employeecompo.icone}>
-                <img  id={employeecompo.home} src={require("@photos/TIMETRACK.png")} alt="icon" />
+                  <img
+                    id={employeecompo.home}
+                    src={require("@photos/TIMETRACK.png")}
+                    alt="icon"
+                  />
                   <img src={require("@photos/timetrack.gif")} alt="icon" />
-                  User 
+                  {/* User */}
                 </div>
               </Link>
-            </li> */}
+            </li>
             {/* <li className={employeecompo.rows}>
               <Link className={employeecompo.title} to="chartjs">
                 <div className={employeecompo.icone}>
