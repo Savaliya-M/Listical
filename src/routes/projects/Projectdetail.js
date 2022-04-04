@@ -310,29 +310,29 @@ const Projectdetail = () => {
                 </thead>
                 <tbody className={prodetail.tableline}>
                   {localStorage.getItem("Type") === "Manager" ||
-                    localStorage.getItem("Type") === "Admin"
+                  localStorage.getItem("Type") === "Admin"
                     ? project.TaskList
                       ? Object.keys(project.TaskList).map((tid) => (
-                        <tr key={tid}>
-                          <td>{project.TaskList[tid].taskName}</td>
+                          <tr key={tid}>
+                            <td>{project.TaskList[tid].taskName}</td>
 
-                          {Object.values(users).map((uid) => {
-                            if (uid.uuid === project.TaskList[tid].empId) {
-                              return <td>{uid.name}</td>;
-                            }
-                          })}
+                            {Object.values(users).map((uid) => {
+                              if (uid.uuid === project.TaskList[tid].empId) {
+                                return <td>{uid.name}</td>;
+                              }
+                            })}
 
-                          <td>
-                            {project.TaskList[tid].status === false
-                              ? "Pending"
-                              : project.TaskList[tid].status === true
+                            <td>
+                              {project.TaskList[tid].status === false
+                                ? "Pending"
+                                : project.TaskList[tid].status === true
                                 ? "On Progress"
                                 : "Completed"}
-                          </td>
-                          <td>{project.TaskList[tid].priority}</td>
-                          <td>{project.TaskList[tid].astimatedTime}</td>
-                        </tr>
-                      ))
+                            </td>
+                            <td>{project.TaskList[tid].priority}</td>
+                            <td>{project.TaskList[tid].astimatedTime}</td>
+                          </tr>
+                        ))
                       : ""
                     : ""}
                   {/* -------------------------------- */}
@@ -340,60 +340,60 @@ const Projectdetail = () => {
                   {localStorage.getItem("Type") === "Employee"
                     ? project.TaskList
                       ? Object.keys(project.TaskList).map((tid) => {
-                        if (
-                          project.TaskList[tid].empId ===
-                          localStorage.getItem("uuid")
-                        ) {
-                          console.log(project.TaskList[tid]);
-                          return (
-                            <tr key={tid}>
-                              <td>{project.TaskList[tid].taskName}</td>
+                          if (
+                            project.TaskList[tid].empId ===
+                            localStorage.getItem("uuid")
+                          ) {
+                            console.log(project.TaskList[tid]);
+                            return (
+                              <tr key={tid}>
+                                <td>{project.TaskList[tid].taskName}</td>
 
-                              {Object.values(users).map((uid) => {
-                                if (
-                                  uid.uuid === project.TaskList[tid].empId
-                                ) {
-                                  return <td>{uid.name}</td>;
-                                } else {
-                                  <></>;
-                                }
-                              })}
+                                {Object.values(users).map((uid) => {
+                                  if (
+                                    uid.uuid === project.TaskList[tid].empId
+                                  ) {
+                                    return <td>{uid.name}</td>;
+                                  } else {
+                                    <></>;
+                                  }
+                                })}
 
-                              <td>
-                                {project.TaskList[tid].status === false
-                                  ? "Pending"
-                                  : project.TaskList[tid].status === true
+                                <td>
+                                  {project.TaskList[tid].status === false
+                                    ? "Pending"
+                                    : project.TaskList[tid].status === true
                                     ? "On Progress"
                                     : "Completed"}
-                              </td>
-                              <td>{project.TaskList[tid].priority}</td>
-                              <td>
-                                {project.TaskList[tid].astimatedTime} Hr
-                              </td>
-                              {project.TaskList[tid].status === false ? (
-                                <td>
-                                  <button onClick={() => acceptTask(tid)}>
-                                    Accept
-                                  </button>
                                 </td>
-                              ) : project.TaskList[tid].status === true ? (
+                                <td>{project.TaskList[tid].priority}</td>
                                 <td>
-                                  <button onClick={() => completeTask(tid)}>
-                                    Complete
-                                  </button>
+                                  {project.TaskList[tid].astimatedTime} Hr
                                 </td>
-                              ) : project.TaskList[tid].status ===
-                                "Complete" ? (
-                                <td>🎉</td>
-                              ) : (
-                                <td></td>
-                              )}
-                            </tr>
-                          );
-                        } else {
-                          return <></>;
-                        }
-                      })
+                                {project.TaskList[tid].status === false ? (
+                                  <td>
+                                    <button onClick={() => acceptTask(tid)}>
+                                      Accept
+                                    </button>
+                                  </td>
+                                ) : project.TaskList[tid].status === true ? (
+                                  <td>
+                                    <button onClick={() => completeTask(tid)}>
+                                      Complete
+                                    </button>
+                                  </td>
+                                ) : project.TaskList[tid].status ===
+                                  "Complete" ? (
+                                  <td>🎉</td>
+                                ) : (
+                                  <td></td>
+                                )}
+                              </tr>
+                            );
+                          } else {
+                            return <></>;
+                          }
+                        })
                       : ""
                     : ""}
                 </tbody>
@@ -406,24 +406,24 @@ const Projectdetail = () => {
               <h2>Team Member</h2>
               <div className={prodetail.addbtn}>
                 {localStorage.getItem("Type") === "Manager" ? (
-                  team && team.length !== 0 ? (
-                    <button
-                      onClick={() =>
-                        navigate(
-                          `/layout/project/projectdetail/employeeadd/${id}`
-                        )
-                      }
-                    >
-                      +
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => alert("No Any Employee Assign To You.")}
-                    >
-                      +
-                    </button>
-                  )
+                  // team && team.length !== 0 ? (
+                  <button
+                    onClick={() =>
+                      navigate(
+                        `/layout/project/projectdetail/employeeadd/${id}`
+                      )
+                    }
+                  >
+                    +
+                  </button>
                 ) : (
+                  // ) : (
+                  //   <button
+                  //     onClick={() => alert("No Any Employee Assign To You.")}
+                  //   >
+                  //     +
+                  //   </button>
+                  // )
                   ""
                 )}
               </div>
