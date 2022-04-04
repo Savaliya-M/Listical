@@ -1,25 +1,26 @@
-// .mainuserinfo {
-//   right: 1rem;
-//   top: 5rem;
-//   padding: 1rem;
-//   box-sizing: border-box;
-//   max-width: 100%;
-//   width: 100%;
-//   box-shadow: 0px 0px 10px;
-//   background-color: #fff;
-// }
+.mainuserinfo {
+  //   right: 1rem;
+  //   top: 5rem;
+  //   padding: 1rem;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0);
+  //   max-width: 100%;
+  //   width: 100%;
+  //   box-shadow: 0px 0px 10px;
+  //   background-color: #fff;
+}
 
 // .secuserinfo {
 //   // background-color: #fff;
 //   box-sizing: border-box;
-  
+
 // }
 
 .closebtn {
   position: absolute;
   margin: 1rem;
-  right: 2rem;
-  img{
+  right: 1rem;
+  img {
     width: 1.8rem;
   }
   button {
@@ -58,10 +59,11 @@
   }
   .usercard {
     .cardinfo {
-      .cardlogo {
-        display: flex;
-        margin: 1rem 0rem 1rem 0rem;
+      margin: 1rem 0rem 1rem 0rem;
+      h1 {
+        margin-left: 0px;
       }
+
       img {
         height: 1.5rem;
         width: 1.5rem;
@@ -70,21 +72,20 @@
     }
     .userbtn {
       display: flex;
+      flex-wrap: wrap;
       flex-direction: row;
       margin-top: 1.5rem;
       margin-bottom: 1rem;
-     
 
-      a {
-        text-decoration: none;
+      .cardbtn {
         background-color: #b7d0e0;
-        color: rgb(0, 0, 0);
         box-shadow: 0px 0px 3px;
-        height: 3rem;
-        width: 7rem;
+        height: 2.5rem;
+        width: 11rem;
         border-radius: 5px;
-        font-size: large;
         margin-right: 1rem;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
         padding: 0.3rem;
         border: 2px solid black;
         &:hover {
@@ -92,6 +93,11 @@
           border: 2px solid black;
           color: black;
           box-shadow: 0px 0px 0px;
+        }
+        a {
+          text-decoration: none;
+          color: rgb(0, 0, 0);
+          font-size: large;
         }
       }
     }
@@ -116,7 +122,7 @@
   }
   .title1 {
     border-top: 1px solid black;
-    border-bottom: 2px solid black; 
+    border-bottom: 2px solid black;
     background-color: #b7d0e0;
     h2 {
       margin-left: 1rem;
@@ -219,7 +225,6 @@
   box-shadow: 0px 0px 10px black;
   background-color: #ffffff;
   margin-top: 2rem;
-  // border: 2px solid black;
   .title4 {
     display: flex;
     align-items: center;
@@ -237,7 +242,6 @@
   .filbtn {
     margin: 1rem;
     button {
-      
       background-color: #374953;
       color: #fff;
       box-shadow: 0px 0px 3px;
@@ -253,17 +257,302 @@
   }
   .projectbox {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 0.3fr));
+    // grid-template-columns: repeat(auto-fit, minmax(15rem, fr));
     margin: 1rem;
+    grid-gap: 1rem;
     .projectwise {
       border: 2.5px solid black;
-      margin: 1rem;
+      margin-bottom: 1rem;
+      text-align: center;
       .protitle {
         h3 {
           background-color: #b7d0e0;
           margin: 0px;
-          border-top: 2px solid black;
+          padding: 8px;
           border-bottom: 1px solid black;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1920px) {
+  .mainuserinfo {
+    margin-top: 4rem;
+    margin-left: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .projectbox {
+    grid-template-columns: repeat(4, minmax(150px, 600px));
+  }
+  .card {
+    font-size: 1.5rem;
+    color: white;
+    .personimage {
+      height: 200px;
+      margin-right: 2rem;
+
+      img {
+        margin: 1rem;
+        width: 200px;
+        height: 100%;
+      }
+    }
+    .usercard {
+      .userbtn {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+
+        .cardbtn {
+          background-color: #b7d0e0;
+          box-shadow: 0px 0px 3px;
+          height: 2.8rem;
+          width: 12rem;
+          border-radius: 5px;
+          margin-right: 0.5rem;
+          margin-bottom: 0.5rem;
+          margin-top: 0.5rem;
+          border: 2px solid black;
+          a {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .mainuserinfo {
+    margin-top: 2.5rem;
+    margin-left: 1.5rem;
+    grid-template-columns: repeat(3, minmax(250px, 600px));
+  }
+  .projectbox {
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+  }
+  .card {
+    font-size: 1.2rem;
+    color: white;
+    .personimage {
+      height: 200px;
+      margin-right: 2rem;
+
+      img {
+        margin: 1rem;
+        width: 180px;
+        height: 90%;
+      }
+    }
+
+    .usercard {
+      .userbtn {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+
+        .cardbtn {
+          background-color: #b7d0e0;
+          box-shadow: 0px 0px 3px;
+          height: 2.8rem;
+          width: 9rem;
+          border-radius: 5px;
+          margin-right: 0.5rem;
+          margin-bottom: 0.5rem;
+          margin-top: 0.5rem;
+          border: 2px solid black;
+          a {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .mainuserinfo {
+    margin-top: 2rem;
+    margin-left: 1rem;
+    grid-template-columns: repeat(2, minmax(250px, 500px));
+  }
+  .projectbox {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+
+  .closebtn {
+    position: absolute;
+    margin: 0.5rem;
+    right: 0.5rem;
+    img {
+      width: 1.4rem;
+    }
+    button {
+      height: 2.3rem;
+      width: 2.3rem;
+      margin-right: 0.5rem;
+      font-size: 1.5rem;
+    }
+  }
+  .card {
+    font-size: 1.2rem;
+    color: white;
+    .personimage {
+      height: 200px;
+      margin-right: 2rem;
+      h1 {
+        font-size: 1rem;
+      }
+
+      img {
+        margin-right: 0.5rem;
+        width: 160px;
+        height: 160px;
+      }
+    }
+    .usercard {
+      .cardinfo {
+        h1 {
+          font-size: 2rem;
+        }
+
+        img {
+          height: 1.5rem;
+          width: 1.5rem;
+          margin-right: 1rem;
+        }
+      }
+      .userbtn {
+        .cardbtn {
+          background-color: #b7d0e0;
+          box-shadow: 0px 0px 3px;
+          height: 2.8rem;
+          width: 10rem;
+          border-radius: 5px;
+          margin-right: 0.8rem;
+          margin-bottom: 0.5rem;
+          margin-top: 0.5rem;
+          border: 2px solid black;
+          a {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// @media (min-width: 680px) and (max-width: 768px) {
+//   .mainuserinfo {
+//     margin-top: 2rem;
+//     margin-left: 0.7rem;
+//     grid-template-columns: repeat(2, minmax(250px, 500px));
+//   }
+//   .card {
+//     flex-direction: column;
+//     align-items: center;
+//     font-size: 1rem;
+//     color: white;
+//     .cardinfo{
+//       text-align: center;
+//     }
+//     .personimage {
+//       height: 200px;
+//       margin-right: 2rem;
+
+//       img {
+//         margin: 1rem;
+//         width: 180px;
+//         height: 90%;
+//       }
+//     }
+//       .usercard {
+//         text-align: center;
+//       .userbtn {
+//         justify-content: center;
+//         // margin-top: 1.5rem;
+//         // margin-bottom: 1rem;
+
+//         .cardbtn {
+//           background-color: #b7d0e0;
+//           box-shadow: 0px 0px 3px;
+//           height: 2.8rem;
+//           width: 8rem;
+//           align-items: center;
+//           border-radius: 5px;
+//           margin-right: 0.3rem;
+//           margin-bottom: 0.5rem;
+//           margin-top: 0.5rem;
+//           border: 2px solid black;
+//           a{
+//             font-size: 0.8rem;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+@media (min-width: 395px) and (max-width: 768px) {
+  .mainuserinfo {
+    margin-top: 1.5rem;
+    margin-left: 0rem;
+    grid-template-columns: repeat(1, minmax(250px, 670px));
+  }
+  .projectbox {
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
+  }
+
+  .closebtn {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+
+    right: 0.5rem;
+    img {
+      width: 1.4rem;
+    }
+    button {
+      margin-bottom: 0.5rem;
+      height: 2.3rem;
+      width: 2.3rem;
+      margin-right: 0.5rem;
+      font-size: 1.5rem;
+    }
+  }
+  .card {
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+    .cardinfo {
+      text-align: center;
+    }
+    .personimage {
+      height: 170px;
+      img {
+        margin: 1rem;
+        width: 150px;
+        height: 150px;
+      }
+    }
+    .usercard {
+      .userbtn {
+        justify-content: center;
+        .cardbtn {
+          background-color: #b7d0e0;
+          box-shadow: 0px 0px 3px;
+          height: 2.8rem;
+          width: 8rem;
+          align-items: center;
+          border-radius: 5px;
+          margin-right: 0.3rem;
+          margin-left: 0.3rem;
+          margin-bottom: 0.5rem;
+          margin-top: 0.5rem;
+          border: 2px solid black;
+          a {
+            font-size: 0.8rem;
+          }
         }
       }
     }

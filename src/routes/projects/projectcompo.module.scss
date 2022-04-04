@@ -1,29 +1,17 @@
 .mainprojectcompo {
-  width: 100%;
-  display: grid;
-  grid-gap: 1rem;
-  margin: 15px;
-  max-width: 40rem;
+  // width: 100%;
+  // display: grid;
+  // grid-gap: 1rem;
+  // margin: 15px;
+  // max-width: 40rem;
   grid-template-columns: repeat(auto-fit, minmax(0.3fr, 0.1fr));
 }
 
-.progressreport{
-  display: flex;
-  justify-content: center;
-  height: 16rem;
-  width: 100%;
-  border: 4px solid #374953;
-  border-top-left-radius: 10px ;
-  border-top-right-radius: 10px ;
-  margin: auto;
-    #chart{
-      width: 15rem;
-    }
-}
+
 
 .probox {
   display: grid;  
-  margin: 15px;
+  // margin: 15px;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   background-color: #fff;
@@ -34,12 +22,169 @@
     box-shadow: 0px 0px 15px rgb(0, 0, 0);
     transform: scale(1.03);
   }
+  .progressreport{
+    display: flex;
+    justify-content: center;
+    // height: 18rem;
+    width: 100%;
+    border: 4px solid #374953;
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px ;
+    padding: 10px;
+      #chart{
+        width: 15rem;
+      }
+  }
+
+  .proinfo{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-bottom-left-radius: 10px ;
+    border-bottom-right-radius: 10px ;
+    background-color: #374953;
+    color: white;
+    margin-top: 0px;
+    h4{
+      margin-top: 0px;
+      margin-bottom: 15px;
+      color: white;
+    }
+    h5{
+      color: rgba(0, 0, 0, 0.521);
+      margin: 0px;
+      color: rgb(156, 156, 156);
+    }
+    .proname{
+      h5{
+        margin-top: 10px;
+      }
+    }
+  }
 }
 
 
-.proname,
-.clientname,
-.deadline,
-.managername {
-  display: flex;
+@media (min-width: 1280px) and (max-width: 1920px) {
+
+ 
+      .probox {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 600px));
+        background-color: rgb(255, 255, 255);
+        .progressreport{
+          width: 100%;
+            #chart{
+              width: 20rem;
+            }
+        }
+      
+        .proinfo{
+
+          h4{
+           font-size: 1.8rem;  
+          }
+          h5{
+            font-size: 1.4rem;
+          }
+        }
+      }
 }
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .probox {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 600px));
+    background-color: rgb(255, 255, 255);
+    .progressreport{
+      width: 100%;
+        #chart{
+          width: 16rem;
+        }
+    }
+  
+    .proinfo{
+      h4{
+       font-size: 1.6rem;  
+      }
+      h5{
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .mainprojectcompo {
+    width: 100%;
+    display: grid;
+    grid-gap: 1rem;
+    margin: 15px;
+    // max-width: 40rem;
+    grid-template-columns: repeat(auto-fit, minmax(0.3fr, 0.1fr));
+  }
+  
+  
+  .probox {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 600px));
+    background-color: rgb(255, 255, 255);
+    .progressreport{
+      width: 100%;
+        #chart{
+          width: 14rem;
+        }
+    }
+  
+    .proinfo{
+      h4{
+       font-size: 1.4rem;  
+      }
+      h5{
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 660px) and (max-width: 768px) {
+  
+  .probox {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 600px));
+    background-color: rgb(255, 255, 255);
+    .progressreport{
+      width: 100%;
+        #chart{
+          width: 13.5rem;
+        }
+    }
+  
+    .proinfo{
+      h4{
+       font-size: 1.4rem;  
+      }
+      h5{
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 660px) {
+  .probox {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 600px));
+    background-color: rgb(255, 255, 255);
+    .progressreport{
+      width: 100%;
+        #chart{
+          width: 14rem;
+        }
+    }
+  
+    .proinfo{
+      h4{
+       font-size: 1.4rem;  
+      }
+      h5{
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+

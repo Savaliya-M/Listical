@@ -3,6 +3,7 @@
   background-color: white;
   box-shadow: 0px 0px 15px #000000;
   margin: 2rem;
+  margin-right: 1rem;
   border: 2px solid rgb(255, 255, 255);
 }
 
@@ -188,6 +189,7 @@
     height: auto;
     flex-grow: 2;
     margin: 0.5rem;
+    min-height: 10rem;
     flex-wrap: wrap;
     h4,h3{
       margin-bottom: 0px;
@@ -223,6 +225,7 @@
     flex-grow: 2;
     height: auto;
     margin: 0.5rem;
+    min-height: 10rem;
     text-align: center;
     h4,h3{
       margin-bottom: 0px;
@@ -273,4 +276,46 @@
 .resultpandig{
   margin: 1rem;
   justify-content: center;
+}
+
+
+
+@media (min-width: 1280px) and (max-width: 1920px) {
+  .empapproval {
+    margin-top: 3rem;
+    margin-left:2.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+    .empapproval {
+      margin-top: 2.5rem;
+    margin-left:2rem;
+      margin-bottom: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .empapproval {
+    margin-top: 2rem;
+    margin-left:1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 660px) and (max-width: 768px) {
+  .empapproval {
+    margin-top: 1.5rem;
+    margin-left:1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 660px) {
+  .empapproval {
+    margin-top: 1rem;
+    margin-left:0.5rem;
+    margin-bottom: 1.5rem;
+  }
 }

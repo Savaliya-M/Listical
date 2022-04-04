@@ -1,4 +1,4 @@
-  .togglebtn {
+.togglebtn {
   display: flex;
   justify-content: flex-end;
   padding-right: 20px;
@@ -9,7 +9,7 @@
     height: 2rem;
     width: 7rem;
     box-shadow: 0px 0px 10px;
-    margin: 15px 0px 15px 0px;;
+    margin: 15px 0px 15px 0px;
     &:hover {
       color: white;
       background-color: #0081bd;
@@ -17,26 +17,24 @@
   }
 }
 
-
 .mainusercompo {
   display: grid;
   grid-gap: 1rem;
-  margin: 15px;
+  margin: 20px;
   align-content: start;
   justify-content: start;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 22.7rem));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   height: 100%;
-}   
+}
 
 .person {
-  display: flex;  
+  display: flex;
   background-color: #fff;
   border-radius: 5px;
   height: 8.5rem;
-  // width: 20rem;
-  // margin: 5px;
+  margin: 10px;
   box-shadow: 0px 0px 8px rgb(0, 0, 0);
-  &:hover{
+  &:hover {
     box-shadow: 0px 0px 5px rgb(0, 0, 0);
     transform: scale(1.03);
   }
@@ -58,33 +56,33 @@
     margin: 0%;
     padding: 0%;
   }
-  img{
+  img {
+    margin-top: 5px;
     width: 5rem;
     height: 5rem;
   }
-  .userbtn{
+  .userbtn {
     margin: 0.8rem;
     display: flex;
     flex-direction: row;
-    .btn1{
+    .btn1 {
       margin-right: 0.25rem;
     }
-    .btn2{
+    .btn2 {
       margin-left: 0.25rem;
     }
-      button{
-          border-radius: 8px;
-          border: 1px solid rgb(0, 0, 0);
-          width: 3rem;
-          color: white;
-          background-color: #374953;
-      }
-      :hover{
-        color: rgb(0, 0, 0);
-        background-color: #ffffff;
-      }
+    button {
+      border-radius: 8px;
+      border: 1px solid rgb(0, 0, 0);
+      width: 3rem;
+      color: white;
+      background-color: #374953;
+    }
+    :hover {
+      color: rgb(0, 0, 0);
+      background-color: #ffffff;
+    }
   }
-
 }
 
 .right {
@@ -94,18 +92,256 @@
   margin-right: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
-
+  // padding-left: 10px;
   width: 100%;
+
   h5,
   p {
     margin: 0;
+    margin-right: 5px;
   }
   h2 {
     margin: 0%;
-    padding: 0%;
-    line-height: 2.5rem;
+    line-height: 2rem;
+    margin-right: 5px;
   }
   &:hover {
     cursor: pointer;
+  }
+}
+
+@media (min-width: 1500px) and (max-width: 1920px) {
+  .mainusercompo {
+    margin-top: 4rem;
+    margin-left: 3rem;
+    grid-template-columns: repeat(3, minmax(250px, 600px));
+  }
+  .person {
+    height: 10rem;
+  }
+  .left {
+    line-height: 3rem;
+    align-items: center;
+    img {
+      width: 6rem;
+      height: 6rem;
+    }
+    .userbtn {
+      button {
+        width: 3.2rem;
+        height: 1.4rem;
+        font-size: 1rem;
+      }
+    }
+  }
+  .right {
+    h5 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 1.9rem;
+      line-height: 2rem;
+      margin-top: 5px;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1500px) {
+  .mainusercompo {
+    margin-top: 3rem;
+    margin-left: 1.5rem;
+    grid-template-columns: repeat(3, minmax(250px, 600px));
+  }
+
+  .person {
+    height: 9rem;
+  }
+  .left {
+    line-height: 2.5rem;
+    img {
+      width: 5rem;
+      height: 5rem;
+    }
+    .userbtn {
+      button {
+        width: 3rem;
+        height: 1.4rem;
+        font-size: 1rem;
+      }
+    }
+  }
+  .right {
+    h5 {
+      font-size: 1.1rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+    h2 {
+      font-size: 1.45rem;
+      line-height: 2rem;
+      margin-top: 5px;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .mainusercompo {
+    margin-top: 2.5rem;
+    margin-left: 1rem;
+    grid-template-columns: repeat(3, minmax(250px, 600px));
+  }
+  .person {
+    height: 8rem;
+  }
+  .left {
+    line-height: 2rem;
+    img {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+    .userbtn {
+      button {
+        width: 2rem;
+        height: 1.2rem;
+        font-size: 0.7rem;
+      }
+    }
+  }
+  .right {
+    h5 {
+      font-size: 0.9rem;
+    }
+    p {
+      font-size: 0.9rem;
+    }
+    h2 {
+      font-size: 1.1rem;
+      line-height: 2rem;
+      margin-top: 5px;
+      margin-bottom: 2px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .mainusercompo {
+    margin-top: 2rem;
+    margin-left: 0.5rem;
+    grid-template-columns: repeat(2, minmax(250px, 500px));
+  }
+  .person {
+    height: 8rem;
+  }
+  .left {
+    line-height: 2rem;
+    img {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+    .userbtn {
+      button {
+        width: 2rem;
+        height: 1.2rem;
+        font-size: 0.7rem;
+      }
+    }
+  }
+  .right {
+    h5 {
+      font-size: 1rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+    h2 {
+      font-size: 1.23rem;
+      line-height: 1.5rem;
+      margin-top: 5px;
+      margin-bottom: 2px;
+    }
+  }
+}
+
+@media (min-width: 630px) and (max-width: 768px) {
+  .mainusercompo {
+    margin-top: 1.5rem;
+    margin-left: 0rem;
+    grid-template-columns: repeat(2, minmax(250px, 500px));
+  }
+  .person {
+    height: 8rem;
+  }
+  .left {
+    line-height: 2rem;
+    img {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+    .userbtn {
+      button {
+        width: 2rem;
+        height: 1.2rem;
+        font-size: 0.7rem;
+      }
+    }
+  }
+  .right {
+    h5 {
+      font-size: 0.8rem;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+    h2 {
+      font-size: 0.9rem;
+      line-height: 1.5rem;
+      margin-top: 5px;
+      margin-bottom: 2px;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 630px) {
+  .mainusercompo {
+    margin-top: 1rem;
+    margin-left: -0.5rem;
+    grid-template-columns: repeat(1, minmax(250px, 670px));
+  }
+  .person {
+    height: 8rem;
+  }
+  .left {
+    line-height: 2rem;
+    img {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+    .userbtn {
+      button {
+        width: 2rem;
+        height: 1.2rem;
+        font-size: 0.7rem;
+      }
+    }
+  }
+  .right {
+    h5 {
+      font-size: 0.8rem;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+    h2 {
+      font-size: 0.9rem;
+      line-height: 1.5rem;
+      margin-top: 5px;
+      margin-bottom: 2px;
+    }
   }
 }

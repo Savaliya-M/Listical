@@ -24,6 +24,7 @@ const Upcomingholidays = ({ handleopen }) => {
 
   return (
     <>
+    <div  className={holiday.home}>
       <div className={holiday.mainhomecompo} id={holiday.Upcomingholidays}>
         <div className={holiday.head} id={holiday.Upcomingholidays}>
           <h3>Upcoming Holidays</h3>
@@ -56,6 +57,7 @@ const Upcomingholidays = ({ handleopen }) => {
               })
             : ""}
         </div>
+      </div>
       </div>
     </>
   );

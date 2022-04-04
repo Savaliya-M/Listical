@@ -104,9 +104,12 @@ const Signup = () => {
           <div className={signup.signupform}>
             <h1> Sign-Up</h1>
             <form action="#">
-              <h3> Personal Detail :</h3>
+              <h3> Personal Detail</h3>
               <div className={signup.name}>
-                Full name
+                <div className={signup.tag}>
+                  Full name
+                </div>
+
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -119,7 +122,9 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.email}>
-                Mail-id
+                <div className={signup.tag}>
+                  Mail-id
+                </div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -132,7 +137,10 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.mobile}>
-                Mobile No.
+                <div className={signup.tag}>
+                  Mobile No.
+                </div>
+
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -145,7 +153,10 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.address}>
-                Address
+                <div className={signup.tag}>
+                  Address
+                </div>
+
                 <div id={signup.inputbox}>
                   <textarea
                     id={signup.text}
@@ -159,7 +170,9 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.dob}>
-                DOB
+                <div className={signup.tag}>
+                  DOB
+                </div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -171,8 +184,10 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.gender}>
-                Gender
-                <div id={signup.inputbox}>
+                <div className={signup.tag}>
+                  Gender
+                </div>
+                <div id={signup.inputredio}>
                   <input
                     type="radio"
                     value="Male"
@@ -197,10 +212,12 @@ const Signup = () => {
                 </div>
               </div>
 
-              <h3>Qualification & Skill :</h3>
+              <h3>Qualification & Skill</h3>
 
               <div className={signup.degree}>
-                Degree
+                <div className={signup.tag}>
+                  Degree
+                </div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -213,7 +230,9 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.collage}>
-                College Name
+                <div className={signup.tag}>
+                  College Name
+                </div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -226,7 +245,9 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.langbox}>
-                Language Known
+                <div className={signup.tag}>
+                  Language Known
+                </div>
                 <div id={signup.inputbox}>
                   <input
                     type="checkbox"
@@ -252,7 +273,9 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.skill}>
-                Skill
+                <div className={signup.tag}>
+                  Skill
+                </div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -267,9 +290,11 @@ const Signup = () => {
                   <p key={name}>{name}</p>
                 ))}
               </div>
-              <h3>Work Experience : </h3>
+              <h3>Work Experience</h3>
               <div className={signup.post}>
-                Post
+                <div className={signup.tag}>
+                  Post
+                </div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -282,7 +307,9 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.company}>
-                Company Name
+                <div className={signup.tag}>
+                  Company Name
+                </div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -295,7 +322,9 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.duration}>
-                Work Duration
+                <div className={signup.tag}>
+                  Work Duration
+                </div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -308,7 +337,9 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.other}>
-                Other detail
+                <div className={signup.tag}>
+                  Other detail
+                </div>
                 <div id={signup.inputbox}>
                   <textarea
                     id={signup.text}
@@ -321,11 +352,14 @@ const Signup = () => {
                   ></textarea>
                 </div>
               </div>
-              <h3>Complete Your Profile :</h3>
+              <h3>Complete Your Profile</h3>
               <div className={signup.role}>
-                Role
+                <div className={signup.tag}>
+                  Role
+                </div>
                 <div id={signup.inputbox}>
                   <input
+                    id={signup.text}
                     type="text"
                     placeholder="Devloper"
                     value={user.role}
@@ -335,7 +369,9 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.position}>
-                Position
+                <div className={signup.tag}>
+                  Position
+                </div>
                 <div id={signup.inputbox}>
                   <input
                     type="radio"
@@ -361,7 +397,9 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.password}>
-                Password
+                <div className={signup.tag}>
+                  Password
+                </div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -381,17 +419,22 @@ const Signup = () => {
             </form>
           </div>
           <div className={signup.otherpart}>
-            <img src={require("@photos/Listical.png")} alt="" />
-            <h2>Listical</h2>
-            <h1>Welcome Back!</h1>
-            <div className={signup.login}>
-              <Link
-                className={signup.btn1}
-                to={"/"}
-                style={{ textDecoration: "none" }}
-              >
-                Login page
-              </Link>
+            <div>
+              <img src={require("@photos/Listical.png")} alt="" />
+              <h2>Listical</h2>
+            </div>
+            <div>
+
+              <h1>Welcome Back!</h1>
+              <div className={signup.login}>
+                <Link
+                  className={signup.btn1}
+                  to={"/"}
+                  style={{ textDecoration: "none" }}
+                >
+                  Login page
+                </Link>
+              </div>
             </div>
           </div>
         </div>

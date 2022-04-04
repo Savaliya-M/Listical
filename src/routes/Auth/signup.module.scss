@@ -6,16 +6,16 @@
   justify-content: center;
   background-color: white;
   font-size: large;
-  .bgcolor {
-    display: flex;
-    flex-direction: row-reverse;
-    width: 100vw;
-    height: 100vh;
-    .color {
-      background-color: #374953;
-      right: 0px;
-      width: 41%;
-    }
+}
+.bgcolor {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100vw;
+  height: 100vh;
+  .color {
+    background-color: #374953;
+    right: 0px;
+    width: 41%;
   }
 }
 
@@ -36,7 +36,7 @@
   background-color: white;
   overflow-y: scroll;
   scrollbar-width: none;
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     width: 0px;
   }
 
@@ -78,9 +78,6 @@
     background-color: #ffffff;
     width: 20rem;
     height: 2rem;
-    // &::placeholder{
-    //     color: white;
-    // }
   }
 
   .btn {
@@ -114,11 +111,12 @@
   }
 
   .btn {
-    
     display: flex;
     justify-content: space-between;
-    margin: 1rem;
-    button, input {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    button,
+    input {
       font-size: large;
       border-radius: 8px;
       border: 1px solid rgb(0, 0, 0);
@@ -150,18 +148,17 @@
 
   // h1 {
   //   margin-top: 0px;
-  //   margin-bottom: 1rem; 
+  //   margin-bottom: 1rem;
   // }
   h2 {
     margin-bottom: 0px;
   }
 }
 
-
 .login {
   margin: 2rem;
+  margin-left: 5rem;
   .btn1 {
-  
     padding: 0.5rem;
     color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
@@ -174,5 +171,396 @@
       box-shadow: 0px 0px 0px;
     }
   }
- 
+}
+
+@media (min-width: 1280px) and (max-width: 1920px) {
+  .signupform {
+    h1 {
+      font-size: 3rem;
+    }
+    h3 {
+      font-size: 2rem;
+    }
+    .tag {
+      margin-top: 10px;
+      font-size: 1.3rem;
+    }
+
+    #inputbox {
+      margin-left: 1rem;
+      margin: 0.3rem;
+      text-decoration: bold;
+    }
+    .langbox {
+      font-size: 1.5rem;
+      input {
+        font-size: large;
+        width: 5rem;
+        height: 1.5rem;
+      }
+    }
+
+    #inputredio {
+      font-size: 1.5rem;
+      input {
+        width: 3rem;
+        height: 1.4rem;
+      }
+    }
+    
+    #text {
+      font-size: 1.3rem;
+      width: 27rem;
+      height: 3rem;
+    }
+
+    .address,
+    .other {
+      #inputbox {
+        #text {
+          width: 27rem;
+          height: 6rem;
+        }
+      }
+    }
+    .skill {
+      #inputbox {
+        #text {
+          width: 25rem;
+          height: 3rem;
+        }
+        button {
+          font-size: large;
+          width: 2.8rem;
+          height: 2.8rem;
+        }
+      }
+    }
+
+    .btn {
+      display: flex;
+      justify-content: space-around;
+      button,
+      input {
+        font-size: 1.5rem;
+        width: 9rem;
+        height: 3rem;
+      }
+    }
+  }
+
+  .otherpart {
+    img {
+      width: 8rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .login {
+    margin: 2rem;
+    margin-left: 7rem;
+    .btn1 {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .signupform {
+    h1 {
+      font-size: 1.5rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+    }
+    .tag {
+      font-size: 1rem;
+    }
+
+    #inputbox {
+      margin-left: 1rem;
+      margin: 0.3rem;
+      text-decoration: bold;
+    }
+    .langbox {
+      font-size: 1.2rem;
+      input {
+        font-size: large;
+        width: 3rem;
+        height: 1.5rem;
+      }
+    }
+
+    #inputredio {
+      font-size: 1.2rem;
+      input {
+        width: 3rem;
+        height: 1.2rem;
+      }
+    }
+    
+    #text {
+      font-size: 1rem;
+      width: 20rem;
+      height: 2rem;
+    }
+
+    .address,
+    .other {
+      #inputbox {
+        #text {
+          width: 20rem;
+          height: 4rem;
+        }
+      }
+    }
+    .skill {
+      #inputbox {
+        #text {
+          width: 20rem;
+          height: 2rem;
+        }
+        button {
+          font-size: large;
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+    }
+
+    .btn {
+      display: flex;
+      justify-content: space-around;
+      button,
+      input {
+        font-size: 1.5rem;
+        width: 9rem;
+        height: 3rem;
+      }
+    }
+  }
+
+  .otherpart {
+    img {
+      width: 5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .login {
+    margin: 2rem;
+    margin-left: 5rem;
+    .btn1 {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .signupform {
+    h1 {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+    .tag {
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+
+    #inputbox {
+      margin-left: 1rem;
+      margin: 0.3rem;
+      text-decoration: bold;
+    }
+    .langbox {
+      font-size: 1.5rem;
+      input {
+        font-size: large;
+        width: 2.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    #inputredio {
+      font-size: 1.5rem;
+      input {
+        width: 3rem;
+        height: 1.4rem;
+      }
+    }
+    
+    #text {
+      font-size: 1.3rem;
+      width: 22.5rem;
+      height: 2.5rem;
+    }
+
+    .address,
+    .other {
+      #inputbox {
+        #text {
+          width: 22.5rem;
+          height: 5rem;
+        }
+      }
+    }
+    .skill {
+      #inputbox {
+        #text {
+          width: 20rem;
+          height: 2.5rem;
+        }
+        button {
+          font-size: large;
+          width: 2.4rem;
+          height: 2.4rem;
+        }
+      }
+    }
+
+    .btn {
+      display: flex;
+      justify-content: space-around;
+      button,
+      input {
+        font-size: 1.5rem;
+        width: 7rem;
+        height: 2.5rem;
+      }
+    }
+  }
+
+  .otherpart {
+    img {
+      width: 6rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+
+  .login {
+    margin: 2rem;
+    margin-left: 5rem;
+    .btn1 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 660px) and (max-width: 768px) {
+  .otherpart {
+    img {
+      width: 6rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+
+  .login {
+    margin: 2rem;
+    margin-left: 3rem;
+    .btn1 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 660px) {
+  .signuppage {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-size: large;
+  }
+
+  .bgcolor {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    .color {
+      background-color: #374953;
+      right: 0px;
+      width: 41%;
+    }
+  }
+
+  .signupcontainer {
+    flex-direction: column;
+    height: 95%;
+    width: 90%;
+    margin-bottom: 3rem;
+  }
+
+  .signupform {
+    height: 80%;
+    width: 100%;
+  }
+
+  .otherpart {
+    color: white;
+    right: 0;
+    top: 0;
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #374953;
+    img {
+      width: 4rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .login {
+    margin: 2rem;
+    // margin-left: 0.7rem;
+    .btn1 {
+      padding: 0.5rem;
+      color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+      border: 2px solid rgb(255, 255, 255);
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px;
+      &:hover {
+        color: black;
+        background-color: white;
+        box-shadow: 0px 0px 0px;
+      }
+    }
+  }
 }

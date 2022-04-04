@@ -9,6 +9,7 @@ const Workanniversary = ({ anniversaryList }) => {
 
   return (
     <>
+    <div  className={anniversary.home}>
       <div
         className={anniversary.mainhomecompo}
         id={anniversary.Workanniversary}
@@ -39,6 +40,7 @@ const Workanniversary = ({ anniversaryList }) => {
               : "no anniversary today"}
           </div>
         </div>
+      </div>
       </div>
     </>
   );

@@ -59,7 +59,7 @@ const Userinfo = () => {
       <div className={useinfo.mainuserinfo}>
         <div className={useinfo.secuserinfo}>
           <div className={useinfo.closebtn}>
-            <button
+            <button className={useinfo.closebtn1}
               onClick={() => {
                 navigate(-1);
               }}
@@ -67,7 +67,8 @@ const Userinfo = () => {
               X
             </button>
             {user.uuid === localStorage.getItem("uuid") ? (
-              <button onClick={() => navigate(`/layout/user/editdetail/${id}`)}>
+              <button className={useinfo.closebtn2}
+              onClick={() => navigate(`/layout/user/editdetail/${id}`)}>
               <img src={require("@photos/edit(1).png")} alt="edit" />
               </button>
             ) : (
@@ -84,39 +85,34 @@ const Userinfo = () => {
                   <div className={useinfo.cardinfo}>
                     <h1>{user.name}</h1>
                     <p>{`${user.position}`}</p>
-                    <div className={useinfo.cardlogo}>
+                    <div className={useinfo.cardinfo}>
                       <img src={require("@photos/Wcoding.png")} alt="skill" />
                       {user.role}
                     </div>
-                    <div className={useinfo.cardlogo}>
+                    <div className={useinfo.cardinfo}>
                       <img src={require("@photos/Wcall.png")} alt="skill" />
                       +91 {user.mono}
                     </div>
-                    <div className={useinfo.cardlogo}>
+                    <div className={useinfo.cardinfo}>
                       <img src={require("@photos/Wemail.png")} alt="skill" />
                       {user.email}
                     </div>
                   </div>
                   <div onClick={useinfo.open} className={useinfo.userbtn}>
                     <div className={useinfo.btnpersonal}>
-                      <a href="#personalinfo">Personal Information</a>
-                      {/* <button>Personal Information</button> */}
+                      <button className={useinfo.cardbtn}> <a href="#personalinfo"><b>Information</b></a> </button>
                     </div>
                     <div className={useinfo.qualification}>
-                      <a href="#QualificationSkill">Qualification & Skill</a>
-                      {/* <button>Qualification & Skill</button> */}
+                    <button className={useinfo.cardbtn}> <a href="#QualificationSkill"><b>Qualification & Skill</b></a> </button>
                     </div>
                     <div className={useinfo.work}>
-                      <a href="#experiances">Work Experiance</a>
-                      {/* <button>Work Experiance</button> */}
+                      <button className={useinfo.cardbtn}> <a href="#experiances"><b>Experiance</b></a> </button>
                     </div>
                     <div className={useinfo.Projects}>
-                      <a href="#Projects">Projects</a>
-                      {/* <button>Projects</button> */}
+                    <button className={useinfo.cardbtn}> <a href="#Projects"><b>Projects</b></a> </button>
                     </div>
                     {/* <div className={useinfo.btnsalary}>
-                      <a href="#salary">Salary</a>
-                      <button>Salary</button>
+                     <button className={useinfo.cardbtn}> <a href="#salary">Salary</a> </button>
                     </div> */}
                   </div>
                 </div>
@@ -241,8 +237,8 @@ const Userinfo = () => {
                       <div className={useinfo.protitle}>
                         <h3>{data.projectTitle}</h3>
                       </div>
-                      <p>{data.clientName}</p>
-                      <p>{data.timeLine}</p>
+                      <h3>{data.clientName}</h3>
+                      <h4>{data.timeLine}</h4>
                     </div>
                   ))
                 ) : (

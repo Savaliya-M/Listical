@@ -1,25 +1,21 @@
-@mixin project($dis, $mxw, $w, $boxsize) {
-  display: $dis;
-  max-width: $mxw;
-  width: $w;
-  box-sizing: $boxsize;
-}
-
 .wraperproject {
-  @include project(flex, 100%, 100%, border-box);
+  display: flex;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
   flex-direction: column;
   padding-top: 15px;
+ 
 }
 
 .mainproject {
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
+  padding-bottom: 1rem;
   margin: 15px;
   align-content: start;
-  // justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 22.5rem));
-  height: 25rem;
-  
+  height: 100%;
 }
 
 .btn {
@@ -28,43 +24,106 @@
   padding-right: 20px;
 }
 
-.bton{
+.bton {
   background-color: rgb(234, 251, 255);
   border: 2px solid black;
   border-radius: 20px;
   height: 2rem;
   width: 7rem;
   box-shadow: 0px 0px 10px;
-  &:hover{
+  &:hover {
     color: white;
-    background-color:  #0081bd;
+    background-color: #0081bd;
   }
 }
 
-
-
-.proinfo{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  border-bottom-left-radius: 10px ;
-  border-bottom-right-radius: 10px ;
-  background-color: #374953;
-  color: white;
-  margin-top: 0px;
-  h4{
-    margin-top: 0px;
-    margin-bottom: 5px;
-    color: white;
+@media (min-width: 1280px) and (max-width: 1920px) {
+  .mainproject {
+    margin-top: 3rem;
+    margin-left:2.5rem;
+    grid-template-columns: repeat(3, minmax(350px, 800px));
   }
-  h5{
-    color: rgba(0, 0, 0, 0.521);
-    margin: 0px;
-    color: rgb(156, 156, 156);
+  .btn {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
   }
-  .proname{
-    h5{
-      margin: 0px;
-    }
+  
+  .bton {
+    height: 3rem;
+    width: 9rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .mainproject {
+    margin-top: 2.5rem;
+    margin-left:2rem;
+    grid-template-columns: repeat(3, minmax(250px, 600px));
+  }
+  .btn {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .bton {
+    height: 2.5rem;
+    width: 8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .mainproject {
+    margin-top: 2rem;
+    margin-left:1.5rem;
+    grid-template-columns: repeat(2, minmax(250px, 500px));
+  }
+  .btn {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .bton {
+    height: 2.5rem;
+    width: 8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 660px) and (max-width: 768px) {
+  .mainproject {
+    margin-top: 1.5rem;
+    margin-left:1rem;
+    grid-template-columns: repeat(2, minmax(250px, 500px));
+  }
+  .btn {
+    margin-top: 0rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .bton {
+    height: 2.25rem;
+    width: 8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 660px) {
+  .mainproject {
+    margin-top: 1rem;
+    margin-left:0.5rem;
+    height: 20rem;
+    grid-template-columns: repeat(1, minmax(300px, 500px));
+  }
+  .btn {
+    margin-top: 0rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .bton {
+    height: 2.25rem;
+    width: 8rem;
+    font-size: 0.9rem;
   }
 }

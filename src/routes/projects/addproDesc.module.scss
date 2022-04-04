@@ -92,7 +92,7 @@
         font-size: 1rem;
         min-width: 10rem;
       }
-      .frontend{
+      .frontend {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -101,18 +101,18 @@
           margin: 0.5rem;
           margin-right: 5rem;
         }
-        .addata{
+        .addata {
           display: flex;
-          flex-direction: row; 
-          justify-content: center; 
-          p{
+          flex-direction: row;
+          justify-content: center;
+          p {
             padding: 0.3rem;
             margin-left: 0.5rem;
             border: 2px solid #ffffff;
           }
         }
       }
-      .backend{
+      .backend {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -121,13 +121,12 @@
         h3 {
           margin: 0.5rem;
         }
-        
       }
     }
   }
 }
 
-.addbtn{
+.addbtn {
   background: rgb(255, 255, 255);
   border: 0ch;
   color: rgb(0, 0, 0);
@@ -158,5 +157,91 @@
     background-color: #374953;
     color: white;
     border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1920px) {
+  .outer {
+    .close {
+      position: absolute;
+      right: 1rem;
+      top: 7rem;
+    }
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .outer {
+    .close {
+      position: absolute;
+      right: 1rem;
+      top: 6rem;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .outer {
+    .close {
+      position: absolute;
+      right: 1rem;
+      top: 5rem;
+    }
+  }
+}
+
+@media (min-width: 660px) and (max-width: 768px) {
+  .outer {
+    .close {
+      position: absolute;
+      right: 1rem;
+      top: 4rem;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 660px) {
+  .mainpropopup {
+    display: flex;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
+    margin-top: 3.5rem;
+
+    .mid {
+      border-radius: 5;
+      width: 22rem;
+    }
+    .center {
+      margin: 1rem;
+
+      .title {
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+      .fields {
+        align-items: center;
+        form,
+        tr,
+        td,
+        input {
+          line-height: 1.3rem;
+        }
+        .frontend {
+          h3 {
+            margin: 0.5rem;
+            margin-right: 5rem;
+          }
+        }
+        .backend {
+          h3 {
+            margin: 0.5rem;
+          }
+        }
+      }
+    }
   }
 }

@@ -30,7 +30,7 @@ const Project = () => {
           <div>
             <div className={proj.btn}>
               <button className={proj.bton} onClick={togglepopup}>
-                ADD PROJECT
+               <b>ADD PROJECT</b> 
               </button>
             </div>
             <div className={proj.mainproject}>
@@ -49,16 +49,16 @@ const Project = () => {
                         <Charttemp project={projects[id]} />
                       </div>
                     </div>
-                    <div className={proj.proinfo}>
-                      <div className={proj.proname}>
+                    <div className={procomp.proinfo}>
+                      <div className={procomp.proname}>
                         <h5>Project Name</h5>
                         <h4>{projects[id].projectTitle}</h4>
                       </div>
-                      <div className={proj.clientname}>
+                      <div className={procomp.clientname}>
                         <h5>Client Name</h5>
                         <h4>{projects[id].clientName} </h4>
                       </div>
-                      <div className={proj.deadline}>
+                      <div className={procomp.deadline}>
                         <h5>Deadline</h5>
                         <h4>{projects[id].timeLine}</h4>
                       </div>
@@ -87,16 +87,16 @@ const Project = () => {
                           <Charttemp project={projects[id]} />
                         </div>
                       </div>
-                      <div className={proj.proinfo}>
-                        <div className={proj.proname}>
+                      <div className={procomp.proinfo}>
+                        <div className={procomp.proname}>
                           <h5>Project Name</h5>
                           <h4>{projects[id].projectTitle}</h4>
                         </div>
-                        <div className={proj.clientname}>
+                        <div className={procomp.clientname}>
                           <h5>Client Name</h5>
                           <h4>{projects[id].clientName} </h4>
                         </div>
-                        <div className={proj.deadline}>
+                        <div className={procomp.deadline}>
                           <h5>Deadline</h5>
                           <h4>{projects[id].timeLine}</h4>
                         </div>
@@ -132,16 +132,16 @@ const Project = () => {
                                   <Charttemp project={projects[pid]} />
                                 </div>
                               </div>
-                              <div className={proj.proinfo}>
-                                <div className={proj.proname}>
+                              <div className={procomp.proinfo}>
+                                <div className={procomp.proname}>
                                   <h5>Project Name:</h5>
                                   <h4>{projects[pid].projectTitle}</h4>
                                 </div>
-                                <div className={proj.clientname}>
+                                <div className={procomp.clientname}>
                                   <h5>Client Name:</h5>
                                   <h4>{projects[pid].clientName} </h4>
                                 </div>
-                                <div className={proj.deadline}>
+                                <div className={procomp.deadline}>
                                   <h5>Deadline:</h5>
                                   <h4>{projects[pid].timeLine}</h4>
                                 </div>

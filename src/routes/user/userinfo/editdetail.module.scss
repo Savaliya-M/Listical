@@ -1,44 +1,64 @@
 .editpage {
   width: 100%;
   height: 100%;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   background-color: white;
   box-shadow: 0px 0px 10px;
   // font-size: ;
-  .title{
+  .title {
     padding: 0.5rem;
     text-align: center;
     color: #ffffff;
     background-color: #374953;
   }
-  .part {
-    display: flex;
-    flex-direction: row;
-    .uicon {
-      height: 100vh;
-      border-right: 1px solid #000000;
-      margin-right: 2rem;
-      text-align: center;
-      img {
-        width: 15rem;
-        margin-top: 2rem;
-        margin-left: 2rem;
-        margin-right: 2rem;
-      }
-    }
-  }
 
   .form {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-content: center;
     flex-direction: row;
     height: 100vh;
     .sticky {
       position: sticky;
       top: 100px;
     }
+    .part {
+      // display: flex;
+      // flex-direction: row;
+      .uicon {
+        height: 100vh;
+        border-right: 1px solid #000000;
+        margin-right: 2rem;
+        // justify-content: center;
+        text-align: center;
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 0.8rem;
+        }
+        img {
+          width: 15rem;
+          margin-top: 2rem;
+          margin-left: 2rem;
+          margin-right: 2rem;
+        }
+        .cardlogo {
+          h4 {
+            margin: 5px;
+          }
+          img {
+            width: 1rem;
+            margin-top: 3px;
+            margin-left: 0px;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
 
     .formpart1 {
       margin-right: 2rem;
+      margin-bottom: 2rem;
       overflow-y: scroll;
       scrollbar-width: none;
       &::-webkit-scrollbar {
@@ -72,7 +92,10 @@
       #skillbutton {
         width: 2rem;
         height: 2.9rem;
-        font-size: 1.2rem;
+        font-size: 2rem;
+        border-radius: 5px;
+        background-color: #374953;
+        color: #ffffff;
       }
 
       .tag {
@@ -137,11 +160,10 @@
 }
 
 .btn {
-    
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem;
-  button, input {
+  margin-top: 0.5rem;
+  button,
+  input {
+    margin: 1rem;
     font-size: large;
     border-radius: 8px;
     border: 1px solid rgb(0, 0, 0);
@@ -154,4 +176,697 @@
     color: rgb(0, 0, 0);
     background-color: #ffffff;
   }
+}
+
+@media (min-width: 1680px) and (max-width: 1920px) {
+  .editpage {
+    .title {
+      font-size: 1.8rem;
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      .part {
+        .uicon {
+          h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+          }
+          img {
+            width: 20rem;
+          }
+          .cardlogo {
+            h4 {
+              font-size: 1.5rem;
+              margin-bottom: 1rem;
+            }
+            img {
+              width: 1.3srem;
+            }
+          }
+        }
+      }
+
+      .formpart1 {
+        h3 {
+          font-size: 2rem;
+        }
+        #text {
+          width: 30rem;
+          height: 4rem;
+          font-size: 1.5rem;
+        }
+        #areaoftext {
+          width: 30rem;
+          height: 8rem;
+          font-size: 1.5rem;
+        }
+        #skilltext {
+          width: 27rem;
+          height: 3rem;
+          font-size: 1.2rem;
+        }
+
+        #skillbutton {
+          width: 3rem;
+          height: 2.9rem;
+          font-size: 2rem;
+        }
+
+        .tag {
+          font-size: 1.3rem;
+        }
+        .gender {
+          font-size: 1.5rem;
+          input {
+            font-size: large;
+            width: 5rem;
+            height: 1.5rem;
+          }
+        }
+        .langbox {
+          font-size: 1.5rem;
+          input {
+            font-size: large;
+            width: 5rem;
+            height: 1.5rem;
+          }
+        }
+      }
+
+      .formpart2 {
+        h3 {
+          font-size: 2rem;
+        }
+        #text {
+          width: 28rem;
+          height: 4rem;
+          font-size: 1.5rem;
+        }
+        #inputredio {
+          input {
+            font-size: large;
+            width: 3rem;
+            height: 1.2rem;
+          }
+        }
+        .tag {
+          font-size: 1.3rem;
+        }
+      }
+
+      h1 {
+        margin-left: 0px;
+        margin-bottom: 2rem;
+      }
+      .detalis {
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+    }
+
+    .skillname {
+      display: flex;
+      margin: 1rem;
+      flex-wrap: wrap;
+      width: 20rem;
+      align-items: center;
+
+      P {
+        width: 6rem;
+        height: 2rem;
+        padding: 5px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    button,
+    input {
+      font-size: large;
+      width: 8rem;
+      height: 2rem;
+    }
+  }
+}
+@media (min-width: 1280px) and (max-width: 1680px) {
+  .editpage {
+    .title {
+      font-size: 1.6rem;
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      .part {
+        .uicon {
+          h2 {
+            font-size: 2.1rem;
+            margin-bottom: 1rem;
+          }
+          img {
+            width: 16rem;
+          }
+          .cardlogo {
+            h4 {
+              font-size: 1.4rem;
+              margin-bottom: 1rem;
+            }
+            img {
+              width: 1.2rem;
+            }
+          }
+        }
+      }
+
+      .formpart1 {
+        h3 {
+          font-size: 1.8rem;
+        }
+        #text {
+          width: 22rem;
+          height: 3.5rem;
+          font-size: 1.5rem;
+        }
+        #areaoftext {
+          width: 22rem;
+          height: 7rem;
+          font-size: 1.5rem;
+        }
+        #skilltext {
+          width: 27rem;
+          height: 3rem;
+          font-size: 1.2rem;
+        }
+
+        #skillbutton {
+          width: 3rem;
+          height: 2.9rem;
+          font-size: 2rem;
+        }
+
+        .tag {
+          font-size: 1.3rem;
+        }
+        .gender {
+          font-size: 1.5rem;
+          input {
+            font-size: large;
+            width: 2rem;
+            height: 1.5rem;
+          }
+        }
+        .langbox {
+          font-size: 1.5rem;
+          input {
+            font-size: large;
+            width: 2rem;
+            height: 1.5rem;
+          }
+        }
+      }
+
+      .formpart2 {
+        h3 {
+          font-size: 1.8rem;
+        }
+        #text {
+          width: 20rem;
+          height: 4rem;
+          font-size: 1.5rem;
+        }
+        #inputredio {
+          input {
+            font-size: large;
+            width: 1.2rem;
+            height: 1.2rem;
+          }
+        }
+        .tag {
+          font-size: 1.3rem;
+        }
+      }
+
+      h1 {
+        margin-left: 0px;
+        margin-bottom: 2rem;
+      }
+      .detalis {
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+    }
+
+    .skillname {
+      display: flex;
+      margin: 1rem;
+      flex-wrap: wrap;
+      width: 20rem;
+      align-items: center;
+
+      P {
+        width: 6rem;
+        height: 2rem;
+        padding: 5px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    button,
+    input {
+      font-size: large;
+      width: 7rem;
+      height: 2rem;
+    }
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .editpage {
+    .title {
+      font-size: 1.4rem;
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      .part {
+        .uicon {
+          h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+          }
+          img {
+            width: 12rem;
+          }
+          .cardlogo {
+            h4 {
+              font-size: 1.1rem;
+              margin-bottom: 1rem;
+            }
+            img {
+              width: 1.1rem;
+            }
+          }
+        }
+      }
+
+      .formpart1 {
+        h3 {
+          font-size: 1.6rem;
+        }
+        #text {
+          width: 16.5rem;
+          height: 2.5rem;
+          font-size: 1.1rem;
+        }
+        #areaoftext {
+          width: 16.5rem;
+          height: 5rem;
+          font-size: 1.1rem;
+        }
+        #skilltext {
+          width: 14.5rem;
+          height: 2.5rem;
+          font-size: 1.2rem;
+        }
+
+        #skillbutton {
+          width: 2rem;
+          height: 2.5rem;
+          font-size: 1.6rem;
+        }
+
+        .tag {
+          font-size: 1rem;
+        }
+        .gender {
+          font-size: 1.1rem;
+          input {
+            font-size: large;
+            width: 1.5rem;
+            height: 1.3rem;
+          }
+        }
+        .langbox {
+          font-size: 1.1rem;
+          input {
+            font-size: large;
+            width: 1.5rem;
+            height: 1.3rem;
+          }
+        }
+      }
+
+      .formpart2 {
+        h3 {
+          font-size: 1.6rem;
+        }
+        #text {
+          width: 15rem;
+          height: 2.5rem;
+          font-size: 1.1rem;
+        }
+        #inputredio {
+          font-size: 1rem;
+          input {
+            font-size: large;
+            width: 1rem;
+            height: 1rem;
+          }
+        }
+        .tag {
+          font-size: 1rem;
+        }
+      }
+
+      h1 {
+        margin-left: 0px;
+        margin-bottom: 2rem;
+      }
+      .detalis {
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+    }
+
+    .skillname {
+      display: flex;
+      margin: 1rem;
+      flex-wrap: wrap;
+      width: 16rem;
+      align-items: center;
+
+      P {
+        width: 4.5rem;
+        height: 1.5rem;
+        padding: 3px;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    button,
+    input {
+      font-size: large;
+      width: 5rem;
+      height: 2rem;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .editpage {
+    .title {
+      font-size: 1.4rem;
+    }
+
+    .form {
+      height: 50rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(150px, 1fr));
+      .part {
+        .uicon {
+          height: 50rem;
+          border-right: 1px solid #000000;
+        }
+      }
+      .formpart1 {
+        height: 49rem;
+        h3 {
+          font-size: 1.6rem;
+        }
+        #text {
+          width: 16.5rem;
+          height: 2.5rem;
+          font-size: 1.1rem;
+        }
+        #areaoftext {
+          width: 16.5rem;
+          height: 5rem;
+          font-size: 1.1rem;
+        }
+        #skilltext {
+          width: 14.5rem;
+          height: 2.5rem;
+          font-size: 1.2rem;
+        }
+
+        #skillbutton {
+          width: 2rem;
+          height: 2.5rem;
+          font-size: 1.6rem;
+        }
+
+        .tag {
+          font-size: 1rem;
+        }
+        .gender {
+          font-size: 1.1rem;
+          input {
+            font-size: large;
+            width: 1.5rem;
+            height: 1.3rem;
+          }
+        }
+        .langbox {
+          font-size: 1.1rem;
+          input {
+            font-size: large;
+            width: 1.5rem;
+            height: 1.3rem;
+          }
+        }
+      }
+
+      .formpart2 {
+        border-left: 0px solid #000000;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // justify-content: center;
+        top: 33rem;
+        // margin-left: 3vw;
+
+        h3 {
+          font-size: 1.5rem;
+        }
+        #text {
+          width: 13rem;
+          height: 2.5rem;
+          font-size: 1.1rem;
+        }
+        #inputredio {
+          // display: flex;
+          // flex-wrap: wrap;
+          font-size: 0.9rem;
+          input {
+            font-size: large;
+            width: 0.6rem;
+            // height: 1rem;
+          }
+        }
+        .tag {
+          font-size: 1rem;
+        }
+      }
+
+      h1 {
+        margin-left: 0px;
+        margin-bottom: 2rem;
+      }
+      .detalis {
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+    }
+
+    .skillname {
+      display: flex;
+      margin: 1rem;
+      flex-wrap: wrap;
+      width: 16rem;
+      align-items: center;
+
+      P {
+        width: 4.5rem;
+        height: 1.5rem;
+        padding: 3px;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    button,
+    input {
+      font-size: large;
+      width: 5rem;
+      height: 2rem;
+    }
+  }
+}
+
+@media (min-width: 680px) and (max-width: 768px) {
+  .editpage {
+    .title {
+      font-size: 1.4rem;
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(100px, 1fr));
+      .part {
+        .uicon {
+          h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+          }
+          img {
+            width: 12rem;
+          }
+          .cardlogo {
+            h4 {
+              font-size: 1.1rem;
+              margin-bottom: 1rem;
+            }
+            img {
+              width: 1.1rem;
+            }
+          }
+        }
+      }
+
+      .formpart1 {
+        h3 {
+          font-size: 1.6rem;
+        }
+        #text {
+          width: 16.5rem;
+          height: 2.5rem;
+          font-size: 1.1rem;
+        }
+        #areaoftext {
+          width: 16.5rem;
+          height: 5rem;
+          font-size: 1.1rem;
+        }
+        #skilltext {
+          width: 14.5rem;
+          height: 2.5rem;
+          font-size: 1.2rem;
+        }
+
+        #skillbutton {
+          width: 2rem;
+          height: 2.5rem;
+          font-size: 1.6rem;
+        }
+
+        .tag {
+          font-size: 1rem;
+        }
+        .gender {
+          font-size: 1.1rem;
+          input {
+            font-size: large;
+            width: 1.5rem;
+            height: 1.3rem;
+          }
+        }
+        .langbox {
+          font-size: 1.1rem;
+          input {
+            font-size: large;
+            width: 1.5rem;
+            height: 1.3rem;
+          }
+        }
+      }
+
+      .formpart2 {
+        border-left: 0px solid #000000;
+        position: absolute;
+        top: 32rem;
+        margin-left: 1rem;
+
+        h3 {
+          font-size: 1.6rem;
+        }
+        #text {
+          width: 15rem;
+          height: 2.5rem;
+          font-size: 1.1rem;
+        }
+        #inputredio {
+          font-size: 1rem;
+          input {
+            font-size: large;
+            width: 1rem;
+            height: 1rem;
+          }
+        }
+        .tag {
+          font-size: 1rem;
+        }
+      }
+
+      h1 {
+        margin-left: 0px;
+        margin-bottom: 2rem;
+      }
+      .detalis {
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+    }
+
+    .skillname {
+      display: flex;
+      margin: 1rem;
+      flex-wrap: wrap;
+      width: 16rem;
+      align-items: center;
+
+      P {
+        width: 4.5rem;
+        height: 1.5rem;
+        padding: 3px;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    button,
+    input {
+      font-size: large;
+      width: 5rem;
+      height: 2rem;
+    }
+  }
+}
+
+@media (min-width: 395px) and (max-width: 768px) {
 }

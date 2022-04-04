@@ -173,18 +173,18 @@ const Projectdetail = () => {
     <>
       <div className={prodetail.all}>
         <div className={prodetail.alldetails}>
-          <div className={prodetail.rightside}>
+          <div className={prodetail.aboutpro}>
             <div className={prodetail.graphs}>
               <div className={prodetail.Progress}>
                 <h1>Project Progress </h1>
               </div>
               <div className={prodetail.chart}>
                 <div className={prodetail.chart1}>
-                <h2>Task Status</h2>
+                  <h2>Task Status</h2>
                   {chartData1 !== "" ? <Doughnut data={chartData1} /> : null}
                 </div>
                 <div className={prodetail.chart2}>
-                <h2>Task Priority</h2>
+                  <h2>Task Priority</h2>
                   {chartData2 !== "" ? <Doughnut data={chartData2} /> : null}
                 </div>
               </div>
@@ -279,7 +279,7 @@ const Projectdetail = () => {
                   <button
                     className={prodetail.fieldsbtn}
                     onClick={() => alert("Please Selete The Project Team.")}
-                    // disabled={true}
+                  // disabled={true}
                   >
                     Add Task
                   </button>

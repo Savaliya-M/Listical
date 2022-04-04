@@ -9,6 +9,7 @@ const Birthday = ({ birthdayList }) => {
 
   return (
     <>
+    <div  className={birth.home}>
       <div className={birth.mainhomecompo} id={birth.Birthday}>
         <div className={birth.head} id={birth.Birthday}>
           <h3>Birthday</h3>
@@ -34,6 +35,7 @@ const Birthday = ({ birthdayList }) => {
               })
             : "no Birthday today"}
         </div>
+      </div>
       </div>
     </>
   );

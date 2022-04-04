@@ -11,7 +11,6 @@
   font-family: "azonixregular";
 }
 
-
 .navbarmain {
   display: flex;
   position: fixed;
@@ -22,10 +21,11 @@
   z-index: 100;
   left: 0%;
   top: 0%;
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
   box-shadow: 0 0.063rem 0.625rem 0 rgb(0 0 0 / 20%);
 
   .logo {
+    align-items: center;
     display: flex;
     flex: 60vw;
 
@@ -40,6 +40,7 @@
     }
   }
   .user {
+    align-items: center;
     display: flex;
     // margin: 0.2em;
     // margin: 0px 28px 0px 0px;
@@ -77,13 +78,13 @@
             position: absolute;
             opacity: 0;
             top: 0;
-            right: -20px;
+            right: -15px;
             transition: 0.5s;
           }
         }
 
         &:hover span {
-          padding-right: 25px;
+          padding-right: 15px;
         }
 
         &:hover span:after {
@@ -94,3 +95,135 @@
     }
   }
 }
+
+@media (min-width: 1280px) and (max-width: 1920px) {
+  .navbarmain {
+    height: 5.5em;
+
+    .logo {
+      align-items: center;
+
+      h1 {
+        font-size: 3rem;
+      }
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+    .user {
+      display: flex;
+      font-size: 1.4rem;
+      img {
+        width: 4rem;
+        height: 4rem;
+      }
+      .logout {
+        button {
+          width: 120px;
+          height: 3rem;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .navbarmain {
+    height: 4.5rem;
+
+    .logo {
+      h1 {
+        font-size: 2.5rem;
+      }
+      img {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+    .user {
+      display: flex;
+      font-size: 1.1rem;
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
+      .logout {
+        button {
+          width: 100px;
+          height: 2.5rem;
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbarmain {
+    height: 4rem;
+
+    .logo {
+      h1 {
+        font-size: 2rem;
+      }
+      img {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+    .user {
+      display: flex;
+      font-size: 0.8rem;
+      img {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+      .logout {
+        button {
+          width: 70px;
+          height: 1.8rem;
+          font-size: 0.85rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .navbarmain {
+    height: 3.5rem;
+
+    .logo {
+      h1 {
+        font-size: 1.2rem;
+      }
+      img {
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0px;
+        margin-left: 3px;
+      }
+    }
+    .user {
+      display: flex;
+      font-size: 0.7rem;
+      img {
+        width: 2rem;
+        height: 2rem;
+      }
+      .logout {
+        button {
+          width: 65px;
+          height: 2rem;
+          font-size: 0.7rem;
+          &:hover span {
+            padding-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+

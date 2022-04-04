@@ -47,6 +47,7 @@ const Todaysleave = () => {
   }, [todaysleave]);
   return (
     <>
+    <div  className={leave.home}>
       <div className={leave.mainhomecompo} id={leave.Todaysleave}>
         <div className={leave.head} id={leave.Todaysleave}>
           <h3>Todays Leave</h3>
@@ -73,6 +74,7 @@ const Todaysleave = () => {
               : ""}
           </div>
         </div>
+      </div>
       </div>
     </>
   );

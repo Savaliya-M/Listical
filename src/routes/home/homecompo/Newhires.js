@@ -8,6 +8,7 @@ const Newhires = ({ newHires }) => {
   }, [newHires]);
   return (
     <>
+    <div  className={nhire.home}>
       <div className={nhire.mainhomecompo} id={nhire.Newhires}>
         <div className={nhire.head} id={nhire.Newhires}>
           <h3>New Hires</h3>
@@ -31,6 +32,7 @@ const Newhires = ({ newHires }) => {
               })
             : "noHire today"}
         </div>
+      </div>
       </div>
     </>
   );

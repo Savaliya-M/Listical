@@ -24,6 +24,7 @@ const Announcements = ({ handleopen }) => {
   };
   return (
     <>
+    <div  className={annocuncements.home}>
       <div
         className={annocuncements.mainhomecompo}
         id={annocuncements.announcements}
@@ -68,6 +69,7 @@ const Announcements = ({ handleopen }) => {
             );
           })}
         </div>
+      </div>
       </div>
     </>
   );
