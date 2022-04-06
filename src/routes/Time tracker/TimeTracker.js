@@ -16,11 +16,11 @@ const TimeTracker = () => {
   const [temptrackRecord, setTemptrackRecord] = useState({});
   const [startEndBtn, setstartEndBtn] = useState(false);
   const [id, setid] = useState("");
-  const [timer, setTimer] = useState({
-    ho: 0,
-    mi: 0,
-    se: 0,
-  });
+  // const [timer, setTimer] = useState({
+  //   ho: 0,
+  //   mi: 0,
+  //   se: 0,
+  // });
 
   useEffect(() => {
     appRef

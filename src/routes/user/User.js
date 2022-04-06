@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Userinfo from "@user/userinfo/Userinfo";
 import Chat from "../Chat/Chat";
 import Editdetail from "./userinfo/Editdetail";
+import Salary from "./userinfo/Salary";
 
 const User = () => {
   return (
@@ -15,6 +16,7 @@ const User = () => {
             <Route exact path="/" element={<Usercompo />} />
             <Route exact path="info/:id" element={<Userinfo />} />
             <Route exact path="editdetail/:id" element={<Editdetail />} />
+            <Route exact path="salary/:id" element={<Salary />} />
             <Route exact path="chat/:id/:sid" element={<Chat />} />
           </Routes>
         </div>

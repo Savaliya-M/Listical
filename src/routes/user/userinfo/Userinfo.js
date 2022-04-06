@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useinfo from "./userinfo.module.scss";
-import { useNavigate } from "react-router-dom";
-  import appRef from "../../../firebase";
+import { Link, useNavigate } from "react-router-dom";
+import appRef from "../../../firebase";
 import { useParams } from "react-router-dom";
 
 const Userinfo = () => {
@@ -111,9 +111,19 @@ const Userinfo = () => {
                     <div className={useinfo.Projects}>
                     <button className={useinfo.cardbtn}> <a href="#Projects"><b>Projects</b></a> </button>
                     </div>
-                    {/* <div className={useinfo.btnsalary}>
-                     <button className={useinfo.cardbtn}> <a href="#salary">Salary</a> </button>
-                    </div> */}
+                    {localStorage.getItem("Type") === "Admin" ||
+                    localStorage.getItem("Type") === "Manager" ||
+                    localStorage.getItem("uuid") === user.uuid ? (
+                      <div className={useinfo.btnsalary}>
+                        {/* <>Salary</a> */}
+                        <Link exact to={`/layout/user/salary/${user.uuid}`}>
+                          Salary
+                        </Link>
+                        {/* <button>Salary</button> */}
+                      </div>
+                    ) : (
+                      <></>
+                    )}
                   </div>
                 </div>
               </div>
