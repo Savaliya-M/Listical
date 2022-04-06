@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useinfo from "./userinfo.module.scss";
-import { useNavigate } from "react-router-dom";
-  import appRef from "../../../firebase";
+import { Link, useNavigate } from "react-router-dom";
+import appRef from "../../../firebase";
 import { useParams } from "react-router-dom";
 
 const Userinfo = () => {
@@ -68,7 +68,7 @@ const Userinfo = () => {
             </button>
             {user.uuid === localStorage.getItem("uuid") ? (
               <button onClick={() => navigate(`/layout/user/editdetail/${id}`)}>
-              <img src={require("@photos/edit(1).png")} alt="edit" />
+                <img src={require("@photos/edit(1).png")} alt="edit" />
               </button>
             ) : (
               <></>
@@ -114,10 +114,19 @@ const Userinfo = () => {
                       <a href="#Projects">Projects</a>
                       {/* <button>Projects</button> */}
                     </div>
-                    {/* <div className={useinfo.btnsalary}>
-                      <a href="#salary">Salary</a>
-                      <button>Salary</button>
-                    </div> */}
+                    {localStorage.getItem("Type") === "Admin" ||
+                    localStorage.getItem("Type") === "Manager" ||
+                    localStorage.getItem("uuid") === user.uuid ? (
+                      <div className={useinfo.btnsalary}>
+                        {/* <>Salary</a> */}
+                        <Link exact to={`/layout/user/salary/${user.uuid}`}>
+                          Salary
+                        </Link>
+                        {/* <button>Salary</button> */}
+                      </div>
+                    ) : (
+                      <></>
+                    )}
                   </div>
                 </div>
               </div>
