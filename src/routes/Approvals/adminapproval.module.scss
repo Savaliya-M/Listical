@@ -1,7 +1,7 @@
 .innerbox {
   display: grid;
   grid-gap: 1rem;
-  margin: 2rem;
+  margin: 1rem;
   align-content: start;
   justify-content: start;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 17rem));
@@ -14,9 +14,9 @@
   border-radius: 5px;
   // width: 16em;
   text-align: center;
-  box-shadow: 2px 0px 50px #a1a1a1;
+  box-shadow: 0px 0px 8px #a1a1a1;
   &:hover {
-    box-shadow: 0px 0px 5px rgb(255, 255, 255);
+    box-shadow: 0px 0px 8px rgb(0, 0, 0);
     transform: scale(1.03);
   }
 
@@ -45,6 +45,11 @@
         color: rgb(0, 0, 0);
         background-color: #ffffff;
       }
+    }
+  }
+  .details{
+    h5,p{
+      margin: 8px;
     }
   }
 }
@@ -89,7 +94,7 @@ h1 {
   flex-wrap: wrap;
 
   .leavesbox {
-    border: 2px solid#000000;
+    border: 2px solid #000000;
     width: 20rem;
     height: auto;
     flex-grow: 2;
@@ -131,7 +136,7 @@ h1 {
     }
   }
   .expencesbox {
-    border: 2px solid#000000;
+    border: 2px solid #000000;
     width: 20rem;
     flex-grow: 2;
     height: auto;
@@ -195,31 +200,29 @@ h1 {
 
 
 
-@media (min-width: 1280px) and (max-width: 1920px) {
+@media (min-width: 768px) and (max-width: 1920px) {
  
   .innerbox {
-    margin-top: 3rem;
-    margin-left:2.5rem;
-        grid-template-columns: repeat(3, minmax(250px, 300px));
+        grid-template-columns: repeat(3, minmax(200px, 300px));
       }
 }
 
-@media (min-width: 1024px) and (max-width: 1280px) {
-  .innerbox {
-    margin-top: 2.5rem;
-    margin-left:2rem;
-        grid-template-columns: repeat(3, minmax(250px, 300px));
-      }
+// @media (min-width: 1024px) and (max-width: 1280px) {
+//   .innerbox {
+//     margin-top: 2.5rem;
+//     margin-left:2rem;
+//         grid-template-columns: repeat(3, minmax(250px, 300px));
+//       }
   
-}
+// }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .innerbox {
-    margin-top: 2rem;
-    margin-left:1.5rem;
-        grid-template-columns: repeat(2, minmax(250px, 300px));
-      }
-}
+// @media (min-width: 768px) and (max-width: 1024px) {
+//   .innerbox {
+//     margin-top: 2rem;
+//     margin-left:1.5rem;
+//         grid-template-columns: repeat(2, minmax(250px, 300px));
+//       }
+// }
 
 @media (min-width: 520px) and (max-width: 768px) {
   .innerbox {

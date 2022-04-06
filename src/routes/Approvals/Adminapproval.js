@@ -153,7 +153,7 @@ const Adminapproval = () => {
                     </div>
                   </div>
 
-                  <div onClick={() => navigate(`/layout/user/info/${index}`)}>
+                  <div className={adminapprov.details} onClick={() => navigate(`/layout/user/info/${index}`)}>
                     <h2>{usersData[index].name}</h2>
                     <h5>{usersData[index].mono}</h5>
                     <p>{usersData[index].name}</p>

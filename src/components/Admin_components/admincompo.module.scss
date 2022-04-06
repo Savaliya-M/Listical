@@ -7,7 +7,7 @@
   background-color: #fcfcfc;
   position: fixed;
   top: 3.5rem;
-  width: 4.5rem;
+  width: 4rem;
   box-shadow: 2px 0px 10px #a1a1a1;
 }
 
@@ -57,80 +57,80 @@
   }
 }
 
-@media (min-width: 1280px) and (max-width: 1920px) {
-  .maindivsidebar {
-    height: 100%;
-    top: 5.5rem;
-    width: 5.5rem;
-  }
+// @media (min-width: 1280px) and (max-width: 1920px) {
+//   .maindivsidebar {
+//     height: 100%;
+//     top: 5.5rem;
+//     width: 5.5rem;
+//   }
 
-  .sidebar {
-    ul {
-      li {
-        .title {
-          .icone {
-            height: 80px;
-            img {
-              margin-right: 1rem;
-              height: 4rem;
-              width: 4rem;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+//   .sidebar {
+//     ul {
+//       li {
+//         .title {
+//           .icone {
+//             height: 80px;
+//             img {
+//               margin-right: 1rem;
+//               height: 4rem;
+//               width: 4rem;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
-@media (min-width: 1024px) and (max-width: 1280px) {
-  .maindivsidebar {
-    height: 100%;
-    top: 4.5rem;
-    width: 4.5rem;
-  }
+// @media (min-width: 1024px) and (max-width: 1280px) {
+//   .maindivsidebar {
+//     height: 100%;
+//     top: 4.5rem;
+//     width: 4.5rem;
+//   }
 
-  .sidebar {
-    ul {
-      li {
-        .title {
-          .icone {
-            height: 70px;
-            img {
-              margin-right: 1rem;
-              height: 3.5rem;
-              width: 3.5rem;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+//   .sidebar {
+//     ul {
+//       li {
+//         .title {
+//           .icone {
+//             height: 70px;
+//             img {
+//               margin-right: 1rem;
+//               height: 3.5rem;
+//               width: 3.5rem;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .maindivsidebar {
-    height: 100%;
-    top: 4rem;
-    width: 4rem;
-  }
+// @media (min-width: 768px) and (max-width: 1024px) {
+//   .maindivsidebar {
+//     height: 100%;
+//     top: 4rem;
+//     width: 4rem;
+//   }
 
-  .sidebar {
-    ul {
-      li {
-        .title {
-          .icone {
-            height: 80px;
-            img {
-              margin-right: 1rem;
-              height: 3rem;
-              width: 3rem;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+//   .sidebar {
+//     ul {
+//       li {
+//         .title {
+//           .icone {
+//             height: 80px;
+//             img {
+//               margin-right: 1rem;
+//               height: 3rem;
+//               width: 3rem;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
 @media (min-width: 320px) and (max-width: 768px) {
   .maindivsidebar {

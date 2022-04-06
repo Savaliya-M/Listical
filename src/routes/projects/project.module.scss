@@ -16,6 +16,8 @@
   align-content: start;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 22.5rem));
   height: 100%;
+  margin-top: 1rem;
+  margin-left:1rem;   
 }
 
 .btn {
@@ -37,64 +39,60 @@
   }
 }
 
-@media (min-width: 1280px) and (max-width: 1920px) {
+@media (min-width: 950px) and (max-width: 1920px) {
   .mainproject {
-    margin-top: 3rem;
-    margin-left:2.5rem;
-    grid-template-columns: repeat(3, minmax(350px, 800px));
+    grid-template-columns: repeat(3, minmax(200px, 800px));
   }
   .btn {
-    margin-top: 2rem;
+    margin-top: 0rem;
     margin-bottom: 1.5rem;
   }
   
   .bton {
-    height: 3rem;
-    width: 9rem;
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 1280px) {
-  .mainproject {
-    margin-top: 2.5rem;
-    margin-left:2rem;
-    grid-template-columns: repeat(3, minmax(250px, 600px));
-  }
-  .btn {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .bton {
-    height: 2.5rem;
+    height: 2.25rem;
     width: 8rem;
     font-size: 0.9rem;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .mainproject {
-    margin-top: 2rem;
-    margin-left:1.5rem;
-    grid-template-columns: repeat(2, minmax(250px, 500px));
-  }
-  .btn {
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-  }
+// @media (min-width: 1024px) and (max-width: 1280px) {
+//   .mainproject {
+//     margin-top: 2.5rem;
+//     margin-left:2rem;
+//     grid-template-columns: repeat(3, minmax(250px, 600px));
+//   }
+//   .btn {
+//     margin-top: 1.5rem;
+//     margin-bottom: 1.5rem;
+//   }
   
-  .bton {
-    height: 2.5rem;
-    width: 8rem;
-    font-size: 0.9rem;
-  }
-}
+//   .bton {
+//     height: 2.5rem;
+//     width: 8rem;
+//     font-size: 0.9rem;
+//   }
+// }
 
-@media (min-width: 660px) and (max-width: 768px) {
+// @media (min-width: 768px) and (max-width: 1024px) {
+//   .mainproject {
+//     margin-top: 2rem;
+//     margin-left:1.5rem;
+//     grid-template-columns: repeat(2, minmax(250px, 500px));
+//   }
+//   .btn {
+//     margin-top: 1rem;
+//     margin-bottom: 1.5rem;
+//   }
+  
+//   .bton {
+//     height: 2.5rem;
+//     width: 8rem;
+//     font-size: 0.9rem;
+//   }
+// }
+
+@media (min-width: 660px) and (max-width: 950px) {
   .mainproject {
-    margin-top: 1.5rem;
-    margin-left:1rem;
     grid-template-columns: repeat(2, minmax(250px, 500px));
   }
   .btn {
@@ -111,8 +109,6 @@
 
 @media (min-width: 320px) and (max-width: 660px) {
   .mainproject {
-    margin-top: 1rem;
-    margin-left:0.5rem;
     height: 20rem;
     grid-template-columns: repeat(1, minmax(300px, 500px));
   }

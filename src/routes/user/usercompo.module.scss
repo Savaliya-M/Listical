@@ -9,7 +9,7 @@
     height: 2rem;
     width: 7rem;
     box-shadow: 0px 0px 10px;
-    margin: 15px 0px 15px 0px;
+    // margin: 15px 0px 15px 0px;
     &:hover {
       color: white;
       background-color: #0081bd;
@@ -20,7 +20,6 @@
 .mainusercompo {
   display: grid;
   grid-gap: 1rem;
-  margin: 20px;
   align-content: start;
   justify-content: start;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -32,8 +31,8 @@
   background-color: #fff;
   border-radius: 5px;
   height: 8.5rem;
-  margin: 10px;
-  box-shadow: 0px 0px 8px rgb(0, 0, 0);
+  margin: 5px;
+  box-shadow: 0px 0px 6px rgb(0, 0, 0);
   &:hover {
     box-shadow: 0px 0px 5px rgb(0, 0, 0);
     transform: scale(1.03);
@@ -112,8 +111,8 @@
 
 @media (min-width: 1500px) and (max-width: 1920px) {
   .mainusercompo {
-    margin-top: 4rem;
-    margin-left: 3rem;
+    // margin-top: 4rem;
+    // margin-left: 3rem;
     grid-template-columns: repeat(3, minmax(250px, 600px));
   }
   .person {
@@ -152,8 +151,8 @@
 
 @media (min-width: 1280px) and (max-width: 1500px) {
   .mainusercompo {
-    margin-top: 3rem;
-    margin-left: 1.5rem;
+    // margin-top: 3rem;
+    // margin-left: 1.5rem;
     grid-template-columns: repeat(3, minmax(250px, 600px));
   }
 
@@ -192,8 +191,8 @@
 
 @media (min-width: 1024px) and (max-width: 1280px) {
   .mainusercompo {
-    margin-top: 2.5rem;
-    margin-left: 1rem;
+    // margin-top: 2.5rem;
+    // margin-left: 1rem;
     grid-template-columns: repeat(3, minmax(250px, 600px));
   }
   .person {
@@ -231,8 +230,8 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .mainusercompo {
-    margin-top: 2rem;
-    margin-left: 0.5rem;
+    // margin-top: 2rem;
+    // margin-left: 0.5rem;
     grid-template-columns: repeat(2, minmax(250px, 500px));
   }
   .person {
@@ -270,8 +269,8 @@
 
 @media (min-width: 630px) and (max-width: 768px) {
   .mainusercompo {
-    margin-top: 1.5rem;
-    margin-left: 0rem;
+    // margin-top: 1.5rem;
+    // margin-left: 0rem;
     grid-template-columns: repeat(2, minmax(250px, 500px));
   }
   .person {
@@ -309,8 +308,8 @@
 
 @media (min-width: 320px) and (max-width: 630px) {
   .mainusercompo {
-    margin-top: 1rem;
-    margin-left: -0.5rem;
+    // margin-top: 1rem;
+    // margin-left: -0.5rem;
     grid-template-columns: repeat(1, minmax(250px, 670px));
   }
   .person {
