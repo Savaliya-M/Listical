@@ -68,8 +68,8 @@ const Userinfo = () => {
             </button>
             {user.uuid === localStorage.getItem("uuid") ? (
               <button className={useinfo.closebtn2}
-              onClick={() => navigate(`/layout/user/editdetail/${id}`)}>
-              <img src={require("@photos/edit(1).png")} alt="edit" />
+                onClick={() => navigate(`/layout/user/editdetail/${id}`)}>
+                <img src={require("@photos/edit(1).png")} alt="edit" />
               </button>
             ) : (
               <></>
@@ -103,27 +103,31 @@ const Userinfo = () => {
                       <button className={useinfo.cardbtn}> <a href="#personalinfo"><b>Information</b></a> </button>
                     </div>
                     <div className={useinfo.qualification}>
-                    <button className={useinfo.cardbtn}> <a href="#QualificationSkill"><b>Qualification & Skill</b></a> </button>
+                      <button className={useinfo.cardbtn}> <a href="#QualificationSkill"><b>Qualification & Skill</b></a> </button>
                     </div>
                     <div className={useinfo.work}>
                       <button className={useinfo.cardbtn}> <a href="#experiances"><b>Experiance</b></a> </button>
                     </div>
                     <div className={useinfo.Projects}>
-                    <button className={useinfo.cardbtn}> <a href="#Projects"><b>Projects</b></a> </button>
+                      <button className={useinfo.cardbtn}> <a href="#Projects"><b>Projects</b></a> </button>
                     </div>
-                    {localStorage.getItem("Type") === "Admin" ||
-                    localStorage.getItem("Type") === "Manager" ||
-                    localStorage.getItem("uuid") === user.uuid ? (
-                      <div className={useinfo.btnsalary}>
-                        {/* <>Salary</a> */}
-                        <Link exact to={`/layout/user/salary/${user.uuid}`}>
-                          Salary
-                        </Link>
-                        {/* <button>Salary</button> */}
-                      </div>
-                    ) : (
-                      <></>
-                    )}
+                    <div className={useinfo.salary}>
+                    <button className={useinfo.cardbtn}>
+                      {localStorage.getItem("Type") === "Admin" ||
+                        localStorage.getItem("Type") === "Manager" ||
+                        localStorage.getItem("uuid") === user.uuid ? (
+                        <div className={useinfo.btnsalary}>
+                          {/* <>Salary</a> */}
+                          <Link exact to={`/layout/user/salary/${user.uuid}`}>
+                            <b>Salary</b> 
+                          </Link>
+                          {/* <button>Salary</button> */}
+                        </div>
+                      ) : (
+                        <></>
+                      )}
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

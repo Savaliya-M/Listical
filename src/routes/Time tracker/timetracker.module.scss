@@ -1,0 +1,85 @@
+#h1 {
+  text-align: center;
+}
+.info {
+  height: 4rem;
+  background-color: #374953;
+  border-radius: 5px;
+  padding: 5px;
+  .infotacker {
+      align-items: center;
+      height: 3.35rem;
+    input {
+      width: 15rem;
+      height: 1.7rem;
+      border-radius: 5px;
+      border: 1px solid black;
+    }
+    button {
+      height: 1.7rem;
+      border: 1px solid black;
+      border-radius: 5px;
+      width: 3.5rem;
+    }
+    display: flex;
+    border-radius: 5px;
+    border: 2px solid white;
+    justify-content: space-around;
+    align-items: center;
+    .getinfo {
+      width: 70%;
+      align-items: end;
+      #start{
+          color: white;
+          background-color: #20b380;
+      }
+      #pause{
+          color: white;
+          background-color: #d23332;
+      }
+
+    }
+    p {
+      margin: 0px;
+      position: relative;
+      background: #ffffff;
+      font-family: "Roboto mono", monospace;
+      color: #0381bb;
+      font-size: 25px;
+     padding: 3px 10px 3px 10px;
+      align-items: center;
+      justify-content: space-around;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(0, 139, 253, 0.25);
+      color: rgb(255, 0, 0);
+    }
+  }
+}
+
+#tablehead {
+  #tdate,
+  #tstime,
+  #tetime,
+  #twtime {
+    width: 15%;
+    text-align: center;
+  }
+}
+.timedetails {
+  table {
+    margin: 0px;
+    border: 0px;
+  }
+
+  tr {
+    border: 1px solid #374953;
+    border-radius: 5px;
+  }
+  #date,
+  #stime,
+  #etime,
+  #wtime {
+    width: 15%;
+    text-align: center;
+  }
+}
