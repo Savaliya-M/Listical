@@ -97,7 +97,10 @@ const Userinfo = () => {
                   <div className={useinfo.usercard}>
                     <div className={useinfo.cardinfo}>
                       <h1>{user.name}</h1>
-                      <p>{`${user.position}`}</p>
+                      <div className={useinfo.cardinfo}>
+                        <img src={require("@photos/user.png")} alt="skill" />
+                        {`${user.position}`}
+                      </div>
                       <div className={useinfo.cardinfo}>
                         <img src={require("@photos/Wcoding.png")} alt="skill" />
                         {user.role}

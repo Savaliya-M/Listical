@@ -1,3 +1,7 @@
+.main {
+  margin: 1rem;
+}
+
 #h1 {
   text-align: center;
 }
@@ -7,8 +11,8 @@
   border-radius: 5px;
   padding: 5px;
   .infotacker {
-      align-items: center;
-      height: 3.35rem;
+    align-items: center;
+    height: 3.35rem;
     input {
       width: 15rem;
       height: 1.7rem;
@@ -24,33 +28,30 @@
     display: flex;
     border-radius: 5px;
     border: 2px solid white;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
     .getinfo {
       width: 70%;
       align-items: end;
-      #start{
-          color: white;
-          background-color: #20b380;
+      #start {
+        color: white;
+        background-color: #20b380;
       }
-      #pause{
-          color: white;
-          background-color: #d23332;
+      #pause {
+        color: white;
+        background-color: #d23332;
       }
-
     }
     p {
       margin: 0px;
       position: relative;
       background: #ffffff;
       font-family: "Roboto mono", monospace;
-      color: #0381bb;
       font-size: 25px;
-     padding: 3px 10px 3px 10px;
+      padding: 3px 10px 3px 10px;
       align-items: center;
       justify-content: space-around;
       border-radius: 5px;
-      box-shadow: 0 0 20px rgba(0, 139, 253, 0.25);
       color: rgb(255, 0, 0);
     }
   }
@@ -81,5 +82,65 @@
   #wtime {
     width: 15%;
     text-align: center;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .info {
+    .infotacker {
+      input {
+        width: 10rem;
+        height: 1.4rem;
+      }
+      button {
+        height: 1.4rem;
+        width: 3.5rem;
+      }
+
+      p {
+        margin: 0px;
+        font-family: "Roboto mono", monospace;
+        font-size: 12px;
+        padding: 3px 10px 3px 10px;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 5px;
+        color: rgb(255, 0, 0);
+      }
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .info {
+    height: 6rem;
+    .infotacker {
+      flex-direction: column;
+      height: 5.2rem;
+      input {
+        width: 7rem;
+        height: 1.4rem;
+      }
+      button {
+        height: 1.4rem;
+        width: 3.5rem;
+      }
+
+      p {
+        margin: 0px;
+        font-family: "Roboto mono", monospace;
+        font-size: 12px;
+        padding: 3px 10px 3px 10px;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 5px;
+        color: rgb(255, 0, 0);
+      }
+    }
+  }
+  thead{
+    th{
+      font-size: 0.7rem;
+    }
+
   }
 }

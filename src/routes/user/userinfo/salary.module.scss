@@ -1,0 +1,157 @@
+.main{
+  margin: 1rem;
+}
+
+.heading{
+display: flex;
+align-items: center;
+height: 3.5rem;
+    #h1 {
+      text-align: center;
+      margin: 0px;
+      width: 90%;
+      
+    }
+    button {
+        color: white;
+        height: 1.7rem;
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 3.5rem;
+        background-color: #374953;
+      }
+}
+
+.info {
+  height: 4rem;
+  background-color: #374953;
+  border-radius: 5px;
+  padding: 5px;
+  .infotacker {
+    align-items: center;
+    height: 3.35rem;
+    display: flex;
+    border-radius: 5px;
+    border: 2px solid white;
+    justify-content: space-between;
+    padding: 10px;
+    font-family: "Roboto mono", monospace;
+    color: #ffffff;
+    font-size: 25px;
+    padding: 3px 10px 3px 10px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+  }
+}
+
+  #tablehead {
+    #tdate,
+    #tstime,
+    #tetime,
+    #twtime {
+      width: 15%;
+      text-align: center;
+    }
+  }
+  .timedetails {
+    table {
+      margin: 0px;
+      border: 0px;
+    }
+
+    tr {
+      border: 1px solid #374953;
+      border-radius: 5px;
+    }
+    #date,
+    #stime,
+    #etime,
+    #wtime {
+      width: 15%;
+      text-align: center;
+    }
+  }
+
+
+  @media (min-width: 800px) and (max-width: 1000px) {
+    .info {
+      // height: 6rem;
+      .infotacker {
+  
+        p {
+          margin: 0px;
+          font-family: "Roboto mono", monospace;
+          font-size: 18px;
+          padding: 3px 10px 3px 10px;
+          align-items: center;
+          justify-content: space-around;
+          border-radius: 5px;
+        }
+      }
+    }
+    thead{
+      th{
+        font-size: 0.7rem;
+      }
+  
+    }
+  }
+
+  @media (min-width: 480px) and (max-width: 800px) {
+    .info {
+      .infotacker {
+        input {
+          width: 10rem;
+          height: 1.4rem;
+        }
+        button {
+          height: 1.4rem;
+          width: 3.5rem;
+        }
+  
+        p {
+          margin: 0px;
+          font-family: "Roboto mono", monospace;
+          font-size: 12px;
+          padding: 3px 10px 3px 10px;
+          align-items: center;
+          justify-content: space-around;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+  @media (min-width: 320px) and (max-width: 480px) {
+    .info {
+      height: 6rem;
+      .infotacker {
+        flex-direction: column;
+        height: 5.2rem;
+        input {
+          width: 7rem;
+          height: 1.4rem;
+        }
+        button {
+          height: 1.4rem;
+          width: 3.5rem;
+        }
+  
+        p {
+          margin: 0px;
+          font-family: "Roboto mono", monospace;
+          font-size: 12px;
+          padding: 3px 10px 3px 10px;
+          align-items: center;
+          justify-content: space-around;
+          border-radius: 5px;
+        }
+      }
+    }
+    thead{
+      th{
+        font-size: 0.7rem;
+      }
+  
+    }
+  }

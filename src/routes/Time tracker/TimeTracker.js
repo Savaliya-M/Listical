@@ -94,7 +94,7 @@ const TimeTracker = () => {
   const startMyInterval = () => {
     let d = new Date(trackRecord.startTime).getTime();
     let intervalID = setInterval(() => {
-      console.log("IN interval");
+      // console.log("IN interval");
       let n = new Date().getTime();
       let h = Math.floor((n - d) / 1000 / 60 / 60);
       let m = Math.floor(((n - d) / 1000 / 60 / 60 - h) * 60);
@@ -149,7 +149,7 @@ const TimeTracker = () => {
 
   return (
     <>
-      <div>
+      <div className={timetack.main}>
 
         <h1 id={timetack.h1}>Time Tracker</h1>
 

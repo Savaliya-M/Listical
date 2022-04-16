@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import appRef from "../../../firebase";
+import empsalary from "./salary.module.scss"
 
 const Salary = ({ closeSalary, id, usalary }) => {
   const [trackerInfo, setTrackerInfo] = useState({});
@@ -51,33 +52,59 @@ const Salary = ({ closeSalary, id, usalary }) => {
 
   return (
     <>
-      <div>
-        <button onClick={closeSalary}>Close</button>
-        <h1>Salary Page</h1>
-        <div>
-          <p>Total Working Hours :{gettime(salary)}</p>
+      <div className={empsalary.main}>
+        <div className={empsalary.heading}>
+          <button id={empsalary.close} onClick={closeSalary}>Close</button>
+          <h1 id={empsalary.h1}>Salary Page</h1>
         </div>
-        <div>
-          <p>Total Salary :{getSalary(salary)}</p>
+        <div className={empsalary.info}>
+          <div className={empsalary.infotacker}>
+            <div>
+              <p>Total Working Hours :{gettime(salary)}</p>
+            </div>
+            <div>
+              <p>Total Salary :{getSalary(salary)}</p>
+            </div>
+          </div>
         </div>
-        <div>
-          <p>
-            ************************************************************************************************
-          </p>
-          {Object.keys(trackerInfo).map((id) => {
-            return (
-              <div key={id}>
-                <div>
-                  <p>{trackerInfo[id].tag}</p>
-                  <p>{getDate(trackerInfo[id].startTime)}</p>
-                  <p>{convertDate(trackerInfo[id].startTime)}</p>
-                  <p>{convertDate(trackerInfo[id].endTime)}</p>
-                  <p>{gettime(trackerInfo[id].workingTime)}</p>
-                </div>
+
+        <table id={empsalary.tablehead}>
+          <thead id={empsalary.tablehead}>
+            <th id={empsalary.ttitle}>Title</th>
+            <th id={empsalary.tdate}>Date</th>
+            <th id={empsalary.tstime}>Start Time</th>
+            <th id={empsalary.tetime}>End Time</th>
+            <th id={empsalary.twtime}>Title</th>
+          </thead>
+        </table>
+
+        {Object.keys(trackerInfo).map((id) => {
+          return (
+            <div key={id}>
+              <div className={empsalary.timedetails}>
+                <table>
+                  <tr>
+                    <td id={empsalary.title}>
+                      <div>{trackerInfo[id].tag}</div>
+                    </td>
+                    <td id={empsalary.date}>
+                      <div>{getDate(trackerInfo[id].startTime)}</div>
+                    </td>
+                    <td id={empsalary.stime}>
+                      <div>{convertDate(trackerInfo[id].startTime)}</div>
+                    </td>
+                    <td id={empsalary.etime}>
+                      <div>{convertDate(trackerInfo[id].endTime)}</div>
+                    </td>
+                    <td id={empsalary.wtime}>
+                      <div>{gettime(trackerInfo[id].workingTime)}</div>
+                    </td>
+                  </tr>
+                </table>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
     </>
   );
