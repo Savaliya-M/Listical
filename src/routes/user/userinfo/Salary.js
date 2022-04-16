@@ -1,18 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import appRef from "../../../firebase";
 import empsalary from "./salary.module.scss"
 
 const Salary = ({ closeSalary, id, usalary }) => {
-  const [trackerInfo, setTrackerInfo] = useState({});
-  const [user, setUser] = useState({});
+  const [trackerInfo, setTrackerInfo] = useState([]);
+  // const [user, setUser] = useState({});
   const [salary, setSalary] = useState(0);
   // const { id } = useParams();
 
   // ************************************************************************************************************************************
   useEffect(() => {
     appRef.child(`TimeTracker/${id}`).on("value", (snap) => {
-      setTrackerInfo(snap.val());
+      let temptrackinfo = [];
+      let tempmonthtrackinfo = [];
+      let data = snap.val();
+      Object.keys(data).map((id) => {
+        if (new Date(data[id].startTime).getMonth() === new Date().getMonth()) {
+          temptrackinfo.push(data[id]);
+        }
+      });
+
+      // Object.keys(data).map((id) => {
+      //   if (new Date(data[id].startTime).getMonth() === new Date().getMonth()) {
+      //     temptrackinfo.push(data[id]);
+      //   }
+      // });
+
+      console.log(new Date().getMonth());
+      setTrackerInfo(temptrackinfo);
     });
   }, [id]);
 
@@ -44,7 +60,6 @@ const Salary = ({ closeSalary, id, usalary }) => {
   };
 
   const getSalary = (TotalTime) => {
-    // return TotalTime * usalary;
     return Math.trunc((TotalTime * usalary) / 60 / 60 / 1000);
   };
 

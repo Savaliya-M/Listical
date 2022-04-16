@@ -20,6 +20,7 @@ const Signup = () => {
     preworkduration: "",
     otherdetail: "",
     skill: [],
+    salary: 0,
     position: "",
     pass: "",
     langknown: { English: "", Hindi: "", Gujarati: "" },
@@ -106,9 +107,7 @@ const Signup = () => {
             <form action="#">
               <h3> Personal Detail</h3>
               <div className={signup.name}>
-                <div className={signup.tag}>
-                  Full name
-                </div>
+                <div className={signup.tag}>Full name</div>
 
                 <div id={signup.inputbox}>
                   <input
@@ -122,9 +121,7 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.email}>
-                <div className={signup.tag}>
-                  Mail-id
-                </div>
+                <div className={signup.tag}>Mail-id</div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -137,9 +134,7 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.mobile}>
-                <div className={signup.tag}>
-                  Mobile No.
-                </div>
+                <div className={signup.tag}>Mobile No.</div>
 
                 <div id={signup.inputbox}>
                   <input
@@ -153,9 +148,7 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.address}>
-                <div className={signup.tag}>
-                  Address
-                </div>
+                <div className={signup.tag}>Address</div>
 
                 <div id={signup.inputbox}>
                   <textarea
@@ -170,9 +163,7 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.dob}>
-                <div className={signup.tag}>
-                  DOB
-                </div>
+                <div className={signup.tag}>DOB</div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -184,9 +175,7 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.gender}>
-                <div className={signup.tag}>
-                  Gender
-                </div>
+                <div className={signup.tag}>Gender</div>
                 <div id={signup.inputredio}>
                   <input
                     type="radio"
@@ -215,9 +204,7 @@ const Signup = () => {
               <h3>Qualification & Skill</h3>
 
               <div className={signup.degree}>
-                <div className={signup.tag}>
-                  Degree
-                </div>
+                <div className={signup.tag}>Degree</div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -230,9 +217,7 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.collage}>
-                <div className={signup.tag}>
-                  College Name
-                </div>
+                <div className={signup.tag}>College Name</div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -245,9 +230,7 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.langbox}>
-                <div className={signup.tag}>
-                  Language Known
-                </div>
+                <div className={signup.tag}>Language Known</div>
                 <div id={signup.inputbox}>
                   <input
                     type="checkbox"
@@ -273,9 +256,7 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.skill}>
-                <div className={signup.tag}>
-                  Skill
-                </div>
+                <div className={signup.tag}>Skill</div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -292,9 +273,7 @@ const Signup = () => {
               </div>
               <h3>Work Experience</h3>
               <div className={signup.post}>
-                <div className={signup.tag}>
-                  Post
-                </div>
+                <div className={signup.tag}>Post</div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -307,9 +286,7 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.company}>
-                <div className={signup.tag}>
-                  Company Name
-                </div>
+                <div className={signup.tag}>Company Name</div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -322,9 +299,7 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.duration}>
-                <div className={signup.tag}>
-                  Work Duration
-                </div>
+                <div className={signup.tag}>Work Duration</div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -337,9 +312,7 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.other}>
-                <div className={signup.tag}>
-                  Other detail
-                </div>
+                <div className={signup.tag}>Other detail</div>
                 <div id={signup.inputbox}>
                   <textarea
                     id={signup.text}
@@ -354,9 +327,7 @@ const Signup = () => {
               </div>
               <h3>Complete Your Profile</h3>
               <div className={signup.role}>
-                <div className={signup.tag}>
-                  Role
-                </div>
+                <div className={signup.tag}>Role</div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -369,9 +340,7 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.position}>
-                <div className={signup.tag}>
-                  Position
-                </div>
+                <div className={signup.tag}>Position</div>
                 <div id={signup.inputbox}>
                   <input
                     type="radio"
@@ -397,9 +366,7 @@ const Signup = () => {
                 </div>
               </div>
               <div className={signup.password}>
-                <div className={signup.tag}>
-                  Password
-                </div>
+                <div className={signup.tag}>Password</div>
                 <div id={signup.inputbox}>
                   <input
                     id={signup.text}
@@ -424,7 +391,6 @@ const Signup = () => {
               <h2>Listical</h2>
             </div>
             <div>
-
               <h1>Welcome Back!</h1>
               <div className={signup.login}>
                 <Link

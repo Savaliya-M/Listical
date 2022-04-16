@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import adminapprov from "./adminapproval.module.scss";
 import Addmanager from "./Addmanager";
+import AddmanagerSalary from "./AddmanagerSalary";
 import appRef from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 const Adminapproval = () => {
   const [addmanagerpopup, setAddmanagerpopup] = useState(false);
+  const [addmanagersalarypopup, setAddmanagersalarypopup] = useState(false);
   const [usersData, setUsersData] = useState({});
   const [requestedUser, setRequestedUser] = useState({});
   const [managerdata, setManagerdata] = useState();
@@ -21,8 +23,6 @@ const Adminapproval = () => {
     appRef.child("Users").on("value", (snap) => {
       setUsersData(snap.val());
     });
-
-    
 
     appRef.child(`leave/ManagerLeave`).on("value", (snap) => {
       setLeaveApproval(snap.val());
@@ -54,25 +54,30 @@ const Adminapproval = () => {
     setRequestedUser(id);
   };
 
+  const handleopenmanager = (id) => {
+    setAddmanagersalarypopup(!addmanagersalarypopup);
+    setRequestedUser(id);
+  };
+
   const handleclose = () => {
     setAddmanagerpopup(!addmanagerpopup);
   };
 
-  const managerAllow = async (id) => {
-    await appRef.child(`Users/${id}`).on("value", (snap) => {
-      const tempmanagerdata = snap.val();
-      if (tempmanagerdata) {
-        tempmanagerdata.activate = true;
-        setManagerdata(tempmanagerdata);
-        allowman(tempmanagerdata, id);
-      }
-    });
-  };
-  const allowman = (data, id) => {
-    appRef.child(`Users/${id}`).set(data, () => {
-      console.log("DONE");
-    });
-  };
+  // const managerAllow = async (id) => {
+  //   await appRef.child(`Users/${id}`).on("value", (snap) => {
+  //     const tempmanagerdata = snap.val();
+  //     if (tempmanagerdata) {
+  //       tempmanagerdata.activate = true;
+  //       setManagerdata(tempmanagerdata);
+  //       allowman(tempmanagerdata, id);
+  //     }
+  //   });
+  // };
+  // const allowman = (data, id) => {
+  //   appRef.child(`Users/${id}`).set(data, () => {
+  //     console.log("DONE");
+  //   });
+  // };
 
   const approveLeaveClick = (lid, uid) => {
     let tempApproveLeave = {};
@@ -132,31 +137,51 @@ const Adminapproval = () => {
       ) : (
         ""
       )}
+      {addmanagersalarypopup ? (
+        <AddmanagerSalary
+          handleclose={() => setAddmanagersalarypopup(!addmanagersalarypopup)}
+          user={requestedUser}
+          list={dropDownManager}
+        />
+      ) : (
+        ""
+      )}
       <div className={adminapprov.mainbox}>
         {/* <h1>Users Approvals</h1> */}
         <div className={adminapprov.innerbox}>
           {Object.keys(usersData).map((index) => {
-            if (usersData[index].activate === false) {
+            if (
+              (usersData[index].activate === false &&
+                usersData[index].position === "Manager" &&
+                usersData[index].salary === 0) ||
+              (!usersData[index].managerid &&
+                usersData[index].position === "Employee" &&
+                usersData[index].activate === false)
+            ) {
               return (
                 <div key={index} className={adminapprov.empdetail}>
                   <h2>Users Approvals</h2>
                   <div className={adminapprov.manbtn}>
-                    <img src={require("@photos/man.png")} />
+                    <img src={require("@photos/man.png")} alt="Man" />
                     <div className={adminapprov.aprobtn}>
                       {usersData[index].position === "Employee" ? (
                         <button onClick={() => handleopen(index)}>Allow</button>
                       ) : (
-                        <button onClick={() => managerAllow(index)}>
+                        // <button onClick={() => managerAllow(index)}>
+                        <button onClick={() => handleopenmanager(index)}>
                           Allow
                         </button>
                       )}
                     </div>
                   </div>
 
-                  <div className={adminapprov.details} onClick={() => navigate(`/layout/user/info/${index}`)}>
+                  <div
+                    className={adminapprov.details}
+                    onClick={() => navigate(`/layout/user/info/${index}`)}
+                  >
                     <h2>{usersData[index].name}</h2>
                     <h5>{usersData[index].mono}</h5>
-                    <p>{usersData[index].name}</p>
+                    <p>{usersData[index].role}</p>
                   </div>
                 </div>
               );
@@ -170,59 +195,67 @@ const Adminapproval = () => {
               <div className={adminapprov.leavetitle}>
                 <h2>Leave Approval</h2>
               </div>
-             
-                {leaveApproval
-                  ? Object.keys(leaveApproval).map((uid) => {
+
+              {leaveApproval
+                ? Object.keys(leaveApproval).map((uid) => {
                     if (leaveApproval[uid]) {
                       return Object.keys(leaveApproval[uid]).map((lid) => {
                         if (
                           leaveApproval[uid][lid].allow === false &&
-                          new Date(leaveApproval[uid][lid].leaveEndD) > new Date()
+                          new Date(leaveApproval[uid][lid].leaveEndD) >
+                            new Date()
                         ) {
                           return (
                             <div className={adminapprov.leaves}>
-                            <div key={uuidv4()}>
-                              <h3>{leaveApproval[uid][lid].uname}</h3>
-                              <div className={adminapprov.leaveinfo}>
-                                <div id={adminapprov.leavetitle}>
-                                  <h4>{leaveApproval[uid][lid].leaveTitle}</h4>
-                                </div>
-                                <div id={adminapprov.leaveday}>
-                                  {leaveApproval[uid][lid].dayType}
-                                </div>
-                              </div>
-                              <p>
-                                <div className={adminapprov.date}>
-                                  <div className={adminapprov.date1}>
-                                    <h4>From</h4>{leaveApproval[uid][lid].leaveStartD}
+                              <div key={uuidv4()}>
+                                <h3>{leaveApproval[uid][lid].uname}</h3>
+                                <div className={adminapprov.leaveinfo}>
+                                  <div id={adminapprov.leavetitle}>
+                                    <h4>
+                                      {leaveApproval[uid][lid].leaveTitle}
+                                    </h4>
                                   </div>
-                                  <div className={adminapprov.date2}>
-                                    <h4>To</h4>{" "}
-                                    {leaveApproval[uid][lid].leaveEndD}
+                                  <div id={adminapprov.leaveday}>
+                                    {leaveApproval[uid][lid].dayType}
                                   </div>
                                 </div>
-                              </p>
-                              <div>
-                              <h4>Reason</h4> {leaveApproval[uid][lid].reason}
+                                <p>
+                                  <div className={adminapprov.date}>
+                                    <div className={adminapprov.date1}>
+                                      <h4>From</h4>
+                                      {leaveApproval[uid][lid].leaveStartD}
+                                    </div>
+                                    <div className={adminapprov.date2}>
+                                      <h4>To</h4>{" "}
+                                      {leaveApproval[uid][lid].leaveEndD}
+                                    </div>
+                                  </div>
+                                </p>
+                                <div>
+                                  <h4>Reason</h4>{" "}
+                                  {leaveApproval[uid][lid].reason}
+                                </div>
+                                <button
+                                  id={adminapprov.resulttrue}
+                                  onClick={() => approveLeaveClick(lid, uid)}
+                                >
+                                  ✔ Approve
+                                </button>
+                                <button
+                                  id={adminapprov.resultfalse}
+                                  onClick={() => rejectedLeaveClick(lid, uid)}
+                                >
+                                  &#x2718; Reject
+                                </button>
                               </div>
-                              <button id={adminapprov.resulttrue}
-                                onClick={() => approveLeaveClick(lid, uid)}>
-                                ✔ Approve
-                              </button>
-                              <button id={adminapprov.resultfalse}
-                                onClick={() => rejectedLeaveClick(lid, uid)}>
-                                &#x2718; Reject
-                              </button>
-                            </div>
                             </div>
                           );
                         }
                       });
                     }
                   })
-                  : ""}
-              </div>
-           
+                : ""}
+            </div>
 
             <div className={adminapprov.expencesbox}>
               <div className={adminapprov.expenceitle}>
@@ -231,31 +264,41 @@ const Adminapproval = () => {
               <div className={adminapprov.expences}>
                 {expenceApproval
                   ? Object.keys(expenceApproval).map((uid) => {
-                    if (expenceApproval[uid]) {
-                      return Object.keys(expenceApproval[uid]).map((eid) => {
-                        if (expenceApproval[uid][eid].allow === false) {
-                          return (
-                            <div key={uuidv4()}>
-                              <h3>{expenceApproval[uid][eid].uname}</h3>
-                              <h4>{expenceApproval[uid][eid].expenceTitle}</h4>
-                              <p><h4>Ammount </h4>{expenceApproval[uid][eid].ammount}</p>
-                              <div>
-                              <h4>Description</h4>{expenceApproval[uid][eid].description}
+                      if (expenceApproval[uid]) {
+                        return Object.keys(expenceApproval[uid]).map((eid) => {
+                          if (expenceApproval[uid][eid].allow === false) {
+                            return (
+                              <div key={uuidv4()}>
+                                <h3>{expenceApproval[uid][eid].uname}</h3>
+                                <h4>
+                                  {expenceApproval[uid][eid].expenceTitle}
+                                </h4>
+                                <p>
+                                  <h4>Ammount </h4>
+                                  {expenceApproval[uid][eid].ammount}
+                                </p>
+                                <div>
+                                  <h4>Description</h4>
+                                  {expenceApproval[uid][eid].description}
+                                </div>
+                                <button
+                                  id={adminapprov.resulttrue}
+                                  onClick={() => approveExpenceClick(eid, uid)}
+                                >
+                                  ✔ Approve
+                                </button>
+                                <button
+                                  id={adminapprov.resultfalse}
+                                  onClick={() => rejectedExpenceClick(eid, uid)}
+                                >
+                                  &#x2718; Reject
+                                </button>
                               </div>
-                              <button id={adminapprov.resulttrue}
-                                onClick={() => approveExpenceClick(eid, uid)}>
-                                ✔ Approve
-                              </button>
-                              <button id={adminapprov.resultfalse}
-                                onClick={() => rejectedExpenceClick(eid, uid)}>
-                                &#x2718; Reject
-                              </button>
-                            </div>
-                          );
-                        }
-                      });
-                    }
-                  })
+                            );
+                          }
+                        });
+                      }
+                    })
                   : ""}
               </div>
             </div>
