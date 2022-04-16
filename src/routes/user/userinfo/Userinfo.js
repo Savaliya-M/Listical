@@ -152,7 +152,12 @@ const Userinfo = () => {
                           {/* <Link exact to={`/layout/user/salary/${user.uuid}`}>
                             Salary
                           </Link> */}
-                          <button className={useinfo.cardbtn} onClick={openSalary}><b>Salary</b> </button>
+                          <button
+                            className={useinfo.cardbtn}
+                            onClick={openSalary}
+                          >
+                            <b>Salary</b>{" "}
+                          </button>
                         </div>
                       ) : (
                         <></>

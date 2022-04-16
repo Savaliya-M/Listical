@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import appRef from "../../firebase";
 import { v4 as uuidv4 } from "uuid";
-import timetack from "./timetracker.module.scss"
+import timetack from "./timetracker.module.scss";
 
 const TimeTracker = () => {
   const [trackRecord, setTrackRecord] = useState({
@@ -12,7 +12,7 @@ const TimeTracker = () => {
     flag: false,
     workingTime: "",
   });
-  const [oldData, setOldData] = useState({});
+  const [oldData, setOldData] = useState([]);
   let uid = localStorage.getItem("uuid");
   const [temptrackRecord, setTemptrackRecord] = useState({});
   const [startEndBtn, setstartEndBtn] = useState(false);
@@ -68,7 +68,17 @@ const TimeTracker = () => {
     let flag = true;
     if (flag) {
       appRef.child(`TimeTracker/${uid}`).on("value", (snap) => {
-        setOldData(snap.val());
+        let tempolddata = [];
+        let data = snap.val();
+        Object.keys(data).map((id) => {
+          if (
+            new Date(data[id].startTime).getMonth() === new Date().getMonth()
+          ) {
+            tempolddata.push(data[id]);
+          }
+        });
+        setOldData(tempolddata);
+        // console.log(tempolddata);
         flag = false;
       });
     }
@@ -150,7 +160,6 @@ const TimeTracker = () => {
   return (
     <>
       <div>
-
         <h1 id={timetack.h1}>Time Tracker</h1>
 
         <div className={timetack.info}>
@@ -165,19 +174,19 @@ const TimeTracker = () => {
               />
 
               {startEndBtn === false ? (
-                <button id={timetack.start}
-                onClick={recordstartClick}>Start</button>
+                <button id={timetack.start} onClick={recordstartClick}>
+                  Start
+                </button>
               ) : (
-                <button id={timetack.pause}
-                onClick={recordendClick}>Pause</button>
+                <button id={timetack.pause} onClick={recordendClick}>
+                  Pause
+                </button>
               )}
             </div>
 
             {startEndBtn === true ? (
               <div>
-                {/* {timerClock()} */}
                 <p id="timer"></p>
-                {/* Time : {timer.ho} : {timer.mi} : {timer.se} */}
               </div>
             ) : (
               <></>
@@ -188,48 +197,54 @@ const TimeTracker = () => {
         <div>
           <table id={timetack.tablehead}>
             <thead id={timetack.tablehead}>
-              <th id={timetack.ttitle}>Title</th>
-              <th id={timetack.tdate}>Date</th>
-              <th id={timetack.tstime}>Start Time</th>
-              <th id={timetack.tetime}>End Time</th>
-              <th id={timetack.twtime}>Title</th>
+              <tr>
+                <th id={timetack.ttitle}>Title</th>
+                <th id={timetack.tdate}>Date</th>
+                <th id={timetack.tstime}>Start Time</th>
+                <th id={timetack.tetime}>End Time</th>
+                <th id={timetack.twtime}>Title</th>
+              </tr>
             </thead>
           </table>
           {oldData && oldData.length !== 0
             ? // ? console.log(oldData)
-            Object.keys(oldData).map((id) => {
-              return (
-                <div key={id}>
-                  <div className={timetack.timedetails}>
-                    <table>
-                      <tr>
-                        <td id={timetack.title}>
-                          <div>{oldData[id].tag}</div>
-                        </td>
-                        <td id={timetack.date}>
-                          {getDate(oldData[id].startTime)}
-                        </td>
-                        <td id={timetack.stime}>
-                          {getDateTime(oldData[id].startTime)}
-                        </td>
-                        <td id={timetack.etime}>
-                          {oldData[id].endTime && oldData[id].endTime.length !== 0
-                            ? getDateTime(oldData[id].endTime)
-                            : ""}
-                        </td>
-                        <td id={timetack.wtime}>
-                          {oldData[id].workingTime &&
-                            oldData[id].workingTime.length !== 0
-                            ? gettime(oldData[id].workingTime)
-                            : ""}
-                        </td>
-
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-              );
-            })
+              Object.keys(oldData)
+                .reverse()
+                .map((id) => {
+                  return (
+                    <div key={id}>
+                      <div className={timetack.timedetails}>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td id={timetack.title}>
+                                <div>{oldData[id].tag}</div>
+                              </td>
+                              <td id={timetack.date}>
+                                {getDate(oldData[id].startTime)}
+                              </td>
+                              <td id={timetack.stime}>
+                                {getDateTime(oldData[id].startTime)}
+                              </td>
+                              <td id={timetack.etime}>
+                                {oldData[id].endTime &&
+                                oldData[id].endTime.length !== 0
+                                  ? getDateTime(oldData[id].endTime)
+                                  : ""}
+                              </td>
+                              <td id={timetack.wtime}>
+                                {oldData[id].workingTime &&
+                                oldData[id].workingTime.length !== 0
+                                  ? gettime(oldData[id].workingTime)
+                                  : ""}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  );
+                })
             : ""}
         </div>
       </div>
