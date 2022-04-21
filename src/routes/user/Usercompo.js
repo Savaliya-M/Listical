@@ -96,49 +96,15 @@ const Usercompo = () => {
 
   return (
     <>
-      {/* <div className={userscomp.togglebtn}>
-        <button>List</button>
-      </div> */}
-      {/* <button
-        onClick={() => {
-          onClick(optionsWithLabelChange);
-        }}
-      >
-        {" "}
-        Click{" "}
-      </button> */}
       <div className={userscomp.mainusercompo}>
         {localStorage.getItem("Type") === "Manager"
           ? userskey.map((id) => {
               if (users[id].managerid === localStorage.getItem("uuid")) {
                 return (
-                  <div className={userscomp.person} key={id}>
+                  <div className={userscomp.person} key={users[id].uuid}>
                     <div className={userscomp.left}>
                       <img src={require("@photos/man.png")} alt="person" />
-                      <div className={userscomp.userbtn}>
-                        {/* <button
-                          className={userscomp.btn1}
-                          onClick={() => delUser(id)}
-                        >
-                          Del
-                        </button>
-                        {users[id].activate ? (
-                          <button
-                            className={userscomp.btn2}
-                            onClick={() => disableUser(id)}
-                            key={id}
-                          >
-                            Dis
-                          </button>
-                        ) : (
-                          <button
-                            className={userscomp.btn2}
-                            onClick={() => enableUser(id)}
-                          >
-                            Ena
-                          </button>
-                        )} */}
-                      </div>
+                      <div className={userscomp.userbtn}></div>
                     </div>
                     <div
                       className={userscomp.right}
@@ -150,11 +116,6 @@ const Usercompo = () => {
                       <h5>{users[id].mono}</h5>
                       <p>{users[id].role}</p>
                     </div>
-                    {/* <div>
-                      <button onClick={() => navigate(`chat/${id}/${sid}`)}>
-                        Chat
-                      </button>
-                    </div> */}
                   </div>
                 );
               } else {

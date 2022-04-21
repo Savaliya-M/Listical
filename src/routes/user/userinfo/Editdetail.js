@@ -107,7 +107,6 @@ const Editdetail = () => {
 
   return (
     <>
-
       <div className={edit.editpage}>
         <div className={edit.title}>
           <h1>Setting Profile</h1>
@@ -123,27 +122,28 @@ const Editdetail = () => {
                       <h2>{user.name}</h2>
                     </div>
                     <div className={edit.cardlogo}>
-                      <h4><img src={require("@photos/email.png")} alt="skill" />
-                        {user.email}</h4>
+                      <h4>
+                        <img src={require("@photos/email.png")} alt="skill" />
+                        {user.email}
+                      </h4>
                     </div>
                     <div className={edit.cardlogo}>
-                      <h4><img src={require("@photos/call.png")} alt="skill" />
-                        +91 {user.mono}</h4>
+                      <h4>
+                        <img src={require("@photos/call.png")} alt="skill" />
+                        +91 {user.mono}
+                      </h4>
                     </div>
                   </div>
                 </div>
               </div>
               {/* <h1>Profile Setting</h1> */}
 
-
               <div className={edit.formpart1}>
                 <div className={edit.detalis}>
                   <div className={edit.personal}>
                     <h3 id={edit.sticky}> Personal Detail </h3>
                     <div className={edit.name}>
-                      <div className={edit.tag}>
-                        Full name
-                      </div>
+                      <div className={edit.tag}>Full name</div>
                       <div id={edit.inputbox}>
                         <input
                           id={edit.text}
@@ -156,9 +156,7 @@ const Editdetail = () => {
                       </div>
                     </div>
                     <div className={edit.email}>
-                      <div className={edit.tag}>
-                        Mail-id
-                      </div>
+                      <div className={edit.tag}>Mail-id</div>
                       <div id={edit.inputbox}>
                         <input
                           id={edit.text}
@@ -171,9 +169,7 @@ const Editdetail = () => {
                       </div>
                     </div>
                     <div className={edit.mobile}>
-                      <div className={edit.tag}>
-                        Mobile No.
-                      </div>
+                      <div className={edit.tag}>Mobile No.</div>
                       <div id={edit.inputbox}>
                         <input
                           id={edit.text}
@@ -186,9 +182,7 @@ const Editdetail = () => {
                       </div>
                     </div>
                     <div className={edit.address}>
-                      <div className={edit.tag}>
-                        Address
-                      </div>
+                      <div className={edit.tag}>Address</div>
                       <div id={edit.inputbox}>
                         <textarea
                           id={edit.areaoftext}
@@ -202,9 +196,7 @@ const Editdetail = () => {
                       </div>
                     </div>
                     <div className={edit.dob}>
-                      <div className={edit.tag}>
-                        DOB
-                      </div>
+                      <div className={edit.tag}>DOB</div>
                       <div id={edit.inputbox}>
                         <input
                           id={edit.text}
@@ -216,9 +208,7 @@ const Editdetail = () => {
                       </div>
                     </div>
                     <div className={edit.gender}>
-                      <div className={edit.tag}>
-                        Gender
-                      </div>
+                      <div className={edit.tag}>Gender</div>
                       <div id={edit.inputbox}>
                         <input
                           type="radio"
@@ -251,9 +241,7 @@ const Editdetail = () => {
                   <div className={edit.qualification}>
                     <h3>Qualification & Skill</h3>
                     <div className={edit.degree}>
-                      <div className={edit.tag}>
-                        Degree
-                      </div>
+                      <div className={edit.tag}>Degree</div>
                       <div id={edit.inputbox}>
                         <input
                           id={edit.text}
@@ -266,9 +254,7 @@ const Editdetail = () => {
                       </div>
                     </div>
                     <div className={edit.collage}>
-                      <div className={edit.tag}>
-                        College Name
-                      </div>
+                      <div className={edit.tag}>College Name</div>
                       <div id={edit.inputbox}>
                         <input
                           id={edit.text}
@@ -281,9 +267,7 @@ const Editdetail = () => {
                       </div>
                     </div>
                     <div className={edit.langbox}>
-                      <div className={edit.tag}>
-                        Language Known
-                      </div>
+                      <div className={edit.tag}>Language Known</div>
                       <div id={edit.inputbox}>
                         <input
                           type="checkbox"
@@ -299,7 +283,9 @@ const Editdetail = () => {
                           type="checkbox"
                           value="Hindi"
                           name="Hindi"
-                          checked={user.langknown.Hindi === "Hindi" ? true : false}
+                          checked={
+                            user.langknown.Hindi === "Hindi" ? true : false
+                          }
                           onChange={getuser}
                         />{" "}
                         Hindi
@@ -308,7 +294,9 @@ const Editdetail = () => {
                           value="Gujarati"
                           name="Gujarati"
                           checked={
-                            user.langknown.Gujarati === "Gujarati" ? true : false
+                            user.langknown.Gujarati === "Gujarati"
+                              ? true
+                              : false
                           }
                           onChange={getuser}
                         />{" "}
@@ -316,9 +304,7 @@ const Editdetail = () => {
                       </div>
                     </div>
                     <div className={edit.skill}>
-                      <div className={edit.tag}>
-                        Skill
-                      </div>
+                      <div className={edit.tag}>Skill</div>
                       <div id={edit.inputbox}>
                         <input
                           id={edit.skilltext}
@@ -327,26 +313,23 @@ const Editdetail = () => {
                           name="skill"
                           onChange={skillchange}
                         />
-                        <button id={edit.skillbutton}
-                          onClick={skillplus}>+</button>
+                        <button id={edit.skillbutton} onClick={skillplus}>
+                          +
+                        </button>
                       </div>
 
                       <div className={edit.skillname}>
                         {user.skill.map((name) => (
-                          <p key={name}>
-                            <div>{name}</div></p>
+                          <p key={name}>{name}</p>
                         ))}
                       </div>
-
                     </div>
                   </div>
 
                   <div className={edit.Work}>
                     <h3>Work Experience</h3>
                     <div className={edit.post}>
-                      <div className={edit.tag}>
-                        Post
-                      </div>
+                      <div className={edit.tag}>Post</div>
                       <div id={edit.inputbox}>
                         <input
                           id={edit.text}
@@ -359,9 +342,7 @@ const Editdetail = () => {
                       </div>
                     </div>
                     <div className={edit.company}>
-                      <div className={edit.tag}>
-                        Company Name
-                      </div>
+                      <div className={edit.tag}>Company Name</div>
                       <div id={edit.inputbox}>
                         <input
                           id={edit.text}
@@ -374,9 +355,7 @@ const Editdetail = () => {
                       </div>
                     </div>
                     <div className={edit.duration}>
-                      <div className={edit.tag}>
-                        Work Duration
-                      </div>
+                      <div className={edit.tag}>Work Duration</div>
                       <div id={edit.inputbox}>
                         <input
                           id={edit.text}
@@ -389,9 +368,7 @@ const Editdetail = () => {
                       </div>
                     </div>
                     <div className={edit.other}>
-                      <div className={edit.tag}>
-                        Other detail
-                      </div>
+                      <div className={edit.tag}>Other detail</div>
                       <div id={edit.inputbox}>
                         <textarea
                           id={edit.areaoftext}
@@ -413,9 +390,7 @@ const Editdetail = () => {
                   <div className={edit.Profile}>
                     <h3>Complete Your Profile</h3>
                     <div className={edit.role}>
-                      <div className={edit.tag}>
-                        Role
-                      </div>
+                      <div className={edit.tag}>Role</div>
                       <div id={edit.inputbox}>
                         <input
                           id={edit.text}
@@ -428,9 +403,7 @@ const Editdetail = () => {
                       </div>
                     </div>
                     <div className={edit.position}>
-                      <div className={edit.tag}>
-                        Position
-                      </div>
+                      <div className={edit.tag}>Position</div>
                       <div id={edit.inputredio}>
                         <input
                           id={edit.rediobtn}
@@ -462,9 +435,7 @@ const Editdetail = () => {
                       </div>
                     </div>
                     <div className={edit.password}>
-                      <div className={edit.tag}>
-                        Password
-                      </div>
+                      <div className={edit.tag}>Password</div>
                       <div id={edit.inputbox}>
                         <input
                           id={edit.text}
@@ -484,9 +455,6 @@ const Editdetail = () => {
                   <input type="reset" value="Reset" />
                 </div>
               </div>
-
-
-
             </div>
           </form>
         </div>

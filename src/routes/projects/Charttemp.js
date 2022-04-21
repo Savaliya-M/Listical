@@ -5,7 +5,6 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 ChartJS.register(ArcElement, Tooltip, Legend);
 const Charttemp = ({ project }) => {
   const [chartData1, setChartData1] = useState("");
-  // console.log(tasklist);
   useEffect(() => {
     let tempCompleted = [];
     let tempProgress = [];
@@ -13,25 +12,19 @@ const Charttemp = ({ project }) => {
     if (project.TaskList && project.TaskList.length !== 0) {
       tempCompleted = Object.values(project.TaskList).filter((tid) => {
         if (tid.status === "Complete") {
-          console.log("tid", tid.status);
           return true;
         }
       });
       tempProgress = Object.values(project.TaskList).filter((tid) => {
         if (tid.status === true) {
-          console.log("tid", tid.status);
           return true;
         }
       });
       tempPanding = Object.values(project.TaskList).filter((tid) => {
         if (tid.status === false) {
-          console.log("tid", tid.status);
           return true;
         }
       });
-      console.log(tempCompleted);
-      console.log(tempPanding);
-      console.log(tempProgress);
     }
     if (project.TaskList && project.TaskList.length !== 0) {
       const pieData1 = {
@@ -63,7 +56,6 @@ const Charttemp = ({ project }) => {
         ],
       };
       setChartData1(pieData1);
-      // console.log("fffff");
     }
   }, [project]);
   return <div>{chartData1 !== "" ? <Doughnut data={chartData1} /> : null}</div>;

@@ -219,18 +219,18 @@ const Adminapproval = () => {
                                     {leaveApproval[uid][lid].dayType}
                                   </div>
                                 </div>
-                                <p>
-                                  <div className={adminapprov.date}>
-                                    <div className={adminapprov.date1}>
-                                      <h4>From</h4>
-                                      {leaveApproval[uid][lid].leaveStartD}
-                                    </div>
-                                    <div className={adminapprov.date2}>
-                                      <h4>To</h4>{" "}
-                                      {leaveApproval[uid][lid].leaveEndD}
-                                    </div>
+                                {/* <p> */}
+                                <div className={adminapprov.date}>
+                                  <div className={adminapprov.date1}>
+                                    <h4>From</h4>
+                                    {leaveApproval[uid][lid].leaveStartD}
                                   </div>
-                                </p>
+                                  <div className={adminapprov.date2}>
+                                    <h4>To</h4>{" "}
+                                    {leaveApproval[uid][lid].leaveEndD}
+                                  </div>
+                                </div>
+                                {/* </p> */}
                                 <div>
                                   <h4>Reason</h4>{" "}
                                   {leaveApproval[uid][lid].reason}
@@ -262,44 +262,46 @@ const Adminapproval = () => {
                 <h2>Expence Approval</h2>
               </div>
               <div className={adminapprov.expences}>
-                {expenceApproval
-                  ? Object.keys(expenceApproval).map((uid) => {
-                      if (expenceApproval[uid]) {
-                        return Object.keys(expenceApproval[uid]).map((eid) => {
-                          if (expenceApproval[uid][eid].allow === false) {
-                            return (
-                              <div key={uuidv4()}>
-                                <h3>{expenceApproval[uid][eid].uname}</h3>
-                                <h4>
-                                  {expenceApproval[uid][eid].expenceTitle}
-                                </h4>
-                                <p>
-                                  <h4>Ammount </h4>
-                                  {expenceApproval[uid][eid].ammount}
-                                </p>
-                                <div>
-                                  <h4>Description</h4>
-                                  {expenceApproval[uid][eid].description}
-                                </div>
-                                <button
-                                  id={adminapprov.resulttrue}
-                                  onClick={() => approveExpenceClick(eid, uid)}
-                                >
-                                  ✔ Approve
-                                </button>
-                                <button
-                                  id={adminapprov.resultfalse}
-                                  onClick={() => rejectedExpenceClick(eid, uid)}
-                                >
-                                  &#x2718; Reject
-                                </button>
+                {expenceApproval ? (
+                  Object.keys(expenceApproval).map((uid) => {
+                    if (expenceApproval[uid]) {
+                      return Object.keys(expenceApproval[uid]).map((eid) => {
+                        if (expenceApproval[uid][eid].allow === false) {
+                          return (
+                            <div key={uuidv4()}>
+                              <h3>{expenceApproval[uid][eid].uname}</h3>
+                              <h4>{expenceApproval[uid][eid].expenceTitle}</h4>
+                              {/* <p> */}
+                              <h4>Amount </h4>
+                              {/* <p> */}
+                              {expenceApproval[uid][eid].ammount}
+                              {/* </p> */}
+                              {/* </p> */}
+                              <div>
+                                <h4>Description</h4>
+                                {expenceApproval[uid][eid].description}
                               </div>
-                            );
-                          }
-                        });
-                      }
-                    })
-                  : ""}
+                              <button
+                                id={adminapprov.resulttrue}
+                                onClick={() => approveExpenceClick(eid, uid)}
+                              >
+                                ✔ Approve
+                              </button>
+                              <button
+                                id={adminapprov.resultfalse}
+                                onClick={() => rejectedExpenceClick(eid, uid)}
+                              >
+                                &#x2718; Reject
+                              </button>
+                            </div>
+                          );
+                        }
+                      });
+                    }
+                  })
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
           </div>

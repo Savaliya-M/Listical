@@ -11,7 +11,6 @@ const Addholiday = ({ handleclose }) => {
   const sendholiday = (e) => {
     setHoliday({ ...holiday, [e.target.name]: e.target.value });
   };
-  console.log(holiday);
 
   const storeholiday = (e) => {
     e.preventDefault();

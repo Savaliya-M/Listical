@@ -75,16 +75,18 @@ const Employeeapproval = ({ name, role }) => {
     });
 
     appRef.child(`leave/EmployeeLeave/${uid}`).on("value", (snap) => {
-      Object.keys(snap.val()).map((id) => {
-        const d = new Date();
-        let tempExpiryDate = new Date(snap.val()[id].rejectedDate);
-        let templeaveEndD = new Date(snap.val()[id].leaveEndD);
-        tempExpiryDate.setDate(tempExpiryDate.getDate() + 7);
-        templeaveEndD.setDate(templeaveEndD.getDate() + 7);
-        if (templeaveEndD < d || tempExpiryDate < d) {
-          appRef.child(`leave/EmployeeLeave/${uid}/${id}`).remove();
-        }
-      });
+      if (snap.val() && snap.val().length !== 0) {
+        Object.keys(snap.val()).map((id) => {
+          const d = new Date();
+          let tempExpiryDate = new Date(snap.val()[id].rejectedDate);
+          let templeaveEndD = new Date(snap.val()[id].leaveEndD);
+          tempExpiryDate.setDate(tempExpiryDate.getDate() + 7);
+          templeaveEndD.setDate(templeaveEndD.getDate() + 7);
+          if (templeaveEndD < d || tempExpiryDate < d) {
+            appRef.child(`leave/EmployeeLeave/${uid}/${id}`).remove();
+          }
+        });
+      }
     });
 
     appRef.child(`Expence/EmployeeExpence/${uid}`).on("value", (snap) => {
@@ -92,14 +94,16 @@ const Employeeapproval = ({ name, role }) => {
     });
 
     appRef.child(`Expence/EmployeeExpence/${uid}`).on("value", (snap) => {
-      Object.keys(snap.val()).map((id) => {
-        const d = new Date();
-        let tempExpiryDate = new Date(snap.val()[id].rejectedDate);
-        tempExpiryDate.setDate(tempExpiryDate.getDate() + 7);
-        if (d > tempExpiryDate) {
-          appRef.child(`Expence/EmployeeExpence/${uid}/${id}`).remove();
-        }
-      });
+      if (snap.val() && snap.val().length !== 0) {
+        Object.keys(snap.val()).map((id) => {
+          const d = new Date();
+          let tempExpiryDate = new Date(snap.val()[id].rejectedDate);
+          tempExpiryDate.setDate(tempExpiryDate.getDate() + 7);
+          if (d > tempExpiryDate) {
+            appRef.child(`Expence/EmployeeExpence/${uid}/${id}`).remove();
+          }
+        });
+      }
     });
   }, [uid]);
 
@@ -305,7 +309,6 @@ const Employeeapproval = ({ name, role }) => {
           <></>
         )}
 
-
         <div className={empapprov.managerbox}>
           <div className={empapprov.leavesbox}>
             <div className={empapprov.leavetitle}>
@@ -316,16 +319,18 @@ const Employeeapproval = ({ name, role }) => {
             </div>
             {approvedLeave ? (
               Object.keys(approvedLeave).map((id) => (
-
                 <div className={empapprov.leaves}>
                   <div key={id}>
-                    <h3>Leave Title</h3>{approvedLeave[id].leaveTitle}
+                    <h3>Leave Title</h3>
+                    {approvedLeave[id].leaveTitle}
                     <div className={empapprov.date}>
                       <div id={empapprov.datesp}>
-                        <h3>From</h3>{approvedLeave[id].leaveStartD}
+                        <h3>From</h3>
+                        {approvedLeave[id].leaveStartD}
                       </div>
                       <div>
-                        <h3>To</h3>{approvedLeave[id].leaveEndD}
+                        <h3>To</h3>
+                        {approvedLeave[id].leaveEndD}
                       </div>
                     </div>
                     <div>
@@ -364,8 +369,10 @@ const Employeeapproval = ({ name, role }) => {
               Object.keys(approvedExpence).map((id) => (
                 <div className={empapprov.expences}>
                   <div key={id}>
-                    <h3>Expence Title</h3>{approvedExpence[id].expenceTitle}
-                    <h3>Ammount</h3>{approvedExpence[id].ammount}
+                    <h3>Expence Title</h3>
+                    {approvedExpence[id].expenceTitle}
+                    <h3>Ammount</h3>
+                    {approvedExpence[id].ammount}
                     <h3>Description</h3> {approvedExpence[id].description}
                     {approvedExpence[id].allowDate ? (
                       <div className={empapprov.resulttrue}>
@@ -394,4 +401,3 @@ const Employeeapproval = ({ name, role }) => {
 };
 
 export default Employeeapproval;
-
