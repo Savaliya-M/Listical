@@ -27,7 +27,9 @@ const TimeTracker = () => {
       .startAt(Date.now())
       .on("value", function (snap) {
         let data = snap.val();
-        setid(Object.keys(data)[Object.keys(data).length - 1]);
+        if (data && data.length !== 0) {
+          setid(Object.keys(data)[Object.keys(data).length - 1]);
+        }
       });
   }, []);
 
@@ -52,11 +54,9 @@ const TimeTracker = () => {
   }, [id, uid]);
 
   useEffect(() => {
-    console.log("IN state chnage", startEndBtn);
     if (startEndBtn) {
       startMyInterval();
     } else {
-      console.log("myTimerIntervalID", myTimerIntervalID);
       if (myTimerIntervalID) {
         clearInterval(myTimerIntervalID);
         setMyTimerIntervalID(null);
@@ -70,13 +70,15 @@ const TimeTracker = () => {
       appRef.child(`TimeTracker/${uid}`).on("value", (snap) => {
         let tempolddata = [];
         let data = snap.val();
-        Object.keys(data).map((id) => {
-          if (
-            new Date(data[id].startTime).getMonth() === new Date().getMonth()
-          ) {
-            tempolddata.push(data[id]);
-          }
-        });
+        if (data && data.length !== 0) {
+          Object.keys(data).map((id) => {
+            if (
+              new Date(data[id].startTime).getMonth() === new Date().getMonth()
+            ) {
+              tempolddata.push(data[id]);
+            }
+          });
+        }
         setOldData(tempolddata);
         // console.log(tempolddata);
         flag = false;
@@ -160,7 +162,6 @@ const TimeTracker = () => {
   return (
     <>
       <div className={timetack.main}>
-
         <h1 id={timetack.h1}>Time Tracker</h1>
 
         <div className={timetack.info}>

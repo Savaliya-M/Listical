@@ -61,7 +61,7 @@ const Managercompo = () => {
                 </div>
               </Link>
             </li>
-            {/* <li className={managercompo.rows}>
+            <li className={managercompo.rows}>
               <Link className={managercompo.title} to="timetracker">
                 <div className={managercompo.icone}>
                   <img
@@ -72,7 +72,7 @@ const Managercompo = () => {
                   <img src={require("@photos/timetrack.gif")} alt="icon" />
                 </div>
               </Link>
-            </li> */}
+            </li>
             {/* <li className={managercompo.rows}>
               <Link className={managercompo.title} to="chartjs">
                 <div className={managercompo.icone}>

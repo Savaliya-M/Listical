@@ -24,19 +24,19 @@ const Upcomingholidays = ({ handleopen }) => {
 
   return (
     <>
-    <div  className={holiday.home}>
-      <div className={holiday.mainhomecompo} id={holiday.Upcomingholidays}>
-        <div className={holiday.head} id={holiday.Upcomingholidays}>
-          <h3>Upcoming Holidays</h3>
-          {localStorage.getItem("Type") === "Admin" ? (
-            <button onClick={handleopen}>+</button>
-          ) : (
-            ""
-          )}
-        </div>
-        <div className={holiday.scroll}>
-          {upholiday
-            ? Object.keys(upholiday).map((id) => {
+      <div className={holiday.home}>
+        <div className={holiday.mainhomecompo} id={holiday.Upcomingholidays}>
+          <div className={holiday.head} id={holiday.Upcomingholidays}>
+            <h3>Upcoming Holidays</h3>
+            {localStorage.getItem("Type") === "Admin" ? (
+              <button onClick={handleopen}>+</button>
+            ) : (
+              ""
+            )}
+          </div>
+          <div className={holiday.scroll}>
+            {upholiday ? (
+              Object.keys(upholiday).map((id) => {
                 return (
                   <div className={holiday.mainContent} key={id}>
                     <div
@@ -44,7 +44,7 @@ const Upcomingholidays = ({ handleopen }) => {
                       id={holiday.Upcomingholidays}
                     >
                       <div className={holiday.cimg}>
-                      <img src={require("@photos/party.png")} alt="logo" />
+                        <img src={require("@photos/party.png")} alt="logo" />
                         {/* <h2>{upholiday[id].holidaytitle[0]}</h2> */}
                       </div>
                       <div className={holiday.text}>
@@ -55,9 +55,11 @@ const Upcomingholidays = ({ handleopen }) => {
                   </div>
                 );
               })
-            : ""}
+            ) : (
+              <>No Holidays in Nowadays</>
+            )}
+          </div>
         </div>
-      </div>
       </div>
     </>
   );
