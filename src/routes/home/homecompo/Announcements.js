@@ -24,18 +24,26 @@ const Announcements = ({ handleopen }) => {
     },
   };
 
-  const removeItem = async (id) => {
-    const result = await confirm("Are you sure?", options);
-    if (result) {
-      appRef.child(`/Announcement/${id}`).remove(() => {
-        alert("Record Deleted Successfully");
-        // setAnnouncement({ ...announcement, [id]: {} });
-      });
-      return;
-    } else {
-      return "";
-    }
+  const removeItem = async (id, index) => {
+    // console.log(id, announcement);
+    // const result = await confirm("Are you sure?", options);
+    // if (result) {
+    //   appRef.child(`/Announcement/${id}`).remove(() => {
+    //     let data = announcement;
+    //     delete data[id];
+    //     setAnnouncement(data);
+    //     const announcementkey = Object.keys(data);
+    //     setAnnouncementkey(announcementkey);
+    //   });
+    //   return;
+    // } else {
+    //   return "";
+    // }
+    appRef.child(`/Announcement/${id}`).remove(() => {
+      alert("Your data was deleted successfully.");
+    });
   };
+
   return (
     <>
       <div className={annocuncements.home}>
@@ -56,7 +64,7 @@ const Announcements = ({ handleopen }) => {
           </div>
           <div className={annocuncements.scroll}>
             {announcementkey ? (
-              announcementkey.map((id) => {
+              announcementkey.map((id, index) => {
                 return (
                   <div className={annocuncements.mainContent} key={id}>
                     <div
@@ -79,7 +87,9 @@ const Announcements = ({ handleopen }) => {
                         </div>
                         <div className={annocuncements.removebtn}>
                           {localStorage.getItem("Type") === "Admin" ? (
-                            <button onClick={() => removeItem(id)}>X</button>
+                            <button onClick={() => removeItem(id, index)}>
+                              X
+                            </button>
                           ) : (
                             ""
                           )}

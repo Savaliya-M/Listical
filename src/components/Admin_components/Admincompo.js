@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import admincompo from "./admincompo.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Admincompo = () => {
+  const [activeClass, setActiveClass] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    let path = window.location.pathname;
+    if (path.length > 1) {
+      setActiveClass(path);
+    }
+  }, [location]);
+  // console.log(activeClass);
   return (
     <>
       <div className={admincompo.maindivsidebar}>
@@ -60,14 +70,6 @@ const Admincompo = () => {
                 </div>
               </Link>
             </li>
-            {/* <li className={admincompo.rows}>
-              <Link className={admincompo.title} to="chartjs">
-                <div className={admincompo.icone}>
-                  <img src={require("@photos/add-user6.png")} alt="" />
-                  Approval
-                </div>
-              </Link>
-            </li> */}
           </ul>
         </div>
       </div>

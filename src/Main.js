@@ -19,11 +19,7 @@ const Main = () => {
     user.type === "Employee"
   ) {
     navigate("/layout/");
-  }
-  // else if(user.type === "Manager"){
-  //     navigate('/layout/',{state:{type:"Manager",email:user.email}});
-  // }
-  else {
+  } else {
     navigate("/login");
   }
   return <>Loading</>;

@@ -20,6 +20,7 @@ const Addholiday = ({ handleclose }) => {
         holidaytitle: "",
         holidaydate: "",
       });
+      handleclose();
     });
   };
 
