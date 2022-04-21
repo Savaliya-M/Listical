@@ -20,6 +20,7 @@ const Addannounce = ({ handleclose }) => {
         announcehead: "",
         announcedesc: "",
       });
+      handleclose();
     });
   };
 
