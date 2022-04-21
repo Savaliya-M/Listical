@@ -10,8 +10,8 @@
 
 
 .probox {
-  display: grid;  
-  // margin: 15px;
+  display: grid; 
+  cursor: pointer; 
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   background-color: #fff;

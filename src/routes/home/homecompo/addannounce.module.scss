@@ -17,6 +17,7 @@
     right: 1rem;
     top: 5rem;
     button {
+      cursor: pointer;
       background: rgba(255, 255, 255);
       border: 0ch;
       color: rgb(0, 0, 0);
@@ -70,6 +71,7 @@
 }
 #btn1,
 #btn2 {
+  cursor: pointer;
   margin-top: 1rem;
   background: rgb(255, 255, 255);
   border: 0ch;

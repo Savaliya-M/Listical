@@ -51,6 +51,7 @@
   right: 1rem;
   top: 5rem;
   button {
+    cursor: pointer;
     background: rgba(0, 0, 0, 0.5);
     border: 0ch;
     color: white;
@@ -98,6 +99,7 @@
 
 .fieldsbtn1,
 .fieldsbtn2 {
+  cursor: pointer;
   margin-top: 2rem;
   background: rgba(0, 0, 0, 0.5);
   border: 0ch;

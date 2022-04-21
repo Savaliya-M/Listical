@@ -111,7 +111,7 @@
 
   .btn {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
     button,
@@ -236,10 +236,11 @@
 
     .btn {
       display: flex;
-      justify-content: space-around;
+      justify-content: left;
       button,
       input {
         font-size: 1.5rem;
+        margin-left: 3.5rem;
         width: 9rem;
         height: 3rem;
       }
@@ -332,12 +333,13 @@
 
     .btn {
       display: flex;
-      justify-content: space-around;
+      justify-content: left;
       button,
       input {
-        font-size: 1.5rem;
+        margin-left: 1rem;
+        font-size: 1.3rem;
         width: 9rem;
-        height: 3rem;
+        height: 2rem;
       }
     }
   }

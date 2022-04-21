@@ -10,6 +10,7 @@ h1 {
   margin-left: 2rem;
   margin-top: 1rem;
   button {
+    cursor: pointer;
     border: 2px solid black;
     border-radius: 20px;
     height: 2rem;
@@ -41,7 +42,7 @@ h1 {
   min-height: 20rem;
 
   .leavesbox {
-    border: 2px solid#000000;
+    border: 2px solid #000000;
     width: 20rem;
     flex-grow: 2;
     margin: 0.5rem;
@@ -85,7 +86,7 @@ h1 {
   }
 
   .expencesbox {
-    border: 2px solid#000000;
+    border: 2px solid #000000;
     width: 20rem;
     flex-grow: 2;
     min-height: 18rem;
@@ -155,6 +156,7 @@ h1 {
   }
 
   button {
+    cursor: pointer;
     margin: 1rem;
     margin-bottom: 0px;
     background-color: #ffffff;

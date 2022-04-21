@@ -65,9 +65,11 @@
     display: flex;
     flex-direction: row;
     .btn1 {
+      cursor: pointer;
       margin-right: 0.25rem;
     }
     .btn2 {
+      cursor: pointer;
       margin-left: 0.25rem;
     }
     button {
