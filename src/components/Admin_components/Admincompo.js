@@ -12,7 +12,6 @@ const Admincompo = () => {
       setActiveClass(path);
     }
   }, [location]);
-  // console.log(activeClass);
   return (
     <>
       <div className={admincompo.maindivsidebar}>

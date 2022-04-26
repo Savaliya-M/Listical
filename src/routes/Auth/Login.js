@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import login from "./login.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import appRef from "../../firebase";
-// import Admincompo from "@Admin_components/Admincompo";
-// import Managercompo from "@Manager_components/Managercompo";
-// import Employeecompo from "@Employee_components/Employeecompo";
 
 const Login = () => {
   const [authuserdata, setAuthuserdata] = useState({
@@ -24,7 +21,6 @@ const Login = () => {
       .child("Users")
       .get()
       .then((snapshot) => {
-        console.log("loading start");
         const userData = snapshot.val();
         let flag = true;
         Object.values(userData).forEach((elem) => {
@@ -45,11 +41,9 @@ const Login = () => {
         if (flag) {
           alert("Plese fill Correct detail");
         }
-        console.log("loading end");
       });
 
     // appRef.child("Users").on("value", (snapshot) => {
-    //   console.log("loading start");
     //   const userData = snapshot.val();
     //   let flag = true;
     //   Object.values(userData).forEach((elem) => {
@@ -66,11 +60,9 @@ const Login = () => {
     //       return;
     //     }
     //   });
-    //   console.log("DONE");
     //   // if (flag) {
     //   //   alert("Plese fill Correct detail");
     //   // }
-    //   console.log("loading end");
     // });
   };
 

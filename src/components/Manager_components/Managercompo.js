@@ -73,14 +73,6 @@ const Managercompo = () => {
                 </div>
               </Link>
             </li>
-            {/* <li className={managercompo.rows}>
-              <Link className={managercompo.title} to="chartjs">
-                <div className={managercompo.icone}>
-                  <img src={require("@photos/project.png")} alt="" />
-                  Project
-                </div>
-              </Link>
-            </li> */}
           </ul>
         </div>
       </div>

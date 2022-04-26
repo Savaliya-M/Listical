@@ -25,7 +25,6 @@ const Announcements = ({ handleopen }) => {
   };
 
   const removeItem = async (id, index) => {
-    // console.log(id, announcement);
     // const result = await confirm("Are you sure?", options);
     // if (result) {
     //   appRef.child(`/Announcement/${id}`).remove(() => {

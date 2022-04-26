@@ -151,16 +151,16 @@ const Userinfo = () => {
                       localStorage.getItem("Type") === "Manager" ||
                       localStorage.getItem("uuid") === user.uuid ? (
                         <div className={useinfo.Projects}>
-                          {/* <>Salary</a> */}
-                          {/* <Link exact to={`/layout/user/salary/${user.uuid}`}>
-                            Salary
-                          </Link> */}
-                          <button
-                            className={useinfo.cardbtn}
-                            onClick={openSalary}
-                          >
-                            <b>Salary</b>{" "}
-                          </button>
+                          {user.position !== "Admin" ? (
+                            <button
+                              className={useinfo.cardbtn}
+                              onClick={openSalary}
+                            >
+                              <b>Salary</b>{" "}
+                            </button>
+                          ) : (
+                            <></>
+                          )}
                         </div>
                       ) : (
                         <></>
@@ -272,18 +272,8 @@ const Userinfo = () => {
               <div id="Projects" className={useinfo.allProjects}>
                 <div className={useinfo.title4}>
                   <h2>All projects worked By :- {user.name}</h2>
-                  {/* <div className={useinfo.managername}>
-                  <h3>Managed by : Rahulkumar</h3>
-                </div> */}
                 </div>
 
-                <div className={useinfo.fiterprouwise}>
-                  {/* <div className={useinfo.filbtn}>
-                  <button>Runing</button>
-                  <button>Completed</button>
-                  <button>Pending</button>
-                </div> */}
-                </div>
                 <div className={useinfo.projectbox}>
                   {userProjects.length ? (
                     Object.values(userProjects).map((data) => (

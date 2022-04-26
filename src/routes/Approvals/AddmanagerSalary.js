@@ -13,19 +13,13 @@ const Addmanager = ({ handleclose, user, list }) => {
   };
 
   useEffect(() => {
-    console.log(useralldata);
-  }, [useralldata]);
-
-  useEffect(() => {
     appRef.child(`Users/${user}`).on("value", (snap) => {
       setUseralldata(snap.val());
     });
   }, [user]);
 
   const addmanager = (e) => {
-    appRef.child(`Users/${user}`).set(useralldata, () => {
-      console.log("DONE");
-    });
+    appRef.child(`Users/${user}`).set(useralldata, () => {});
   };
   return (
     <div className={add.mainbox}>
@@ -34,7 +28,7 @@ const Addmanager = ({ handleclose, user, list }) => {
           X
         </button>
         <div className={add.info}>
-          <h1>Salary :</h1>
+          <h1>Salary (Hours)</h1>
         </div>
 
         <div className={add.info}>

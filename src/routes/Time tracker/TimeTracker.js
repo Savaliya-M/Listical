@@ -80,7 +80,6 @@ const TimeTracker = () => {
           });
         }
         setOldData(tempolddata);
-        // console.log(tempolddata);
         flag = false;
       });
     }
@@ -98,7 +97,6 @@ const TimeTracker = () => {
       workingTime: "",
     };
     appRef.child(`TimeTracker/${uid}`).push(sendData);
-    console.log(sendData);
     setTrackRecord(sendData);
     setstartEndBtn(!startEndBtn);
   };
@@ -106,7 +104,6 @@ const TimeTracker = () => {
   const startMyInterval = () => {
     let d = new Date(trackRecord.startTime).getTime();
     let intervalID = setInterval(() => {
-      // console.log("IN interval");
       let n = new Date().getTime();
       let h = Math.floor((n - d) / 1000 / 60 / 60);
       let m = Math.floor(((n - d) / 1000 / 60 / 60 - h) * 60);
@@ -123,7 +120,6 @@ const TimeTracker = () => {
       }
     }, 1000);
     setMyTimerIntervalID(intervalID);
-    console.log("myTimerIntervalIDdsfhjdksfkjs", myTimerIntervalID);
   };
 
   const recordendClick = () => {
@@ -132,9 +128,7 @@ const TimeTracker = () => {
     trackRecord.endTime = Date();
     trackRecord.workingTime = t;
     appRef.child(`TimeTracker/${uid}/${id}`).set(trackRecord);
-    console.log(trackRecord);
     const abc = !startEndBtn;
-    console.log("end", abc);
     setstartEndBtn(abc);
   };
 
@@ -181,7 +175,7 @@ const TimeTracker = () => {
                 </button>
               ) : (
                 <button id={timetack.pause} onClick={recordendClick}>
-                  Pause
+                  End
                 </button>
               )}
             </div>
@@ -204,7 +198,7 @@ const TimeTracker = () => {
                 <th id={timetack.tdate}>Date</th>
                 <th id={timetack.tstime}>Start Time</th>
                 <th id={timetack.tetime}>End Time</th>
-                <th id={timetack.twtime}>Title</th>
+                <th id={timetack.twtime}>Working Time</th>
               </tr>
             </thead>
           </table>

@@ -46,7 +46,6 @@ const Usercompo = () => {
   };
 
   const setdisuser = (user, uid) => {
-    console.log(user);
     appRef.child(`Users/${uid}`).set(user);
     navigate("/layout/user");
   };
@@ -66,7 +65,6 @@ const Usercompo = () => {
   };
 
   const setenauser = (user, uid) => {
-    console.log(user);
     appRef.child(`Users/${uid}`).set(user);
     navigate("/layout/user");
   };
@@ -84,14 +82,6 @@ const Usercompo = () => {
     },
   };
 
-  const onClick = async (options) => {
-    const result = await confirm("Are you sure?", options);
-    if (result) {
-      console.log("You click yes!");
-      return;
-    }
-    console.log("You click No!");
-  };
   // ------------------------------------------------------------------------------------------------------------------------------
 
   return (

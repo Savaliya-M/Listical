@@ -36,7 +36,7 @@ const Adminapproval = () => {
   useEffect(() => {
     let tempdropDownManager = [];
     Object.keys(usersData).map((id) => {
-      if (usersData[id].position === "Manager") {
+      if (usersData[id].position === "Manager" && usersData[id].activate) {
         tempdropDownManager.push({
           key: usersData[id].uuid,
           managerName: usersData[id].name,
@@ -75,7 +75,6 @@ const Adminapproval = () => {
   // };
   // const allowman = (data, id) => {
   //   appRef.child(`Users/${id}`).set(data, () => {
-  //     console.log("DONE");
   //   });
   // };
 
@@ -180,7 +179,7 @@ const Adminapproval = () => {
                     onClick={() => navigate(`/layout/user/info/${index}`)}
                   >
                     <h2>{usersData[index].name}</h2>
-                    <h5>{usersData[index].mono}</h5>
+                    <h5>+91 {usersData[index].mono}</h5>
                     <p>{usersData[index].role}</p>
                   </div>
                 </div>
@@ -219,18 +218,18 @@ const Adminapproval = () => {
                                     {leaveApproval[uid][lid].dayType}
                                   </div>
                                 </div>
-                                {/* <p> */}
-                                <div className={adminapprov.date}>
-                                  <div className={adminapprov.date1}>
-                                    <h4>From</h4>
-                                    {leaveApproval[uid][lid].leaveStartD}
+                                <p>
+                                  <div className={adminapprov.date}>
+                                    <div className={adminapprov.date1}>
+                                      <h4>From</h4>
+                                      {leaveApproval[uid][lid].leaveStartD}
+                                    </div>
+                                    <div className={adminapprov.date2}>
+                                      <h4>To</h4>{" "}
+                                      {leaveApproval[uid][lid].leaveEndD}
+                                    </div>
                                   </div>
-                                  <div className={adminapprov.date2}>
-                                    <h4>To</h4>{" "}
-                                    {leaveApproval[uid][lid].leaveEndD}
-                                  </div>
-                                </div>
-                                {/* </p> */}
+                                </p>
                                 <div>
                                   <h4>Reason</h4>{" "}
                                   {leaveApproval[uid][lid].reason}
@@ -261,22 +260,20 @@ const Adminapproval = () => {
               <div className={adminapprov.expenceitle}>
                 <h2>Expence Approval</h2>
               </div>
-              <div className={adminapprov.expences}>
-                {expenceApproval ? (
-                  Object.keys(expenceApproval).map((uid) => {
-                    if (expenceApproval[uid]) {
-                      return Object.keys(expenceApproval[uid]).map((eid) => {
-                        if (expenceApproval[uid][eid].allow === false) {
-                          return (
-                            <div key={uuidv4()}>
+              {expenceApproval ? (
+                Object.keys(expenceApproval).map((uid) => {
+                  if (expenceApproval[uid]) {
+                    return Object.keys(expenceApproval[uid]).map((eid) => {
+                      if (expenceApproval[uid][eid].allow === false) {
+                        return (
+                          <div className={adminapprov.expences} key={uuidv4()}>
+                            <div>
                               <h3>{expenceApproval[uid][eid].uname}</h3>
                               <h4>{expenceApproval[uid][eid].expenceTitle}</h4>
-                              {/* <p> */}
-                              <h4>Amount </h4>
-                              {/* <p> */}
-                              {expenceApproval[uid][eid].ammount}
-                              {/* </p> */}
-                              {/* </p> */}
+                              <p>
+                                <h4>Amount </h4>
+                                <p>{expenceApproval[uid][eid].ammount}</p>
+                              </p>
                               <div>
                                 <h4>Description</h4>
                                 {expenceApproval[uid][eid].description}
@@ -294,15 +291,15 @@ const Adminapproval = () => {
                                 &#x2718; Reject
                               </button>
                             </div>
-                          );
-                        }
-                      });
-                    }
-                  })
-                ) : (
-                  <></>
-                )}
-              </div>
+                          </div>
+                        );
+                      }
+                    });
+                  }
+                })
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </div>

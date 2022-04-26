@@ -324,7 +324,7 @@ const Projectdetail = () => {
                           )}
                           {/* </td> */}
                           <td>{project.TaskList[tid].priority}</td>
-                          <td>{project.TaskList[tid].astimatedTime}</td>
+                          <td>{project.TaskList[tid].astimatedTime}Hr</td>
                         </tr>
                       ))
                     ) : (

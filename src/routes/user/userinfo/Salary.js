@@ -39,7 +39,9 @@ const Salary = ({ closeSalary, id, usalary }) => {
     if (trackerInfo) {
       let Total = 0;
       Object.values(trackerInfo).map((id) => {
-        return (Total += parseInt(id.workingTime));
+        if (id.workingTime && id.workingTime.length !== 0) {
+          return (Total += parseInt(id.workingTime));
+        }
       });
       setSalary(Total);
     }
@@ -100,35 +102,37 @@ const Salary = ({ closeSalary, id, usalary }) => {
           </thead>
         </table>
 
-        {Object.keys(trackerInfo).map((id) => {
-          return (
-            <div key={id}>
-              <div className={empsalary.timedetails}>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td id={empsalary.title}>
-                        <div>{trackerInfo[id].tag}</div>
-                      </td>
-                      <td id={empsalary.date}>
-                        <div>{getDate(trackerInfo[id].startTime)}</div>
-                      </td>
-                      <td id={empsalary.stime}>
-                        <div>{convertDate(trackerInfo[id].startTime)}</div>
-                      </td>
-                      <td id={empsalary.etime}>
-                        <div>{convertDate(trackerInfo[id].endTime)}</div>
-                      </td>
-                      <td id={empsalary.wtime}>
-                        <div>{gettime(trackerInfo[id].workingTime)}</div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+        {Object.keys(trackerInfo)
+          .reverse()
+          .map((id) => {
+            return (
+              <div key={id}>
+                <div className={empsalary.timedetails}>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td id={empsalary.title}>
+                          <div>{trackerInfo[id].tag}</div>
+                        </td>
+                        <td id={empsalary.date}>
+                          <div>{getDate(trackerInfo[id].startTime)}</div>
+                        </td>
+                        <td id={empsalary.stime}>
+                          <div>{convertDate(trackerInfo[id].startTime)}</div>
+                        </td>
+                        <td id={empsalary.etime}>
+                          <div>{convertDate(trackerInfo[id].endTime)}</div>
+                        </td>
+                        <td id={empsalary.wtime}>
+                          <div>{gettime(trackerInfo[id].workingTime)}</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
     </>
   );

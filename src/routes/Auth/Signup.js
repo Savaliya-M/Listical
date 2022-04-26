@@ -94,7 +94,6 @@ const Signup = () => {
         activate: false,
       });
     });
-    // console.log(user);
     navigate("/");
   };
 

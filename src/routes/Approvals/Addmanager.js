@@ -13,19 +13,13 @@ const Addmanager = ({ handleclose, user, list }) => {
   };
 
   useEffect(() => {
-    console.log(useralldata);
-  }, [useralldata]);
-
-  useEffect(() => {
     appRef.child(`Users/${user}`).on("value", (snap) => {
       setUseralldata(snap.val());
     });
   }, []);
 
   const addmanager = (e) => {
-    appRef.child(`Users/${user}`).set(useralldata, () => {
-      console.log("DONE");
-    });
+    appRef.child(`Users/${user}`).set(useralldata, () => {});
   };
   return (
     <div className={add.mainbox}>
